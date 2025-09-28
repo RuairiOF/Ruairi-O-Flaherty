@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
-import { cvData } from '../content/cv'
 import { cn } from '../lib/utils'
 
 const navigation = [
@@ -14,17 +13,7 @@ const navigation = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isScrolled, setIsScrolled] = useState(false)
   const location = useLocation()
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
 
   useEffect(() => {
     setIsOpen(false)

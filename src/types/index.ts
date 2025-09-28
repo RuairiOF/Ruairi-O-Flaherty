@@ -45,6 +45,12 @@ export interface Project {
   image?: string
   featured?: boolean
   priority?: number
+  links?: {
+    website?: string
+    github?: string
+    tiktok?: string
+    linkedin?: string
+  }
 }
 
 export interface SkillCategory {
