@@ -8,7 +8,7 @@ export const cvData: CVData = {
     email: 'ruairioflaherty1@gmail.com',
     phone: '+353 89 406 7369',
     links: {
-      linkedin: 'https://linkedin.com/in/ruairi-oflaherty',
+      linkedin: 'https://www.linkedin.com/in/ruairioflaherty/',
       website: 'https://eirpost.ie',
     }
   },
@@ -49,7 +49,7 @@ export const cvData: CVData = {
       company: 'Walls Construction Ltd.',
       role: 'Site Engineer',
       dates: 'Summer 2024',
-      location: 'Ireland',
+      location: 'Dublin, Ireland',
       bullets: [
         'Supported surveying, quality assurance, and safety compliance on-site',
         'Produced weekly progress and safety reports, coordinating subcontractors to close defects'
@@ -60,7 +60,7 @@ export const cvData: CVData = {
       company: 'CareChoice',
       role: 'Catering Assistant',
       dates: 'Summer 2023',
-      location: 'Ireland',
+      location: 'Dublin, Ireland',
       bullets: [
         'Completed training in safeguarding, food hygiene, and manual handling',
         'Delivered professional service supporting vulnerable residents and staff'
@@ -70,8 +70,8 @@ export const cvData: CVData = {
     {
       company: 'Institute of Education',
       role: 'Exam Invigilator',
-      dates: '2022',
-      location: 'Ireland',
+      dates: 'Summer 2022',
+      location: 'Dublin, Ireland',
       bullets: [
         'Supervised examinations ensuring academic integrity and proper procedures'
       ],
@@ -110,6 +110,15 @@ export const cvData: CVData = {
       liveUrl: 'https://cashew.ie',
       featured: true,
       priority: 3
+    },
+    {
+      slug: 'photos',
+      title: '3D Printing Gallery',
+      description: 'A showcase of 3D printed creations, prototypes, and finished products from ROF\'s 3D. Explore detailed photos of innovative designs, custom solutions, and the manufacturing process behind each piece.',
+      tags: ['3D Printing', 'Product Photography', 'Manufacturing', 'Design'],
+      liveUrl: '/photos',
+      featured: true,
+      priority: 4
     }
   ],
   

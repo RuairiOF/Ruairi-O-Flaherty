@@ -42,8 +42,8 @@ export function Navbar() {
             to="/"
             className="flex items-center space-x-2 group"
           >
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-blue-900 transition-all duration-300">
-              Ruairi
+            <span className="text-xl font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-all duration-300">
+              R
             </span>
           </Link>
 

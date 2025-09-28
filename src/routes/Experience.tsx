@@ -36,12 +36,17 @@ export function Experience() {
           className="bg-gray-50 dark:bg-gray-800/50"
         >
           <div className="max-w-4xl mx-auto">
-            <div className="space-y-8">
-              {cvData.experience.map((exp, index) => (
-                <div
-                  key={index}
-                  className="card p-6 border-l-4 border-blue-500"
-                >
+            <div className="relative">
+              {/* Timeline line - starts after first dot */}
+              <div className="absolute left-8 top-8 bottom-0 w-0.5 bg-blue-500 dark:bg-blue-400"></div>
+              
+              <div className="space-y-8">
+                {cvData.experience.map((exp, index) => (
+                  <div key={index} className="relative">
+                    {/* Timeline dot */}
+                    <div className="absolute left-6 top-6 w-4 h-4 bg-blue-500 dark:bg-blue-400 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                    
+                    <div className="ml-16 card p-6">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                     <div>
                       <h3 className="heading-4 text-gray-900 dark:text-white mb-1">
@@ -104,8 +109,10 @@ export function Experience() {
                       </a>
                     </div>
                   )}
-                </div>
-              ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </Section>

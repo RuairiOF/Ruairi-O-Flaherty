@@ -3,6 +3,8 @@ import { ArrowRight, Download, MapPin } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { ProjectCard } from '../components/ProjectCard'
+import GradientText from '../components/GradientText'
+import StarBorder from '../components/StarBorder'
 import { cvData, getFeaturedProjects } from '../content/cv'
 
 export function Home() {
@@ -21,9 +23,13 @@ export function Home() {
           <div className="animate-fade-in">
             <h1 className="heading-1 mb-6 text-gray-900 dark:text-white">
               Hi, I'm{' '}
-              <span className="gradient-text">
+              <GradientText
+                colors={["#3b82f6", "#8b5cf6", "#3b82f6", "#8b5cf6", "#3b82f6"]}
+                animationSpeed={3}
+                showBorder={false}
+              >
                 {cvData.person.name.split(' ')[0]}
-              </span>
+              </GradientText>
             </h1>
             
             <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
@@ -38,18 +44,22 @@ export function Home() {
             )}
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link
+              <StarBorder
+                as={Link}
                 to="/projects"
-                className="btn btn-primary btn-lg group"
+                color="#8b5cf6"
+                speed="5s"
+                size="lg"
+                className="group"
               >
                 View My Work
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Link>
+              </StarBorder>
               
               <a
                 href="/cv.json"
                 download={`${cvData.person.name.replace(/\s+/g, '_')}_CV.json`}
-                className="btn btn-secondary btn-lg"
+                className="btn btn-lg !bg-white dark:!bg-gray-800 !text-gray-900 dark:!text-white !border-gray-200 dark:!border-gray-700 hover:!bg-gray-50 dark:hover:!bg-gray-700 !rounded-full group"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download CV
@@ -73,13 +83,17 @@ export function Home() {
           </div>
           
           <div className="text-center mt-12">
-            <Link
+            <StarBorder
+              as={Link}
               to="/projects"
-              className="btn btn-primary btn-md group"
+              color="#8b5cf6"
+              speed="5s"
+              size="lg"
+              className="group"
             >
               View All Projects
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </StarBorder>
           </div>
         </Section>
       )}
@@ -143,13 +157,17 @@ export function Home() {
           </div>
           
           <div className="text-center mt-8">
-            <Link
-              to="/about"
-              className="btn btn-primary btn-md group"
+            <StarBorder
+              as={Link}
+              to="/experience"
+              color="#8b5cf6"
+              speed="5s"
+              size="lg"
+              className="group"
             >
               Learn More About Me
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+            </StarBorder>
           </div>
         </div>
       </Section>
@@ -162,13 +180,17 @@ export function Home() {
       >
         <div className="max-w-2xl mx-auto">
           <div className="text-center">
-            <Link
+            <StarBorder
+              as={Link}
               to="/contact"
-              className="btn btn-primary btn-lg group"
+              color="#8b5cf6"
+              speed="5s"
+              size="lg"
+              className="group"
             >
               Get In Touch
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Link>
+            </StarBorder>
           </div>
         </div>
       </Section>
