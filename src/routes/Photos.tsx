@@ -8,9 +8,10 @@ export function Photos() {
   // For now, we'll create a placeholder array that you can replace
   const photos = [
     '/images/photos/SprunkeColaMain.jpg',
-    // Add more photo paths here, e.g.:
-    // '/images/photos/photo2.jpg',
-    // '/images/photos/photo3.jpg',
+    '/images/photos/Screenshot 2025-09-10 131111.png',
+    '/images/photos/821CC96E-87C9-4796-A2E0-9A8DD687C68A.jpg',
+    '/images/photos/LaserLane1.png',
+    '/images/photos/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0.jpg',
   ]
 
   return (
