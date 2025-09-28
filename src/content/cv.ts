@@ -3,7 +3,7 @@ import type { CVData } from '../types'
 export const cvData: CVData = {
   person: {
     name: "Ruairi O'Flaherty",
-    headline: 'Mechanical Engineering Student & Entrepreneur',
+    headline: 'Mechanical Engineering Student & Developer',
     location: 'Dublin, Ireland',
     email: 'ruairioflaherty1@gmail.com',
     phone: '+353 89 406 7369',
@@ -40,7 +40,10 @@ export const cvData: CVData = {
         'Selected for competitive accelerator program; collaborated with peers and mentors to build and deliver Cashew, a demo-ready startup product',
         'Conducted user testing, managed the product backlog, and pitched outcomes to mentors and investors'
       ],
-      technologies: ['Product Management', 'User Testing', 'Startup Development']
+      technologies: ['Product Management', 'User Testing', 'Startup Development'],
+      links: {
+        patch: 'https://www.joinpatch.org/ruair-oflaherty'
+      }
     },
     {
       company: 'Walls Construction Ltd.',
@@ -149,7 +152,7 @@ export const cvData: CVData = {
 export const siteConfig = {
   title: `${cvData.person.name} - Portfolio`,
   description: `Mechanical Engineering Student & Entrepreneur - Portfolio and projects by ${cvData.person.name}`,
-  url: 'https://ruairi-o-flaherty.github.io',
+  url: 'https://ruairiof.github.io/Ruairi-O-Flaherty',
   author: cvData.person.name,
   keywords: [
     'portfolio',

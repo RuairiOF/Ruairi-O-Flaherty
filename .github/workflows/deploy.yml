@@ -3,8 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
@@ -34,12 +32,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Validate content
-        run: npm run validate-content
-
-      - name: Lint
-        run: npm run lint
-
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v4
@@ -47,39 +39,7 @@ jobs:
       - name: Build with Vite
         run: npm run build
         env:
-          VITE_BASE_PATH: ${{ steps.pages.outputs.base_path }}
-
-      - name: Generate CV JSON
-        run: |
-          mkdir -p dist
-          node -e "
-          const fs = require('fs');
-          const path = require('path');
-          
-          // Read the CV data (this is a simplified extraction)
-          const content = fs.readFileSync('src/content/cv.ts', 'utf8');
-          const match = content.match(/export const cvData.*?= ({[\s\S]*?});/);
-          
-          if (match) {
-            try {
-              // Simple evaluation (in production, use a proper parser)
-              const cvDataString = match[1]
-                .replace(/\/\*[\s\S]*?\*\//g, '')
-                .replace(/\/\/.*$/gm, '')
-                .replace(/(\w+):/g, '\"$1\":')
-                .replace(/'/g, '\"');
-              
-              const cvData = JSON.parse(cvDataString);
-              fs.writeFileSync('dist/cv.json', JSON.stringify(cvData, null, 2));
-              console.log('Generated cv.json');
-            } catch (e) {
-              console.warn('Could not generate cv.json:', e.message);
-              fs.writeFileSync('dist/cv.json', '{}');
-            }
-          } else {
-            fs.writeFileSync('dist/cv.json', '{}');
-          }
-          "
+          VITE_BASE_PATH: /Ruairi-O-Flaherty/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

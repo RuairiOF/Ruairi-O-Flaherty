@@ -28,6 +28,11 @@ export interface Experience {
   location?: string
   bullets: string[]
   technologies?: string[]
+  links?: {
+    patch?: string
+    website?: string
+    linkedin?: string
+  }
 }
 
 export interface Project {
