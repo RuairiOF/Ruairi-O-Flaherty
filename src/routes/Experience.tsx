@@ -3,18 +3,18 @@ import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { cvData } from '../content/cv'
 
-export function About() {
+export function Experience() {
   return (
     <>
       <SEO
-        title="About"
+        title="Experience"
         description={`Learn more about ${cvData.person.name} - background, experience, and skills`}
       />
 
       {/* Hero */}
       <Section
-        title="About Me"
-        description="My background, experience, and what drives me"
+        title="Experience"
+        description="My professional background, work experience, and educational journey"
         centered
       >
         <div className="max-w-4xl mx-auto">
@@ -32,7 +32,7 @@ export function About() {
       {/* Experience */}
       {cvData.experience.length > 0 && !cvData.experience[0].company.includes('[TODO') && (
         <Section
-          title="Experience"
+          title="Work Experience"
           className="bg-gray-50 dark:bg-gray-800/50"
         >
           <div className="max-w-4xl mx-auto">
@@ -251,4 +251,3 @@ export function About() {
     </>
   )
 }
-

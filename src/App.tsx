@@ -4,7 +4,7 @@ import { Footer } from './components/Footer'
 import { SkipToContent } from './components/SkipToContent'
 import { Home } from './routes/Home'
 import { Projects } from './routes/Projects'
-import { About } from './routes/About'
+import { Experience } from './routes/Experience'
 import { Contact } from './routes/Contact'
 import { NotFound } from './routes/NotFound'
 
@@ -21,7 +21,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/about" element={<About />} />
+            <Route path="/experience" element={<Experience />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

@@ -19,7 +19,14 @@ export const cvData: CVData = {
       degree: 'Mechanical Engineering (BEng)',
       dates: '2023 - Present',
       location: 'Dublin, Ireland',
-      details: 'UCD Entrance Scholar • 589 Points: H1 Physics, H1 DCG, H1 Computer Science, H2 Maths, H2 Applied Maths, H2 English'
+      details: 'UCD Entrance Scholar'
+    },
+    {
+      institution: 'Leaving Certificate',
+      degree: 'State Examinations',
+      dates: '2023',
+      location: 'Ireland',
+      details: '589 Points: H1 Physics, H1 DCG, H1 Computer Science, H2 Maths, H2 Applied Maths, H2 English'
     }
   ],
   
@@ -84,7 +91,11 @@ export const cvData: CVData = {
       title: "ROF's 3D - 3D Printing Business",
       description: 'Established and scaled a 3D printing venture to 1,000+ sales, €50k+ revenue, and 4.8/5 rating. Operated an 8-printer farm using CAD to design and produce sustainable, market-driven products. Built an online following of 25k+ followers and 10M+ views.',
       tags: ['3D Printing', 'CAD', 'E-commerce', 'Social Media Marketing', 'Manufacturing'],
-      liveUrl: 'https://rofs3d.com',
+      liveUrl: 'https://www.tiktok.com/@rofs3d.com',
+      links: {
+        website: 'https://rofs3d.com',
+        tiktok: 'https://www.tiktok.com/@rofs3d.com'
+      },
       featured: true,
       priority: 2
     },
@@ -93,6 +104,7 @@ export const cvData: CVData = {
       title: 'Cashew - Startup Product',
       description: 'Demo-ready startup product developed during the Patch accelerator program at DogPatch Labs. Collaborated with peers and mentors, conducted user testing, managed product backlog, and pitched to investors.',
       tags: ['Product Development', 'User Testing', 'Startup', 'Product Management'],
+      liveUrl: 'https://cashew.ie',
       featured: true,
       priority: 3
     }

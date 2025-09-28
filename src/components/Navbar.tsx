@@ -8,7 +8,7 @@ import { cn } from '../lib/utils'
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Projects', href: '/projects' },
-  { name: 'About', href: '/about' },
+  { name: 'Experience', href: '/experience' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -39,84 +39,83 @@ export function Navbar() {
 
   return (
     <>
-      <nav
-        className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-200',
-          isScrolled
-            ? 'glass border-b border-gray-200 dark:border-gray-800'
-            : 'bg-transparent'
-        )}
-      >
-        <div className="container">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo */}
-            <Link
-              to="/"
-              className="font-bold text-xl text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              {cvData.person.name.split(' ')[0]}
-            </Link>
+      <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4">
+        <nav
+          className={cn(
+            'flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300 shadow-lg',
+            'bg-gray-50/90 dark:bg-gray-800/90 backdrop-blur-md border border-gray-200/30 dark:border-gray-600/30',
+            'hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10'
+          )}
+          style={{ width: 'fit-content', minWidth: '320px' }}
+        >
+          {/* Logo with Gradient */}
+          <Link
+            to="/"
+            className="flex items-center space-x-2 group"
+          >
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 via-purple-600 to-blue-800 bg-clip-text text-transparent group-hover:from-blue-700 group-hover:via-purple-700 group-hover:to-blue-900 transition-all duration-300">
+              Ruairi
+            </span>
+          </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={cn(
-                    'text-sm font-medium transition-colors hover:text-blue-600 dark:hover:text-blue-400',
-                    isActivePath(item.href)
-                      ? 'text-blue-600 dark:text-blue-400'
-                      : 'text-gray-700 dark:text-gray-300'
-                  )}
-                >
-                  {item.name}
-                </Link>
-              ))}
-              <ThemeToggle />
-            </div>
-
-            {/* Mobile menu button */}
-            <div className="md:hidden flex items-center space-x-2">
-              <ThemeToggle />
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="btn btn-ghost btn-sm"
-                aria-label="Toggle menu"
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center space-x-2 ml-6">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={cn(
+                  'relative px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 group',
+                  isActivePath(item.href)
+                    ? 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800/50'
+                )}
               >
-                {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-              </button>
-            </div>
+                <span className="relative z-10">{item.name}</span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Right side - Theme toggle and mobile menu */}
+          <div className="flex items-center space-x-2">
+            <ThemeToggle />
+            
+            {/* Mobile menu button */}
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="md:hidden p-1.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+            </button>
+          </div>
+        </nav>
+      </div>
+
+      {/* Mobile Navigation */}
+      {isOpen && (
+        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 md:hidden">
+          <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200/20 dark:border-gray-700/20 rounded-2xl shadow-xl px-6 py-4 space-y-2 min-w-[280px]">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                to={item.href}
+                className={cn(
+                  'block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200',
+                  isActivePath(item.href)
+                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
           </div>
         </div>
-
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden glass border-t border-gray-200 dark:border-gray-800">
-            <div className="container py-4">
-              <div className="flex flex-col space-y-2">
-                {navigation.map((item) => (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={cn(
-                      'py-2 px-3 rounded-lg text-sm font-medium transition-colors',
-                      isActivePath(item.href)
-                        ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                        : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800'
-                    )}
-                  >
-                    {item.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
-      </nav>
+      )}
 
       {/* Spacer */}
-      <div className="h-16" />
+      <div className="h-20" />
     </>
   )
 }
