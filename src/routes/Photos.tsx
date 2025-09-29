@@ -13,6 +13,12 @@ export function Photos() {
     `${basePath}images/photos/821CC96E-87C9-4796-A2E0-9A8DD687C68A.jpg`,
     `${basePath}images/photos/LaserLane1.png`,
     `${basePath}images/photos/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0.jpg`,
+    `${basePath}images/photos/IMG_1349.PNG`,
+    `${basePath}images/photos/IMG_2856.JPG`,
+    `${basePath}images/photos/IMG_2859.PNG`,
+    `${basePath}images/photos/IMG_2862.JPG`,
+    `${basePath}images/photos/IMG_2864.JPG`,
+    `${basePath}images/photos/IMG_3027.JPG`,
   ]
 
   return (
