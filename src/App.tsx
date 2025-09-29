@@ -10,7 +10,7 @@ import { Photos } from './routes/Photos'
 import { NotFound } from './routes/NotFound'
 
 function App() {
-  const basePath = import.meta.env.VITE_BASE_PATH || '/'
+  const basePath = import.meta.env.DEV ? '/' : '/Ruairi-O-Flaherty/'
 
   return (
     <Router basename={basePath}>
