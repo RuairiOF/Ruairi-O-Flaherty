@@ -6,12 +6,13 @@ import { cvData } from '../content/cv'
 export function Photos() {
   // This would typically come from a data source or API
   // For now, we'll create a placeholder array that you can replace
+  const basePath = import.meta.env.VITE_BASE_PATH || '/'
   const photos = [
-    '/images/photos/SprunkeColaMain.jpg',
-    '/images/photos/Screenshot 2025-09-10 131111.png',
-    '/images/photos/821CC96E-87C9-4796-A2E0-9A8DD687C68A.jpg',
-    '/images/photos/LaserLane1.png',
-    '/images/photos/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0.jpg',
+    `${basePath}images/photos/SprunkeColaMain.jpg`,
+    `${basePath}images/photos/Screenshot 2025-09-10 131111.png`,
+    `${basePath}images/photos/821CC96E-87C9-4796-A2E0-9A8DD687C68A.jpg`,
+    `${basePath}images/photos/LaserLane1.png`,
+    `${basePath}images/photos/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0.jpg`,
   ]
 
   return (
