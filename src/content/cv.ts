@@ -32,6 +32,21 @@ export const cvData: CVData = {
   
   experience: [
     {
+      company: 'LaserLane',
+      role: 'Co-Founder & Operations Lead',
+      dates: '2024 - Present',
+      location: 'Ireland',
+      bullets: [
+        'Co-running a laser cutting and engraving service, transforming how businesses and creators bring their ideas to life',
+        'Leading day-to-day operations, customer relations, and strategic growth initiatives',
+        'Delivering precision-crafted solutions and building a brand that combines cutting-edge technology with exceptional service'
+      ],
+      technologies: ['Laser Cutting', 'Business Operations', 'Customer Relations', 'Manufacturing', 'Entrepreneurship'],
+      links: {
+        website: 'https://laserlane.ie'
+      }
+    },
+    {
       company: 'Patch at DogPatch Labs',
       role: 'Software/Startup Fellow',
       dates: 'Summer 2025',
@@ -90,6 +105,19 @@ export const cvData: CVData = {
       priority: 1
     },
     {
+      slug: 'laserlane',
+      title: 'LaserLane - Co-Founder & Operations',
+      description: 'Co-running LaserLane, an innovative laser cutting and engraving service transforming how businesses and creators bring their ideas to life. Leading operations, customer relations, and strategic growth while delivering precision-crafted solutions across Ireland. Building a brand that combines cutting-edge technology with exceptional service.',
+      tags: ['Laser Cutting', 'Business Operations', 'Customer Relations', 'Manufacturing', 'Entrepreneurship'],
+      liveUrl: 'https://laserlane.ie',
+      image: '/images/photos/LaserLane1.png',
+      links: {
+        website: 'https://laserlane.ie'
+      },
+      featured: true,
+      priority: 2
+    },
+    {
       slug: 'rofs-3d',
       title: "ROF's 3D - 3D Printing Business",
       description: 'Established and scaled a 3D printing venture to 1,000+ sales, €50k+ revenue, and 4.8/5 rating. Operated an 8-printer farm using CAD to design and produce sustainable, market-driven products. Built an online following of 25k+ followers and 10M+ views.',
@@ -100,7 +128,7 @@ export const cvData: CVData = {
         tiktok: 'https://www.tiktok.com/@rofs3d.com'
       },
       featured: true,
-      priority: 2
+      priority: 3
     },
     {
       slug: 'cashew',
@@ -109,7 +137,7 @@ export const cvData: CVData = {
       tags: ['Product Development', 'User Testing', 'Startup', 'Product Management'],
       liveUrl: 'https://cashew.ie',
       featured: true,
-      priority: 3
+      priority: 4
     },
     {
       slug: 'photos',
@@ -118,7 +146,7 @@ export const cvData: CVData = {
       tags: ['3D Printing', 'Product Photography', 'Manufacturing', 'Design'],
       liveUrl: '/photos',
       featured: true,
-      priority: 4
+      priority: 5
     }
   ],
   
