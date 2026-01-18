@@ -57,7 +57,7 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
           )}
         </div>
         
-        <p className="prose mb-4 line-clamp-3">
+        <p className="prose mb-4">
           {project.description}
         </p>
         
