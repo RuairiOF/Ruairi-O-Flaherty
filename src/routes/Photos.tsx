@@ -4,7 +4,8 @@ import { PhotoGallery } from '../components/PhotoGallery'
 import { cvData } from '../content/cv'
 
 export function Photos() {
-  const basePath = import.meta.env.VITE_BASE_PATH || '/'
+  // Use the base path from vite config, which is set to '/Ruairi-O-Flaherty/' for production
+  const basePath = import.meta.env.BASE_URL || '/Ruairi-O-Flaherty/'
   
   // Curated list of the best 3D printing photos
   // This ensures we only show high-quality, relevant photos

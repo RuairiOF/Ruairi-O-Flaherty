@@ -10,7 +10,9 @@ import { Photos } from './routes/Photos'
 import { NotFound } from './routes/NotFound'
 
 function App() {
-  const basePath = import.meta.env.DEV ? '/' : '/Ruairi-O-Flaherty/'
+  // Use the base path from vite config, which is set to '/Ruairi-O-Flaherty/' for production
+  // In dev mode, Vite uses '/', but we need to match the production base path
+  const basePath = import.meta.env.BASE_URL || '/Ruairi-O-Flaherty/'
 
   return (
     <Router basename={basePath}>
