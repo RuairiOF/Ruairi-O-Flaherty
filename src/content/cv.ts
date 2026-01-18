@@ -110,7 +110,6 @@ export const cvData: CVData = {
       description: 'Co-running LaserLane, an innovative laser cutting and engraving service transforming how businesses and creators bring their ideas to life. Leading operations, customer relations, and strategic growth while delivering precision-crafted solutions across Ireland. Building a brand that combines cutting-edge technology with exceptional service.',
       tags: ['Laser Cutting', 'Business Operations', 'Customer Relations', 'Manufacturing', 'Entrepreneurship'],
       liveUrl: 'https://laserlane.ie',
-      image: '/images/photos/LaserLane1.png',
       links: {
         website: 'https://laserlane.ie'
       },
