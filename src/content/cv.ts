@@ -37,11 +37,11 @@ export const cvData: CVData = {
       dates: '2024 - Present',
       location: 'Ireland',
       bullets: [
-        'Co-running a laser cutting and engraving service, transforming how businesses and creators bring their ideas to life',
-        'Leading day-to-day operations, customer relations, and strategic growth initiatives',
-        'Delivering precision-crafted solutions and building a brand that combines cutting-edge technology with exceptional service'
+        'Co-running LaserLane, a revolutionary bike safety technology startup developing innovative solutions for cyclists',
+        'Leading day-to-day operations, product development, customer relations, and strategic growth initiatives',
+        'Building a brand that combines cutting-edge bike tech with exceptional user experience, preparing for crowdfunding launch'
       ],
-      technologies: ['Laser Cutting', 'Business Operations', 'Customer Relations', 'Manufacturing', 'Entrepreneurship'],
+      technologies: ['Bike Technology', 'Product Development', 'Business Operations', 'Customer Relations', 'Entrepreneurship', 'Hardware'],
       links: {
         website: 'https://laserlane.ie'
       }
@@ -106,10 +106,11 @@ export const cvData: CVData = {
     },
     {
       slug: 'laserlane',
-      title: 'LaserLane - Co-Founder & Operations',
-      description: 'Co-running LaserLane, an innovative laser cutting and engraving service transforming how businesses and creators bring their ideas to life. Leading operations, customer relations, and strategic growth while delivering precision-crafted solutions across Ireland. Building a brand that combines cutting-edge technology with exceptional service.',
-      tags: ['Laser Cutting', 'Business Operations', 'Customer Relations', 'Manufacturing', 'Entrepreneurship'],
+      title: 'LaserLane - Revolutionary Bike Safety Technology',
+      description: 'Co-running LaserLane, a revolutionary bike safety technology startup developing innovative solutions for cyclists. Leading operations, product development, and strategic growth while building cutting-edge bike tech that enhances rider safety and confidence. Preparing for crowdfunding launch with a focus on delivering exceptional user experience.',
+      tags: ['Bike Technology', 'Product Development', 'Hardware', 'Business Operations', 'Entrepreneurship', 'Safety Tech'],
       liveUrl: 'https://laserlane.ie',
+      image: '/images/photos/LaserLane1.png',
       links: {
         website: 'https://laserlane.ie'
       },
@@ -146,6 +147,18 @@ export const cvData: CVData = {
       liveUrl: '/photos',
       featured: true,
       priority: 5
+    },
+    {
+      slug: 'nukacolaradio',
+      title: 'Nukacola Radio - E-commerce & Reselling',
+      description: 'E-commerce venture sourcing retro and vintage-style radios from Chinese manufacturers and reselling to customers. Managing end-to-end supply chain—sourcing, quality assurance, import logistics, and customer fulfilment—while building a distinct brand around curated consumer electronics.',
+      tags: ['E-commerce', 'Sourcing', 'Import/Export', 'Retail', 'Consumer Electronics'],
+      liveUrl: 'https://nukacolaradio.com',
+      links: {
+        website: 'https://nukacolaradio.com'
+      },
+      featured: true,
+      priority: 6
     }
   ],
   
