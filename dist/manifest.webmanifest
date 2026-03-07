@@ -8,9 +8,9 @@
   "background_color": "#ffffff",
   "icons": [
     {
-      "src": "/favicon.svg",
+      "src": "/images/branding/Main_Logo.png",
       "sizes": "any",
-      "type": "image/svg+xml"
+      "type": "image/png"
     }
   ]
 }

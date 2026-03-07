@@ -181,30 +181,23 @@ export function Experience() {
       )}
 
       {/* Skills */}
-      {cvData.skills.categories.length > 0 && !cvData.skills.categories[0].items[0].includes('[TODO') && (
+      {cvData.skills.showcases.length > 0 && (
         <Section
           title="Skills"
           className="bg-gray-50 dark:bg-gray-800/50"
         >
           <div className="max-w-6xl mx-auto">
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {cvData.skills.categories.map((category, index) => (
-                <div key={index} className="card p-6">
-                  <h3 className="heading-4 text-gray-900 dark:text-white mb-4">
-                    {category.name}
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {category.items.map((skill, skillIndex) => (
-                      <span
-                        key={skillIndex}
-                        className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              ))}
+            <div className="flex flex-wrap gap-3">
+              {cvData.skills.showcases.map((showcase) =>
+                showcase.tools.map((tool) => (
+                  <span
+                    key={tool}
+                    className="inline-flex items-center px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm text-sm font-medium text-gray-800 dark:text-gray-200"
+                  >
+                    {tool}
+                  </span>
+                ))
+              )}
             </div>
           </div>
         </Section>

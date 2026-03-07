@@ -12,23 +12,22 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
 
   return (
     <div className={`card card-hover ${className}`}>
-      {project.image && (
-        <div className="aspect-video w-full overflow-hidden rounded-t-2xl">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
-            loading="lazy"
-            decoding="async"
-          />
-        </div>
-      )}
-      
       <div className="p-6">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="heading-4 text-gray-900 dark:text-white">
-            {project.title}
-          </h3>
+          <div className="flex items-center gap-3">
+            {project.image && (
+              <img
+                src={project.image}
+                alt={`${project.title} logo`}
+                className="h-8 w-8 object-contain rounded-md bg-white dark:bg-gray-900 border border-gray-200/60 dark:border-gray-700/60"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+            <h3 className="heading-4 text-gray-900 dark:text-white">
+              {project.title}
+            </h3>
+          </div>
           {hasLinks && (
             <div className="flex items-center space-x-2 ml-4">
               {project.repoUrl && !project.repoUrl.includes('[TODO') && (

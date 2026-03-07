@@ -5,17 +5,14 @@ import { SkipToContent } from './components/SkipToContent'
 import { Home } from './routes/Home'
 import { Projects } from './routes/Projects'
 import { Experience } from './routes/Experience'
+import { Skills } from './routes/Skills'
 import { Contact } from './routes/Contact'
 import { Photos } from './routes/Photos'
 import { NotFound } from './routes/NotFound'
 
 function App() {
-  // Use the base path from vite config, which is set to '/Ruairi-O-Flaherty/' for production
-  // In dev mode, Vite uses '/', but we need to match the production base path
-  const basePath = import.meta.env.BASE_URL || '/Ruairi-O-Flaherty/'
-
   return (
-    <Router basename={basePath}>
+    <Router>
       <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
         <SkipToContent />
         <Navbar />
@@ -25,6 +22,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="/experience" element={<Experience />} />
+            <Route path="/skills" element={<Skills />} />
             <Route path="/photos" element={<Photos />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />

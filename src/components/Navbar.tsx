@@ -4,11 +4,13 @@ import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
 import { cn } from '../lib/utils'
 
+const basePath = import.meta.env.BASE_URL || '/'
+
 const navigation = [
   { name: 'Home', href: '/' },
   { name: 'Projects', href: '/projects' },
   { name: 'Experience', href: '/experience' },
-  { name: 'Photos', href: '/photos' },
+  { name: 'Skills', href: '/skills' },
   { name: 'Contact', href: '/contact' },
 ]
 
@@ -38,14 +40,16 @@ export function Navbar() {
           )}
           style={{ width: 'fit-content', minWidth: '320px' }}
         >
-          {/* Logo with Gradient */}
+          {/* Logo */}
           <Link
             to="/"
             className="flex items-center space-x-2 group"
           >
-            <span className="text-xl font-bold text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-all duration-300">
-              R
-            </span>
+            <img
+              src={`${basePath}images/branding/Main_Logo.png`}
+              alt="Site logo"
+              className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            />
           </Link>
 
           {/* Desktop Navigation */}

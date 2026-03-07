@@ -53,13 +53,15 @@ export interface Project {
   }
 }
 
-export interface SkillCategory {
-  name: string
-  items: string[]
+export interface SkillShowcase {
+  title: string
+  description: string
+  images: string[]
+  tools: string[]
 }
 
 export interface Skills {
-  categories: SkillCategory[]
+  showcases: SkillShowcase[]
 }
 
 export interface Award {

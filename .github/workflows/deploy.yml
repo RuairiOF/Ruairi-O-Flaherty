@@ -38,8 +38,6 @@ jobs:
 
       - name: Build with Vite
         run: npm run build
-        env:
-          VITE_BASE_PATH: /Ruairi-O-Flaherty/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
