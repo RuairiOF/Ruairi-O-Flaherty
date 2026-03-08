@@ -165,28 +165,36 @@ export const cvData: CVData = {
     showcases: [
       {
         title: 'Advertising & Paid Media',
-        description: 'Running and optimising ad campaigns across Meta and TikTok for multiple businesses, managing budgets and tracking ROAS to drive real revenue.',
+        description: 'I run ad campaigns across Meta and TikTok for my businesses. I handle the budgets, track what\'s working, and tweak things until the numbers make sense.',
         images: [
           `${skillBasePath}ADs/MetaADS_Dashboard.png`,
-          `${skillBasePath}ADs/TikTokDash.png`
         ],
-        tools: ['Meta Ads', 'TikTok Ads', 'Google Analytics', 'A/B Testing', 'Budget Management']
+        tools: ['Meta Ads', 'TikTok Ads', 'Google Analytics', 'A/B Testing']
       },
       {
         title: 'Social Media & Content',
-        description: 'Built an audience of 25k+ followers and 10M+ views across platforms, creating content that converts followers into customers.',
-        images: [],
-        tools: ['TikTok', 'Instagram', 'Content Strategy', 'Video Editing', 'Community Building']
+        description: 'Built 25k+ followers and 10M+ views making content for my 3D printing business. Turns out people love watching things get made.',
+        images: [`${skillBasePath}ADs/TikTokDash.png`],
+        tools: ['TikTok', 'Instagram', 'Content Strategy', 'Video Editing']
       },
       {
-        title: 'Business Operations & Logistics',
-        description: 'Running day-to-day operations for multiple businesses, from pricing strategy and customer onboarding to financial reconciliation and supply chain management.',
+        title: 'Business & Logistics',
+        description: 'Between EirPost, ROF\'s 3D, and LaserLane, I\'ve gotten pretty good at the unglamorous stuff: pricing, shipping, keeping customers happy, and making sure the numbers add up.',
         images: [],
         tools: ['Excel', 'P&L Management', 'Pricing Strategy', 'Customer Relations', 'Supply Chain']
       },
       {
+        title: '3D Printing & Manufacturing',
+        description: 'Ran an 8-printer farm, shipped 1,000+ products, and learned that the hard part isn\'t printing, it\'s everything after.',
+        images: [
+          `${skillBasePath}3D Print/3DPrintBusinessLotsOfProducts.jpg`,
+          `${skillBasePath}3D Print/ParcelsOnTheFloorFor3DPrintBusiness.jpg`
+        ],
+        tools: ['FDM Printing', 'Resin Printing', 'CAD Design', 'Slicing', 'Post-Processing']
+      },
+      {
         title: '3D Modelling & Rendering',
-        description: 'Creating photorealistic renders and 3D models for product visualisation, marketing materials, and manufacturing. Experienced across Blender, SolidWorks, Fusion 360, and AutoCAD.',
+        description: 'I use Blender for renders and visualisation, and SolidWorks/Fusion 360 for anything that needs to actually be manufactured.',
         images: [
           `${skillBasePath}Blender/Screenshot 2026-03-07 134047.png`,
           `${skillBasePath}Blender/Screenshot 2026-03-07 134055.png`
@@ -194,34 +202,41 @@ export const cvData: CVData = {
         tools: ['Blender', 'SolidWorks', 'Fusion 360', 'AutoCAD']
       },
       {
-        title: '3D Printing & Manufacturing',
-        description: 'Operated an 8-printer farm producing 1,000+ products. From CAD design through to slicing, printing, post-processing, and quality control.',
-        images: [],
-        tools: ['FDM Printing', 'Resin Printing', 'CAD Design', 'Slicing', 'Post-Processing']
-      },
-      {
         title: 'Electronics & Prototyping',
-        description: 'Building hardware prototypes with microcontrollers, custom PCBs, and embedded systems. Comfortable with soldering, circuit design, and integrating sensors.',
-        images: [],
+        description: 'From tearing apart e-bike motors to wiring up Arduinos, I like getting my hands dirty with hardware. Soldering iron is basically an extension of my arm at this point.',
+        images: [
+          `${skillBasePath}Electronics and Soldering/EbikeMotorElectronics.jpeg`,
+          `${skillBasePath}Electronics and Soldering/Ebike_Battery.jpeg`
+        ],
         tools: ['Arduino', 'Raspberry Pi', 'Soldering', 'Circuit Design', 'Sensors']
       },
       {
-        title: 'Software Development',
-        description: 'Building web apps, mobile apps, and automation tools to solve real problems across my businesses and projects.',
-        images: [],
-        tools: ['Python', 'TypeScript', 'JavaScript', 'C', 'C++', 'Java', 'React', 'React Native', 'Next.js', 'Flutter']
+        title: 'Site Engineering',
+        description: 'Spent a summer on construction sites doing surveying, safety compliance, and coordinating subcontractors. Gave me a whole new respect for project timelines.',
+        images: [
+          `${skillBasePath}Construction Site/Construction_Site.jpeg`,
+          `${skillBasePath}Construction Site/Construction_Site1.jpeg`
+        ],
+        tools: ['Surveying', 'Quality Assurance', 'Safety Compliance', 'AutoCAD']
       },
       {
-        title: 'Cloud & Infrastructure',
-        description: 'Deploying and managing production applications with modern cloud tooling, databases, and CI/CD pipelines.',
+        title: 'Software Development',
+        description: 'I build whatever my projects need: websites, mobile apps, automation scripts. Not a "software engineer" by trade, but I can ship real products.',
         images: [],
+        tools: ['Python', 'TypeScript', 'JavaScript', 'C', 'C++', 'Java', 'React', 'Next.js', 'Flutter', 'React Native']
+      },
+      {
+        title: 'Cloud & Deployment',
+        description: 'All my projects run on real infrastructure. I handle the databases, hosting, and deployment so things actually stay online.',
+        images: [`${basePath}images/Other/Cloud.png`],
         tools: ['Supabase', 'PostgreSQL', 'MySQL', 'Vercel', 'Railway', 'Docker', 'AWS']
       },
       {
         title: 'AI & Automation',
-        description: 'Leveraging LLMs and AI tools extensively across all my work, from automating business processes to building AI-powered features into products.',
-        images: [],
-        tools: ['ChatGPT', 'Claude', 'LLM APIs', 'Prompt Engineering', 'Workflow Automation']
+        description: 'AI helps me stay on top of things across all my work. With EirPost for example, I\'ve set up a passive system that analyses data, finds leads, manages emails, and turns them into actionable tasks. It\'s become a big part of how I keep everything running without burning out.',
+        images: [`${basePath}images/Other/AI_LLM.png`],
+        tools: ['ChatGPT', 'Claude', 'LLM APIs', 'Prompt Engineering', 'Workflow Automation'],
+        imagePosition: '[object-position:center_30%]'
       }
     ]
   },

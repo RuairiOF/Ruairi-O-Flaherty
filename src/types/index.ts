@@ -58,6 +58,7 @@ export interface SkillShowcase {
   description: string
   images: string[]
   tools: string[]
+  imagePosition?: string
 }
 
 export interface Skills {
