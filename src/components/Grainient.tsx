@@ -147,6 +147,9 @@ export default function Grainient({
     canvas.style.width = '100%'
     canvas.style.height = '100%'
     canvas.style.display = 'block'
+    canvas.style.transform = 'translateZ(0)'
+    canvas.style.willChange = 'transform'
+    canvas.style.backfaceVisibility = 'hidden'
 
     const container = containerRef.current
     container.appendChild(canvas)

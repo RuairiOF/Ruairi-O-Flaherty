@@ -14,7 +14,7 @@ import Grainient from './components/Grainient'
 function App() {
   return (
     <Router>
-      <div className="hidden dark:block fixed inset-0 z-0">
+      <div className="hidden dark:block fixed inset-0 z-0" style={{ transform: 'translateZ(0)', willChange: 'transform', backfaceVisibility: 'hidden' }}>
         <Grainient
           color1="#42354b"
           color2="#342a5b"
@@ -37,7 +37,7 @@ function App() {
           zoom={0.9}
         />
       </div>
-      <div className="relative z-10 min-h-screen flex flex-col bg-white dark:bg-transparent">
+      <div className="relative z-10 min-h-screen flex flex-col bg-white dark:bg-transparent" style={{ transform: 'translateZ(0)' }}>
         <SkipToContent />
         <Navbar />
         
