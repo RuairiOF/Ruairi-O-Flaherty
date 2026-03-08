@@ -35,7 +35,7 @@ export function Navbar() {
         <nav
           className={cn(
             'flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300 shadow-lg',
-            'bg-gray-50/90 dark:bg-gray-800/90 backdrop-blur-md border border-gray-200/30 dark:border-gray-600/30',
+            'bg-gray-50/90 dark:bg-white/10 backdrop-blur-md border border-gray-200/30 dark:border-white/10',
             'hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10'
           )}
           style={{ width: 'fit-content', minWidth: '320px' }}
@@ -61,8 +61,8 @@ export function Navbar() {
                 className={cn(
                   'relative px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 group',
                   isActivePath(item.href)
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-900/30'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800/50'
+                    ? 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-500/20'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-white/10'
                 )}
               >
                 <span className="relative z-10">{item.name}</span>
@@ -77,7 +77,7 @@ export function Navbar() {
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-1.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="md:hidden p-1.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -89,7 +89,7 @@ export function Navbar() {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 md:hidden">
-          <div className="bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border border-gray-200/20 dark:border-gray-700/20 rounded-2xl shadow-xl px-6 py-4 space-y-2 min-w-[280px]">
+          <div className="bg-white/95 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200/20 dark:border-white/10 rounded-2xl shadow-xl px-6 py-4 space-y-2 min-w-[280px]">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -97,8 +97,8 @@ export function Navbar() {
                 className={cn(
                   'block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200',
                   isActivePath(item.href)
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-gray-800/50'
+                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/20'
+                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-white/10'
                 )}
               >
                 {item.name}

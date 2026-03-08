@@ -19,7 +19,7 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
               <img
                 src={project.image}
                 alt={`${project.title} logo`}
-                className="h-8 w-8 object-contain rounded-md bg-white dark:bg-gray-900 border border-gray-200/60 dark:border-gray-700/60"
+                className="h-8 w-8 object-contain rounded-md bg-white dark:bg-white/10 border border-gray-200/60 dark:border-white/10"
                 loading="lazy"
                 decoding="async"
               />
@@ -65,7 +65,7 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-900/30 dark:text-blue-300"
+                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-500/15 dark:text-blue-300"
               >
                 {tag}
               </span>

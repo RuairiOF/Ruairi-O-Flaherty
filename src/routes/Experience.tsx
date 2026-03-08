@@ -33,7 +33,7 @@ export function Experience() {
       {cvData.experience.length > 0 && !cvData.experience[0].company.includes('[TODO') && (
         <Section
           title="Work Experience"
-          className="bg-gray-50 dark:bg-gray-800/50"
+          className="bg-gray-50 dark:bg-white/5"
         >
           <div className="max-w-4xl mx-auto">
             <div className="relative">
@@ -44,7 +44,7 @@ export function Experience() {
                 {cvData.experience.map((exp, index) => (
                   <div key={index} className="relative">
                     {/* Timeline dot */}
-                    <div className="absolute left-6 top-6 w-4 h-4 bg-blue-500 dark:bg-blue-400 rounded-full border-4 border-white dark:border-gray-800 shadow-lg"></div>
+                    <div className="absolute left-6 top-6 w-4 h-4 bg-blue-500 dark:bg-blue-400 rounded-full border-4 border-white dark:border-gray-900 shadow-lg"></div>
                     
                     <div className="ml-16 card p-6">
                   <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
@@ -85,7 +85,7 @@ export function Experience() {
                         {exp.technologies.map((tech, techIndex) => (
                           <span
                             key={techIndex}
-                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-gray-700 dark:text-gray-300"
+                            className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800 dark:bg-white/10 dark:text-gray-300"
                           >
                             {tech}
                           </span>
@@ -184,7 +184,7 @@ export function Experience() {
       {cvData.skills.showcases.length > 0 && (
         <Section
           title="Skills"
-          className="bg-gray-50 dark:bg-gray-800/50"
+          className="bg-gray-50 dark:bg-white/5"
         >
           <div className="max-w-6xl mx-auto">
             <div className="flex flex-wrap gap-3">
@@ -192,7 +192,7 @@ export function Experience() {
                 showcase.tools.map((tool) => (
                   <span
                     key={tool}
-                    className="inline-flex items-center px-4 py-2 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-sm text-sm font-medium text-gray-800 dark:text-gray-200"
+                    className="inline-flex items-center px-4 py-2 rounded-full bg-white dark:bg-white/10 border border-gray-200 dark:border-white/10 shadow-sm text-sm font-medium text-gray-800 dark:text-gray-200"
                   >
                     {tool}
                   </span>

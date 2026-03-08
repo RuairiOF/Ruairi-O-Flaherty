@@ -85,7 +85,7 @@ export function Projects() {
               <input
                 type="text"
                 placeholder="Search projects..."
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 onChange={(e) => debouncedSetSearchTerm(e.target.value)}
               />
             </div>
@@ -116,7 +116,7 @@ export function Projects() {
                       className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                         selectedTags.includes(tag)
                           ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-300 dark:hover:bg-gray-700'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-white/10 dark:text-gray-300 dark:hover:bg-white/20'
                       }`}
                     >
                       {tag}

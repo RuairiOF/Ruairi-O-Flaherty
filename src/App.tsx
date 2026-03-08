@@ -9,11 +9,35 @@ import { Skills } from './routes/Skills'
 import { Contact } from './routes/Contact'
 import { Photos } from './routes/Photos'
 import { NotFound } from './routes/NotFound'
+import Grainient from './components/Grainient'
 
 function App() {
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900">
+      <div className="hidden dark:block fixed inset-0 z-0">
+        <Grainient
+          color1="#42354b"
+          color2="#342a5b"
+          color3="#343041"
+          timeSpeed={1.25}
+          colorBalance={0}
+          warpStrength={1}
+          warpFrequency={5.6}
+          warpSpeed={2}
+          warpAmplitude={50}
+          blendAngle={0}
+          blendSoftness={0.05}
+          rotationAmount={500}
+          noiseScale={2}
+          contrast={1.5}
+          gamma={1}
+          saturation={1}
+          centerX={0}
+          centerY={0}
+          zoom={0.9}
+        />
+      </div>
+      <div className="relative z-10 min-h-screen flex flex-col bg-white dark:bg-transparent">
         <SkipToContent />
         <Navbar />
         

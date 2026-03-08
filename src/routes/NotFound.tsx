@@ -43,7 +43,7 @@ export function NotFound() {
             </button>
           </div>
 
-          <div className="mt-12 p-6 bg-gray-50 dark:bg-gray-800 rounded-2xl">
+          <div className="mt-12 p-6 bg-gray-50 dark:bg-white/5 rounded-2xl">
             <h3 className="heading-4 text-gray-900 dark:text-white mb-4">
               Looking for something specific?
             </h3>

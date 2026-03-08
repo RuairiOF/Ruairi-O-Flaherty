@@ -67,12 +67,12 @@ function SkillModal({ showcase, onClose }: { showcase: SkillShowcase; onClose: (
       onClick={onClose}
     >
       <div
-        className="relative bg-white dark:bg-gray-800 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto"
+        className="relative bg-white dark:bg-gray-900/90 dark:backdrop-blur-md rounded-2xl shadow-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-transparent dark:border-white/10"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors"
+          className="absolute top-4 right-4 z-10 w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 flex items-center justify-center hover:bg-gray-200 dark:hover:bg-white/20 transition-colors"
           aria-label="Close"
         >
           <X className="w-4 h-4 text-gray-600 dark:text-gray-300" />
@@ -96,7 +96,7 @@ function SkillModal({ showcase, onClose }: { showcase: SkillShowcase; onClose: (
             {showcase.tools.map((tool) => (
               <span
                 key={tool}
-                className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 dark:bg-gray-700/50 dark:text-gray-300"
+                className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium bg-gray-100 text-gray-700 dark:bg-white/10 dark:text-gray-300"
               >
                 {tool}
               </span>
@@ -113,7 +113,7 @@ function SkillCard({ showcase, onClick }: { showcase: SkillShowcase; onClick: ()
 
   return (
     <div
-      className="group cursor-pointer rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 shadow-sm hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-300"
+      className="group cursor-pointer rounded-2xl overflow-hidden border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 dark:backdrop-blur-sm shadow-sm hover:shadow-lg hover:border-blue-300 dark:hover:border-blue-400/30 transition-all duration-300"
       onClick={onClick}
     >
       {hasImages ? (

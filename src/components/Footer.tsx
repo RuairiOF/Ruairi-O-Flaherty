@@ -35,7 +35,7 @@ export function Footer() {
   ].filter(link => link.url && !link.url.includes('[TODO'))
 
   return (
-    <footer className="bg-gray-50 dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-gray-50 dark:bg-black/20 border-t border-gray-200 dark:border-white/10">
       <div className="container py-12">
         <div className="flex flex-col items-center space-y-6">
           {/* Social Links */}

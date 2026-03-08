@@ -13,7 +13,7 @@
   
   /* Focus styles for accessibility */
   *:focus-visible {
-    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+    @apply outline-none ring-2 ring-blue-500 ring-offset-2 ring-offset-white dark:ring-offset-transparent;
   }
   
   /* Skip to content link */
@@ -40,11 +40,11 @@
   }
   
   .btn-secondary {
-    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700;
+    @apply bg-gray-100 text-gray-900 hover:bg-gray-200 dark:bg-white/10 dark:text-gray-100 dark:hover:bg-white/20;
   }
-  
+
   .btn-ghost {
-    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-gray-800;
+    @apply text-gray-600 hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-gray-100 dark:hover:bg-white/10;
   }
   
   .btn-sm {
@@ -61,8 +61,8 @@
   
   /* Card styles */
   .card {
-    @apply bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200 dark:border-gray-700;
-    @apply transition-shadow duration-200 hover:shadow-md;
+    @apply bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-gray-200 dark:border-white/10;
+    @apply transition-shadow duration-200 hover:shadow-md dark:backdrop-blur-sm;
   }
   
   .card-hover {
@@ -140,7 +140,7 @@
   
   /* Glass effect */
   .glass {
-    @apply bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm;
+    @apply bg-white/80 dark:bg-white/5 backdrop-blur-sm;
   }
   
   /* Gradient text */

@@ -59,7 +59,7 @@ export function Home() {
               <a
                 href="/cv.json"
                 download={`${cvData.person.name.replace(/\s+/g, '_')}_CV.json`}
-                className="btn btn-lg !bg-white dark:!bg-gray-800 !text-gray-900 dark:!text-white !border-gray-200 dark:!border-gray-700 hover:!bg-gray-50 dark:hover:!bg-gray-700 !rounded-full group"
+                className="btn btn-lg !bg-white dark:!bg-white/10 !text-gray-900 dark:!text-white !border-gray-200 dark:!border-white/10 hover:!bg-gray-50 dark:hover:!bg-white/20 !rounded-full group"
               >
                 <Download className="mr-2 h-5 w-5" />
                 Download CV
@@ -103,7 +103,7 @@ export function Home() {
         title="About"
         description="A bit about my background and what I do"
         centered
-        className="bg-gray-50 dark:bg-gray-800/50"
+        className="bg-gray-50 dark:bg-white/5"
       >
         <div className="max-w-4xl mx-auto">
           <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
