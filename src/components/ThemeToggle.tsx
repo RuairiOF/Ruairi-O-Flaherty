@@ -4,12 +4,24 @@ import { Moon, Sun } from 'lucide-react'
 export function ThemeToggle() {
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
 
+  const getSavedTheme = (): 'light' | 'dark' | null => {
+    try {
+      const savedTheme = localStorage.getItem('theme')
+      return savedTheme === 'light' || savedTheme === 'dark' ? savedTheme : null
+    } catch {
+      return null
+    }
+  }
+
   useEffect(() => {
-    // Get initial theme from localStorage or system preference
-    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
-    const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    const savedTheme = getSavedTheme()
+    const supportsMatchMedia = typeof window.matchMedia === 'function'
+    const systemTheme =
+      supportsMatchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        ? 'dark'
+        : 'light'
     const initialTheme = savedTheme || systemTheme
-    
+
     setTheme(initialTheme)
     updateTheme(initialTheme)
   }, [])
@@ -22,8 +34,12 @@ export function ThemeToggle() {
     } else {
       root.classList.remove('dark')
     }
-    
-    localStorage.setItem('theme', newTheme)
+
+    try {
+      localStorage.setItem('theme', newTheme)
+    } catch {
+      // Ignore storage errors (e.g. private mode restrictions)
+    }
   }
 
   const toggleTheme = () => {

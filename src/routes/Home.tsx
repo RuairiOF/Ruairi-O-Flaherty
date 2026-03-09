@@ -27,7 +27,7 @@ export function Home() {
       />
 
       {/* Hero Section — full viewport, extends behind navbar */}
-      <section className="relative h-screen overflow-hidden flex items-center -mt-20">
+      <section className="relative -mt-20 flex min-h-[100svh] items-center overflow-hidden pb-10 pt-24">
         {/* Background image */}
         <img
           src={`${basePath}images/photos/split_landscape.jpeg`}
@@ -52,9 +52,9 @@ export function Home() {
 
         {/* Text content — pinned to left ~2/5 of screen on desktop, wider on mobile */}
         <div className="relative z-10 w-full h-full flex items-center">
-          <div className="w-full max-w-[85%] md:max-w-[40%] pl-6 md:pl-[5vw] lg:pl-[7vw] space-y-5">
+          <div className="w-full max-w-full md:max-w-[40%] px-4 sm:px-6 md:pl-[5vw] lg:pl-[7vw] space-y-4 sm:space-y-5">
             {/* Profile Picture */}
-            <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
+            <div className="h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
               <img
                 src={`${basePath}images/branding/ruairipfp.jpeg`}
                 alt={cvData.person.name}
@@ -66,7 +66,7 @@ export function Home() {
             <SplitText
               text={`Hey, I'm ${cvData.person.name.split(' ')[0]}.`}
               tag="h1"
-              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-none"
+              className="text-3xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-none"
               delay={40}
               duration={0.8}
               ease="power3.out"
@@ -82,7 +82,7 @@ export function Home() {
             <SplitText
               text={cvData.person.headline}
               tag="p"
-              className="text-lg lg:text-xl text-white/60 font-light leading-relaxed"
+              className="text-base sm:text-lg lg:text-xl text-white/60 font-light leading-relaxed"
               delay={30}
               duration={0.9}
               ease="power2.out"
@@ -107,7 +107,7 @@ export function Home() {
                 color="#14b8a6"
                 speed="5s"
                 size="lg"
-                className="group"
+                className="group w-full sm:w-auto"
               >
                 View My Work
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
@@ -115,7 +115,7 @@ export function Home() {
 
               <Link
                 to="/contact"
-                className="btn btn-lg !bg-white/10 !text-white !border-white/20 hover:!bg-white/20 !rounded-full group backdrop-blur-sm"
+                className="btn btn-lg !bg-white/10 !text-white !border-white/20 hover:!bg-white/20 !rounded-full group backdrop-blur-sm w-full sm:w-auto"
               >
                 Get In Touch
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />

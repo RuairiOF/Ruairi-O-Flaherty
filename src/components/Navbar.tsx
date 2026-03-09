@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from './ThemeToggle'
@@ -16,11 +16,25 @@ const navigation = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const originalOverflow = useRef('')
   const location = useLocation()
 
   useEffect(() => {
     setIsOpen(false)
   }, [location])
+
+  useEffect(() => {
+    if (isOpen) {
+      originalOverflow.current = document.body.style.overflow
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = originalOverflow.current
+    }
+
+    return () => {
+      document.body.style.overflow = originalOverflow.current
+    }
+  }, [isOpen])
 
   const isActivePath = (path: string) => {
     if (path === '/') {
@@ -34,11 +48,11 @@ export function Navbar() {
       <div className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-4">
         <nav
           className={cn(
-            'flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300 shadow-lg',
+            'flex w-[calc(100vw-1rem)] max-w-[24rem] items-center justify-between px-4 py-3 rounded-full transition-all duration-300 shadow-lg',
+            'sm:w-auto sm:max-w-none sm:min-w-[320px] sm:px-6',
             'bg-stone-50/90 dark:bg-white/10 backdrop-blur-md border border-stone-200/30 dark:border-white/10',
             'hover:shadow-xl hover:shadow-teal-500/10 dark:hover:shadow-teal-400/10'
           )}
-          style={{ width: 'fit-content', minWidth: '320px' }}
         >
           {/* Logo */}
           <Link
@@ -53,7 +67,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-2 ml-6">
+          <div className="hidden md:flex items-center space-x-2 ml-4">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -88,8 +102,8 @@ export function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 md:hidden">
-          <div className="bg-white/95 dark:bg-stone-900/80 backdrop-blur-md border border-stone-200/20 dark:border-white/10 rounded-2xl shadow-xl px-6 py-4 space-y-2 min-w-[280px]">
+        <div className="fixed top-20 left-1/2 w-[calc(100vw-1rem)] max-w-sm transform -translate-x-1/2 z-40 md:hidden">
+          <div className="bg-white/95 dark:bg-stone-900/80 backdrop-blur-md border border-stone-200/20 dark:border-white/10 rounded-2xl shadow-xl px-4 py-4 space-y-2">
             {navigation.map((item) => (
               <Link
                 key={item.name}

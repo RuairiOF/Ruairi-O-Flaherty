@@ -40,11 +40,33 @@ const SplitText: React.FC<SplitTextProps> = ({
   const animatedRef = useRef(false);
 
   useEffect(() => {
-    if (document.fonts.status === 'loaded') {
+    const fontSet = (document as Document & { fonts?: FontFaceSet }).fonts;
+    if (!fontSet) {
       setFontsLoaded(true);
-    } else {
-      document.fonts.ready.then(() => setFontsLoaded(true));
+      return;
     }
+
+    if (fontSet.status === 'loaded') {
+      setFontsLoaded(true);
+      return;
+    }
+
+    let isMounted = true;
+    fontSet.ready
+      .then(() => {
+        if (isMounted) {
+          setFontsLoaded(true);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setFontsLoaded(true);
+        }
+      });
+
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -54,35 +76,54 @@ const SplitText: React.FC<SplitTextProps> = ({
     const spans = el.querySelectorAll('.split-unit');
     if (spans.length === 0) return;
 
-    gsap.set(spans, { ...from });
+    const supportsMatchMedia = typeof window.matchMedia === 'function';
+    const prefersReducedMotion =
+      supportsMatchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const isSmallScreen = window.innerWidth < 768;
 
-    const startPct = (1 - threshold) * 100;
-    const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
-    const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
-    const marginUnit = marginMatch ? marginMatch[2] || 'px' : 'px';
-    const sign =
-      marginValue === 0
-        ? ''
-        : marginValue < 0
-          ? `-=${Math.abs(marginValue)}${marginUnit}`
-          : `+=${marginValue}${marginUnit}`;
-    const start = `top ${startPct}%${sign}`;
+    const showContentImmediately = () => {
+      gsap.set(spans, { ...to, clearProps: 'transform,opacity' });
+      animatedRef.current = true;
+    };
 
-    gsap.to(spans, {
-      ...to,
-      duration,
-      ease,
-      stagger: delay / 1000,
-      scrollTrigger: {
-        trigger: el,
-        start,
-        once: true,
-      },
-      onComplete: () => {
-        animatedRef.current = true;
-        onLetterAnimationComplete?.();
-      },
-    });
+    if (prefersReducedMotion || isSmallScreen) {
+      showContentImmediately();
+      return;
+    }
+
+    try {
+      gsap.set(spans, { ...from });
+
+      const startPct = (1 - threshold) * 100;
+      const marginMatch = /^(-?\d+(?:\.\d+)?)(px|em|rem|%)?$/.exec(rootMargin);
+      const marginValue = marginMatch ? parseFloat(marginMatch[1]) : 0;
+      const marginUnit = marginMatch ? marginMatch[2] || 'px' : 'px';
+      const sign =
+        marginValue === 0
+          ? ''
+          : marginValue < 0
+            ? `-=${Math.abs(marginValue)}${marginUnit}`
+            : `+=${marginValue}${marginUnit}`;
+      const start = `top ${startPct}%${sign}`;
+
+      gsap.to(spans, {
+        ...to,
+        duration,
+        ease,
+        stagger: delay / 1000,
+        scrollTrigger: {
+          trigger: el,
+          start,
+          once: true,
+        },
+        onComplete: () => {
+          animatedRef.current = true;
+          onLetterAnimationComplete?.();
+        },
+      });
+    } catch {
+      showContentImmediately();
+    }
 
     return () => {
       ScrollTrigger.getAll().forEach(st => {

@@ -5,10 +5,17 @@
 @layer base {
   html {
     @apply scroll-smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  html,
+  body,
+  #root {
+    min-height: 100%;
   }
 
   body {
-    @apply font-sans antialiased;
+    @apply font-sans antialiased overflow-x-hidden;
   }
 
   /* Focus styles for accessibility */

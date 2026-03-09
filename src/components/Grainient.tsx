@@ -132,97 +132,137 @@ export default function Grainient({
 }: GrainientProps) {
   const containerRef = useRef<HTMLDivElement | null>(null)
 
+  const setStaticFallback = (container: HTMLDivElement) => {
+    container.style.background = `linear-gradient(135deg, ${color1} 0%, ${color2} 50%, ${color3} 100%)`
+  }
+
   useEffect(() => {
-    if (!containerRef.current) return
-
-    const renderer = new Renderer({
-      webgl: 2,
-      alpha: true,
-      antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1 : 2)
-    })
-
-    const gl = renderer.gl
-    const canvas = gl.canvas as HTMLCanvasElement
-    canvas.style.width = '100%'
-    canvas.style.height = '100%'
-    canvas.style.display = 'block'
-    canvas.style.transform = 'translateZ(0)'
-    canvas.style.willChange = 'transform'
-    canvas.style.backfaceVisibility = 'hidden'
-
     const container = containerRef.current
-    container.appendChild(canvas)
+    if (!container) return
 
-    const geometry = new Triangle(gl)
-    const program = new Program(gl, {
-      vertex,
-      fragment,
-      uniforms: {
-        iTime: { value: 0 },
-        iResolution: { value: new Float32Array([1, 1]) },
-        uTimeSpeed: { value: timeSpeed },
-        uColorBalance: { value: colorBalance },
-        uWarpStrength: { value: warpStrength },
-        uWarpFrequency: { value: warpFrequency },
-        uWarpSpeed: { value: warpSpeed },
-        uWarpAmplitude: { value: warpAmplitude },
-        uBlendAngle: { value: blendAngle },
-        uBlendSoftness: { value: blendSoftness },
-        uRotationAmount: { value: rotationAmount },
-        uNoiseScale: { value: noiseScale },
-        uGrainAmount: { value: 0 },
-        uGrainScale: { value: 2 },
-        uGrainAnimated: { value: 0 },
-        uContrast: { value: contrast },
-        uGamma: { value: gamma },
-        uSaturation: { value: saturation },
-        uCenterOffset: { value: new Float32Array([centerX, centerY]) },
-        uZoom: { value: zoom },
-        uColor1: { value: new Float32Array(hexToRgb(color1)) },
-        uColor2: { value: new Float32Array(hexToRgb(color2)) },
-        uColor3: { value: new Float32Array(hexToRgb(color3)) }
+    const supportsWebGL2 = () => {
+      try {
+        const testCanvas = document.createElement('canvas')
+        return Boolean(testCanvas.getContext('webgl2'))
+      } catch {
+        return false
       }
-    })
-
-    const mesh = new Mesh(gl, { geometry, program })
-
-    let lastWidth = 0
-    let lastHeight = 0
-    const setSize = () => {
-      const rect = container.getBoundingClientRect()
-      const width = Math.max(1, Math.floor(rect.width))
-      const height = Math.max(1, Math.floor(rect.height))
-      // Skip resize if only height changed by a small amount (mobile address bar)
-      if (lastWidth === width && Math.abs(lastHeight - height) < 150) return
-      lastWidth = width
-      lastHeight = height
-      renderer.setSize(width, height)
-      const res = (program.uniforms.iResolution as { value: Float32Array }).value
-      res[0] = gl.drawingBufferWidth
-      res[1] = gl.drawingBufferHeight
     }
 
-    const ro = new ResizeObserver(setSize)
-    ro.observe(container)
-    setSize()
+    if (!supportsWebGL2()) {
+      setStaticFallback(container)
+      return
+    }
 
+    let renderer: Renderer | null = null
+    let canvas: HTMLCanvasElement | null = null
     let raf = 0
-    const t0 = performance.now()
-    const loop = (t: number) => {
-      ;(program.uniforms.iTime as { value: number }).value = (t - t0) * 0.001
-      renderer.render({ scene: mesh })
+    let ro: ResizeObserver | null = null
+    let resizeFallback: (() => void) | null = null
+
+    try {
+      renderer = new Renderer({
+        webgl: 2,
+        alpha: true,
+        antialias: false,
+        dpr: Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1 : 2)
+      })
+
+      const gl = renderer.gl
+      canvas = gl.canvas as HTMLCanvasElement
+      canvas.style.width = '100%'
+      canvas.style.height = '100%'
+      canvas.style.display = 'block'
+      canvas.style.transform = 'translateZ(0)'
+      canvas.style.willChange = 'transform'
+      canvas.style.backfaceVisibility = 'hidden'
+      container.style.background = ''
+      container.appendChild(canvas)
+
+      const geometry = new Triangle(gl)
+      const program = new Program(gl, {
+        vertex,
+        fragment,
+        uniforms: {
+          iTime: { value: 0 },
+          iResolution: { value: new Float32Array([1, 1]) },
+          uTimeSpeed: { value: timeSpeed },
+          uColorBalance: { value: colorBalance },
+          uWarpStrength: { value: warpStrength },
+          uWarpFrequency: { value: warpFrequency },
+          uWarpSpeed: { value: warpSpeed },
+          uWarpAmplitude: { value: warpAmplitude },
+          uBlendAngle: { value: blendAngle },
+          uBlendSoftness: { value: blendSoftness },
+          uRotationAmount: { value: rotationAmount },
+          uNoiseScale: { value: noiseScale },
+          uGrainAmount: { value: 0 },
+          uGrainScale: { value: 2 },
+          uGrainAnimated: { value: 0 },
+          uContrast: { value: contrast },
+          uGamma: { value: gamma },
+          uSaturation: { value: saturation },
+          uCenterOffset: { value: new Float32Array([centerX, centerY]) },
+          uZoom: { value: zoom },
+          uColor1: { value: new Float32Array(hexToRgb(color1)) },
+          uColor2: { value: new Float32Array(hexToRgb(color2)) },
+          uColor3: { value: new Float32Array(hexToRgb(color3)) }
+        }
+      })
+
+      const mesh = new Mesh(gl, { geometry, program })
+
+      let lastWidth = 0
+      let lastHeight = 0
+      const setSize = () => {
+        if (!renderer) return
+        const rect = container.getBoundingClientRect()
+        const width = Math.max(1, Math.floor(rect.width))
+        const height = Math.max(1, Math.floor(rect.height))
+        if (lastWidth === width && Math.abs(lastHeight - height) < 150) return
+        lastWidth = width
+        lastHeight = height
+        renderer.setSize(width, height)
+        const res = (program.uniforms.iResolution as { value: Float32Array }).value
+        res[0] = gl.drawingBufferWidth
+        res[1] = gl.drawingBufferHeight
+      }
+
+      if (typeof ResizeObserver !== 'undefined') {
+        ro = new ResizeObserver(setSize)
+        ro.observe(container)
+      } else {
+        resizeFallback = setSize
+        window.addEventListener('resize', resizeFallback)
+      }
+      setSize()
+
+      const t0 = performance.now()
+      const loop = (t: number) => {
+        if (!renderer) return
+        ;(program.uniforms.iTime as { value: number }).value = (t - t0) * 0.001
+        renderer.render({ scene: mesh })
+        raf = requestAnimationFrame(loop)
+      }
       raf = requestAnimationFrame(loop)
+    } catch {
+      setStaticFallback(container)
+      if (canvas && canvas.parentElement === container) {
+        container.removeChild(canvas)
+      }
+      return
     }
-    raf = requestAnimationFrame(loop)
 
     return () => {
       cancelAnimationFrame(raf)
-      ro.disconnect()
-      try {
+      if (ro) {
+        ro.disconnect()
+      }
+      if (resizeFallback) {
+        window.removeEventListener('resize', resizeFallback)
+      }
+      if (canvas && canvas.parentElement === container) {
         container.removeChild(canvas)
-      } catch {
-        // Ignore
       }
     }
   }, [
