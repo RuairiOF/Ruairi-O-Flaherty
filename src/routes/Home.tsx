@@ -1,53 +1,110 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, Download, MapPin } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { SEO } from '../components/SEO'
-import { Section } from '../components/Section'
 import { ProjectCard } from '../components/ProjectCard'
-import GradientText from '../components/GradientText'
 import StarBorder from '../components/StarBorder'
+import SplitText from '../components/SplitText'
+import FlowingMenu from '../components/FlowingMenu'
 import { cvData, getFeaturedProjects } from '../content/cv'
+
+const basePath = import.meta.env.BASE_URL || '/'
+
+const menuItems = [
+  { link: '/projects', text: 'Projects', image: `${basePath}images/skills/Electronics%20and%20Soldering/EbikeMotorElectronics.jpeg` },
+  { link: '/experience', text: 'Experience', image: `${basePath}images/skills/Construction%20Site/Construction_Site.jpeg` },
+  { link: '/skills', text: 'Skills', image: `${basePath}images/skills/Blender/Screenshot%202026-03-07%20134047.png` },
+  { link: '/contact', text: 'Contact', image: `${basePath}images/photos/radios.jpeg` },
+]
 
 export function Home() {
   const featuredProjects = getFeaturedProjects().slice(0, 3)
 
   return (
     <>
-      <SEO 
+      <SEO
         title="Home"
         description={`${cvData.person.name} - ${cvData.person.headline}`}
       />
 
-      {/* Hero Section */}
-      <Section className="pt-8 lg:pt-16" size="lg">
-        <div className="text-center">
-          <div className="animate-fade-in">
-            <h1 className="heading-1 mb-6 text-gray-900 dark:text-white">
-              Hi, I'm{' '}
-              <GradientText
-                colors={["#3b82f6", "#8b5cf6", "#3b82f6", "#8b5cf6", "#3b82f6"]}
-                animationSpeed={3}
-                showBorder={false}
-              >
-                {cvData.person.name.split(' ')[0]}
-              </GradientText>
-            </h1>
-            
-            <p className="text-xl lg:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-              {cvData.person.headline}
+      {/* Hero Section — full viewport, extends behind navbar */}
+      <section className="relative h-screen overflow-hidden flex items-center -mt-20">
+        {/* Background image */}
+        <img
+          src={`${basePath}images/photos/split_landscape.jpeg`}
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover animate-[heroFadeIn_1.2s_ease-out_both]"
+          style={{ objectPosition: 'center 25%' }}
+        />
+
+        {/* Gradient overlay — strong dark on left ~40%, fading to clear on right */}
+        <div
+          className="absolute inset-0 md:hidden"
+          style={{
+            background: 'linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.3) 100%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 hidden md:block"
+          style={{
+            background: 'linear-gradient(to right, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.85) 25%, rgba(0,0,0,0.5) 45%, transparent 65%)',
+          }}
+        />
+
+        {/* Text content — pinned to left ~2/5 of screen on desktop, wider on mobile */}
+        <div className="relative z-10 w-full h-full flex items-center">
+          <div className="w-full max-w-[85%] md:max-w-[40%] pl-6 md:pl-[5vw] lg:pl-[7vw] space-y-5">
+            {/* Profile Picture */}
+            <div className="w-16 h-16 lg:w-20 lg:h-20 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
+              <img
+                src={`${basePath}images/branding/ruairipfp.jpeg`}
+                alt={cvData.person.name}
+                className="w-full h-full object-cover"
+              />
+            </div>
+
+            {/* Name */}
+            <SplitText
+              text={`Hey, I'm ${cvData.person.name.split(' ')[0]}.`}
+              tag="h1"
+              className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white tracking-tight leading-none"
+              delay={40}
+              duration={0.8}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 50 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="0px"
+              textAlign="left"
+            />
+
+            {/* Headline */}
+            <SplitText
+              text={cvData.person.headline}
+              tag="p"
+              className="text-lg lg:text-xl text-white/60 font-light leading-relaxed"
+              delay={30}
+              duration={0.9}
+              ease="power2.out"
+              splitType="words"
+              from={{ opacity: 0, y: 30 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.1}
+              rootMargin="0px"
+              textAlign="left"
+            />
+
+            {/* Location */}
+            <p className="text-xs uppercase tracking-widest text-white/40">
+              {cvData.person.location}
             </p>
-            
-            {cvData.person.location && !cvData.person.location.includes('[TODO') && (
-              <div className="flex items-center justify-center text-gray-600 dark:text-gray-400 mb-8">
-                <MapPin className="h-4 w-4 mr-2" />
-                <span>{cvData.person.location}</span>
-              </div>
-            )}
-            
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-start gap-3 pt-3">
               <StarBorder
                 as={Link}
                 to="/projects"
-                color="#8b5cf6"
+                color="#14b8a6"
                 speed="5s"
                 size="lg"
                 className="group"
@@ -55,146 +112,203 @@ export function Home() {
                 View My Work
                 <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
               </StarBorder>
-              
-              <a
-                href="/cv.json"
-                download={`${cvData.person.name.replace(/\s+/g, '_')}_CV.json`}
-                className="btn btn-lg !bg-white dark:!bg-white/10 !text-gray-900 dark:!text-white !border-gray-200 dark:!border-white/10 hover:!bg-gray-50 dark:hover:!bg-white/20 !rounded-full group"
+
+              <Link
+                to="/contact"
+                className="btn btn-lg !bg-white/10 !text-white !border-white/20 hover:!bg-white/20 !rounded-full group backdrop-blur-sm"
               >
-                <Download className="mr-2 h-5 w-5" />
-                Download CV
-              </a>
+                Get In Touch
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Link>
             </div>
           </div>
         </div>
-      </Section>
+      </section>
+
+      {/* Flowing Menu Navigation — desktop only */}
+      <section className="hidden md:block relative bg-stone-900">
+        <div style={{ height: '500px', position: 'relative' }}>
+          <FlowingMenu
+            items={menuItems}
+            speed={15}
+            textColor="#e7e5e4"
+            bgColor="transparent"
+            marqueeBgColor="#14b8a6"
+            marqueeTextColor="#ffffff"
+            borderColor="rgba(255,255,255,0.1)"
+          />
+        </div>
+      </section>
 
       {/* Featured Projects */}
-      {featuredProjects.length > 0 && !featuredProjects[0].title.includes('[TODO') && (
-        <Section
-          title="Featured Projects"
-          description="A selection of recent work and side projects"
-          centered
-        >
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {featuredProjects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
+      {featuredProjects.length > 0 && (
+        <section className="py-20 lg:py-28 px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <SplitText
+                text="Featured Projects"
+                tag="h2"
+                className="text-3xl lg:text-5xl font-bold text-stone-900 dark:text-white"
+                delay={40}
+                duration={0.8}
+                ease="power3.out"
+                splitType="chars"
+                from={{ opacity: 0, y: 40 }}
+                to={{ opacity: 1, y: 0 }}
+                threshold={0.2}
+                rootMargin="-50px"
+                textAlign="center"
+              />
+              <p className="mt-4 text-lg text-stone-500 dark:text-stone-400">
+                A selection of recent work and side projects
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {featuredProjects.map((project) => (
+                <ProjectCard key={project.slug} project={project} />
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
+              <StarBorder
+                as={Link}
+                to="/projects"
+                color="#14b8a6"
+                speed="5s"
+                size="lg"
+                className="group"
+              >
+                View All Projects
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </StarBorder>
+            </div>
           </div>
-          
+        </section>
+      )}
+
+      {/* About Section */}
+      <section className="py-20 lg:py-28 px-4">
+        <div className="max-w-[98%] mx-auto rounded-3xl bg-stone-100/60 dark:bg-white/[0.04] border border-stone-200/50 dark:border-white/[0.06] px-8 py-16 lg:px-16 lg:py-20 shadow-sm">
+          <div className="text-center mb-16">
+            <SplitText
+              text="About Me"
+              tag="h2"
+              className="text-3xl lg:text-5xl font-bold text-stone-900 dark:text-white"
+              delay={40}
+              duration={0.8}
+              ease="power3.out"
+              splitType="chars"
+              from={{ opacity: 0, y: 40 }}
+              to={{ opacity: 1, y: 0 }}
+              threshold={0.2}
+              rootMargin="-50px"
+              textAlign="center"
+            />
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+            {/* Experience */}
+            <div>
+              <h3 className="text-xl font-semibold text-stone-900 dark:text-white mb-6 flex items-center gap-2">
+                <span className="w-8 h-0.5 bg-teal-500" />
+                Experience
+              </h3>
+              <div className="space-y-5">
+                {cvData.experience.slice(0, 3).map((exp, index) => (
+                  <div key={index} className="group pl-4 border-l-2 border-stone-200 dark:border-white/10 hover:border-teal-500 dark:hover:border-teal-400 transition-colors">
+                    <h4 className="font-semibold text-stone-900 dark:text-white">
+                      {exp.role}
+                    </h4>
+                    <p className="text-teal-600 dark:text-teal-400 text-sm font-medium">
+                      {exp.company}
+                    </p>
+                    <p className="text-xs text-stone-400 dark:text-stone-500 mt-0.5">
+                      {exp.dates}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Education */}
+            <div>
+              <h3 className="text-xl font-semibold text-stone-900 dark:text-white mb-6 flex items-center gap-2">
+                <span className="w-8 h-0.5 bg-emerald-500" />
+                Education
+              </h3>
+              <div className="space-y-5">
+                {cvData.education.map((edu, index) => (
+                  <div key={index} className="group pl-4 border-l-2 border-stone-200 dark:border-white/10 hover:border-emerald-500 dark:hover:border-emerald-400 transition-colors">
+                    <h4 className="font-semibold text-stone-900 dark:text-white">
+                      {edu.degree}
+                    </h4>
+                    <p className="text-emerald-600 dark:text-emerald-400 text-sm font-medium">
+                      {edu.institution}
+                    </p>
+                    <p className="text-xs text-stone-400 dark:text-stone-500 mt-0.5">
+                      {edu.dates}
+                    </p>
+                    {edu.details && (
+                      <p className="text-sm text-stone-500 dark:text-stone-400 mt-1">
+                        {edu.details}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <div className="text-center mt-12">
             <StarBorder
               as={Link}
-              to="/projects"
-              color="#8b5cf6"
-              speed="5s"
-              size="lg"
-              className="group"
-            >
-              View All Projects
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </StarBorder>
-          </div>
-        </Section>
-      )}
-
-      {/* Quick About */}
-      <Section
-        title="About"
-        description="A bit about my background and what I do"
-        centered
-        className="bg-gray-50 dark:bg-white/5"
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
-            {/* Experience */}
-            {cvData.experience.length > 0 && !cvData.experience[0].company.includes('[TODO') && (
-              <div>
-                <h3 className="heading-4 mb-4 text-gray-900 dark:text-white">
-                  Experience
-                </h3>
-                <div className="space-y-4">
-                  {cvData.experience.slice(0, 2).map((exp, index) => (
-                    <div key={index} className="border-l-2 border-blue-500 pl-4">
-                      <h4 className="font-semibold text-gray-900 dark:text-white">
-                        {exp.role}
-                      </h4>
-                      <p className="text-blue-600 dark:text-blue-400 font-medium">
-                        {exp.company}
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {exp.dates}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Education */}
-            {cvData.education.length > 0 && !cvData.education[0].institution.includes('[TODO') && (
-              <div>
-                <h3 className="heading-4 mb-4 text-gray-900 dark:text-white">
-                  Education
-                </h3>
-                <div className="space-y-4">
-                  {cvData.education.slice(0, 2).map((edu, index) => (
-                    <div key={index} className="border-l-2 border-green-500 pl-4">
-                      <h4 className="font-semibold text-gray-900 dark:text-white">
-                        {edu.degree}
-                      </h4>
-                      <p className="text-green-600 dark:text-green-400 font-medium">
-                        {edu.institution}
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        {edu.dates}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-          
-          <div className="text-center mt-8">
-            <StarBorder
-              as={Link}
               to="/experience"
-              color="#8b5cf6"
+              color="#14b8a6"
               speed="5s"
               size="lg"
               className="group"
             >
-              Learn More About Me
+              Full Experience
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
             </StarBorder>
           </div>
         </div>
-      </Section>
+      </section>
 
       {/* Contact CTA */}
-      <Section
-        title="Let's Work Together"
-        description="I'm always interested in new opportunities and collaborations"
-        centered
-      >
-        <div className="max-w-2xl mx-auto">
-          <div className="text-center">
-            <StarBorder
-              as={Link}
-              to="/contact"
-              color="#8b5cf6"
-              speed="5s"
-              size="lg"
-              className="group"
-            >
-              Get In Touch
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </StarBorder>
-          </div>
+      <section className="py-24 lg:py-32 px-4">
+        <div className="max-w-3xl mx-auto text-center">
+          <SplitText
+            text="Let's Work Together"
+            tag="h2"
+            className="text-3xl lg:text-5xl font-bold text-stone-900 dark:text-white"
+            delay={40}
+            duration={0.8}
+            ease="power3.out"
+            splitType="chars"
+            from={{ opacity: 0, y: 40 }}
+            to={{ opacity: 1, y: 0 }}
+            threshold={0.2}
+            rootMargin="-50px"
+            textAlign="center"
+          />
+          <p className="mt-4 mb-8 text-lg text-stone-500 dark:text-stone-400">
+            I'm always interested in new opportunities and collaborations
+          </p>
+          <StarBorder
+            as={Link}
+            to="/contact"
+            color="#14b8a6"
+            speed="5s"
+            size="lg"
+            className="group"
+          >
+            Get In Touch
+            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+          </StarBorder>
         </div>
-      </Section>
+      </section>
     </>
   )
 }
-

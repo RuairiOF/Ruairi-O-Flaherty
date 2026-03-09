@@ -22,13 +22,13 @@ export function Contact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     // Fallback to mailto since we don't have a server
     const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio')
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
     )
-    
+
     window.location.href = `mailto:${cvData.person.email}?subject=${subject}&body=${body}`
   }
 
@@ -93,16 +93,16 @@ export function Contact() {
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Contact Form */}
             <div className="card p-8">
-              <h3 className="heading-3 mb-6 text-gray-900 dark:text-white">
+              <h3 className="heading-3 mb-6 text-stone-900 dark:text-white">
                 Send a Message
               </h3>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
                     >
                       Name
                     </label>
@@ -113,14 +113,14 @@ export function Contact() {
                       required
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     />
                   </div>
-                  
+
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                      className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
                     >
                       Email
                     </label>
@@ -131,15 +131,15 @@ export function Contact() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-3 py-2 border border-gray-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                     />
                   </div>
                 </div>
-                
+
                 <div>
                   <label
                     htmlFor="subject"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
                   >
                     Subject
                   </label>
@@ -149,14 +149,14 @@ export function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <div>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2"
+                    className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
                   >
                     Message
                   </label>
@@ -167,10 +167,10 @@ export function Contact() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full px-3 py-2 border border-gray-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                   />
                 </div>
-                
+
                 <button
                   type="submit"
                   className="btn btn-primary btn-lg w-full group"
@@ -179,10 +179,10 @@ export function Contact() {
                   Send Message
                 </button>
               </form>
-              
-              <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-500/10 rounded-lg">
-                <p className="text-sm text-blue-800 dark:text-blue-300">
-                  <strong>Note:</strong> This form uses your default email client. 
+
+              <div className="mt-6 p-4 bg-teal-50 dark:bg-teal-500/10 rounded-lg">
+                <p className="text-sm text-teal-800 dark:text-teal-300">
+                  <strong>Note:</strong> This form uses your default email client.
                   If it doesn't work, please email me directly at{' '}
                   <a
                     href={`mailto:${cvData.person.email}`}
@@ -198,21 +198,21 @@ export function Contact() {
             <div className="space-y-8">
               {/* Contact Methods */}
               <div className="card p-8">
-                <h3 className="heading-3 mb-6 text-gray-900 dark:text-white">
+                <h3 className="heading-3 mb-6 text-stone-900 dark:text-white">
                   Contact Information
                 </h3>
-                
+
                 <div className="space-y-4">
                   {contactMethods.map((method, index) => {
                     const Icon = method.icon
                     const content = (
                       <div className="flex items-center">
-                        <Icon className="h-5 w-5 text-blue-600 dark:text-blue-400 mr-3 flex-shrink-0" />
+                        <Icon className="h-5 w-5 text-teal-600 dark:text-teal-400 mr-3 flex-shrink-0" />
                         <div>
-                          <p className="font-medium text-gray-900 dark:text-white">
+                          <p className="font-medium text-stone-900 dark:text-white">
                             {method.label}
                           </p>
-                          <p className="text-gray-600 dark:text-gray-400">
+                          <p className="text-stone-500 dark:text-stone-400">
                             {method.value}
                           </p>
                         </div>
@@ -223,7 +223,7 @@ export function Contact() {
                       <a
                         key={index}
                         href={method.href}
-                        className="block p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors"
+                        className="block p-3 rounded-lg hover:bg-stone-50 dark:hover:bg-white/10 transition-colors"
                       >
                         {content}
                       </a>
@@ -239,10 +239,10 @@ export function Contact() {
               {/* Social Links */}
               {socialLinks.length > 0 && (
                 <div className="card p-8">
-                  <h3 className="heading-3 mb-6 text-gray-900 dark:text-white">
+                  <h3 className="heading-3 mb-6 text-stone-900 dark:text-white">
                     Connect Online
                   </h3>
-                  
+
                   <div className="space-y-4">
                     {socialLinks.map((link, index) => {
                       const Icon = link.icon
@@ -252,14 +252,14 @@ export function Contact() {
                           href={link.url}
                           target={isExternalUrl(link.url || '') ? '_blank' : undefined}
                           rel={isExternalUrl(link.url || '') ? 'noopener noreferrer' : undefined}
-                          className="flex items-center p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-white/10 transition-colors group"
+                          className="flex items-center p-3 rounded-lg hover:bg-stone-50 dark:hover:bg-white/10 transition-colors group"
                         >
-                          <Icon className="h-5 w-5 text-blue-600 dark:text-blue-400 mr-3 flex-shrink-0" />
+                          <Icon className="h-5 w-5 text-teal-600 dark:text-teal-400 mr-3 flex-shrink-0" />
                           <div>
-                            <p className="font-medium text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                            <p className="font-medium text-stone-900 dark:text-white group-hover:text-teal-600 dark:group-hover:text-teal-400 transition-colors">
                               {link.name}
                             </p>
-                            <p className="text-gray-600 dark:text-gray-400 text-sm">
+                            <p className="text-stone-500 dark:text-stone-400 text-sm">
                               {link.url}
                             </p>
                           </div>
@@ -276,8 +276,3 @@ export function Contact() {
     </>
   )
 }
-
-
-
-
-

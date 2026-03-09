@@ -139,7 +139,7 @@ export default function Grainient({
       webgl: 2,
       alpha: true,
       antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 2)
+      dpr: Math.min(window.devicePixelRatio || 1, window.innerWidth < 768 ? 1 : 2)
     })
 
     const gl = renderer.gl
@@ -187,10 +187,16 @@ export default function Grainient({
 
     const mesh = new Mesh(gl, { geometry, program })
 
+    let lastWidth = 0
+    let lastHeight = 0
     const setSize = () => {
       const rect = container.getBoundingClientRect()
       const width = Math.max(1, Math.floor(rect.width))
       const height = Math.max(1, Math.floor(rect.height))
+      // Skip resize if only height changed by a small amount (mobile address bar)
+      if (lastWidth === width && Math.abs(lastHeight - height) < 150) return
+      lastWidth = width
+      lastHeight = height
       renderer.setSize(width, height)
       const res = (program.uniforms.iResolution as { value: Float32Array }).value
       res[0] = gl.drawingBufferWidth

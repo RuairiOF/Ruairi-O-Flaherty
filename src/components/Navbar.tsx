@@ -35,8 +35,8 @@ export function Navbar() {
         <nav
           className={cn(
             'flex items-center justify-between px-6 py-3 rounded-full transition-all duration-300 shadow-lg',
-            'bg-gray-50/90 dark:bg-white/10 backdrop-blur-md border border-gray-200/30 dark:border-white/10',
-            'hover:shadow-xl hover:shadow-blue-500/10 dark:hover:shadow-blue-400/10'
+            'bg-stone-50/90 dark:bg-white/10 backdrop-blur-md border border-stone-200/30 dark:border-white/10',
+            'hover:shadow-xl hover:shadow-teal-500/10 dark:hover:shadow-teal-400/10'
           )}
           style={{ width: 'fit-content', minWidth: '320px' }}
         >
@@ -61,8 +61,8 @@ export function Navbar() {
                 className={cn(
                   'relative px-3 py-1.5 text-sm font-medium rounded-full transition-all duration-200 group',
                   isActivePath(item.href)
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-100 dark:bg-blue-500/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-white/10'
+                    ? 'text-teal-700 dark:text-teal-400 bg-teal-100 dark:bg-teal-500/20'
+                    : 'text-stone-700 dark:text-stone-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-stone-100 dark:hover:bg-white/10'
                 )}
               >
                 <span className="relative z-10">{item.name}</span>
@@ -73,11 +73,11 @@ export function Navbar() {
           {/* Right side - Theme toggle and mobile menu */}
           <div className="flex items-center space-x-2">
             <ThemeToggle />
-            
+
             {/* Mobile menu button */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden p-1.5 rounded-full text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+              className="md:hidden p-1.5 rounded-full text-stone-700 dark:text-stone-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-stone-100 dark:hover:bg-white/10 transition-colors"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
@@ -89,7 +89,7 @@ export function Navbar() {
       {/* Mobile Navigation */}
       {isOpen && (
         <div className="fixed top-20 left-1/2 transform -translate-x-1/2 z-40 md:hidden">
-          <div className="bg-white/95 dark:bg-gray-900/80 backdrop-blur-md border border-gray-200/20 dark:border-white/10 rounded-2xl shadow-xl px-6 py-4 space-y-2 min-w-[280px]">
+          <div className="bg-white/95 dark:bg-stone-900/80 backdrop-blur-md border border-stone-200/20 dark:border-white/10 rounded-2xl shadow-xl px-6 py-4 space-y-2 min-w-[280px]">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -97,8 +97,8 @@ export function Navbar() {
                 className={cn(
                   'block px-4 py-2.5 text-sm font-medium rounded-lg transition-all duration-200',
                   isActivePath(item.href)
-                    ? 'text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-500/20'
-                    : 'text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-gray-50 dark:hover:bg-white/10'
+                    ? 'text-teal-700 dark:text-teal-400 bg-teal-50 dark:bg-teal-500/20'
+                    : 'text-stone-700 dark:text-stone-300 hover:text-teal-700 dark:hover:text-teal-400 hover:bg-stone-50 dark:hover:bg-white/10'
                 )}
               >
                 {item.name}
@@ -113,4 +113,3 @@ export function Navbar() {
     </>
   )
 }
-

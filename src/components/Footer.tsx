@@ -35,7 +35,7 @@ export function Footer() {
   ].filter(link => link.url && !link.url.includes('[TODO'))
 
   return (
-    <footer className="bg-gray-50 dark:bg-black/20 border-t border-gray-200 dark:border-white/10">
+    <footer className="bg-stone-100 dark:bg-black/20 border-t border-stone-200 dark:border-white/10">
       <div className="container py-12">
         <div className="flex flex-col items-center space-y-6">
           {/* Social Links */}
@@ -49,7 +49,7 @@ export function Footer() {
                     href={link.url}
                     target={isExternalUrl(link.url || '') ? '_blank' : undefined}
                     rel={isExternalUrl(link.url || '') ? 'noopener noreferrer' : undefined}
-                    className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                    className="text-stone-500 hover:text-teal-600 dark:text-stone-400 dark:hover:text-teal-400 transition-colors"
                     aria-label={link.name}
                   >
                     <Icon className="h-5 w-5" />
@@ -60,8 +60,8 @@ export function Footer() {
           )}
 
           {/* Copyright */}
-          <div className="text-center text-sm text-gray-600 dark:text-gray-400">
-            <p>© {currentYear} {cvData.person.name}. All rights reserved.</p>
+          <div className="text-center text-sm text-stone-500 dark:text-stone-400">
+            <p>&copy; {currentYear} {cvData.person.name}. All rights reserved.</p>
             <p className="mt-1 text-xs">
               Last built: {new Date(buildTime).toLocaleDateString('en-US', {
                 year: 'numeric',

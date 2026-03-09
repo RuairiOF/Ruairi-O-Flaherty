@@ -17,7 +17,7 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
 
   if (photos.length === 0) {
     return (
-      <div className={cn("text-center py-12 text-gray-500 dark:text-gray-400", className)}>
+      <div className={cn("text-center py-12 text-stone-500 dark:text-stone-400", className)}>
         <p>No 3D printing photos available yet.</p>
         <p className="text-sm mt-2">Add photos of your 3D printed creations to /public/images/photos/ to see them here.</p>
       </div>
@@ -67,8 +67,8 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
               onClick={() => openLightbox(index)}
             >
               {!loadedPhotos.has(index) && (
-                <div className="absolute inset-0 bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
-                  <ImageIcon className="h-8 w-8 text-gray-400" />
+                <div className="absolute inset-0 bg-stone-200 dark:bg-stone-700 flex items-center justify-center">
+                  <ImageIcon className="h-8 w-8 text-stone-400" />
                 </div>
               )}
               <img
@@ -89,21 +89,21 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
         <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center">
           <button
             onClick={closeLightbox}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            className="absolute top-4 right-4 text-white hover:text-stone-300 transition-colors"
           >
             <X className="h-8 w-8" />
           </button>
           
           <button
             onClick={prevPhoto}
-            className="absolute left-4 text-white hover:text-gray-300 transition-colors"
+            className="absolute left-4 text-white hover:text-stone-300 transition-colors"
           >
             <ChevronLeft className="h-8 w-8" />
           </button>
           
           <button
             onClick={nextPhoto}
-            className="absolute right-4 text-white hover:text-gray-300 transition-colors"
+            className="absolute right-4 text-white hover:text-stone-300 transition-colors"
           >
             <ChevronRight className="h-8 w-8" />
           </button>

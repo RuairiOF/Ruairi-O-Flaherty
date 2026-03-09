@@ -32,7 +32,7 @@
 .inner-content {
   position: relative;
   border: none;
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  background: linear-gradient(135deg, #14b8a6, #0d9488);
   color: white;
   font-size: inherit;
   font-weight: 500;
@@ -47,17 +47,9 @@
 }
 
 .inner-content:hover {
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  background: linear-gradient(135deg, #0d9488, #0f766e);
   transform: translateY(-1px);
-  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-}
-
-.inner-content.dark-mode {
-  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
-}
-
-.inner-content.dark-mode:hover {
-  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  box-shadow: 0 10px 25px rgba(20, 184, 166, 0.3);
 }
 
 @keyframes star-movement-bottom {

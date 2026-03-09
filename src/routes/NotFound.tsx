@@ -14,10 +14,10 @@ export function NotFound() {
       <Section className="min-h-[60vh] flex items-center">
         <div className="text-center max-w-2xl mx-auto">
           <div className="mb-8">
-            <h1 className="text-8xl lg:text-9xl font-bold text-gray-200 dark:text-gray-800 mb-4">
+            <h1 className="text-8xl lg:text-9xl font-bold text-stone-200 dark:text-stone-800 mb-4">
               404
             </h1>
-            <h2 className="heading-2 text-gray-900 dark:text-white mb-4">
+            <h2 className="heading-2 text-stone-900 dark:text-white mb-4">
               Page Not Found
             </h2>
             <p className="prose text-lg">
@@ -33,7 +33,7 @@ export function NotFound() {
               <Home className="mr-2 h-5 w-5" />
               Go Home
             </Link>
-            
+
             <button
               onClick={() => window.history.back()}
               className="btn btn-secondary btn-lg group"
@@ -43,26 +43,26 @@ export function NotFound() {
             </button>
           </div>
 
-          <div className="mt-12 p-6 bg-gray-50 dark:bg-white/5 rounded-2xl">
-            <h3 className="heading-4 text-gray-900 dark:text-white mb-4">
+          <div className="mt-12 p-6 bg-stone-100 dark:bg-white/5 rounded-2xl">
+            <h3 className="heading-4 text-stone-900 dark:text-white mb-4">
               Looking for something specific?
             </h3>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 to="/projects"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-teal-600 dark:text-teal-400 hover:underline"
               >
                 View Projects
               </Link>
               <Link
                 to="/about"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-teal-600 dark:text-teal-400 hover:underline"
               >
                 About Me
               </Link>
               <Link
                 to="/contact"
-                className="text-blue-600 dark:text-blue-400 hover:underline"
+                className="text-teal-600 dark:text-teal-400 hover:underline"
               >
                 Contact
               </Link>
@@ -73,8 +73,3 @@ export function NotFound() {
     </>
   )
 }
-
-
-
-
-

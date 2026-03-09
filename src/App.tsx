@@ -16,9 +16,9 @@ function App() {
     <Router>
       <div className="hidden dark:block fixed inset-0 z-0" style={{ transform: 'translateZ(0)', willChange: 'transform', backfaceVisibility: 'hidden' }}>
         <Grainient
-          color1="#42354b"
-          color2="#342a5b"
-          color3="#343041"
+          color1="#1a3a3a"
+          color2="#0f2b3d"
+          color3="#1c2e2a"
           timeSpeed={1.25}
           colorBalance={0}
           warpStrength={1}
@@ -37,7 +37,7 @@ function App() {
           zoom={0.9}
         />
       </div>
-      <div className="relative z-10 min-h-screen flex flex-col bg-white dark:bg-transparent" style={{ transform: 'translateZ(0)' }}>
+      <div className="relative z-10 min-h-screen flex flex-col bg-stone-50 dark:bg-transparent">
         <SkipToContent />
         <Navbar />
         

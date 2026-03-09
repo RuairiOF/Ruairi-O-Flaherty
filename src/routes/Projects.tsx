@@ -9,9 +9,9 @@ import { debounce } from '../lib/utils'
 export function Projects() {
   const [searchTerm, setSearchTerm] = useState('')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
-  
+
   const projects = getAllProjects()
-  
+
   // Get all unique tags
   const allTags = useMemo(() => {
     const tags = new Set<string>()
@@ -36,24 +36,24 @@ export function Projects() {
     return projects.filter(project => {
       // Skip projects with placeholder data
       if (project.title.includes('[TODO')) return false
-      
+
       // Search filter
-      const matchesSearch = !searchTerm || 
+      const matchesSearch = !searchTerm ||
         project.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
-      
+
       // Tag filter
-      const matchesTags = selectedTags.length === 0 || 
+      const matchesTags = selectedTags.length === 0 ||
         selectedTags.some(tag => project.tags.includes(tag))
-      
+
       return matchesSearch && matchesTags
     })
   }, [projects, searchTerm, selectedTags])
 
   const toggleTag = (tag: string) => {
-    setSelectedTags(prev => 
-      prev.includes(tag) 
+    setSelectedTags(prev =>
+      prev.includes(tag)
         ? prev.filter(t => t !== tag)
         : [...prev, tag]
     )
@@ -81,11 +81,11 @@ export function Projects() {
           <div className="max-w-4xl mx-auto space-y-6">
             {/* Search */}
             <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-stone-400 h-5 w-5" />
               <input
                 type="text"
                 placeholder="Search projects..."
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-white/10 rounded-lg bg-white dark:bg-white/10 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-stone-300 dark:border-white/10 rounded-lg bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
                 onChange={(e) => debouncedSetSearchTerm(e.target.value)}
               />
             </div>
@@ -94,20 +94,20 @@ export function Projects() {
             {allTags.length > 0 && (
               <div>
                 <div className="flex items-center gap-2 mb-3">
-                  <Filter className="h-4 w-4 text-gray-600 dark:text-gray-400" />
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                  <Filter className="h-4 w-4 text-stone-500 dark:text-stone-400" />
+                  <span className="text-sm font-medium text-stone-700 dark:text-stone-300">
                     Filter by technology:
                   </span>
                   {selectedTags.length > 0 && (
                     <button
                       onClick={clearFilters}
-                      className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                      className="text-sm text-teal-600 dark:text-teal-400 hover:underline"
                     >
                       Clear all
                     </button>
                   )}
                 </div>
-                
+
                 <div className="flex flex-wrap gap-2">
                   {allTags.map(tag => (
                     <button
@@ -115,8 +115,8 @@ export function Projects() {
                       onClick={() => toggleTag(tag)}
                       className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
                         selectedTags.includes(tag)
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200 dark:bg-white/10 dark:text-gray-300 dark:hover:bg-white/20'
+                          ? 'bg-teal-600 text-white'
+                          : 'bg-stone-100 text-stone-700 hover:bg-stone-200 dark:bg-white/10 dark:text-stone-300 dark:hover:bg-white/20'
                       }`}
                     >
                       {tag}
@@ -130,7 +130,7 @@ export function Projects() {
 
         {/* Results */}
         <div className="mb-8">
-          <p className="text-gray-600 dark:text-gray-400 text-center">
+          <p className="text-stone-500 dark:text-stone-400 text-center">
             Showing {filteredProjects.length} of {projects.filter(p => !p.title.includes('[TODO')).length} projects
           </p>
         </div>
@@ -144,7 +144,7 @@ export function Projects() {
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-600 dark:text-gray-400 mb-4">
+            <p className="text-stone-500 dark:text-stone-400 mb-4">
               {projects.filter(p => !p.title.includes('[TODO')).length === 0
                 ? 'No projects available yet. Please attach your CV to populate this section.'
                 : 'No projects match your current filters.'
@@ -164,8 +164,3 @@ export function Projects() {
     </>
   )
 }
-
-
-
-
-

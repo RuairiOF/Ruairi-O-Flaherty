@@ -6,7 +6,7 @@ const skillBasePath = `${basePath}images/skills/`
 
 export const cvData: CVData = {
   person: {
-    name: "Ruairi O'Flaherty",
+    name: "Ruairí O'Flaherty",
     headline: 'Mechanical Engineering Student & Developer',
     location: 'Dublin, Ireland',
     email: 'ruairioflaherty1@gmail.com',
@@ -194,16 +194,22 @@ export const cvData: CVData = {
       },
       {
         title: '3D Modelling & Rendering',
-        description: 'I use Blender for renders and visualisation, and SolidWorks/Fusion 360 for anything that needs to actually be manufactured.',
+        description: 'I use Blender for renders and visualisation — product shots, concept art, and anything that needs to look good before it\'s built.',
         images: [
           `${skillBasePath}Blender/Screenshot 2026-03-07 134047.png`,
           `${skillBasePath}Blender/Screenshot 2026-03-07 134055.png`
         ],
-        tools: ['Blender', 'SolidWorks', 'Fusion 360', 'AutoCAD']
+        tools: ['Blender', 'AutoCAD']
+      },
+      {
+        title: 'SolidWorks & Fusion 360',
+        description: 'My go-to tools for anything that needs to actually be manufactured. I model parts, run simulations, and produce drawings for real-world fabrication.',
+        images: [`${skillBasePath}Fusion360/Fusion360.png`],
+        tools: ['SolidWorks', 'Fusion 360', 'CAD', 'FEA Simulation', 'Technical Drawing']
       },
       {
         title: 'Electronics & Prototyping',
-        description: 'From tearing apart e-bike motors to wiring up Arduinos, I like getting my hands dirty with hardware. Soldering iron is basically an extension of my arm at this point.',
+        description: "From overclocking e-bike motors to wiring up Arduinos, I like to mess around with hardware. I've built remote control drones, custom motor setups, and a local AI device on a Raspberry Pi.",
         images: [
           `${skillBasePath}Electronics and Soldering/EbikeMotorElectronics.jpeg`,
           `${skillBasePath}Electronics and Soldering/Ebike_Battery.jpeg`
@@ -212,7 +218,7 @@ export const cvData: CVData = {
       },
       {
         title: 'Site Engineering',
-        description: 'Spent a summer on construction sites doing surveying, safety compliance, and coordinating subcontractors. Gave me a whole new respect for project timelines.',
+        description: 'Spent a summer interning with Walls Construction on the UCD O’Connor Centre for Learning site, doing surveying, safety compliance, and coordinating subcontractors. It gave me a whole new respect for project timelines and how company hierarchy shapes day-to-day decisions.',
         images: [
           `${skillBasePath}Construction Site/Construction_Site.jpeg`,
           `${skillBasePath}Construction Site/Construction_Site1.jpeg`
@@ -221,20 +227,20 @@ export const cvData: CVData = {
       },
       {
         title: 'Software Development',
-        description: 'I build whatever my projects need: websites, mobile apps, automation scripts. Not a "software engineer" by trade, but I can ship real products.',
+        description: 'I develop and build whatever my projects need—from websites, mobile apps, and automation scripts to the code that powers my RC cars. My favourite example is EirPost, where the software actually runs a real, revenue-generating business.',
         images: [],
         tools: ['Python', 'TypeScript', 'JavaScript', 'C', 'C++', 'Java', 'React', 'Next.js', 'Flutter', 'React Native']
       },
       {
         title: 'Cloud & Deployment',
         description: 'All my projects run on real infrastructure. I handle the databases, hosting, and deployment so things actually stay online.',
-        images: [`${basePath}images/Other/Cloud.png`],
+        images: [`${skillBasePath}Other/Cloud.png`],
         tools: ['Supabase', 'PostgreSQL', 'MySQL', 'Vercel', 'Railway', 'Docker', 'AWS']
       },
       {
         title: 'AI & Automation',
         description: 'AI helps me stay on top of things across all my work. With EirPost for example, I\'ve set up a passive system that analyses data, finds leads, manages emails, and turns them into actionable tasks. It\'s become a big part of how I keep everything running without burning out.',
-        images: [`${basePath}images/Other/AI_LLM.png`],
+        images: [`${skillBasePath}Other/AI_LLM.png`],
         tools: ['ChatGPT', 'Claude', 'LLM APIs', 'Prompt Engineering', 'Workflow Automation'],
         imagePosition: '[object-position:center_30%]'
       }

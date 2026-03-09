@@ -30,7 +30,7 @@ export function Section({
         {(title || description) && (
           <div className={cn('mb-12 lg:mb-16', centered && 'text-center')}>
             {title && (
-              <h2 className="heading-2 mb-4 text-gray-900 dark:text-white">
+              <h2 className="heading-2 mb-4 text-stone-900 dark:text-white">
                 {title}
               </h2>
             )}

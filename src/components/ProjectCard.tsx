@@ -19,12 +19,12 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
               <img
                 src={project.image}
                 alt={`${project.title} logo`}
-                className="h-8 w-8 object-contain rounded-md bg-white dark:bg-white/10 border border-gray-200/60 dark:border-white/10"
+                className="h-8 w-8 object-contain rounded-md bg-white dark:bg-white/10 border border-stone-200/60 dark:border-white/10"
                 loading="lazy"
                 decoding="async"
               />
             )}
-            <h3 className="heading-4 text-gray-900 dark:text-white">
+            <h3 className="heading-4 text-stone-900 dark:text-white">
               {project.title}
             </h3>
           </div>
@@ -35,7 +35,7 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
                   href={project.repoUrl}
                   target={isExternalUrl(project.repoUrl) ? '_blank' : undefined}
                   rel={isExternalUrl(project.repoUrl) ? 'noopener noreferrer' : undefined}
-                  className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                  className="text-stone-500 hover:text-teal-600 dark:text-stone-400 dark:hover:text-teal-400 transition-colors"
                   aria-label="View source code"
                 >
                   <Github className="h-5 w-5" />
@@ -46,7 +46,7 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
                   href={project.liveUrl}
                   target={isExternalUrl(project.liveUrl) ? '_blank' : undefined}
                   rel={isExternalUrl(project.liveUrl) ? 'noopener noreferrer' : undefined}
-                  className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                  className="text-stone-500 hover:text-teal-600 dark:text-stone-400 dark:hover:text-teal-400 transition-colors"
                   aria-label="View live demo"
                 >
                   <ExternalLink className="h-5 w-5" />
@@ -55,17 +55,17 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
             </div>
           )}
         </div>
-        
+
         <p className="prose mb-4">
           {project.description}
         </p>
-        
+
         {project.tags.length > 0 && !project.tags[0].includes('[TODO') && (
           <div className="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 text-blue-800 dark:bg-blue-500/15 dark:text-blue-300"
+                className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-teal-100 text-teal-800 dark:bg-teal-500/15 dark:text-teal-300"
               >
                 {tag}
               </span>
@@ -76,4 +76,3 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
     </div>
   )
 }
-
