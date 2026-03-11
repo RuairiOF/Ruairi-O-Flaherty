@@ -100,25 +100,44 @@ export function Home() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start gap-3 pt-3">
+            <div className="flex w-full flex-col sm:w-auto sm:flex-row items-stretch sm:items-start gap-3 pt-3">
               <StarBorder
                 as={Link}
                 to="/projects"
                 color="#14b8a6"
                 speed="5s"
                 size="lg"
-                className="group w-full sm:w-auto"
+                className="group w-full sm:w-auto shadow-lg shadow-teal-900/25
+                  [&_.inner-content]:w-full
+                  [&_.inner-content]:min-h-[3.25rem]
+                  [&_.inner-content]:justify-between
+                  [&_.inner-content]:px-5
+                  [&_.inner-content]:text-base
+                  [&_.inner-content]:font-semibold
+                  sm:[&_.inner-content]:text-lg"
               >
                 View My Work
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </StarBorder>
 
               <Link
                 to="/contact"
-                className="btn btn-lg !bg-white/10 !text-white !border-white/20 hover:!bg-white/20 !rounded-full group backdrop-blur-sm w-full sm:w-auto"
+                className="btn btn-lg !rounded-full group backdrop-blur-sm
+                  w-full sm:w-auto
+                  min-h-[3.25rem]
+                  justify-between
+                  px-5
+                  text-base sm:text-lg
+                  font-semibold
+                  border border-white/25
+                  !bg-white/15
+                  !text-white
+                  hover:!bg-white/25
+                  active:scale-[0.99]
+                  shadow-lg shadow-black/20"
               >
                 Get In Touch
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
           </div>

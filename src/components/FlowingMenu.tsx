@@ -66,13 +66,21 @@ const MenuItem: React.FC<MenuItemProps> = ({
   borderColor,
   isFirst
 }) => {
+  const MIN_REPETITIONS = 4;
+  const MAX_REPETITIONS = 40;
+
   const itemRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<HTMLDivElement>(null);
   const marqueeInnerRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<gsap.core.Tween | null>(null);
-  const [repetitions, setRepetitions] = useState(4);
+  const [repetitions, setRepetitions] = useState(MIN_REPETITIONS);
 
   const animationDefaults = { duration: 0.6, ease: 'expo' };
+
+  const toSafeRepetitionCount = (value: number) => {
+    if (!Number.isFinite(value) || value < MIN_REPETITIONS) return MIN_REPETITIONS;
+    return Math.min(MAX_REPETITIONS, Math.floor(value));
+  };
 
   const findClosestEdge = (mouseX: number, mouseY: number, width: number, height: number): 'top' | 'bottom' => {
     const topEdgeDist = Math.pow(mouseX - width / 2, 2) + Math.pow(mouseY, 2);
@@ -86,15 +94,25 @@ const MenuItem: React.FC<MenuItemProps> = ({
       const marqueeContent = marqueeInnerRef.current.querySelector('.marquee-part') as HTMLElement;
       if (!marqueeContent) return;
       const contentWidth = marqueeContent.offsetWidth;
+      if (!Number.isFinite(contentWidth) || contentWidth <= 0) {
+        setRepetitions(MIN_REPETITIONS);
+        return;
+      }
       const viewportWidth = window.innerWidth;
+      if (!Number.isFinite(viewportWidth) || viewportWidth <= 0) {
+        setRepetitions(MIN_REPETITIONS);
+        return;
+      }
       const needed = Math.ceil(viewportWidth / contentWidth) + 2;
-      setRepetitions(Math.max(4, needed));
+      setRepetitions(toSafeRepetitionCount(needed));
     };
 
     calculateRepetitions();
     window.addEventListener('resize', calculateRepetitions);
     return () => window.removeEventListener('resize', calculateRepetitions);
   }, [text, image]);
+
+  const safeRepetitions = toSafeRepetitionCount(repetitions);
 
   useEffect(() => {
     const setupMarquee = () => {
@@ -169,7 +187,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
         style={{ backgroundColor: marqueeBgColor }}
       >
         <div className="h-full w-fit flex" ref={marqueeInnerRef}>
-          {[...Array(repetitions)].map((_, idx) => (
+          {Array.from({ length: safeRepetitions }).map((_, idx) => (
             <div className="marquee-part flex items-center flex-shrink-0" key={idx} style={{ color: marqueeTextColor }}>
               <span className="whitespace-nowrap uppercase font-normal text-[4vh] leading-[1] px-[1vw]">{text}</span>
               <div
