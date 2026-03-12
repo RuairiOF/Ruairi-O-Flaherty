@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
+import { Link as RouterLink } from 'react-router-dom';
 
 interface MenuItemData {
   link: string;
@@ -76,6 +77,7 @@ const MenuItem: React.FC<MenuItemProps> = ({
   const [repetitions, setRepetitions] = useState(MIN_REPETITIONS);
 
   const animationDefaults = { duration: 0.6, ease: 'expo' };
+  const isInternalLink = link.startsWith('/') && !link.startsWith('//');
 
   const toSafeRepetitionCount = (value: number) => {
     if (!Number.isFinite(value) || value < MIN_REPETITIONS) return MIN_REPETITIONS;
@@ -172,15 +174,27 @@ const MenuItem: React.FC<MenuItemProps> = ({
       ref={itemRef}
       style={{ borderTop: isFirst ? 'none' : `1px solid ${borderColor}` }}
     >
-      <a
-        className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-[4vh]"
-        href={link}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        style={{ color: textColor }}
-      >
-        {text}
-      </a>
+      {isInternalLink ? (
+        <RouterLink
+          className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-[4vh]"
+          to={link}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{ color: textColor }}
+        >
+          {text}
+        </RouterLink>
+      ) : (
+        <a
+          className="flex items-center justify-center h-full relative cursor-pointer uppercase no-underline font-semibold text-[4vh]"
+          href={link}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          style={{ color: textColor }}
+        >
+          {text}
+        </a>
+      )}
       <div
         className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none translate-y-[101%]"
         ref={marqueeRef}
