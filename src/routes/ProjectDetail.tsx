@@ -4,6 +4,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight, ExternalLink, Github, Globe } fro
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { getAllProjects, siteConfig } from '../content/cv'
+import { getProjectSeoPage, getStaticSeoPage } from '../content/seo-pages'
 import { isExternalUrl } from '../lib/utils'
 
 interface ProjectImageViewerProps {
@@ -29,7 +30,7 @@ function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
           key={i}
           src={img}
           alt={`${title} ${i + 1}`}
-          className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
+          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
             i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
           loading="lazy"
@@ -74,13 +75,16 @@ function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
 export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
   const project = getAllProjects().find((item) => item.slug === slug && !item.title.includes('[TODO'))
+  const missingProjectSeo = getStaticSeoPage('/404')
 
   if (!project) {
     return (
       <>
         <SEO
-          title="Project Not Found"
+          title={missingProjectSeo?.title || 'Project Not Found'}
           description="The requested project could not be found."
+          noindex
+          nofollow
         />
         <Section className="pt-8 lg:pt-16">
           <div className="max-w-3xl mx-auto text-center rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-white/5 p-8">
@@ -124,13 +128,19 @@ export function ProjectDetail() {
   })
 
   const description = project.longDescription || project.description
+  const seo = getProjectSeoPage(project.slug)
 
   return (
     <>
       <SEO
-        title={project.title}
-        description={description}
-        url={`${siteConfig.url}/projects/${project.slug}`}
+        title={seo?.title || project.title}
+        description={seo?.description || description}
+        keywords={seo?.keywords}
+        image={seo?.image || project.image}
+        imageAlt={seo?.imageAlt || `${project.title} project image`}
+        url={seo?.path || `${siteConfig.url}/projects/${project.slug}`}
+        type={seo?.type || 'article'}
+        structuredData={seo?.structuredData}
       />
 
       <Section className="pt-8 lg:pt-16">
@@ -151,6 +161,8 @@ export function ProjectDetail() {
                     src={project.image}
                     alt={`${project.title} logo`}
                     className="h-14 w-14 object-contain rounded-xl bg-white dark:bg-white/10 border border-stone-200/60 dark:border-white/10 p-1"
+                    loading="eager"
+                    decoding="async"
                   />
                 )}
                 <div>

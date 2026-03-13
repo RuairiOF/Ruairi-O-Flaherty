@@ -1,9 +1,28 @@
-import { useState } from 'react'
+import { useMemo, useState } from 'react'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { cvData } from '../content/cv'
+import { getStaticSeoPage } from '../content/seo-pages'
 import type { SkillShowcase } from '../types'
+
+const basePath = import.meta.env.BASE_URL || '/'
+const skillImageFallbacks: Record<string, string> = {
+  'Business & Logistics': `${basePath}images/photos/radios.jpeg`,
+  'Software Development': `${basePath}images/photos/MeOnALaptop.JPG`,
+}
+
+function withFallbackImage(showcase: SkillShowcase): SkillShowcase {
+  if (showcase.images.length > 0) return showcase
+
+  const fallbackImage = skillImageFallbacks[showcase.title]
+  if (!fallbackImage) return showcase
+
+  return {
+    ...showcase,
+    images: [fallbackImage],
+  }
+}
 
 function ImageViewer({ images, title }: { images: string[]; title: string }) {
   const [active, setActive] = useState(0)
@@ -17,7 +36,7 @@ function ImageViewer({ images, title }: { images: string[]; title: string }) {
           key={i}
           src={img}
           alt={`${title} ${i + 1}`}
-          className={`absolute inset-0 w-full h-full object-contain rounded-2xl transition-opacity duration-500 ${
+          className={`absolute inset-0 w-full h-full object-cover rounded-2xl transition-opacity duration-500 ${
             i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
           loading="lazy"
@@ -148,22 +167,34 @@ function SkillCard({ showcase, onClick }: { showcase: SkillShowcase; onClick: ()
 
 export function Skills() {
   const [selected, setSelected] = useState<SkillShowcase | null>(null)
+  const seo = getStaticSeoPage('/skills')
+  const showcases = useMemo(
+    () => cvData.skills.showcases.map(withFallbackImage),
+    []
+  )
 
   return (
     <>
       <SEO
-        title="Skills"
-        description={`Skills and expertise of ${cvData.person.name}`}
+        title={seo?.title}
+        description={seo?.description}
+        keywords={seo?.keywords}
+        image={seo?.image}
+        imageAlt={seo?.imageAlt}
+        url={seo?.path}
+        type={seo?.type}
+        structuredData={seo?.structuredData}
       />
 
       <Section
         title="What I Work With"
         description="The tools and skills I actually use day-to-day across my projects and businesses."
         centered
+        titleAs="h1"
       >
         <div className="max-w-5xl mx-auto">
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {cvData.skills.showcases.map((showcase) => (
+            {showcases.map((showcase) => (
               <SkillCard
                 key={showcase.title}
                 showcase={showcase}
