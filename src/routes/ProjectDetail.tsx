@@ -10,9 +10,10 @@ import { isExternalUrl } from '../lib/utils'
 interface ProjectImageViewerProps {
   images: string[]
   title: string
+  imagePosition?: string
 }
 
-function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
+function ProjectImageViewer({ images, title, imagePosition }: ProjectImageViewerProps) {
   const [active, setActive] = useState(0)
 
   if (images.length === 0) {
@@ -30,7 +31,7 @@ function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
           key={i}
           src={img}
           alt={`${title} ${i + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+          className={`absolute inset-0 w-full h-full object-cover ${imagePosition ?? 'object-center'} transition-opacity duration-500 ${
             i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
           }`}
           loading="lazy"
@@ -112,6 +113,7 @@ export function ProjectDetail() {
 
   const rawLinks = [
     { key: 'live', label: 'Live Project', url: project.liveUrl, icon: ExternalLink },
+    { key: 'patch', label: 'Patch', url: project.links?.patch, icon: ExternalLink },
     { key: 'repo', label: 'Source Code', url: project.repoUrl, icon: Github },
     { key: 'website', label: 'Website', url: project.links?.website, icon: Globe },
     { key: 'github', label: 'GitHub', url: project.links?.github, icon: Github },
@@ -185,7 +187,7 @@ export function ProjectDetail() {
                         href={item.url}
                         target={isExternalUrl(item.url || '') ? '_blank' : undefined}
                         rel={isExternalUrl(item.url || '') ? 'noopener noreferrer' : undefined}
-                        className="inline-flex items-center px-3 py-2 rounded-full text-sm font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 dark:bg-white/10 dark:text-stone-300 dark:hover:bg-white/20 transition-colors"
+                        className="inline-flex items-center whitespace-nowrap px-3 py-2 rounded-full text-sm font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 dark:bg-white/10 dark:text-stone-300 dark:hover:bg-white/20 transition-colors"
                       >
                         <Icon className="h-4 w-4 mr-2" />
                         {item.label}
@@ -231,7 +233,7 @@ export function ProjectDetail() {
 
           <div className="rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-white/5 p-6 lg:p-8">
             <h2 className="heading-4 text-stone-900 dark:text-white mb-4">Project Gallery</h2>
-            <ProjectImageViewer images={galleryImages} title={project.title} />
+            <ProjectImageViewer images={galleryImages} title={project.title} imagePosition={project.imagePosition} />
           </div>
         </div>
       </Section>

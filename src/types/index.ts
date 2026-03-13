@@ -46,11 +46,13 @@ export interface Project {
   repoUrl?: string
   liveUrl?: string
   image?: string
+  imagePosition?: string
   featured?: boolean
   priority?: number
   links?: {
     website?: string
     github?: string
+    patch?: string
     tiktok?: string
     linkedin?: string
   }

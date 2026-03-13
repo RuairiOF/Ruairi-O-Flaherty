@@ -12,6 +12,11 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
   const projectPath = `/projects/${project.slug}`
   const galleryImages = (project.gallery || []).filter((image) => image && !image.includes('[TODO'))
   const thumbnail = galleryImages.find((image) => image !== project.image) || galleryImages[0] || project.image
+  const hasLogoImage = Boolean(
+    project.image &&
+    !project.image.includes('[TODO') &&
+    (/\/images\/logos\//i.test(project.image) || /logo/i.test(project.image))
+  )
 
   const handleCardClick = (event: MouseEvent<HTMLDivElement>) => {
     const target = event.target as HTMLElement
@@ -37,7 +42,18 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
     >
       <div className="flex h-full flex-col p-6">
         <div className="mb-4">
-          <h3 className="heading-4 text-stone-900 dark:text-white">{project.title}</h3>
+          <div className="flex items-center gap-3">
+            {hasLogoImage && (
+              <img
+                src={project.image}
+                alt={`${project.title} logo`}
+                className="h-8 w-8 flex-shrink-0 rounded-md border border-stone-200/60 bg-white object-contain dark:border-white/10 dark:bg-white/10"
+                loading="lazy"
+                decoding="async"
+              />
+            )}
+            <h3 className="heading-4 text-stone-900 dark:text-white">{project.title}</h3>
+          </div>
           <p className="mt-1 truncate text-sm text-stone-600 dark:text-stone-300">
             {project.description}
           </p>
@@ -48,7 +64,7 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
             <img
               src={thumbnail}
               alt={`${project.title} thumbnail`}
-              className="h-48 w-full object-cover object-center"
+              className={`h-48 w-full object-cover ${project.imagePosition ?? 'object-center'}`}
               loading="lazy"
               decoding="async"
             />

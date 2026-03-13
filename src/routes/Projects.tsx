@@ -1,5 +1,5 @@
 import { useState, useMemo } from 'react'
-import { Search, Filter } from 'lucide-react'
+import { Search } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { ProjectCard } from '../components/ProjectCard'
@@ -9,23 +9,9 @@ import { debounce } from '../lib/utils'
 
 export function Projects() {
   const [searchTerm, setSearchTerm] = useState('')
-  const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const projects = getAllProjects()
   const seo = getStaticSeoPage('/projects')
-
-  // Get all unique tags
-  const allTags = useMemo(() => {
-    const tags = new Set<string>()
-    projects.forEach(project => {
-      project.tags.forEach(tag => {
-        if (!tag.includes('[TODO')) {
-          tags.add(tag)
-        }
-      })
-    })
-    return Array.from(tags).sort()
-  }, [projects])
 
   // Debounced search
   const debouncedSetSearchTerm = useMemo(
@@ -45,26 +31,9 @@ export function Projects() {
         project.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
         project.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
 
-      // Tag filter
-      const matchesTags = selectedTags.length === 0 ||
-        selectedTags.some(tag => project.tags.includes(tag))
-
-      return matchesSearch && matchesTags
+      return matchesSearch
     })
-  }, [projects, searchTerm, selectedTags])
-
-  const toggleTag = (tag: string) => {
-    setSelectedTags(prev =>
-      prev.includes(tag)
-        ? prev.filter(t => t !== tag)
-        : [...prev, tag]
-    )
-  }
-
-  const clearFilters = () => {
-    setSearchTerm('')
-    setSelectedTags([])
-  }
+  }, [projects, searchTerm])
 
   return (
     <>
@@ -98,42 +67,6 @@ export function Projects() {
                 onChange={(e) => debouncedSetSearchTerm(e.target.value)}
               />
             </div>
-
-            {/* Tag filters */}
-            {allTags.length > 0 && (
-              <div>
-                <div className="flex items-center gap-2 mb-3">
-                  <Filter className="h-4 w-4 text-stone-500 dark:text-stone-400" />
-                  <span className="text-sm font-medium text-stone-700 dark:text-stone-300">
-                    Filter by technology:
-                  </span>
-                  {selectedTags.length > 0 && (
-                    <button
-                      onClick={clearFilters}
-                      className="text-sm text-teal-600 dark:text-teal-400 hover:underline"
-                    >
-                      Clear all
-                    </button>
-                  )}
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {allTags.map(tag => (
-                    <button
-                      key={tag}
-                      onClick={() => toggleTag(tag)}
-                      className={`px-3 py-1.5 rounded-full text-sm font-medium transition-colors ${
-                        selectedTags.includes(tag)
-                          ? 'bg-teal-600 text-white'
-                          : 'bg-stone-100 text-stone-700 hover:bg-stone-200 dark:bg-white/10 dark:text-stone-300 dark:hover:bg-white/20'
-                      }`}
-                    >
-                      {tag}
-                    </button>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </div>
 
@@ -156,17 +89,9 @@ export function Projects() {
             <p className="text-stone-500 dark:text-stone-400 mb-4">
               {projects.filter(p => !p.title.includes('[TODO')).length === 0
                 ? 'No projects available yet. Please attach your CV to populate this section.'
-                : 'No projects match your current filters.'
+                : 'No projects match your search.'
               }
             </p>
-            {(searchTerm || selectedTags.length > 0) && (
-              <button
-                onClick={clearFilters}
-                className="btn btn-primary btn-md"
-              >
-                Clear Filters
-              </button>
-            )}
           </div>
         )}
       </Section>

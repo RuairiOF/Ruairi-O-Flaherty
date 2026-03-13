@@ -117,10 +117,11 @@ Today EirPost supports hundreds of SME customers across Ireland. The result is a
         'Runs day-to-day operations including support, exception handling, and margin tracking',
       ],
       gallery: [
-        `${logoBasePath}EirpostLogoPNG.png`,
+        `${photoBasePath}EirPost/small_business (1).png`,
       ],
       tags: ['Logistics', 'Web Development', 'Business Development', 'Financial Management'],
       image: `${logoBasePath}EirpostLogoPNG.png`,
+      imagePosition: 'object-left-top',
       liveUrl: 'https://eirpost.ie',
       featured: true,
       priority: 1
@@ -164,7 +165,7 @@ The project is currently in launch preparation. We have validated multiple proto
     },
     {
       slug: 'rofs-3d',
-      title: "ROF's 3D - 3D Printing Business",
+      title: "ROF's 3D",
       description: "Built ROF's 3D from a side project into a real manufacturing e-commerce business. Scaled to 1,000+ sales and EUR50k+ revenue with an 8-printer farm, a 4.8/5 rating, and strong social-driven demand.",
       longDescription: `ROF's 3D started as a hobby and became a full production and commerce operation. I built the workflow from design to delivery: CAD modeling, print setup, batch scheduling across an 8-printer farm, quality control, packing, and fulfilment.
 
@@ -200,7 +201,7 @@ The business reached 1,000+ sales, EUR50k+ revenue, and a 4.8/5 customer rating.
     },
     {
       slug: 'cashew',
-      title: 'Cashew - Startup Product',
+      title: "Cashew - Patch '25",
       description: 'Cashew was built during the Patch accelerator at Dogpatch Labs, taking an idea from discovery to demo in one program cycle. I worked across user research, scope, sprint execution, and investor-facing storytelling.',
       longDescription: `Cashew was developed during the Patch accelerator at Dogpatch Labs, where speed and clarity mattered more than perfect polish. The team had to move from early problem framing to a demo-ready product within a fixed program timeline.
 
@@ -221,6 +222,9 @@ This project was strong training in constrained startup delivery: build quickly,
       tags: ['Product Development', 'User Testing', 'Startup', 'Product Management'],
       image: `${logoBasePath}CashewLogo.png`,
       liveUrl: 'https://cashew.ie',
+      links: {
+        patch: 'https://www.joinpatch.org/'
+      },
       featured: true,
       priority: 4
     },
