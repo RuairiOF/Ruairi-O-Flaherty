@@ -1,6 +1,6 @@
 import type { CVData } from '../types'
 
-const basePath = import.meta.env.BASE_URL || '/'
+const basePath = import.meta.env?.BASE_URL || '/'
 const logoBasePath = `${basePath}images/logos/`
 const skillBasePath = `${basePath}images/skills/`
 const photoBasePath = `${basePath}images/photos/`
@@ -103,12 +103,18 @@ export const cvData: CVData = {
     {
       slug: 'eirpost',
       title: 'EirPost',
-      description: 'A logistics + shipping service for SMEs in Ireland serving hundreds of SME customers, cutting shipping costs by up to 40%. Designed pricing models, managed customer onboarding, and oversaw financial reconciliation.',
-      longDescription: 'EirPost is the logistics operation I founded and run for SMEs across Ireland. I built and iterated the pricing model, handled onboarding, and put operational systems in place so customers can ship reliably without enterprise-scale overhead. It now supports hundreds of customers and is still being improved week by week.',
+      description: 'I founded EirPost to give Irish SMEs instant discounted shipping labels and simpler logistics workflows. It supports Etsy and Shopify sellers across Ireland and helps customers cut international shipping costs by up to 40%.',
+      longDescription: `EirPost started as an operations project to solve a clear problem: small Irish businesses were paying high shipping rates and losing time to manual admin around labels, billing, and support exceptions.
+
+I built the model end to end, including pricing logic, customer onboarding, and the internal workflows that keep shipping reliable every day. That includes rate iteration, margin monitoring, billing and reconciliation checks, and customer support processes for issues like delayed parcels or incorrect label data.
+
+Today EirPost supports hundreds of SME customers across Ireland. The result is a simpler workflow for merchants and measurable savings, with many customers reducing international shipping costs by up to 40%.`,
       highlights: [
-        'Serving hundreds of SME customers across Ireland',
-        'Reduced shipping costs for customers by up to 40%',
-        'Built and managed pricing, onboarding, and reconciliation workflows',
+        'Supports hundreds of SME customers across Ireland',
+        'Helps Etsy, Shopify, and other e-commerce sellers buy discounted labels instantly',
+        'Reduced international shipping costs by up to 40% for customers',
+        'Built and iterated pricing, onboarding, and reconciliation workflows',
+        'Runs day-to-day operations including support, exception handling, and margin tracking',
       ],
       gallery: [
         `${logoBasePath}EirpostLogoPNG.png`,
@@ -122,12 +128,18 @@ export const cvData: CVData = {
     {
       slug: 'laserlane',
       title: 'LaserLane',
-      description: 'Co-running LaserLane, a bike safety tech startup. Building hardware and software solutions for cyclists while handling operations, product development, and growth. Getting ready for our crowdfunding launch.',
-      longDescription: 'LaserLane is a bike safety startup I co-run. We are developing hardware and software that make cyclists more visible and safer on the road, while also building the business side of it at the same time. Day to day that means prototyping, testing, operations, and preparing for launch.',
+      description: 'Co-founding LaserLane, a bike safety startup developing green-laser visibility hardware for cyclists. I work across prototyping, on-road testing, and launch operations while we prepare for crowdfunding.',
+      longDescription: `LaserLane is focused on one core problem: cyclists are often seen too late by drivers. The product direction is a visibility system that uses projected green laser guidance to make a rider's road position clearer before close passing becomes dangerous.
+
+My role spans both build and business. On the product side, I work on hardware prototyping, mounting and durability iterations, and real-world road testing on bikes. On the business side, I handle early operations, launch planning, and communication work needed to move from prototype to public release.
+
+The project is currently in launch preparation. We have validated multiple prototype iterations, built marketing and demo assets, and are preparing the crowdfunding rollout.`,
       highlights: [
-        'Designed and tested bike-mounted safety prototypes',
-        'Combining hardware, software, and operations in one product',
-        'Preparing for crowdfunding launch',
+        'Developing green-laser bike-lane projection technology to improve cyclist visibility',
+        'Designed and tested multiple bike-mounted hardware prototypes',
+        'Ran field tests on-road to iterate mounting, visibility, and rider usability',
+        'Built launch assets including landing page, visuals, and product demonstrations',
+        'Preparing crowdfunding campaign and early fulfilment and operations plan',
       ],
       gallery: [
         `${photoBasePath}LaserLane/LaserLaneLanding1.png`,
@@ -153,13 +165,18 @@ export const cvData: CVData = {
     {
       slug: 'rofs-3d',
       title: "ROF's 3D - 3D Printing Business",
-      description: 'Established and scaled a 3D printing venture to 1,000+ sales, €50k+ revenue, and 4.8/5 rating. Operated an 8-printer farm using CAD to design and produce sustainable, market-driven products. Built an online following of 25k+ followers and 10M+ views.',
-      longDescription: 'ROF\'s 3D started as a side project and turned into a full e-commerce operation. I ran production, designed products, fulfilled orders, and handled content and marketing. Running the business taught me how to combine product design, manufacturing, customer service, and growth into one repeatable system.',
+      description: "Built ROF's 3D from a side project into a real manufacturing e-commerce business. Scaled to 1,000+ sales and EUR50k+ revenue with an 8-printer farm, a 4.8/5 rating, and strong social-driven demand.",
+      longDescription: `ROF's 3D started as a hobby and became a full production and commerce operation. I built the workflow from design to delivery: CAD modeling, print setup, batch scheduling across an 8-printer farm, quality control, packing, and fulfilment.
+
+Beyond production, I handled the commercial side as well. I tested products with real demand, ran storefront operations, managed customer service, and used short-form content as the main acquisition channel. That created a feedback loop between what customers requested, what sold, and what got manufactured next.
+
+The business reached 1,000+ sales, EUR50k+ revenue, and a 4.8/5 customer rating. On TikTok the brand grew to roughly 28.5k followers and 1.3M likes, making content a major driver of repeat demand.`,
       highlights: [
-        '1,000+ total sales',
-        '€50k+ in revenue',
-        '4.8/5 customer rating',
-        '25k+ followers and 10M+ social views',
+        'Scaled to 1,000+ fulfilled orders and EUR50k+ revenue',
+        'Maintained a 4.8/5 customer rating through consistent QA and support',
+        'Operated an 8-printer production setup with repeatable manufacturing workflows',
+        'Designed products in CAD and iterated based on customer demand signals',
+        'Grew social distribution to roughly 28.5k followers and 1.3M likes on TikTok',
       ],
       gallery: [
         `${photoBasePath}Printing/SprunkeColaMain.jpg`,
@@ -184,12 +201,18 @@ export const cvData: CVData = {
     {
       slug: 'cashew',
       title: 'Cashew - Startup Product',
-      description: 'Demo-ready startup product developed during the Patch accelerator program at DogPatch Labs. Collaborated with peers and mentors, conducted user testing, managed product backlog, and pitched to investors.',
-      longDescription: 'Cashew was built during the Patch accelerator at DogPatch Labs. I worked with teammates and mentors to move quickly from idea to demo-ready product. We ran user testing, managed product decisions, and presented outcomes to mentors and investors.',
+      description: 'Cashew was built during the Patch accelerator at Dogpatch Labs, taking an idea from discovery to demo in one program cycle. I worked across user research, scope, sprint execution, and investor-facing storytelling.',
+      longDescription: `Cashew was developed during the Patch accelerator at Dogpatch Labs, where speed and clarity mattered more than perfect polish. The team had to move from early problem framing to a demo-ready product within a fixed program timeline.
+
+I worked across product and execution: running user interviews and testing sessions, translating feedback into backlog priorities, and helping make scope decisions that kept each sprint shippable. We focused on validating the core user flow first, then tightening UX and narrative for demo day.
+
+This project was strong training in constrained startup delivery: build quickly, test with real users, cut non-essential scope, and communicate traction clearly to mentors and potential investors.`,
       highlights: [
-        'Built during Patch accelerator at DogPatch Labs',
-        'Shipped a demo-ready product under tight timelines',
-        'Ran user testing and pitched to mentors and investors',
+        'Built and shipped during the Patch accelerator at Dogpatch Labs',
+        'Moved from concept to demo-ready product inside a single program cycle',
+        'Ran user research and usability testing to guide backlog priorities',
+        'Managed scope and sprint planning under tight deadlines',
+        'Presented the product and learning outcomes to mentors and investors',
       ],
       gallery: [
         `${logoBasePath}CashewLogo.png`,
@@ -231,12 +254,19 @@ The long-term aim is to make this feel like a quiet bedside device rather than a
     {
       slug: 'nukacolaradio',
       title: 'Nukacola Radio',
-      description: 'E-commerce business sourcing retro and vintage-style radios from Chinese manufacturers and reselling them. Handles product sourcing, quality control, import logistics, and customer fulfilment.',
-      longDescription: 'Nukacola Radio is an e-commerce project focused on retro-style radios. I handled supplier communication, sourcing decisions, quality checks, import logistics, and fulfilment. It has been a practical way to learn operations from first contact with a manufacturer all the way to customer delivery.',
+      description: 'Nukacola Radio is a direct-to-consumer product brand for hand-finished retro game-inspired Bluetooth radios. I handle sourcing, QA, import logistics, fulfilment, and product positioning.',
+      longDescription: `Nukacola Radio started as a product and brand experiment: take a generic hardware platform and turn it into a differentiated collectible with real utility. The result is a retro game-inspired radio that looks like a prop but works as an everyday device with Bluetooth, AM/FM/SW tuning, and rechargeable battery power.
+
+I handled the full supply chain path from overseas sourcing to customer delivery. That included supplier communication, sample review, quality-control checks, import logistics, fulfilment setup, and customer support. I also shaped the storefront and product narrative so the item was sold as both a functional speaker and a collectible piece.
+
+The offer includes standard and bundled editions, positioned as a limited production run. Public product data currently shows a 4.8 rating across 127 reviews, reflecting the focus on product quality and post-purchase support.`,
       highlights: [
-        'Sourced products directly from overseas manufacturers',
-        'Managed quality control and import logistics',
-        'Handled fulfilment and customer-facing operations',
+        'Built a niche DTC electronics brand around retro game-inspired radios',
+        'Managed supplier sourcing, QC checks, and import logistics end to end',
+        'Specified core features including Bluetooth, AM/FM/SW tuner, and rechargeable battery',
+        'Set up fulfilment and customer-support operations for online orders',
+        'Launched standard and bundle variants with product-led pricing',
+        'Current public rating: 4.8/5 across 127 reviews',
       ],
       gallery: [
         `${photoBasePath}NukaColaRadio/1.png`,
@@ -364,6 +394,7 @@ export const siteConfig = {
   description: `Mechanical Engineering Student & Entrepreneur - Portfolio and projects by ${cvData.person.name}`,
   url: 'https://www.ruairioflaherty.ie',
   author: cvData.person.name,
+  twitterHandle: undefined as string | undefined,
   keywords: [
     'portfolio',
     'mechanical engineering',
@@ -388,5 +419,5 @@ export const getFeaturedProjects = () => {
 
 // Helper function to get all projects sorted by priority
 export const getAllProjects = () => {
-  return cvData.projects.sort((a, b) => (a.priority || 999) - (b.priority || 999))
+  return [...cvData.projects].sort((a, b) => (a.priority || 999) - (b.priority || 999))
 }

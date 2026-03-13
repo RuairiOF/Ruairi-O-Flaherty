@@ -33,6 +33,11 @@ npm run build
 npm run preview
 ```
 
+`npm run build` now also:
+- prerenders SEO-aware HTML files for each top-level route and each project detail route
+- generates `dist/sitemap.xml` from live project/content data
+- generates `dist/robots.txt` from the canonical site domain
+
 ## Where Content Lives
 
 Most site content is managed in:

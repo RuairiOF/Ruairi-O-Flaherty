@@ -3,9 +3,11 @@ import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucid
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { cvData } from '../content/cv'
+import { getStaticSeoPage } from '../content/seo-pages'
 import { isExternalUrl } from '../lib/utils'
 
 export function Contact() {
+  const seo = getStaticSeoPage('/contact')
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -80,14 +82,21 @@ export function Contact() {
   return (
     <>
       <SEO
-        title="Contact"
-        description={`Get in touch with ${cvData.person.name}`}
+        title={seo?.title}
+        description={seo?.description}
+        keywords={seo?.keywords}
+        image={seo?.image}
+        imageAlt={seo?.imageAlt}
+        url={seo?.path}
+        type={seo?.type}
+        structuredData={seo?.structuredData}
       />
 
       <Section
         title="Get In Touch"
         description="I'd love to hear from you. Send me a message and I'll respond as soon as possible."
         centered
+        titleAs="h1"
       >
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12">

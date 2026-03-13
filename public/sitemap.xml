@@ -1,27 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://ruairi-o-flaherty.github.io/</loc>
-    <lastmod>2024-09-27</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.ruairioflaherty.ie/</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://ruairi-o-flaherty.github.io/projects</loc>
-    <lastmod>2024-09-27</lastmod>
+    <loc>https://www.ruairioflaherty.ie/projects</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/experience</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://ruairi-o-flaherty.github.io/about</loc>
-    <lastmod>2024-09-27</lastmod>
+    <loc>https://www.ruairioflaherty.ie/skills</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/photos</loc>
+    <lastmod>2026-03-13</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://ruairi-o-flaherty.github.io/contact</loc>
-    <lastmod>2024-09-27</lastmod>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://www.ruairioflaherty.ie/contact</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/projects/eirpost</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/projects/laserlane</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/projects/rofs-3d</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/projects/cashew</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/projects/sleeptracket100</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://www.ruairioflaherty.ie/projects/nukacolaradio</loc>
+    <lastmod>2026-03-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
   </url>
 </urlset>

@@ -98,6 +98,13 @@ export interface SEOProps {
   description?: string
   keywords?: string[]
   image?: string
+  imageAlt?: string
   url?: string
   type?: 'website' | 'article' | 'profile'
+  noindex?: boolean
+  nofollow?: boolean
+  locale?: string
+  structuredData?: Record<string, unknown> | Record<string, unknown>[]
+  publishedTime?: string
+  modifiedTime?: string
 }

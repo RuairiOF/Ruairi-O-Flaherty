@@ -1,7 +1,8 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { SkipToContent } from './components/SkipToContent'
+import { ScrollToTop } from './components/ScrollToTop'
 import { Home } from './routes/Home'
 import { Projects } from './routes/Projects'
 import { ProjectDetail } from './routes/ProjectDetail'
@@ -15,6 +16,7 @@ import Grainient from './components/Grainient'
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div className="pointer-events-none fixed inset-0 z-0 hidden dark:md:block" style={{ transform: 'translateZ(0)', willChange: 'transform', backfaceVisibility: 'hidden' }}>
         <Grainient
           color1="#1a3a3a"
@@ -51,6 +53,7 @@ function App() {
             <Route path="/skills" element={<Skills />} />
             <Route path="/photos" element={<Photos />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/about" element={<Navigate to="/experience" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

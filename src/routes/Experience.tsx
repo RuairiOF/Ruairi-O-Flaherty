@@ -2,13 +2,22 @@ import { GraduationCap, Award, MapPin, Calendar } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { cvData } from '../content/cv'
+import { getStaticSeoPage } from '../content/seo-pages'
 
 export function Experience() {
+  const seo = getStaticSeoPage('/experience')
+
   return (
     <>
       <SEO
-        title="Experience"
-        description={`Learn more about ${cvData.person.name} - background, experience, and skills`}
+        title={seo?.title}
+        description={seo?.description}
+        keywords={seo?.keywords}
+        image={seo?.image}
+        imageAlt={seo?.imageAlt}
+        url={seo?.path}
+        type={seo?.type}
+        structuredData={seo?.structuredData}
       />
 
       {/* Hero */}
@@ -16,6 +25,7 @@ export function Experience() {
         title="Experience"
         description="My professional background, work experience, and educational journey"
         centered
+        titleAs="h1"
       >
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg mx-auto text-center text-stone-600 dark:text-stone-300">

@@ -2,13 +2,24 @@ import { Link } from 'react-router-dom'
 import { Home, ArrowLeft } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
+import { getStaticSeoPage } from '../content/seo-pages'
 
 export function NotFound() {
+  const seo = getStaticSeoPage('/404')
+
   return (
     <>
       <SEO
-        title="Page Not Found"
-        description="The page you're looking for doesn't exist"
+        title={seo?.title}
+        description={seo?.description}
+        keywords={seo?.keywords}
+        image={seo?.image}
+        imageAlt={seo?.imageAlt}
+        url={seo?.path}
+        type={seo?.type}
+        noindex={seo?.noindex}
+        nofollow={seo?.nofollow}
+        structuredData={seo?.structuredData}
       />
 
       <Section className="min-h-[60vh] flex items-center">
@@ -55,10 +66,10 @@ export function NotFound() {
                 View Projects
               </Link>
               <Link
-                to="/about"
+                to="/experience"
                 className="text-teal-600 dark:text-teal-400 hover:underline"
               >
-                About Me
+                Experience
               </Link>
               <Link
                 to="/contact"

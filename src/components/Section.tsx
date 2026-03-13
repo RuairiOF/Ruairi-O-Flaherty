@@ -6,6 +6,7 @@ interface SectionProps {
   className?: string
   title?: string
   description?: string
+  titleAs?: 'h1' | 'h2'
   centered?: boolean
   size?: 'sm' | 'md' | 'lg'
 }
@@ -15,6 +16,7 @@ export function Section({
   className,
   title,
   description,
+  titleAs = 'h2',
   centered = false,
   size = 'md',
 }: SectionProps) {
@@ -30,9 +32,11 @@ export function Section({
         {(title || description) && (
           <div className={cn('mb-12 lg:mb-16', centered && 'text-center')}>
             {title && (
-              <h2 className="heading-2 mb-4 text-stone-900 dark:text-white">
-                {title}
-              </h2>
+              titleAs === 'h1' ? (
+                <h1 className="heading-2 mb-4 text-stone-900 dark:text-white">{title}</h1>
+              ) : (
+                <h2 className="heading-2 mb-4 text-stone-900 dark:text-white">{title}</h2>
+              )
             )}
             {description && (
               <p className="prose text-lg max-w-3xl mx-auto">

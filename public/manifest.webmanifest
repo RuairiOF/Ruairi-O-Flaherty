@@ -1,16 +1,28 @@
 {
-  "name": "Ruairi O'Flaherty - Portfolio",
-  "short_name": "Ruairi's Portfolio",
-  "description": "Mechanical Engineering Student & Entrepreneur - Portfolio and projects showcase",
+  "name": "Ruairi O'Flaherty - Engineering and Startup Portfolio",
+  "short_name": "Ruairi Portfolio",
+  "description": "Portfolio of Ruairi O'Flaherty featuring engineering, startup, logistics, and product development projects.",
   "start_url": "/",
-  "display": "minimal-ui",
-  "theme_color": "#3b82f6",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "lang": "en-IE",
+  "dir": "ltr",
+  "theme_color": "#0f766e",
   "background_color": "#ffffff",
+  "categories": ["portfolio", "business", "productivity"],
   "icons": [
     {
+      "src": "/favicon.svg",
+      "sizes": "32x32",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
       "src": "/images/branding/Main_Logo.png",
-      "sizes": "any",
-      "type": "image/png"
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ]
 }

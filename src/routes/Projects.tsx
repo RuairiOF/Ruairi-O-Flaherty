@@ -4,6 +4,7 @@ import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { ProjectCard } from '../components/ProjectCard'
 import { getAllProjects } from '../content/cv'
+import { getStaticSeoPage } from '../content/seo-pages'
 import { debounce } from '../lib/utils'
 
 export function Projects() {
@@ -11,6 +12,7 @@ export function Projects() {
   const [selectedTags, setSelectedTags] = useState<string[]>([])
 
   const projects = getAllProjects()
+  const seo = getStaticSeoPage('/projects')
 
   // Get all unique tags
   const allTags = useMemo(() => {
@@ -67,14 +69,21 @@ export function Projects() {
   return (
     <>
       <SEO
-        title="Projects"
-        description="Portfolio of projects and work"
+        title={seo?.title}
+        description={seo?.description}
+        keywords={seo?.keywords}
+        image={seo?.image}
+        imageAlt={seo?.imageAlt}
+        url={seo?.path}
+        type={seo?.type}
+        structuredData={seo?.structuredData}
       />
 
       <Section
         title="Projects"
         description="A collection of work, experiments, and side projects"
         centered
+        titleAs="h1"
       >
         {/* Filters */}
         <div className="mb-12">

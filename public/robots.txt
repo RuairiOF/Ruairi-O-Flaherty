@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://ruairi-o-flaherty.github.io/sitemap.xml
+# Canonical host and sitemap
+Host: www.ruairioflaherty.ie
+Sitemap: https://www.ruairioflaherty.ie/sitemap.xml

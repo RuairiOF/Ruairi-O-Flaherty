@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import { X, ChevronLeft, ChevronRight, ImageIcon } from 'lucide-react'
 import { cn } from '../lib/utils'
+import type { GalleryPhoto } from '../content/photos'
 
 interface PhotoGalleryProps {
-  photos: string[]
+  photos: GalleryPhoto[]
   className?: string
 }
 
@@ -12,8 +13,9 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
   const [loadedPhotos, setLoadedPhotos] = useState<Set<number>>(new Set())
   const [failedPhotos, setFailedPhotos] = useState<Set<number>>(new Set())
 
-  // Filter out failed photos for display
-  const validPhotos = photos.filter((_, index) => !failedPhotos.has(index))
+  const visiblePhotos = photos
+    .map((photo, originalIndex) => ({ photo, originalIndex }))
+    .filter((entry) => !failedPhotos.has(entry.originalIndex))
 
   if (photos.length === 0) {
     return (
@@ -34,13 +36,13 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
 
   const nextPhoto = () => {
     if (selectedPhoto !== null) {
-      setSelectedPhoto((selectedPhoto + 1) % validPhotos.length)
+      setSelectedPhoto((selectedPhoto + 1) % visiblePhotos.length)
     }
   }
 
   const prevPhoto = () => {
     if (selectedPhoto !== null) {
-      setSelectedPhoto(selectedPhoto === 0 ? validPhotos.length - 1 : selectedPhoto - 1)
+      setSelectedPhoto(selectedPhoto === 0 ? visiblePhotos.length - 1 : selectedPhoto - 1)
     }
   }
 
@@ -55,29 +57,26 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
   return (
     <>
       <div className={cn("grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4", className)}>
-        {photos.map((photo, index) => {
-          if (failedPhotos.has(index)) {
-            return null // Don't render failed images
-          }
-          
+        {visiblePhotos.map(({ photo, originalIndex }, visibleIndex) => {
           return (
             <div
-              key={index}
+              key={originalIndex}
               className="aspect-square overflow-hidden rounded-lg cursor-pointer group relative"
-              onClick={() => openLightbox(index)}
+              onClick={() => openLightbox(visibleIndex)}
             >
-              {!loadedPhotos.has(index) && (
+              {!loadedPhotos.has(originalIndex) && (
                 <div className="absolute inset-0 bg-stone-200 dark:bg-stone-700 flex items-center justify-center">
                   <ImageIcon className="h-8 w-8 text-stone-400" />
                 </div>
               )}
               <img
-                src={photo}
-                alt={`3D Printing Photo ${index + 1}`}
+                src={photo.src}
+                alt={photo.alt}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
-                onLoad={() => handleImageLoad(index)}
-                onError={() => handleImageError(index)}
+                decoding="async"
+                onLoad={() => handleImageLoad(originalIndex)}
+                onError={() => handleImageError(originalIndex)}
               />
             </div>
           )
@@ -90,6 +89,7 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
           <button
             onClick={closeLightbox}
             className="absolute top-4 right-4 text-white hover:text-stone-300 transition-colors"
+            aria-label="Close image gallery"
           >
             <X className="h-8 w-8" />
           </button>
@@ -97,6 +97,7 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
           <button
             onClick={prevPhoto}
             className="absolute left-4 text-white hover:text-stone-300 transition-colors"
+            aria-label="Previous gallery image"
           >
             <ChevronLeft className="h-8 w-8" />
           </button>
@@ -104,20 +105,21 @@ export function PhotoGallery({ photos, className = '' }: PhotoGalleryProps) {
           <button
             onClick={nextPhoto}
             className="absolute right-4 text-white hover:text-stone-300 transition-colors"
+            aria-label="Next gallery image"
           >
             <ChevronRight className="h-8 w-8" />
           </button>
           
           <div className="max-w-4xl max-h-[90vh] mx-auto px-16">
             <img
-              src={validPhotos[selectedPhoto]}
-              alt={`3D Printing Photo ${selectedPhoto + 1}`}
+              src={visiblePhotos[selectedPhoto].photo.src}
+              alt={visiblePhotos[selectedPhoto].photo.alt}
               className="max-w-full max-h-full object-contain"
             />
           </div>
           
           <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 text-white text-sm">
-            {selectedPhoto + 1} of {validPhotos.length}
+            {selectedPhoto + 1} of {visiblePhotos.length}
           </div>
         </div>
       )}

@@ -6,6 +6,7 @@ import StarBorder from '../components/StarBorder'
 import SplitText from '../components/SplitText'
 import FlowingMenu from '../components/FlowingMenu'
 import { cvData, getFeaturedProjects } from '../content/cv'
+import { getStaticSeoPage } from '../content/seo-pages'
 
 const basePath = import.meta.env.BASE_URL || '/'
 
@@ -18,12 +19,19 @@ const menuItems = [
 
 export function Home() {
   const featuredProjects = getFeaturedProjects().slice(0, 3)
+  const seo = getStaticSeoPage('/')
 
   return (
     <>
       <SEO
-        title="Home"
-        description={`${cvData.person.name} - ${cvData.person.headline}`}
+        title={seo?.title}
+        description={seo?.description}
+        keywords={seo?.keywords}
+        image={seo?.image}
+        imageAlt={seo?.imageAlt}
+        url={seo?.path}
+        type={seo?.type}
+        structuredData={seo?.structuredData}
       />
 
       {/* Hero Section — full viewport, extends behind navbar */}
@@ -31,9 +39,12 @@ export function Home() {
         {/* Background image */}
         <img
           src={`${basePath}images/photos/split_landscape.jpeg`}
-          alt=""
+          alt={`${cvData.person.name} overlooking a construction site in Dublin`}
           className="absolute inset-0 w-full h-full object-cover animate-[heroFadeIn_1.2s_ease-out_both]"
           style={{ objectPosition: 'center 25%' }}
+          loading="eager"
+          decoding="async"
+          fetchPriority="high"
         />
 
         {/* Gradient overlay — strong dark on left ~40%, fading to clear on right */}
@@ -59,6 +70,8 @@ export function Home() {
                 src={`${basePath}images/branding/ruairipfp.jpeg`}
                 alt={cvData.person.name}
                 className="w-full h-full object-cover"
+                loading="eager"
+                decoding="async"
               />
             </div>
 

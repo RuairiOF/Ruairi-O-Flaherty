@@ -1,4 +1,5 @@
 import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { cvData } from '../content/cv'
 import { isExternalUrl } from '../lib/utils'
 
@@ -34,6 +35,15 @@ export function Footer() {
     },
   ].filter(link => link.url && !link.url.includes('[TODO'))
 
+  const internalLinks = [
+    { label: 'Home', to: '/' },
+    { label: 'Projects', to: '/projects' },
+    { label: 'Experience', to: '/experience' },
+    { label: 'Skills', to: '/skills' },
+    { label: 'Photos', to: '/photos' },
+    { label: 'Contact', to: '/contact' },
+  ]
+
   return (
     <footer className="bg-stone-100 dark:bg-black/20 border-t border-stone-200 dark:border-white/10">
       <div className="container py-12">
@@ -58,6 +68,18 @@ export function Footer() {
               })}
             </div>
           )}
+
+          <nav aria-label="Footer navigation" className="flex flex-wrap justify-center gap-x-4 gap-y-2">
+            {internalLinks.map((link) => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="text-sm text-stone-600 hover:text-teal-600 dark:text-stone-300 dark:hover:text-teal-400 transition-colors"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
 
           {/* Copyright */}
           <div className="text-center text-sm text-stone-500 dark:text-stone-400">
