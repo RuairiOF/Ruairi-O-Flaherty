@@ -39,6 +39,9 @@ export interface Project {
   slug: string
   title: string
   description: string
+  longDescription?: string
+  highlights?: string[]
+  gallery?: string[]
   tags: string[]
   repoUrl?: string
   liveUrl?: string
@@ -98,4 +101,3 @@ export interface SEOProps {
   url?: string
   type?: 'website' | 'article' | 'profile'
 }
-

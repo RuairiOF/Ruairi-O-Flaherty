@@ -1,4 +1,6 @@
 import { ExternalLink, Github } from 'lucide-react'
+import { useNavigate } from 'react-router-dom'
+import type { KeyboardEvent, MouseEvent } from 'react'
 import type { Project } from '../types'
 import { isExternalUrl } from '../lib/utils'
 
@@ -8,10 +10,32 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, className = '' }: ProjectCardProps) {
+  const navigate = useNavigate()
   const hasLinks = project.repoUrl || project.liveUrl
+  const projectPath = `/projects/${project.slug}`
+
+  const handleCardClick = (event: MouseEvent<HTMLDivElement>) => {
+    const target = event.target as HTMLElement
+    if (target.closest('a, button')) return
+    navigate(projectPath)
+  }
+
+  const handleCardKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault()
+      navigate(projectPath)
+    }
+  }
 
   return (
-    <div className={`card card-hover ${className}`}>
+    <div
+      className={`card card-hover cursor-pointer ${className}`}
+      role="link"
+      tabIndex={0}
+      aria-label={`View details for ${project.title}`}
+      onClick={handleCardClick}
+      onKeyDown={handleCardKeyDown}
+    >
       <div className="p-6">
         <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-3">
@@ -72,6 +96,14 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
             ))}
           </div>
         )}
+
+        <button
+          type="button"
+          onClick={() => navigate(projectPath)}
+          className="mt-5 text-sm font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 transition-colors"
+        >
+          View project details →
+        </button>
       </div>
     </div>
   )

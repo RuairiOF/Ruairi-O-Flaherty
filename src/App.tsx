@@ -4,6 +4,7 @@ import { Footer } from './components/Footer'
 import { SkipToContent } from './components/SkipToContent'
 import { Home } from './routes/Home'
 import { Projects } from './routes/Projects'
+import { ProjectDetail } from './routes/ProjectDetail'
 import { Experience } from './routes/Experience'
 import { Skills } from './routes/Skills'
 import { Contact } from './routes/Contact'
@@ -45,6 +46,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:slug" element={<ProjectDetail />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/photos" element={<Photos />} />

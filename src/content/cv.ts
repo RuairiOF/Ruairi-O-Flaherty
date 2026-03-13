@@ -3,6 +3,7 @@ import type { CVData } from '../types'
 const basePath = import.meta.env.BASE_URL || '/'
 const logoBasePath = `${basePath}images/logos/`
 const skillBasePath = `${basePath}images/skills/`
+const photoBasePath = `${basePath}images/photos/`
 
 export const cvData: CVData = {
   person: {
@@ -103,6 +104,15 @@ export const cvData: CVData = {
       slug: 'eirpost',
       title: 'EirPost',
       description: 'A logistics + shipping service for SMEs in Ireland serving hundreds of SME customers, cutting shipping costs by up to 40%. Designed pricing models, managed customer onboarding, and oversaw financial reconciliation.',
+      longDescription: 'EirPost is the logistics operation I founded and run for SMEs across Ireland. I built and iterated the pricing model, handled onboarding, and put operational systems in place so customers can ship reliably without enterprise-scale overhead. It now supports hundreds of customers and is still being improved week by week.',
+      highlights: [
+        'Serving hundreds of SME customers across Ireland',
+        'Reduced shipping costs for customers by up to 40%',
+        'Built and managed pricing, onboarding, and reconciliation workflows',
+      ],
+      gallery: [
+        `${logoBasePath}EirpostLogoPNG.png`,
+      ],
       tags: ['Logistics', 'Web Development', 'Business Development', 'Financial Management'],
       image: `${logoBasePath}EirpostLogoPNG.png`,
       liveUrl: 'https://eirpost.ie',
@@ -113,6 +123,24 @@ export const cvData: CVData = {
       slug: 'laserlane',
       title: 'LaserLane',
       description: 'Co-running LaserLane, a bike safety tech startup. Building hardware and software solutions for cyclists while handling operations, product development, and growth. Getting ready for our crowdfunding launch.',
+      longDescription: 'LaserLane is a bike safety startup I co-run. We are developing hardware and software that make cyclists more visible and safer on the road, while also building the business side of it at the same time. Day to day that means prototyping, testing, operations, and preparing for launch.',
+      highlights: [
+        'Designed and tested bike-mounted safety prototypes',
+        'Combining hardware, software, and operations in one product',
+        'Preparing for crowdfunding launch',
+      ],
+      gallery: [
+        `${photoBasePath}LaserLane/LaserLaneLanding1.png`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (1).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (2).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (3).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (4).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (5).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (6).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (7).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (8).jpg`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (9).jpg`,
+      ],
       tags: ['Bike Technology', 'Product Development', 'Hardware', 'Business Operations', 'Entrepreneurship', 'Safety Tech'],
       image: `${logoBasePath}LaserLaneLogoPNG.png`,
       liveUrl: 'https://laserlane.ie',
@@ -126,6 +154,23 @@ export const cvData: CVData = {
       slug: 'rofs-3d',
       title: "ROF's 3D - 3D Printing Business",
       description: 'Established and scaled a 3D printing venture to 1,000+ sales, €50k+ revenue, and 4.8/5 rating. Operated an 8-printer farm using CAD to design and produce sustainable, market-driven products. Built an online following of 25k+ followers and 10M+ views.',
+      longDescription: 'ROF\'s 3D started as a side project and turned into a full e-commerce operation. I ran production, designed products, fulfilled orders, and handled content and marketing. Running the business taught me how to combine product design, manufacturing, customer service, and growth into one repeatable system.',
+      highlights: [
+        '1,000+ total sales',
+        '€50k+ in revenue',
+        '4.8/5 customer rating',
+        '25k+ followers and 10M+ social views',
+      ],
+      gallery: [
+        `${photoBasePath}Printing/SprunkeColaMain.jpg`,
+        `${photoBasePath}Printing/IMG_2856.JPG`,
+        `${photoBasePath}Printing/IMG_2862.JPG`,
+        `${photoBasePath}Printing/IMG_2864.JPG`,
+        `${photoBasePath}Printing/IMG_3027.JPG`,
+        `${photoBasePath}Printing/IMG_3175.jpg`,
+        `${photoBasePath}Printing/IMG_4130.jpg`,
+        `${photoBasePath}Printing/IMG_4137.jpg`,
+      ],
       tags: ['3D Printing', 'CAD', 'E-commerce', 'Social Media Marketing', 'Manufacturing'],
       image: `${logoBasePath}Rofs3D_Logo.jpg`,
       liveUrl: 'https://www.tiktok.com/@rofs3d.com',
@@ -140,6 +185,16 @@ export const cvData: CVData = {
       slug: 'cashew',
       title: 'Cashew - Startup Product',
       description: 'Demo-ready startup product developed during the Patch accelerator program at DogPatch Labs. Collaborated with peers and mentors, conducted user testing, managed product backlog, and pitched to investors.',
+      longDescription: 'Cashew was built during the Patch accelerator at DogPatch Labs. I worked with teammates and mentors to move quickly from idea to demo-ready product. We ran user testing, managed product decisions, and presented outcomes to mentors and investors.',
+      highlights: [
+        'Built during Patch accelerator at DogPatch Labs',
+        'Shipped a demo-ready product under tight timelines',
+        'Ran user testing and pitched to mentors and investors',
+      ],
+      gallery: [
+        `${logoBasePath}CashewLogo.png`,
+        `${photoBasePath}Patch_baltyboys.jpeg`,
+      ],
       tags: ['Product Development', 'User Testing', 'Startup', 'Product Management'],
       image: `${logoBasePath}CashewLogo.png`,
       liveUrl: 'https://cashew.ie',
@@ -147,9 +202,55 @@ export const cvData: CVData = {
       priority: 4
     },
     {
+      slug: 'sleeptracket100',
+      title: 'SleepTracket100',
+      description: 'A bedside sleep tracker built on Raspberry Pi that records overnight audio to estimate sleep/wake windows, stores nightly data to Supabase, and supports voice-based dream logging with AI summaries.',
+      longDescription: `This project is a bedside sleep tracker built with a Raspberry Pi. The goal is to have a small, self-running device you can leave beside your bed, plug in at night, and let run automatically. It records audio while you sleep and uses that signal to estimate when you fell asleep, when you woke up, and your total sleep duration.
+
+The data is processed the next morning and stored both locally on the Pi and in Supabase, so each night is tracked over time. That makes it possible to build up useful history and eventually view trends in an app or dashboard, like total sleep, weekly patterns, and how consistent your sleep schedule is.
+
+Dream logging is a key part of the system too. If you wake up and remember a dream, you can record it by voice. The system transcribes that input and uses AI to generate a short summary and interpretation, then stores it alongside the sleep session data.
+
+The long-term aim is to make this feel like a quiet bedside device rather than a tech demo: automatic, low-maintenance, and genuinely useful over time.`,
+      highlights: [
+        'Runs as a bedside Raspberry Pi device with minimal setup',
+        'Tracks estimated sleep start, wake time, and duration from overnight audio',
+        'Stores nightly records locally and in Supabase for long-term history',
+        'Supports voice dream logging with AI-generated summaries and interpretation',
+        'Designed to feed future dashboard/app visualisations',
+      ],
+      gallery: [
+        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.jpeg`,
+        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1.jpeg`,
+      ],
+      tags: ['Raspberry Pi', 'Python', 'Supabase', 'Audio Processing', 'AI', 'Sleep Tracking', 'Hardware'],
+      image: `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.jpeg`,
+      featured: true,
+      priority: 5
+    },
+    {
       slug: 'nukacolaradio',
       title: 'Nukacola Radio',
       description: 'E-commerce business sourcing retro and vintage-style radios from Chinese manufacturers and reselling them. Handles product sourcing, quality control, import logistics, and customer fulfilment.',
+      longDescription: 'Nukacola Radio is an e-commerce project focused on retro-style radios. I handled supplier communication, sourcing decisions, quality checks, import logistics, and fulfilment. It has been a practical way to learn operations from first contact with a manufacturer all the way to customer delivery.',
+      highlights: [
+        'Sourced products directly from overseas manufacturers',
+        'Managed quality control and import logistics',
+        'Handled fulfilment and customer-facing operations',
+      ],
+      gallery: [
+        `${photoBasePath}NukaColaRadio/1.png`,
+        `${photoBasePath}NukaColaRadio/2.png`,
+        `${photoBasePath}NukaColaRadio/3.png`,
+        `${photoBasePath}NukaColaRadio/4.png`,
+        `${photoBasePath}NukaColaRadio/5.png`,
+        `${photoBasePath}NukaColaRadio/6.png`,
+        `${photoBasePath}NukaColaRadio/NukaColaRadioSandRiver1080p.png`,
+        `${photoBasePath}NukaColaRadio/radio-image- (1).png`,
+        `${photoBasePath}NukaColaRadio/radio-image- (2).png`,
+        `${photoBasePath}NukaColaRadio/radio-image- (3).png`,
+        `${photoBasePath}NukaColaRadio/radio-image- (4).png`,
+      ],
       tags: ['E-commerce', 'Sourcing', 'Import/Export', 'Retail', 'Consumer Electronics'],
       image: `${logoBasePath}NukaColaRadioLOGO.png`,
       liveUrl: 'https://nukacolaradio.com',
