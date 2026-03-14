@@ -8,7 +8,7 @@ import { buildRobotsContent, createMetaDescription, toAbsoluteUrl } from '../src
 
 const DIST_DIR = join(process.cwd(), 'dist')
 const DIST_INDEX_HTML_PATH = join(DIST_DIR, 'index.html')
-const DEFAULT_IMAGE_PATH = '/images/branding/Main_Logo.png'
+const DEFAULT_IMAGE_PATH = '/images/branding/Main_Logo.webp'
 const CURRENT_DATE = new Date().toISOString().split('T')[0]
 
 const ROUTE_ALIASES = [

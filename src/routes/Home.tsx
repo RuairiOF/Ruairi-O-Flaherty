@@ -11,10 +11,10 @@ import { getStaticSeoPage } from '../content/seo-pages'
 const basePath = import.meta.env.BASE_URL || '/'
 
 const menuItems = [
-  { link: '/projects', text: 'Projects', image: `${basePath}images/skills/Electronics%20and%20Soldering/EbikeMotorElectronics.jpeg` },
-  { link: '/experience', text: 'Experience', image: `${basePath}images/skills/Construction%20Site/Construction_Site.jpeg` },
-  { link: '/skills', text: 'Skills', image: `${basePath}images/skills/Blender/Screenshot%202026-03-07%20134047.png` },
-  { link: '/contact', text: 'Contact', image: `${basePath}images/photos/radios.jpeg` },
+  { link: '/projects', text: 'Projects', image: `${basePath}images/skills/Electronics%20and%20Soldering/EbikeMotorElectronics.webp` },
+  { link: '/experience', text: 'Experience', image: `${basePath}images/skills/Construction%20Site/Construction_Site.webp` },
+  { link: '/skills', text: 'Skills', image: `${basePath}images/skills/Blender/Screenshot%202026-03-07%20134047.webp` },
+  { link: '/contact', text: 'Contact', image: `${basePath}images/photos/radios.webp` },
 ]
 
 export function Home() {
@@ -34,11 +34,11 @@ export function Home() {
         structuredData={seo?.structuredData}
       />
 
-      {/* Hero Section — full viewport, extends behind navbar */}
+      {/* Hero Section - full viewport, extends behind navbar */}
       <section className="relative -mt-20 flex min-h-[100svh] items-center overflow-hidden pb-10 pt-24">
         {/* Background image */}
         <img
-          src={`${basePath}images/photos/split_landscape.jpeg`}
+          src={`${basePath}images/photos/split_landscape.webp`}
           alt={`${cvData.person.name} overlooking a construction site in Dublin`}
           className="absolute inset-0 w-full h-full object-cover animate-[heroFadeIn_1.2s_ease-out_both]"
           style={{ objectPosition: 'center 25%' }}
@@ -47,7 +47,7 @@ export function Home() {
           fetchPriority="high"
         />
 
-        {/* Gradient overlay — strong dark on left ~40%, fading to clear on right */}
+        {/* Gradient overlay - strong dark on left ~40%, fading to clear on right */}
         <div
           className="absolute inset-0 md:hidden"
           style={{
@@ -61,13 +61,13 @@ export function Home() {
           }}
         />
 
-        {/* Text content — pinned to left ~2/5 of screen on desktop, wider on mobile */}
+        {/* Text content - pinned to left ~2/5 of screen on desktop, wider on mobile */}
         <div className="relative z-10 w-full h-full flex items-center">
           <div className="w-full max-w-full md:max-w-[40%] px-4 sm:px-6 md:pl-[5vw] lg:pl-[7vw] space-y-4 sm:space-y-5">
             {/* Profile Picture */}
             <div className="h-14 w-14 sm:h-16 sm:w-16 lg:h-20 lg:w-20 rounded-full overflow-hidden ring-2 ring-white/20 shadow-2xl">
               <img
-                src={`${basePath}images/branding/ruairipfp.jpeg`}
+                src={`${basePath}images/branding/ruairipfp.webp`}
                 alt={cvData.person.name}
                 className="w-full h-full object-cover"
                 loading="eager"
@@ -157,7 +157,7 @@ export function Home() {
         </div>
       </section>
 
-      {/* Flowing Menu Navigation — desktop only */}
+      {/* Flowing Menu Navigation - desktop only */}
       <section className="hidden md:block relative bg-stone-900">
         <div style={{ height: '500px', position: 'relative' }}>
           <FlowingMenu

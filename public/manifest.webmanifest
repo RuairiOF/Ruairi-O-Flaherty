@@ -19,9 +19,9 @@
       "purpose": "any"
     },
     {
-      "src": "/images/branding/Main_Logo.png",
+      "src": "/images/branding/Main_Logo.webp",
       "sizes": "512x512",
-      "type": "image/png",
+      "type": "image/webp",
       "purpose": "any maskable"
     }
   ]

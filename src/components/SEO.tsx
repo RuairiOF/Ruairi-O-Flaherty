@@ -29,7 +29,7 @@ export function SEO({
     return toAbsoluteUrl(url || routePath, siteConfig.url)
   }, [url])
   const imageUrl = useMemo(
-    () => toAbsoluteUrl(image || '/images/branding/Main_Logo.png', siteConfig.url),
+    () => toAbsoluteUrl(image || '/images/branding/Main_Logo.webp', siteConfig.url),
     [image],
   )
   const metaDescription = useMemo(() => createMetaDescription(description), [description])

@@ -117,10 +117,10 @@ Today EirPost supports hundreds of SME customers across Ireland. The result is a
         'Runs day-to-day operations including support, exception handling, and margin tracking',
       ],
       gallery: [
-        `${photoBasePath}EirPost/small_business (1).png`,
+        `${photoBasePath}EirPost/small_business (1).webp`,
       ],
       tags: ['Logistics', 'Web Development', 'Business Development', 'Financial Management'],
-      image: `${logoBasePath}EirpostLogoPNG.png`,
+      image: `${logoBasePath}EirpostLogoPNG.webp`,
       imagePosition: 'object-left-top',
       liveUrl: 'https://eirpost.ie',
       featured: true,
@@ -143,19 +143,19 @@ The project is currently in launch preparation. We have validated multiple proto
         'Preparing crowdfunding campaign and early fulfilment and operations plan',
       ],
       gallery: [
-        `${photoBasePath}LaserLane/LaserLaneLanding1.png`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (1).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (2).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (3).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (4).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (5).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (6).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (7).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (8).jpg`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (9).jpg`,
+        `${photoBasePath}LaserLane/LaserLaneLanding1.webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (1).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (2).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (3).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (4).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (5).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (6).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (7).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (8).webp`,
+        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike (9).webp`,
       ],
       tags: ['Bike Technology', 'Product Development', 'Hardware', 'Business Operations', 'Entrepreneurship', 'Safety Tech'],
-      image: `${logoBasePath}LaserLaneLogoPNG.png`,
+      image: `${logoBasePath}LaserLaneLogoPNG.webp`,
       liveUrl: 'https://laserlane.ie',
       links: {
         website: 'https://laserlane.ie'
@@ -180,17 +180,17 @@ The business reached 1,000+ sales, EUR50k+ revenue, and a 4.8/5 customer rating.
         'Grew social distribution to roughly 28.5k followers and 1.3M likes on TikTok',
       ],
       gallery: [
-        `${photoBasePath}Printing/SprunkeColaMain.jpg`,
-        `${photoBasePath}Printing/IMG_2856.JPG`,
-        `${photoBasePath}Printing/IMG_2862.JPG`,
-        `${photoBasePath}Printing/IMG_2864.JPG`,
-        `${photoBasePath}Printing/IMG_3027.JPG`,
-        `${photoBasePath}Printing/IMG_3175.jpg`,
-        `${photoBasePath}Printing/IMG_4130.jpg`,
-        `${photoBasePath}Printing/IMG_4137.jpg`,
+        `${photoBasePath}Printing/SprunkeColaMain.webp`,
+        `${photoBasePath}Printing/IMG_2856.webp`,
+        `${photoBasePath}Printing/IMG_2862.webp`,
+        `${photoBasePath}Printing/IMG_2864.webp`,
+        `${photoBasePath}Printing/IMG_3027.webp`,
+        `${photoBasePath}Printing/IMG_3175.webp`,
+        `${photoBasePath}Printing/IMG_4130.webp`,
+        `${photoBasePath}Printing/IMG_4137.webp`,
       ],
       tags: ['3D Printing', 'CAD', 'E-commerce', 'Social Media Marketing', 'Manufacturing'],
-      image: `${logoBasePath}Rofs3D_Logo.jpg`,
+      image: `${logoBasePath}Rofs3D_Logo.webp`,
       liveUrl: 'https://www.tiktok.com/@rofs3d.com',
       links: {
         website: 'https://rofs3d.com',
@@ -216,11 +216,11 @@ This project was strong training in constrained startup delivery: build quickly,
         'Presented the product and learning outcomes to mentors and investors',
       ],
       gallery: [
-        `${logoBasePath}CashewLogo.png`,
-        `${photoBasePath}Patch_baltyboys.jpeg`,
+        `${logoBasePath}CashewLogo.webp`,
+        `${photoBasePath}Patch_baltyboys.webp`,
       ],
       tags: ['Product Development', 'User Testing', 'Startup', 'Product Management'],
-      image: `${logoBasePath}CashewLogo.png`,
+      image: `${logoBasePath}CashewLogo.webp`,
       liveUrl: 'https://cashew.ie',
       links: {
         patch: 'https://www.joinpatch.org/'
@@ -247,11 +247,11 @@ The long-term aim is to make this feel like a quiet bedside device rather than a
         'Designed to feed future dashboard/app visualisations',
       ],
       gallery: [
-        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.jpeg`,
-        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1.jpeg`,
+        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp`,
+        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1.webp`,
       ],
       tags: ['Raspberry Pi', 'Python', 'Supabase', 'Audio Processing', 'AI', 'Sleep Tracking', 'Hardware'],
-      image: `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.jpeg`,
+      image: `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp`,
       featured: true,
       priority: 5
     },
@@ -273,20 +273,20 @@ The offer includes standard and bundled editions, positioned as a limited produc
         'Current public rating: 4.8/5 across 127 reviews',
       ],
       gallery: [
-        `${photoBasePath}NukaColaRadio/1.png`,
-        `${photoBasePath}NukaColaRadio/2.png`,
-        `${photoBasePath}NukaColaRadio/3.png`,
-        `${photoBasePath}NukaColaRadio/4.png`,
-        `${photoBasePath}NukaColaRadio/5.png`,
-        `${photoBasePath}NukaColaRadio/6.png`,
-        `${photoBasePath}NukaColaRadio/NukaColaRadioSandRiver1080p.png`,
-        `${photoBasePath}NukaColaRadio/radio-image- (1).png`,
-        `${photoBasePath}NukaColaRadio/radio-image- (2).png`,
-        `${photoBasePath}NukaColaRadio/radio-image- (3).png`,
-        `${photoBasePath}NukaColaRadio/radio-image- (4).png`,
+        `${photoBasePath}NukaColaRadio/1.webp`,
+        `${photoBasePath}NukaColaRadio/2.webp`,
+        `${photoBasePath}NukaColaRadio/3.webp`,
+        `${photoBasePath}NukaColaRadio/4.webp`,
+        `${photoBasePath}NukaColaRadio/5.webp`,
+        `${photoBasePath}NukaColaRadio/6.webp`,
+        `${photoBasePath}NukaColaRadio/NukaColaRadioSandRiver1080p.webp`,
+        `${photoBasePath}NukaColaRadio/radio-image- (1).webp`,
+        `${photoBasePath}NukaColaRadio/radio-image- (2).webp`,
+        `${photoBasePath}NukaColaRadio/radio-image- (3).webp`,
+        `${photoBasePath}NukaColaRadio/radio-image- (4).webp`,
       ],
       tags: ['E-commerce', 'Sourcing', 'Import/Export', 'Retail', 'Consumer Electronics'],
-      image: `${logoBasePath}NukaColaRadioLOGO.png`,
+      image: `${logoBasePath}NukaColaRadioLOGO.webp`,
       liveUrl: 'https://nukacolaradio.com',
       links: {
         website: 'https://nukacolaradio.com'
@@ -302,14 +302,14 @@ The offer includes standard and bundled editions, positioned as a limited produc
         title: 'Advertising & Paid Media',
         description: 'I run ad campaigns across Meta and TikTok for my businesses. I handle the budgets, track what\'s working, and tweak things until the numbers make sense.',
         images: [
-          `${skillBasePath}ADs/MetaADS_Dashboard.png`,
+          `${skillBasePath}ADs/MetaADS_Dashboard.webp`,
         ],
         tools: ['Meta Ads', 'TikTok Ads', 'Google Analytics', 'A/B Testing']
       },
       {
         title: 'Social Media & Content',
         description: 'Built 25k+ followers and 10M+ views making content for my 3D printing business. Turns out people love watching things get made.',
-        images: [`${skillBasePath}ADs/TikTokDash.png`],
+        images: [`${skillBasePath}ADs/TikTokDash.webp`],
         tools: ['TikTok', 'Instagram', 'Content Strategy', 'Video Editing']
       },
       {
@@ -322,60 +322,60 @@ The offer includes standard and bundled editions, positioned as a limited produc
         title: '3D Printing & Manufacturing',
         description: 'Ran an 8-printer farm, shipped 1,000+ products, and learned that the hard part isn\'t printing, it\'s everything after.',
         images: [
-          `${skillBasePath}3D Print/3DPrintBusinessLotsOfProducts.jpg`,
-          `${skillBasePath}3D Print/ParcelsOnTheFloorFor3DPrintBusiness.jpg`
+          `${skillBasePath}3D Print/3DPrintBusinessLotsOfProducts.webp`,
+          `${skillBasePath}3D Print/ParcelsOnTheFloorFor3DPrintBusiness.webp`
         ],
         tools: ['FDM Printing', 'Resin Printing', 'CAD Design', 'Slicing', 'Post-Processing']
       },
       {
         title: '3D Modelling & Rendering',
-        description: 'I use Blender for renders and visualisation — product shots, concept art, and anything that needs to look good before it\'s built.',
+        description: 'I use Blender for renders and visualisation - product shots, concept art, and anything that needs to look good before it\'s built.',
         images: [
-          `${skillBasePath}Blender/Screenshot 2026-03-07 134047.png`,
-          `${skillBasePath}Blender/Screenshot 2026-03-07 134055.png`
+          `${skillBasePath}Blender/Screenshot 2026-03-07 134047.webp`,
+          `${skillBasePath}Blender/Screenshot 2026-03-07 134055.webp`
         ],
         tools: ['Blender', 'AutoCAD']
       },
       {
         title: 'SolidWorks & Fusion 360',
         description: 'My go-to tools for anything that needs to actually be manufactured. I model parts, run simulations, and produce drawings for real-world fabrication.',
-        images: [`${skillBasePath}Fusion360/Fusion360.png`],
+        images: [`${skillBasePath}Fusion360/Fusion360.webp`],
         tools: ['SolidWorks', 'Fusion 360', 'CAD', 'FEA Simulation', 'Technical Drawing']
       },
       {
         title: 'Electronics & Prototyping',
         description: "From overclocking e-bike motors to wiring up Arduinos, I like to mess around with hardware. I've built remote control drones, custom motor setups, and a local AI device on a Raspberry Pi.",
         images: [
-          `${skillBasePath}Electronics and Soldering/EbikeMotorElectronics.jpeg`,
-          `${skillBasePath}Electronics and Soldering/Ebike_Battery.jpeg`
+          `${skillBasePath}Electronics and Soldering/EbikeMotorElectronics.webp`,
+          `${skillBasePath}Electronics and Soldering/Ebike_Battery.webp`
         ],
         tools: ['Arduino', 'Raspberry Pi', 'Soldering', 'Circuit Design', 'Sensors']
       },
       {
         title: 'Site Engineering',
-        description: 'Spent a summer interning with Walls Construction on the UCD O’Connor Centre for Learning site, doing surveying, safety compliance, and coordinating subcontractors. It gave me a whole new respect for project timelines and how company hierarchy shapes day-to-day decisions.',
+        description: 'Spent a summer interning with Walls Construction on the UCD O\'Connor Centre for Learning site, doing surveying, safety compliance, and coordinating subcontractors. It gave me a whole new respect for project timelines and how company hierarchy shapes day-to-day decisions.',
         images: [
-          `${skillBasePath}Construction Site/Construction_Site.jpeg`,
-          `${skillBasePath}Construction Site/Construction_Site1.jpeg`
+          `${skillBasePath}Construction Site/Construction_Site.webp`,
+          `${skillBasePath}Construction Site/Construction_Site1.webp`
         ],
         tools: ['Surveying', 'Quality Assurance', 'Safety Compliance', 'AutoCAD']
       },
       {
         title: 'Software Development',
-        description: 'I develop and build whatever my projects need—from websites, mobile apps, and automation scripts to the code that powers my RC cars. My favourite example is EirPost, where the software actually runs a real, revenue-generating business.',
+        description: 'I develop and build whatever my projects need - from websites, mobile apps, and automation scripts to the code that powers my RC cars. My favourite example is EirPost, where the software actually runs a real, revenue-generating business.',
         images: [],
         tools: ['Python', 'TypeScript', 'JavaScript', 'C', 'C++', 'Java', 'React', 'Next.js', 'Flutter', 'React Native']
       },
       {
         title: 'Cloud & Deployment',
         description: 'All my projects run on real infrastructure. I handle the databases, hosting, and deployment so things actually stay online.',
-        images: [`${skillBasePath}Other/Cloud.png`],
+        images: [`${skillBasePath}Other/Cloud.webp`],
         tools: ['Supabase', 'PostgreSQL', 'MySQL', 'Vercel', 'Railway', 'Docker', 'AWS']
       },
       {
         title: 'AI & Automation',
         description: 'AI helps me stay on top of things across all my work. With EirPost for example, I\'ve set up a passive system that analyses data, finds leads, manages emails, and turns them into actionable tasks. It\'s become a big part of how I keep everything running without burning out.',
-        images: [`${skillBasePath}Other/AI_LLM.png`],
+        images: [`${skillBasePath}Other/AI_LLM.webp`],
         tools: ['ChatGPT', 'Claude', 'LLM APIs', 'Prompt Engineering', 'Workflow Automation'],
         imagePosition: '[object-position:center_30%]'
       }

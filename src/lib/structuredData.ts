@@ -83,7 +83,7 @@ export function buildPersonSchema(): JsonLdSchema {
       : undefined,
     email: cvData.person.email ? `mailto:${cvData.person.email}` : undefined,
     telephone: cvData.person.phone,
-    image: toPublicAbsolute('/images/branding/ruairipfp.jpeg'),
+    image: toPublicAbsolute('/images/branding/ruairipfp.webp'),
     sameAs: getSocialProfiles(),
     alumniOf,
   })

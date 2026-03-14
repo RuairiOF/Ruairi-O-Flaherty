@@ -8,8 +8,8 @@ import type { SkillShowcase } from '../types'
 
 const basePath = import.meta.env.BASE_URL || '/'
 const skillImageFallbacks: Record<string, string> = {
-  'Business & Logistics': `${basePath}images/photos/radios.jpeg`,
-  'Software Development': `${basePath}images/photos/MeOnALaptop.JPG`,
+  'Business & Logistics': `${basePath}images/photos/radios.webp`,
+  'Software Development': `${basePath}images/photos/MeOnALaptop.webp`,
 }
 
 function withFallbackImage(showcase: SkillShowcase): SkillShowcase {

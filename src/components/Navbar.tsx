@@ -69,7 +69,7 @@ export function Navbar() {
                 className="flex items-center space-x-2 group"
               >
                 <img
-                  src={`${basePath}images/branding/Main_Logo.png`}
+                  src={`${basePath}images/branding/Main_Logo.webp`}
                   alt="Site logo"
                   className="h-8 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 />
