@@ -38,7 +38,7 @@ function App() {
           zoom={0.9}
         />
       </div>
-      <div className="relative z-10 min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 md:dark:bg-transparent">
+      <div className="relative z-10 min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 md:dark:bg-transparent overflow-x-hidden">
         <SkipToContent />
         <Navbar />
         

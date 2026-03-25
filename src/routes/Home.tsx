@@ -27,7 +27,7 @@ export function Home() {
       />
 
       {/* Hero Section — full viewport, extends behind navbar */}
-      <section className="relative -mt-20 flex min-h-[100svh] items-center overflow-hidden pb-10 pt-24">
+      <section className="relative -mt-14 sm:-mt-20 flex min-h-[100svh] items-center overflow-hidden pb-10 pt-20 sm:pt-24">
         {/* Background image */}
         <img
           src={`${basePath}images/photos/split_landscape.jpeg`}
@@ -208,7 +208,7 @@ export function Home() {
 
       {/* About Section */}
       <section className="py-20 lg:py-28 px-4">
-        <div className="max-w-[98%] mx-auto rounded-3xl bg-stone-100/60 dark:bg-white/[0.04] border border-stone-200/50 dark:border-white/[0.06] px-8 py-16 lg:px-16 lg:py-20 shadow-sm">
+        <div className="max-w-[98%] mx-auto rounded-3xl bg-stone-100/60 dark:bg-white/[0.04] border border-stone-200/50 dark:border-white/[0.06] px-4 py-12 sm:px-8 sm:py-16 lg:px-16 lg:py-20 shadow-sm">
           <div className="text-center mb-16">
             <SplitText
               text="About Me"
