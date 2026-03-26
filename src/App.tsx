@@ -15,7 +15,7 @@ import Grainient from './components/Grainient'
 function App() {
   return (
     <Router>
-      <div className="pointer-events-none fixed inset-0 z-0 hidden dark:md:block" style={{ transform: 'translateZ(0)', willChange: 'transform', backfaceVisibility: 'hidden' }}>
+      <div className="pointer-events-none fixed -inset-px z-0 hidden dark:md:block">
         <Grainient
           color1="#1a3a3a"
           color2="#0f2b3d"
