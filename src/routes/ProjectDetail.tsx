@@ -125,6 +125,25 @@ export function ProjectDetail() {
 
   const description = project.longDescription || project.description
 
+  // Helper function to render description with internal project links
+  const renderDescriptionWithLinks = (text: string) => {
+    const parts = text.split(/(ROF's 3D)/g)
+    return parts.map((part, index) => {
+      if (part === "ROF's 3D") {
+        return (
+          <Link
+            key={index}
+            to="/projects/rofs-3d"
+            className="text-teal-600 dark:text-teal-400 hover:underline font-medium"
+          >
+            {part}
+          </Link>
+        )
+      }
+      return part
+    })
+  }
+
   return (
     <>
       <SEO
@@ -173,7 +192,7 @@ export function ProjectDetail() {
                         href={item.url}
                         target={isExternalUrl(item.url || '') ? '_blank' : undefined}
                         rel={isExternalUrl(item.url || '') ? 'noopener noreferrer' : undefined}
-                        className="inline-flex items-center px-3 py-1.5 sm:py-2 rounded-full text-sm font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 dark:bg-white/10 dark:text-stone-300 dark:hover:bg-white/20 transition-colors"
+                        className="inline-flex items-center px-3 py-1.5 sm:py-2 rounded-full text-sm font-medium bg-stone-100 text-stone-700 hover:bg-stone-200 dark:bg-white/10 dark:text-stone-300 dark:hover:bg-white/20 transition-colors whitespace-nowrap"
                       >
                         <Icon className="h-4 w-4 mr-1.5 sm:mr-2" />
                         {item.label}
@@ -198,29 +217,51 @@ export function ProjectDetail() {
             )}
           </article>
 
-          <div className="rounded-2xl sm:rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 sm:p-6 lg:p-8">
-            <h2 className="text-lg sm:text-xl font-semibold text-stone-900 dark:text-white mb-2 sm:mb-3">Overview</h2>
-            <p className="prose text-sm sm:text-base whitespace-pre-line">{description}</p>
+          {project.about && (
+            <div className="rounded-2xl sm:rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 sm:p-6 lg:p-8">
+              <h2 className="text-lg sm:text-xl font-semibold text-stone-900 dark:text-white mb-2 sm:mb-3">About</h2>
+              <p className="prose text-sm sm:text-base text-stone-600 dark:text-stone-300">
+                {project.about}
+              </p>
+            </div>
+          )}
 
-            {project.highlights && project.highlights.length > 0 && (
-              <div className="mt-4 sm:mt-6">
-                <h3 className="text-base sm:text-lg font-semibold text-stone-900 dark:text-white mb-2 sm:mb-3">Highlights</h3>
-                <ul className="space-y-1.5 sm:space-y-2">
-                  {project.highlights.map((item) => (
-                    <li key={item} className="text-sm sm:text-base text-stone-600 dark:text-stone-300 flex items-start gap-2">
-                      <span className="mt-1.5 sm:mt-2 h-1.5 w-1.5 rounded-full bg-teal-500 shrink-0" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+          {description && (
+            <div className="rounded-2xl sm:rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 sm:p-6 lg:p-8">
+              <h2 className="text-lg sm:text-xl font-semibold text-stone-900 dark:text-white mb-2 sm:mb-3">Story</h2>
+              <div className="prose text-sm sm:text-base whitespace-pre-line">
+                {renderDescriptionWithLinks(description)}
               </div>
-            )}
-          </div>
 
-          <div className="rounded-2xl sm:rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 sm:p-6 lg:p-8">
-            <h2 className="text-lg sm:text-xl font-semibold text-stone-900 dark:text-white mb-3 sm:mb-4">Project Gallery</h2>
-            <ProjectImageViewer images={galleryImages} title={project.title} />
-          </div>
+              {project.highlights && project.highlights.length > 0 && (
+                <div className="mt-4 sm:mt-6">
+                  <h3 className="text-base sm:text-lg font-semibold text-stone-900 dark:text-white mb-2 sm:mb-3">Highlights</h3>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    {project.highlights.map((item) => (
+                      <div
+                        key={item}
+                        className="relative rounded-xl border border-stone-200 dark:border-white/10 bg-gradient-to-br from-teal-50 to-white dark:from-teal-950/20 dark:to-white/5 p-4 hover:shadow-md transition-shadow"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="h-2 w-2 rounded-full bg-teal-500 dark:bg-teal-400 shrink-0 mt-2" />
+                          <p className="text-sm sm:text-base text-stone-700 dark:text-stone-200 font-medium">
+                            {item}
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {(project.gallery && project.gallery.length > 0) && (
+            <div className="rounded-2xl sm:rounded-3xl border border-stone-200 dark:border-white/10 bg-white dark:bg-white/5 p-4 sm:p-6 lg:p-8">
+              <h2 className="text-lg sm:text-xl font-semibold text-stone-900 dark:text-white mb-3 sm:mb-4">Project Gallery</h2>
+              <ProjectImageViewer images={galleryImages} title={project.title} />
+            </div>
+          )}
         </div>
       </Section>
     </>

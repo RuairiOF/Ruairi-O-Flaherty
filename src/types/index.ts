@@ -39,6 +39,7 @@ export interface Project {
   slug: string
   title: string
   description: string
+  about?: string
   longDescription?: string
   highlights?: string[]
   gallery?: string[]
