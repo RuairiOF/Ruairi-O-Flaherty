@@ -26,18 +26,32 @@ function ProjectImageViewer({ images, title, imagePosition }: ProjectImageViewer
 
   return (
     <div className="relative w-full h-[60vh] rounded-2xl overflow-hidden bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-white/10">
-      {images.map((img, i) => (
-        <img
-          key={i}
-          src={img}
-          alt={`${title} ${i + 1}`}
-          className={`absolute inset-0 w-full h-full object-cover ${imagePosition ?? 'object-center'} transition-opacity duration-500 ${
-            i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
-          loading="lazy"
-          decoding="async"
-        />
-      ))}
+      {images.map((img, i) => {
+        const isVideo = img.endsWith('.mp4') || img.endsWith('.webm')
+        return isVideo ? (
+          <video
+            key={i}
+            src={img}
+            controls
+            muted
+            playsInline
+            className={`absolute inset-0 w-full h-full object-cover ${imagePosition ?? 'object-center'} transition-opacity duration-500 ${
+              i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+          />
+        ) : (
+          <img
+            key={i}
+            src={img}
+            alt={`${title} ${i + 1}`}
+            className={`absolute inset-0 w-full h-full object-cover ${imagePosition ?? 'object-center'} transition-opacity duration-500 ${
+              i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
+            }`}
+            loading="lazy"
+            decoding="async"
+          />
+        )
+      })}
 
       {images.length > 1 && (
         <>

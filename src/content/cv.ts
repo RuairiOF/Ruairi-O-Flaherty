@@ -284,6 +284,7 @@ The offer includes standard and bundled editions, positioned as a limited produc
         `${photoBasePath}NukaColaRadio/radio-image- (2).webp`,
         `${photoBasePath}NukaColaRadio/radio-image- (3).webp`,
         `${photoBasePath}NukaColaRadio/radio-image- (4).webp`,
+        `${photoBasePath}NukaColaRadio/video_of_radio_production.mp4`,
       ],
       tags: ['E-commerce', 'Sourcing', 'Import/Export', 'Retail', 'Consumer Electronics'],
       image: `${logoBasePath}NukaColaRadioLOGO.webp`,
