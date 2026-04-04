@@ -26,6 +26,8 @@ function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
   return (
     <div className="relative w-full h-[40vh] sm:h-[60vh] rounded-xl sm:rounded-2xl overflow-hidden bg-stone-50 dark:bg-stone-900 border border-stone-200 dark:border-white/10">
       {images.map((img, i) => {
+        const isNear = i === active || i === (active + 1) % images.length || i === (active - 1 + images.length) % images.length
+        if (!isNear) return null
         const isVideo = img.endsWith('.mp4') || img.endsWith('.webm')
         return isVideo ? (
           <video
@@ -34,6 +36,7 @@ function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
             controls
             muted
             playsInline
+            preload="none"
             className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
               i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
@@ -46,7 +49,7 @@ function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
             className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-500 ${
               i === active ? 'opacity-100' : 'opacity-0 pointer-events-none'
             }`}
-            loading="lazy"
+            loading={i === active ? 'eager' : 'lazy'}
             decoding="async"
           />
         )
