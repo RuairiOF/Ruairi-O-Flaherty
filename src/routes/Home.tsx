@@ -1,5 +1,6 @@
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Play, Pause, Volume2, VolumeX } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { ProjectCard } from '../components/ProjectCard'
 import StarBorder from '../components/StarBorder'
@@ -16,6 +17,107 @@ const menuItems = [
   { link: '/skills', text: 'Skills', image: `${basePath}images/skills/Blender/Screenshot%202026-03-07%20134047.webp` },
   { link: '/contact', text: 'Contact', image: `${basePath}images/photos/radios.webp` },
 ]
+
+function VideoShowcase() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
+
+  const togglePlay = () => {
+    if (!videoRef.current) return
+    if (isPlaying) {
+      videoRef.current.pause()
+    } else {
+      videoRef.current.play()
+    }
+    setIsPlaying(!isPlaying)
+  }
+
+  const toggleMute = () => {
+    if (!videoRef.current) return
+    videoRef.current.muted = !isMuted
+    setIsMuted(!isMuted)
+  }
+
+  return (
+    <Link
+      to="/projects/nukacolaradio"
+      className="group relative block mb-12 rounded-2xl overflow-hidden border border-stone-200/50 dark:border-white/10 shadow-lg hover:shadow-2xl hover:shadow-teal-500/10 dark:hover:shadow-teal-400/10 transition-all duration-500"
+    >
+      {/* Video */}
+      <div className="relative aspect-video bg-stone-900">
+        <video
+          ref={videoRef}
+          src={`${basePath}images/photos/NukaColaRadio/video_of_radio_production.mp4`}
+          muted
+          playsInline
+          loop
+          preload="metadata"
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
+          className="w-full h-full object-cover"
+        />
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none" />
+
+        {/* Play button overlay — only when paused */}
+        {!isPlaying && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <button
+              onClick={(e) => { e.preventDefault(); togglePlay() }}
+              className="flex items-center justify-center w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-white/15 backdrop-blur-md border border-white/20 text-white hover:bg-white/25 hover:scale-110 transition-all duration-300 shadow-2xl"
+              aria-label="Play video"
+            >
+              <Play className="w-7 h-7 sm:w-8 sm:h-8 ml-1" fill="currentColor" />
+            </button>
+          </div>
+        )}
+
+        {/* Controls — bottom right, only when playing */}
+        {isPlaying && (
+          <div className="absolute bottom-4 right-4 flex gap-2">
+            <button
+              onClick={(e) => { e.preventDefault(); togglePlay() }}
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
+              aria-label="Pause video"
+            >
+              <Pause className="w-4 h-4" />
+            </button>
+            <button
+              onClick={(e) => { e.preventDefault(); toggleMute() }}
+              className="flex items-center justify-center w-9 h-9 rounded-full bg-black/50 backdrop-blur-sm text-white hover:bg-black/70 transition-colors"
+              aria-label={isMuted ? 'Unmute' : 'Mute'}
+            >
+              {isMuted ? <VolumeX className="w-4 h-4" /> : <Volume2 className="w-4 h-4" />}
+            </button>
+          </div>
+        )}
+
+        {/* Bottom info bar */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+          <div className="flex items-end justify-between gap-4">
+            <div>
+              <span className="inline-block px-2.5 py-1 rounded-full text-xs font-medium bg-teal-500/20 text-teal-300 backdrop-blur-sm border border-teal-500/20 mb-3">
+                Featured Build
+              </span>
+              <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-teal-300 transition-colors">
+                Nukacola Radio
+              </h3>
+              <p className="mt-1 text-sm text-white/60 max-w-lg hidden sm:block">
+                Hand-finished retro game-inspired Bluetooth radios — from sourcing to customer delivery
+              </p>
+            </div>
+            <div className="flex items-center gap-2 text-sm font-medium text-teal-400 opacity-0 group-hover:opacity-100 transition-opacity shrink-0">
+              View project
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </Link>
+  )
+}
 
 export function Home() {
   const featuredProjects = getFeaturedProjects().slice(0, 3)
@@ -195,6 +297,9 @@ export function Home() {
                 A selection of recent work and side projects
               </p>
             </div>
+
+            {/* Video Showcase */}
+            <VideoShowcase />
 
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredProjects.map((project) => (
