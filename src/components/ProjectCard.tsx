@@ -40,8 +40,8 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
       onClick={handleCardClick}
       onKeyDown={handleCardKeyDown}
     >
-      <div className="flex h-full flex-col p-6">
-        <div className="mb-4">
+      <div className="p-4 sm:p-6">
+        <div className="flex items-start justify-between mb-3">
           <div className="flex items-center gap-3">
             {hasLogoImage && (
               <img

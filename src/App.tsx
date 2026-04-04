@@ -17,7 +17,7 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="pointer-events-none fixed inset-0 z-0 hidden dark:md:block" style={{ transform: 'translateZ(0)', willChange: 'transform', backfaceVisibility: 'hidden' }}>
+      <div className="pointer-events-none fixed -inset-px z-0 hidden dark:md:block">
         <Grainient
           color1="#1a3a3a"
           color2="#0f2b3d"
@@ -40,10 +40,10 @@ function App() {
           zoom={0.9}
         />
       </div>
-      <div className="relative z-10 min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 md:dark:bg-transparent">
+      <div className="relative z-10 min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 md:dark:bg-transparent overflow-x-hidden">
         <SkipToContent />
         <Navbar />
-        
+
         <main id="main-content" className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
@@ -57,7 +57,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-        
+
         <Footer />
       </div>
     </Router>

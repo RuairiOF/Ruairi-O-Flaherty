@@ -151,7 +151,20 @@ function SkillCard({ showcase, onClick }: { showcase: SkillShowcase; onClick: ()
           )}
         </div>
       ) : (
-        <div className="h-3 bg-gradient-to-r from-teal-500/20 to-cyan-500/20 dark:from-teal-500/10 dark:to-cyan-500/10" />
+        <div className="h-40 bg-gradient-to-br from-teal-500/10 via-cyan-500/5 to-stone-500/10 dark:from-teal-500/15 dark:via-cyan-500/10 dark:to-stone-500/5 flex items-end p-3 overflow-hidden">
+          <div className="flex flex-wrap gap-1">
+            {showcase.tools.slice(0, 5).map((tool) => (
+              <span key={tool} className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/60 dark:bg-white/10 text-stone-500 dark:text-stone-400">
+                {tool}
+              </span>
+            ))}
+            {showcase.tools.length > 5 && (
+              <span className="px-2 py-0.5 rounded-full text-[10px] font-medium bg-white/60 dark:bg-white/10 text-stone-400 dark:text-stone-500">
+                +{showcase.tools.length - 5}
+              </span>
+            )}
+          </div>
+        </div>
       )}
       <div className="p-4">
         <h3 className="font-bold text-stone-900 dark:text-white mb-1">

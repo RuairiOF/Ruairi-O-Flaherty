@@ -103,25 +103,26 @@ export const cvData: CVData = {
     {
       slug: 'eirpost',
       title: 'EirPost',
-      description: 'I founded EirPost to give Irish SMEs instant discounted shipping labels and simpler logistics workflows. It supports Etsy and Shopify sellers across Ireland and helps customers cut international shipping costs by up to 40%.',
-      longDescription: `EirPost started as an operations project to solve a clear problem: small Irish businesses were paying high shipping rates and losing time to manual admin around labels, billing, and support exceptions.
+      description: 'A logistics automation platform serving hundreds of Irish businesses. Handles automated label generation, order fulfillment, and shipping optimization, cutting costs by up to 40% while giving business owners their time back.',
+      about: 'EirPost is a logistics automation platform that integrates with An Post to handle the entire shipping workflow for Irish businesses. From automatic label generation to order fulfillment and cost optimization, the platform eliminates manual shipping tasks so businesses can focus on growth. Designed with a user-friendly interface for non-technical users, from solo Etsy sellers to high-volume e-commerce operations.',
+      longDescription: `When I was running ROF's 3D, shipping 3D printed products, I was spending way too much time manually creating shipping labels. Hours clicking back and forth, copying addresses and parcel info and printing labels. I found it tedious, repetitive, and in hindsight, it took energy and motivation from me, which could have been redirected into scaling.
 
-I built the model end to end, including pricing logic, customer onboarding, and the internal workflows that keep shipping reliable every day. That includes rate iteration, margin monitoring, billing and reconciliation checks, and customer support processes for issues like delayed parcels or incorrect label data.
+First, I built myself a bot to automate it with playwright. With a bit of tweaking, what took me hours took a couple of minutes. An order comes in, the label would get created automatically and just print on my label printer for me to just peel off and stick to a parcel.
 
-Today EirPost supports hundreds of SME customers across Ireland. The result is a simpler workflow for merchants and measurable savings, with many customers reducing international shipping costs by up to 40%.`,
+I know this isn't just my problem. I'd say most, if not all, small businesses in Ireland deal with the same tedious shipping workflow, so I decided to share it on. What started as a personal time saver turned into an automation platform for order fulfillment and shipping logistics, after turning systems specific to my needs into a website that I have tried to optimise the UI for so that not so technical individuals, who may be just beginning to experiment with an Etsy, for example, can use it with ease.
+
+Now EirPost serves hundreds of Irish businesses. We've built integrations that aim to handle everything from automated label generation to cost optimisation, saving businesses up to 40% on their shipping costs. It's not just about cheaper shipping, it's also about giving small business owners their time back so they can focus on what actually matters, whether that be building and growing their companies or even spending less time on the business itself to focus on themselves and their families.
+
+The next phase for us is to look at full autonomy. AI driven analytics that predict shipping volumes, optimise packaging and routes, letting higher volume shippers scale without adding operational overhead. The goal is to make logistics essentially invisible, so businesses can focus entirely on their products and customers and ultimately creativity instead of this time consuming repetition.`,
       highlights: [
-        'Supports hundreds of SME customers across Ireland',
-        'Helps Etsy, Shopify, and other e-commerce sellers buy discounted labels instantly',
-        'Reduced international shipping costs by up to 40% for customers',
-        'Built and iterated pricing, onboarding, and reconciliation workflows',
-        'Runs day-to-day operations including support, exception handling, and margin tracking',
+        'Hundreds of active SME customers across Ireland',
+        '40% average reduction in shipping costs',
+        'Automated end-to-end order fulfillment',
+        'Born from real shipping pain at ROF\'s 3D',
       ],
-      gallery: [
-        `${photoBasePath}EirPost/small_business (1).webp`,
-      ],
-      tags: ['Logistics', 'Web Development', 'Business Development', 'Financial Management'],
-      image: `${logoBasePath}EirpostLogoPNG.webp`,
-      imagePosition: 'object-left-top',
+      gallery: [],
+      tags: ['Automation', 'Web Development', 'Business Development', 'API Integration', 'Logistics'],
+      image: `${logoBasePath}EirpostLogoPNG.png`,
       liveUrl: 'https://eirpost.ie',
       featured: true,
       priority: 1
