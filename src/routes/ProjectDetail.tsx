@@ -10,10 +10,9 @@ import { isExternalUrl } from '../lib/utils'
 interface ProjectImageViewerProps {
   images: string[]
   title: string
-  imagePosition?: string
 }
 
-function ProjectImageViewer({ images, title, imagePosition }: ProjectImageViewerProps) {
+function ProjectImageViewer({ images, title }: ProjectImageViewerProps) {
   const [active, setActive] = useState(0)
 
   if (images.length === 0) {
