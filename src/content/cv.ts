@@ -122,7 +122,7 @@ The next phase for us is to look at full autonomy. AI driven analytics that pred
       ],
       gallery: [],
       tags: ['Automation', 'Web Development', 'Business Development', 'API Integration', 'Logistics'],
-      image: `${logoBasePath}EirpostLogoPNG.png`,
+      image: `${logoBasePath}EirpostLogoPNG.webp`,
       liveUrl: 'https://eirpost.ie',
       featured: true,
       priority: 1

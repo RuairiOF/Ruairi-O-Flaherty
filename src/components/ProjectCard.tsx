@@ -40,8 +40,8 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
       onClick={handleCardClick}
       onKeyDown={handleCardKeyDown}
     >
-      <div className="p-4 sm:p-6">
-        <div className="flex items-start justify-between mb-3">
+      <div className="flex h-full flex-col p-4 sm:p-6">
+        <div className="mb-4">
           <div className="flex items-center gap-3">
             {hasLogoImage && (
               <img
@@ -54,7 +54,7 @@ export function ProjectCard({ project, className = '' }: ProjectCardProps) {
             )}
             <h3 className="heading-4 text-stone-900 dark:text-white">{project.title}</h3>
           </div>
-          <p className="mt-1 truncate text-sm text-stone-600 dark:text-stone-300">
+          <p className="mt-2 text-sm text-stone-600 dark:text-stone-300 line-clamp-2">
             {project.description}
           </p>
         </div>
