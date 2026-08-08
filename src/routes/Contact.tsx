@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, Github, Linkedin, ExternalLink } from 'lucide-react'
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { Section } from '../components/Section'
 import { cvData } from '../content/cv'
@@ -8,31 +7,6 @@ import { isExternalUrl } from '../lib/utils'
 
 export function Contact() {
   const seo = getStaticSeoPage('/contact')
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: ''
-  })
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData(prev => ({
-      ...prev,
-      [e.target.name]: e.target.value
-    }))
-  }
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-
-    // Fallback to mailto since we don't have a server
-    const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio')
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
-    )
-
-    window.location.href = `mailto:${cvData.person.email}?subject=${subject}&body=${body}`
-  }
 
   const contactMethods = [
     {
@@ -98,113 +72,8 @@ export function Contact() {
         centered
         titleAs="h1"
       >
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* Contact Form */}
-            <div className="card p-8">
-              <h3 className="heading-3 mb-6 text-stone-900 dark:text-white">
-                Send a Message
-              </h3>
-
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
-                    >
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      value={formData.name}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
-                    >
-                      Email
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      value={formData.email}
-                      onChange={handleChange}
-                      className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="subject"
-                    className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
-                  >
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-stone-700 dark:text-stone-300 mb-2"
-                  >
-                    Message
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={6}
-                    required
-                    value={formData.message}
-                    onChange={handleChange}
-                    className="w-full px-3 py-2 border border-stone-300 dark:border-white/10 rounded-md bg-white dark:bg-white/10 text-stone-900 dark:text-white placeholder-stone-500 dark:placeholder-stone-400 focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="btn btn-primary btn-lg w-full group"
-                >
-                  <Send className="mr-2 h-5 w-5" />
-                  Send Message
-                </button>
-              </form>
-
-              <div className="mt-6 p-4 bg-teal-50 dark:bg-teal-500/10 rounded-lg">
-                <p className="text-sm text-teal-800 dark:text-teal-300">
-                  <strong>Note:</strong> This form uses your default email client.
-                  If it doesn't work, please email me directly at{' '}
-                  <a
-                    href={`mailto:${cvData.person.email}`}
-                    className="underline hover:no-underline"
-                  >
-                    {cvData.person.email}
-                  </a>
-                </p>
-              </div>
-            </div>
-
-            {/* Contact Information */}
-            <div className="space-y-8">
+        <div className="max-w-2xl mx-auto">
+          <div className="space-y-8">
               {/* Contact Methods */}
               <div className="card p-8">
                 <h3 className="heading-3 mb-6 text-stone-900 dark:text-white">
@@ -278,7 +147,6 @@ export function Contact() {
                   </div>
                 </div>
               )}
-            </div>
           </div>
         </div>
       </Section>
