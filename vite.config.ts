@@ -1,3 +1,4 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
@@ -5,6 +6,14 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   plugins: [react()],
   base: '/',
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, 'src'),
+    },
+  },
+  define: {
+    __BUILD_DATE__: JSON.stringify(new Date().toISOString()),
+  },
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
@@ -15,6 +24,7 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
           router: ['react-router-dom'],
+          gsap: ['gsap', '@gsap/react'],
         },
       },
     },
@@ -24,4 +34,3 @@ export default defineConfig({
     open: true,
   },
 })
-

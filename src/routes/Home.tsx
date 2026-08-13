@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import { ArrowRight, Play, Pause, Volume2, VolumeX } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import { ProjectCard } from '../components/ProjectCard'
-import StarBorder from '../components/StarBorder'
-import SplitText from '../components/SplitText'
-import FlowingMenu from '../components/FlowingMenu'
+import StarBorder from '../components/reactbits/StarBorder'
+import SplitText from '../components/reactbits/SplitText'
+import FlowingMenu from '../components/reactbits/FlowingMenu'
 import { cvData, getFeaturedProjects } from '../content/cv'
 import { getStaticSeoPage } from '../content/seo-pages'
 
@@ -14,7 +14,7 @@ const basePath = import.meta.env.BASE_URL || '/'
 const menuItems = [
   { link: '/projects', text: 'Projects', image: `${basePath}images/skills/Electronics%20and%20Soldering/EbikeMotorElectronics.webp` },
   { link: '/experience', text: 'Experience', image: `${basePath}images/skills/Construction%20Site/Construction_Site.webp` },
-  { link: '/skills', text: 'Skills', image: `${basePath}images/skills/Blender/Screenshot%202026-03-07%20134047.webp` },
+  { link: '/skills', text: 'Skills', image: `${basePath}images/skills/Blender/Screenshot-2026-03-07-134047.webp` },
   { link: '/contact', text: 'Contact', image: `${basePath}images/photos/radios.webp` },
 ]
 

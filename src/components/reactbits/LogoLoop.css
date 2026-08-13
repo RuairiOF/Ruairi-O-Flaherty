@@ -1,0 +1,56 @@
+.logo-loop {
+  overflow: hidden;
+  width: 100%;
+}
+
+.logo-loop-fade {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image: linear-gradient(to right, transparent, black 8%, black 92%, transparent);
+}
+
+.logo-loop-track {
+  display: flex;
+  width: max-content;
+  animation: logo-loop-scroll linear infinite;
+}
+
+.logo-loop:hover .logo-loop-track {
+  animation-play-state: paused;
+}
+
+.logo-loop-static {
+  animation: none;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.logo-loop-static + .logo-loop-group {
+  display: none;
+}
+
+.logo-loop-group {
+  display: flex;
+  align-items: center;
+}
+
+.logo-loop-item {
+  flex: none;
+  display: flex;
+  align-items: center;
+  padding: 0 1.75rem;
+}
+
+@keyframes logo-loop-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
