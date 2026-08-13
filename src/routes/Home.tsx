@@ -47,7 +47,7 @@ const menuItems = [
 ]
 
 const ABOUT_TEXT =
-  "I'm a mechanical engineering student at UCD who builds things end to end — the hardware, the software, and the business around them. A 3D-printing workshop that shipped a thousand orders, a logistics platform now used by hundreds of Irish SMEs, a laser visibility system for cyclists: I like problems that only get solved by making something real."
+  "I'm a mechanical engineering student at UCD. Outside lectures I've run a 3D-printing shop that shipped over a thousand orders, built a shipping platform that hundreds of Irish businesses now use, and I'm helping build a laser visibility system for cyclists. Mostly I just like making things that people actually use."
 
 export function Home() {
   const featuredProjects = getFeaturedProjects().slice(0, 3)
@@ -260,7 +260,7 @@ export function Home() {
           <div className="glass-panel rounded-3xl p-6 sm:p-10 lg:p-14">
             <SectionIntro
               eyebrow="02 / About"
-              title="Engineer, maker, operator"
+              title="A bit about me"
             />
 
             <ScrollReveal className="prose mt-6 max-w-3xl text-lg">

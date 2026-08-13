@@ -58,8 +58,7 @@ export function Footer() {
           <div>
             <p className="eyebrow">Get in touch</p>
             <p className="heading-3 mt-3 text-ink">
-              Building things,{' '}
-              <span className="gradient-text">end to end.</span>
+              Say <span className="gradient-text">hello.</span>
             </p>
             <p className="prose mt-3 max-w-sm text-sm">
               {cvData.person.headline} — {cvData.person.location}

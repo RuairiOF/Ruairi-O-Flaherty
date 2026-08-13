@@ -80,8 +80,8 @@ export function Experience() {
             stagger={0.03}
           />
           <p className="prose mt-5 max-w-2xl text-lg">
-            Building companies while studying engineering — from construction sites and
-            accelerators to logistics platforms I run myself. Here is the whole path, in order.
+            Where I've worked and what I actually did there — construction sites, a startup
+            accelerator, and the businesses I run now.
           </p>
 
           <div className="mt-10 sm:mt-12">
@@ -98,7 +98,7 @@ export function Experience() {
               Work
             </h2>
             <p className="prose mt-3 max-w-xl">
-              Five roles, each one closer to running things end to end.
+              Five roles so far, from site work to running my own company.
             </p>
 
             <div className="mt-10">
