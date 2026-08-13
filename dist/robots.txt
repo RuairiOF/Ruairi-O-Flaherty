@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-Host: www.ruairioflaherty.ie
-Sitemap: https://www.ruairioflaherty.ie/sitemap.xml
