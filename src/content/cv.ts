@@ -11,7 +11,6 @@ export const cvData: CVData = {
     headline: 'Mechanical Engineering Student & Developer',
     location: 'Dublin, Ireland',
     email: 'ruairioflaherty1@gmail.com',
-    phone: '+353 89 406 7369',
     links: {
       github: 'https://github.com/RuairiOF',
       linkedin: 'https://www.linkedin.com/in/ruairioflaherty/',
