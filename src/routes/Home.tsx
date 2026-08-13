@@ -22,27 +22,27 @@ const menuItems = [
   {
     link: '/projects',
     text: 'Projects',
-    image: `${basePath}images/skills/Electronics%20and%20Soldering/EbikeMotorElectronics.webp`,
+    image: `${basePath}images/skills/Electronics%20and%20Soldering/EbikeMotorElectronics-w640.webp`,
   },
   {
     link: '/experience',
     text: 'Experience',
-    image: `${basePath}images/skills/Construction%20Site/Construction_Site.webp`,
+    image: `${basePath}images/skills/Construction%20Site/Construction_Site-w640.webp`,
   },
   {
     link: '/skills',
     text: 'Skills',
-    image: `${basePath}images/skills/Blender/Screenshot-2026-03-07-134047.webp`,
+    image: `${basePath}images/skills/Blender/Screenshot-2026-03-07-134047-w640.webp`,
   },
   {
     link: '/photos',
     text: 'Photos',
-    image: `${basePath}images/photos/gallery/IMG_2600.webp`,
+    image: `${basePath}images/photos/gallery/IMG_2600-w640.webp`,
   },
   {
     link: '/contact',
     text: 'Contact',
-    image: `${basePath}images/photos/radios.webp`,
+    image: `${basePath}images/photos/radios-w640.webp`,
   },
 ]
 
