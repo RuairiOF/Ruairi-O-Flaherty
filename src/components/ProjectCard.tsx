@@ -1,5 +1,8 @@
-import type { KeyboardEvent, MouseEvent } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import { ArrowUpRight } from 'lucide-react'
+import SmartImage from './SmartImage'
+import ShinyText from './reactbits/ShinyText'
+import { getProjectMedia, hookOf } from './projects/media'
 import type { Project } from '../types'
 
 interface ProjectCardProps {
@@ -8,93 +11,80 @@ interface ProjectCardProps {
 }
 
 export function ProjectCard({ project, className = '' }: ProjectCardProps) {
-  const navigate = useNavigate()
-  const projectPath = `/projects/${project.slug}`
-  const galleryImages = (project.gallery || []).filter((image) => image && !image.includes('[TODO'))
-  const thumbnail = galleryImages.find((image) => image !== project.image) || galleryImages[0] || project.image
-  const hasLogoImage = Boolean(
-    project.image &&
-    !project.image.includes('[TODO') &&
-    (/\/images\/logos\//i.test(project.image) || /logo/i.test(project.image))
-  )
-
-  const handleCardClick = (event: MouseEvent<HTMLDivElement>) => {
-    const target = event.target as HTMLElement
-    if (target.closest('a, button')) return
-    navigate(projectPath)
-  }
-
-  const handleCardKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
-    if (event.key === 'Enter' || event.key === ' ') {
-      event.preventDefault()
-      navigate(projectPath)
-    }
-  }
+  const { cover, logo } = getProjectMedia(project)
 
   return (
-    <div
-      className={`card card-hover h-full cursor-pointer ${className}`}
-      role="link"
-      tabIndex={0}
-      aria-label={`View details for ${project.title}`}
-      onClick={handleCardClick}
-      onKeyDown={handleCardKeyDown}
-    >
-      <div className="flex h-full flex-col p-4 sm:p-6">
-        <div className="mb-4">
-          <div className="flex items-center gap-3">
-            {hasLogoImage && (
-              <img
-                src={project.image}
-                alt={`${project.title} logo`}
-                className="h-8 w-8 flex-shrink-0 rounded-md border border-stone-200/60 bg-white object-contain dark:border-white/10 dark:bg-white/10"
-                loading="lazy"
-                decoding="async"
-              />
-            )}
-            <h3 className="heading-4 text-stone-900 dark:text-white">{project.title}</h3>
-          </div>
-          <p className="mt-2 text-sm text-stone-600 dark:text-stone-300 line-clamp-2">
-            {project.description}
-          </p>
-        </div>
-
-        <div className="mb-4 overflow-hidden rounded-xl border border-stone-200/70 bg-stone-50 dark:border-white/10 dark:bg-white/5">
-          {thumbnail ? (
-            <img
-              src={thumbnail}
-              alt={`${project.title} thumbnail`}
-              className={`h-48 w-full object-cover ${project.imagePosition ?? 'object-center'}`}
-              loading="lazy"
-              decoding="async"
+    <article className={`card card-hover group relative h-full ${className}`}>
+      <div className="relative z-10 flex h-full flex-col">
+        <div className="relative aspect-[16/10] w-full overflow-hidden border-b border-line/10 bg-surface-2/40">
+          {cover ? (
+            <SmartImage
+              src={cover}
+              alt={`${project.title} preview`}
+              sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 92vw"
+              className={`h-full w-full object-cover transition-transform duration-slow ease-out-expo group-hover:scale-[1.04] ${
+                project.imagePosition ?? 'object-center'
+              }`}
             />
           ) : (
-            <div className="flex h-48 items-center justify-center text-sm text-stone-500 dark:text-stone-400">
-              No preview image
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/15 to-accent-2/10">
+              {logo ? (
+                <SmartImage
+                  src={logo}
+                  alt={`${project.title} logo`}
+                  sizes="160px"
+                  className="h-16 w-16 object-contain"
+                />
+              ) : (
+                <span className="eyebrow">{project.title}</span>
+              )}
             </div>
           )}
         </div>
 
-        {project.tags.length > 0 && !project.tags[0].includes('[TODO') && (
-          <div className="flex flex-wrap gap-2">
-            {project.tags.map((tag) => (
-              <span
-                key={tag}
-                className="inline-flex items-center rounded-full bg-teal-100 px-2.5 py-0.5 text-xs font-medium text-teal-800 dark:bg-teal-500/15 dark:text-teal-300"
-              >
-                {tag}
-              </span>
-            ))}
+        <div className="flex flex-1 flex-col gap-3 p-5 sm:p-6">
+          <div className="flex items-center gap-3">
+            {logo && (
+              <SmartImage
+                src={logo}
+                alt=""
+                aria-hidden="true"
+                sizes="40px"
+                className="h-8 w-8 shrink-0 rounded-md border border-line/10 bg-surface/60 object-contain p-1"
+              />
+            )}
+            <h3 className="heading-4 text-ink">{project.title}</h3>
           </div>
-        )}
 
-        <Link
-          to={projectPath}
-          className="mt-auto pt-5 inline-flex text-sm font-medium text-teal-600 transition-colors hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
-        >
-          View project details
-        </Link>
+          <p className="prose line-clamp-3 text-sm">{hookOf(project)}</p>
+
+          {project.tags.length > 0 && !project.tags[0].includes('[TODO') && (
+            <ul className="flex flex-wrap gap-1.5">
+              {project.tags.slice(0, 3).map((tag) => (
+                <li
+                  key={tag}
+                  className="glass-panel rounded-full px-2.5 py-1 font-mono text-[10px] uppercase tracking-wider text-ink-muted"
+                >
+                  {tag}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {/* Stretched link: the whole card is clickable through one real anchor */}
+          <Link
+            to={`/projects/${project.slug}`}
+            aria-label={`View details for ${project.title}`}
+            className="mt-auto inline-flex w-max items-center gap-1.5 pt-3 text-sm font-medium text-accent after:absolute after:inset-0 after:z-20 after:rounded-2xl after:content-['']"
+          >
+            <ShinyText>View project</ShinyText>
+            <ArrowUpRight
+              aria-hidden="true"
+              className="h-4 w-4 transition-transform duration-base ease-out-expo group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            />
+          </Link>
+        </div>
       </div>
-    </div>
+    </article>
   )
 }

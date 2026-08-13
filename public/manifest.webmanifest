@@ -8,8 +8,8 @@
   "orientation": "portrait-primary",
   "lang": "en-IE",
   "dir": "ltr",
-  "theme_color": "#0f766e",
-  "background_color": "#ffffff",
+  "theme_color": "#07070c",
+  "background_color": "#07070c",
   "categories": ["portfolio", "business", "productivity"],
   "icons": [
     {

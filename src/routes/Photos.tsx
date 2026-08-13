@@ -1,17 +1,11 @@
 import { SEO } from '../components/SEO'
-import { Section } from '../components/Section'
-import { PhotoGallery } from '../components/PhotoGallery'
+import PhotoGrid from '../components/photos/PhotoGrid'
+import BlurText from '../components/reactbits/BlurText'
 import { galleryPhotos } from '../content/photos'
 import { getStaticSeoPage } from '../content/seo-pages'
-import { withBasePath } from '../lib/seo'
 
 export function Photos() {
   const seo = getStaticSeoPage('/photos')
-  const basePath = import.meta.env.BASE_URL || '/'
-  const photos = galleryPhotos.map((photo) => ({
-    ...photo,
-    src: withBasePath(photo.src, basePath),
-  }))
 
   return (
     <>
@@ -26,15 +20,24 @@ export function Photos() {
         structuredData={seo?.structuredData}
       />
 
-      <Section
-        title="3D Printing Gallery"
-        description="A showcase of 3D printed creations, prototypes, and finished products"
-        centered
-        className="pt-8 lg:pt-16"
-        titleAs="h1"
-      >
-        <PhotoGallery photos={photos} />
-      </Section>
+      <section className="section">
+        <div className="shell-wide">
+          <header className="mb-12 max-w-3xl lg:mb-16">
+            <p className="eyebrow mb-4">Gallery</p>
+            <h1 className="heading-1 text-ink">
+              <BlurText as="span" text="Fresh off the" className="block" />
+              <span className="block gradient-text animate-fade-in">print bed.</span>
+            </h1>
+            <p className="prose mt-6 text-lg">
+              {galleryPhotos.length} photos from ROF&rsquo;s 3D &mdash; my 3D-printing bench, where
+              prototypes, props and finished pieces come off the plate. Tap any frame to open it
+              full size.
+            </p>
+          </header>
+
+          <PhotoGrid photos={galleryPhotos} />
+        </div>
+      </section>
     </>
   )
 }

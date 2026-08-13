@@ -1,37 +1,44 @@
-import { Github, Linkedin, Mail, ExternalLink } from 'lucide-react'
+import { ExternalLink, Github, Linkedin, Mail } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import Magnet from './reactbits/Magnet'
 import { cvData } from '../content/cv'
 import { isExternalUrl } from '../lib/utils'
 
+const buildDate = new Date(__BUILD_DATE__).toLocaleDateString('en-IE', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+  hour: '2-digit',
+  minute: '2-digit',
+})
 
 export function Footer() {
   const currentYear = new Date().getFullYear()
-  const buildTime = new Date().toISOString()
 
   const socialLinks = [
     {
       name: 'GitHub',
       url: cvData.person.links.github,
       icon: Github,
-      key: 'github'
+      key: 'github',
     },
     {
       name: 'LinkedIn',
       url: cvData.person.links.linkedin,
       icon: Linkedin,
-      key: 'linkedin'
+      key: 'linkedin',
     },
     {
       name: 'Website',
       url: cvData.person.links.website,
       icon: ExternalLink,
-      key: 'website'
+      key: 'website',
     },
     {
       name: 'Email',
       url: `mailto:${cvData.person.email}`,
       icon: Mail,
-      key: 'email'
+      key: 'email',
     },
   ].filter(link => link.url && !link.url.includes('[TODO'))
 
@@ -45,55 +52,66 @@ export function Footer() {
   ]
 
   return (
-    <footer className="bg-stone-100 dark:bg-black/20 border-t border-stone-200 dark:border-white/10">
-      <div className="container py-12">
-        <div className="flex flex-col items-center space-y-6">
-          {/* Social Links */}
-          {socialLinks.length > 0 && (
-            <div className="flex items-center space-x-6">
-              {socialLinks.map((link) => {
-                const Icon = link.icon
-                return (
-                  <a
-                    key={link.key}
-                    href={link.url}
-                    target={isExternalUrl(link.url || '') ? '_blank' : undefined}
-                    rel={isExternalUrl(link.url || '') ? 'noopener noreferrer' : undefined}
-                    className="text-stone-500 hover:text-teal-600 dark:text-stone-400 dark:hover:text-teal-400 transition-colors"
-                    aria-label={link.name}
-                  >
-                    <Icon className="h-5 w-5" />
-                  </a>
-                )
-              })}
-            </div>
-          )}
-
-          <nav aria-label="Footer navigation" className="flex flex-wrap justify-center gap-x-4 gap-y-2">
-            {internalLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className="text-sm text-stone-600 hover:text-teal-600 dark:text-stone-300 dark:hover:text-teal-400 transition-colors"
-              >
-                {link.label}
-              </Link>
-            ))}
-          </nav>
-
-          {/* Copyright */}
-          <div className="text-center text-sm text-stone-500 dark:text-stone-400">
-            <p>&copy; {currentYear} {cvData.person.name}. All rights reserved.</p>
-            <p className="mt-1 text-xs">
-              Last built: {new Date(buildTime).toLocaleDateString('en-US', {
-                year: 'numeric',
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-              })}
+    <footer className="mt-24 border-t border-line/10 bg-surface/30 backdrop-blur-sm">
+      <div className="shell py-14">
+        <div className="grid gap-10 md:grid-cols-[1.2fr_1fr] md:gap-16">
+          <div>
+            <p className="eyebrow">Get in touch</p>
+            <p className="heading-3 mt-3 text-ink">
+              Building things,{' '}
+              <span className="gradient-text">end to end.</span>
             </p>
+            <p className="prose mt-3 max-w-sm text-sm">
+              {cvData.person.headline} — {cvData.person.location}
+            </p>
+
+            {socialLinks.length > 0 && (
+              <div className="mt-6 flex items-center gap-4">
+                {socialLinks.map(link => {
+                  const Icon = link.icon
+                  const external = isExternalUrl(link.url || '')
+                  return (
+                    <Magnet key={link.key} padding={12} magnetStrength={0.4}>
+                      <a
+                        href={link.url}
+                        target={external ? '_blank' : undefined}
+                        rel={external ? 'noopener noreferrer' : undefined}
+                        aria-label={link.name}
+                        className="flex h-10 w-10 items-center justify-center rounded-full border border-line/10 bg-line/5 text-ink-muted transition-colors duration-base ease-out-expo hover:border-accent/40 hover:text-accent"
+                      >
+                        <Icon className="h-4 w-4" aria-hidden="true" />
+                      </a>
+                    </Magnet>
+                  )
+                })}
+              </div>
+            )}
           </div>
+
+          <nav aria-label="Footer navigation">
+            <p className="eyebrow">Sitemap</p>
+            <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2">
+              {internalLinks.map(link => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    className="text-sm text-ink-muted transition-colors duration-fast hover:text-accent"
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <div className="mt-12 flex flex-col items-start justify-between gap-2 border-t border-line/10 pt-6 sm:flex-row sm:items-center">
+          <p className="text-sm text-ink-muted">
+            &copy; {currentYear} {cvData.person.name}. All rights reserved.
+          </p>
+          <p className="font-mono text-xs text-ink-muted/80">
+            Last built {buildDate}
+          </p>
         </div>
       </div>
     </footer>
