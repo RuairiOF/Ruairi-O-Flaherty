@@ -15,6 +15,7 @@ const TIME_FORMAT: Intl.DateTimeFormatOptions = {
   timeZoneName: 'short',
 }
 
+
 /** "14:32 IST" in Dublin, whatever the visitor's own clock says. */
 function useDublinTime() {
   const [time, setTime] = useState(() => new Intl.DateTimeFormat('en-IE', TIME_FORMAT).format())
