@@ -2,6 +2,100 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ---------------------------------------------------------------------------
+   Aurora Glass design tokens
+   Colors are raw RGB channels so Tailwind can apply alpha:
+   rgb(var(--accent) / <alpha-value>)
+--------------------------------------------------------------------------- */
+:root {
+  /* frosted daylight (light mode) */
+  --bg: 245 246 250;
+  --surface: 255 255 255;
+  --surface-2: 238 240 247;
+  --ink: 18 19 28;
+  --ink-muted: 95 99 116;
+  --accent: 124 58 237; /* violet-600 */
+  --accent-2: 8 145 178; /* cyan-600 */
+  --glow: 139 92 246;
+  --line: 18 19 28;
+  --highlight: 217 119 6; /* amber-600, award badges only */
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  --blur-glass: 16px;
+  --dur-fast: 150ms;
+  --dur-base: 300ms;
+  --dur-slow: 600ms;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  --shell-max: 72rem;
+  --shell-max-wide: 84rem;
+}
+
+.dark {
+  /* deep ink (dark mode) */
+  --bg: 7 7 12;
+  --surface: 19 20 31;
+  --surface-2: 28 29 44;
+  --ink: 237 238 245;
+  --ink-muted: 154 158 175;
+  --accent: 139 92 246; /* violet-500 */
+  --accent-2: 34 211 238; /* cyan-400 */
+  --glow: 139 92 246;
+  --line: 255 255 255;
+  --highlight: 251 191 36; /* amber-400 */
+}
+
+/* ---------------------------------------------------------------------------
+   Fonts (self-hosted)
+--------------------------------------------------------------------------- */
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-500.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-600.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Clash Display';
+  src: url('/fonts/ClashDisplay-700.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'InterVariable';
+  src: url('/fonts/InterVariable.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('/fonts/JetBrainsMono-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 @layer base {
   html {
     @apply scroll-smooth;
@@ -15,17 +109,19 @@
   }
 
   body {
-    @apply font-sans antialiased overflow-x-hidden;
+    @apply font-sans antialiased overflow-x-hidden bg-bg text-ink;
   }
 
-  /* Focus styles for accessibility */
+  ::selection {
+    background: rgb(var(--accent) / 0.25);
+  }
+
   *:focus-visible {
-    @apply outline-none ring-2 ring-teal-500 ring-offset-2 ring-offset-white dark:ring-offset-transparent;
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-bg;
   }
 
-  /* Skip to content link */
   .skip-link {
-    @apply absolute -top-full left-4 z-50 bg-teal-600 text-white px-4 py-2 rounded-md;
+    @apply absolute -top-full left-4 z-50 bg-accent text-white px-4 py-2 rounded-md;
     @apply transform transition-transform duration-200;
   }
 
@@ -35,23 +131,74 @@
 }
 
 @layer components {
-  /* Button variants */
+  /* Layout shells (replaces the old .container, which shadowed Tailwind's) */
+  .shell {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: var(--shell-max);
+  }
+
+  .shell-wide {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: var(--shell-max-wide);
+  }
+
+  /* Deprecated alias kept only until all pages migrate to .shell */
+  .container {
+    @apply mx-auto px-4 sm:px-6 lg:px-8;
+    max-width: var(--shell-max);
+  }
+
+  /* Glass tiers */
+  .glass-nav {
+    @apply bg-surface/70 dark:bg-surface/50 border border-line/10 dark:border-line/10;
+    backdrop-filter: blur(var(--blur-glass)) saturate(1.4);
+    -webkit-backdrop-filter: blur(var(--blur-glass)) saturate(1.4);
+  }
+
+  .glass-panel {
+    @apply bg-surface/75 dark:bg-line/[0.05] border border-line/10 dark:border-line/10;
+    backdrop-filter: blur(var(--blur-glass));
+    -webkit-backdrop-filter: blur(var(--blur-glass));
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.08),
+      0 8px 32px -12px rgb(var(--glow) / 0.12);
+  }
+
+  .glass-overlay {
+    @apply bg-bg/70;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Buttons */
   .btn {
-    @apply inline-flex items-center justify-center rounded-lg font-medium transition-colors duration-200;
-    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-500;
+    @apply inline-flex items-center justify-center rounded-xl font-medium;
+    @apply transition-all duration-base ease-out-expo;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent;
     @apply disabled:pointer-events-none disabled:opacity-50;
   }
 
   .btn-primary {
-    @apply bg-teal-600 text-white hover:bg-teal-700 dark:bg-teal-500 dark:hover:bg-teal-600;
+    @apply text-white;
+    background-image: linear-gradient(
+      120deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-2))
+    );
+    box-shadow: 0 4px 24px -6px rgb(var(--glow) / 0.5);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 6px 32px -6px rgb(var(--glow) / 0.7);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
-    @apply bg-stone-100 text-stone-900 hover:bg-stone-200 dark:bg-white/10 dark:text-stone-100 dark:hover:bg-white/20;
+    @apply glass-panel text-ink hover:bg-surface/90 dark:hover:bg-line/10;
   }
 
   .btn-ghost {
-    @apply text-stone-600 hover:text-stone-900 hover:bg-stone-100 dark:text-stone-400 dark:hover:text-stone-100 dark:hover:bg-white/10;
+    @apply text-ink-muted hover:text-ink hover:bg-line/5;
   }
 
   .btn-sm {
@@ -66,18 +213,23 @@
     @apply px-6 py-3 text-lg;
   }
 
-  /* Card styles */
+  /* Cards = glass panels */
   .card {
-    @apply bg-white dark:bg-white/5 rounded-2xl shadow-sm border border-stone-200 dark:border-white/10;
-    @apply transition-shadow duration-200 hover:shadow-md dark:backdrop-blur-sm;
-    @apply overflow-hidden;
+    @apply glass-panel rounded-2xl overflow-hidden;
+    @apply transition-all duration-base ease-out-expo;
   }
 
   .card-hover {
-    @apply hover:shadow-lg hover:-translate-y-1 transition-all duration-200;
+    @apply hover:-translate-y-1;
   }
 
-  /* Section styles */
+  .card-hover:hover {
+    box-shadow:
+      inset 0 1px 0 0 rgb(255 255 255 / 0.1),
+      0 16px 48px -12px rgb(var(--glow) / 0.25);
+  }
+
+  /* Sections */
   .section {
     @apply py-16 lg:py-24;
   }
@@ -86,33 +238,32 @@
     @apply py-12 lg:py-16;
   }
 
-  /* Container styles */
-  .container {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-
   /* Typography */
   .heading-1 {
-    @apply text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight;
+    @apply font-display text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight;
   }
 
   .heading-2 {
-    @apply text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight;
+    @apply font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight;
   }
 
   .heading-3 {
-    @apply text-2xl sm:text-3xl font-semibold tracking-tight;
+    @apply font-display text-2xl sm:text-3xl font-semibold tracking-tight;
   }
 
   .heading-4 {
-    @apply text-xl sm:text-2xl font-semibold;
+    @apply font-display text-xl sm:text-2xl font-medium;
+  }
+
+  /* Engineering-label eyebrow: "01 / PROJECTS" */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-ink-muted;
   }
 
   .prose {
-    @apply text-stone-600 dark:text-stone-300 leading-relaxed break-words;
+    @apply text-ink-muted leading-relaxed break-words;
   }
 
-  /* Animation utilities */
   .animate-fade-in {
     animation: fadeIn 0.5s ease-in-out;
   }
@@ -123,10 +274,9 @@
 }
 
 @layer utilities {
-  /* Custom scrollbar */
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: rgb(168 162 158) transparent;
+    scrollbar-color: rgb(var(--ink-muted) / 0.5) transparent;
   }
 
   .scrollbar-thin::-webkit-scrollbar {
@@ -138,26 +288,50 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: rgb(168 162 158);
+    background-color: rgb(var(--ink-muted) / 0.5);
     border-radius: 3px;
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb:hover {
-    background-color: rgb(120 113 108);
+    background-color: rgb(var(--ink-muted) / 0.8);
   }
 
-  /* Glass effect */
   .glass {
-    @apply bg-stone-50/80 dark:bg-white/5 backdrop-blur-sm;
+    @apply glass-panel;
   }
 
-  /* Gradient text */
   .gradient-text {
-    @apply bg-gradient-to-r from-teal-500 to-cyan-500 bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      120deg,
+      rgb(var(--accent)),
+      rgb(var(--accent-2))
+    );
+    @apply bg-clip-text text-transparent;
   }
 }
 
 @keyframes heroFadeIn {
-  from { opacity: 0; transform: scale(1.05); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Reduced motion: collapse entrances, stop ambient motion.
+   Component-level effects also consult useReducedMotion() in src/lib/motion.ts.
+--------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.15s !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.15s !important;
+    scroll-behavior: auto !important;
+  }
 }

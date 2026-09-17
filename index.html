@@ -15,17 +15,30 @@
         }
       })(window.location)
     </script>
-    <link rel="icon" type="image/png" href="/images/branding/Main_Logo.png" />
+    <script>
+      // Apply theme before first paint to avoid dark-mode FOUC
+      ;(function () {
+        try {
+          var stored = localStorage.getItem('theme')
+          var dark =
+            stored === 'dark' ||
+            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
+          if (dark) document.documentElement.classList.add('dark')
+        } catch (e) {}
+      })()
+    </script>
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Personal Portfolio</title>
-    <meta name="description" content="Personal portfolio and projects showcase" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <title>Ruairi O'Flaherty — Portfolio</title>
+    <meta name="description" content="Ruairi O'Flaherty — engineer and maker. Projects, experience, and 3D printing work." />
+    <link rel="preload" href="/fonts/ClashDisplay-600.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/InterVariable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="theme-color" content="#8b5cf6" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f6fa" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#07070c" />
   </head>
-  <body class="bg-stone-50 dark:bg-stone-950 text-stone-900 dark:text-stone-100">
+  <body class="bg-bg text-ink">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>

@@ -1,61 +1,67 @@
-import { BrowserRouter as Router, Navigate, Routes, Route } from 'react-router-dom'
+import { Suspense, lazy } from 'react'
+import { BrowserRouter as Router, Navigate, Routes, Route, useLocation } from 'react-router-dom'
 import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { SkipToContent } from './components/SkipToContent'
 import { ScrollToTop } from './components/ScrollToTop'
-import { Home } from './routes/Home'
-import { Projects } from './routes/Projects'
-import { ProjectDetail } from './routes/ProjectDetail'
-import { Experience } from './routes/Experience'
-import { Skills } from './routes/Skills'
-import { Contact } from './routes/Contact'
-import { Photos } from './routes/Photos'
-import { NotFound } from './routes/NotFound'
-import Grainient from './components/Grainient'
+import AuroraBackground from './components/AuroraBackground'
+
+const Home = lazy(() => import('./routes/Home').then((m) => ({ default: m.Home })))
+const Projects = lazy(() => import('./routes/Projects').then((m) => ({ default: m.Projects })))
+const ProjectDetail = lazy(() =>
+  import('./routes/ProjectDetail').then((m) => ({ default: m.ProjectDetail })),
+)
+const Experience = lazy(() =>
+  import('./routes/Experience').then((m) => ({ default: m.Experience })),
+)
+const Skills = lazy(() => import('./routes/Skills').then((m) => ({ default: m.Skills })))
+const Contact = lazy(() => import('./routes/Contact').then((m) => ({ default: m.Contact })))
+const Photos = lazy(() => import('./routes/Photos').then((m) => ({ default: m.Photos })))
+const NotFound = lazy(() => import('./routes/NotFound').then((m) => ({ default: m.NotFound })))
+
+function RouteFallback() {
+  return (
+    <div className="flex items-center justify-center py-32" role="status" aria-label="Loading">
+      <div className="h-8 w-8 rounded-full border-2 border-accent border-t-transparent animate-spin" />
+    </div>
+  )
+}
+
+/** Enter-only page transition: each route fades and rises in on navigation. */
+function PageTransition({ children }: { children: React.ReactNode }) {
+  const location = useLocation()
+  return (
+    <div key={location.pathname} className="motion-safe:animate-slide-up">
+      {children}
+    </div>
+  )
+}
 
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="pointer-events-none fixed -inset-px z-0 hidden dark:md:block">
-        <Grainient
-          color1="#1a3a3a"
-          color2="#0f2b3d"
-          color3="#1c2e2a"
-          timeSpeed={1.25}
-          colorBalance={0}
-          warpStrength={1}
-          warpFrequency={5.6}
-          warpSpeed={2}
-          warpAmplitude={50}
-          blendAngle={0}
-          blendSoftness={0.05}
-          rotationAmount={500}
-          noiseScale={2}
-          contrast={1.5}
-          gamma={1}
-          saturation={1}
-          centerX={0}
-          centerY={0}
-          zoom={0.9}
-        />
-      </div>
-      <div className="relative z-10 min-h-screen flex flex-col bg-stone-50 dark:bg-stone-950 md:dark:bg-transparent overflow-x-hidden">
+      <AuroraBackground />
+      <div className="relative z-10 min-h-screen flex flex-col overflow-x-hidden">
         <SkipToContent />
         <Navbar />
 
         <main id="main-content" className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/projects/:slug" element={<ProjectDetail />} />
-            <Route path="/experience" element={<Experience />} />
-            <Route path="/skills" element={<Skills />} />
-            <Route path="/photos" element={<Photos />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/about" element={<Navigate to="/experience" replace />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          <Suspense fallback={<RouteFallback />}>
+            <PageTransition>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/projects" element={<Projects />} />
+                <Route path="/projects/:slug" element={<ProjectDetail />} />
+                <Route path="/experience" element={<Experience />} />
+                <Route path="/skills" element={<Skills />} />
+                <Route path="/photos" element={<Photos />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/about" element={<Navigate to="/experience" replace />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </PageTransition>
+          </Suspense>
         </main>
 
         <Footer />

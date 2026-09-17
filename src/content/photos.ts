@@ -59,8 +59,8 @@ const toHumanLabel = (fileName: string) =>
     .replace(/\s+/g, ' ')
     .trim()
 
-export const galleryPhotos: GalleryPhoto[] = galleryPhotoFileNames.map((fileName, index) => ({
+export const galleryPhotos: GalleryPhoto[] = galleryPhotoFileNames.map((fileName) => ({
   src: `/images/photos/gallery/${fileName}`,
-  alt: `3D printing portfolio photo ${index + 1}: ${toHumanLabel(fileName)}`,
+  alt: `3D printing work — ${toHumanLabel(fileName)}`,
 }))
 

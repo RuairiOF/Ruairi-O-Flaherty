@@ -1,0 +1,2926 @@
+{
+  "/images/branding/Main_Logo.webp": {
+    "width": 1024,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRroAAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSHQAAAABgCIAoMHqDcno1gF2AFfb9gG2ZlY7emvqNj+PNF8gIiYAvC3HYiHcJTRc+grcHWxLCeEXsW4hQ78NqqVyh2ts/7f5JpAb+K3ry2TOhMBNsv4qVGWLklvBQydQTZbB7VpzMPUO4XfsYs7ICg/upK62GyL4VFZQOCAgAAAAMAEAnQEqEAAQAAVAfCWcAANwAP7uTbYc5uCwE7xwAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/branding/Main_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/branding/Main_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/branding/Main_Logo-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/branding/Main_Logo.webp"
+      }
+    ]
+  },
+  "/images/branding/ruairipfp.webp": {
+    "width": 800,
+    "height": 800,
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoQABAABUB8JZACdAECmJClUeaAAAD+rPKTJqQ0YXVIWTu6V9nAkfxWDxCz8GveRo8RU0ENjXXW8LFqeKd5C/RR8kT1QDKAlEAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/branding/ruairipfp-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/branding/ruairipfp-w640.webp"
+      },
+      {
+        "w": 800,
+        "src": "/images/branding/ruairipfp.webp"
+      }
+    ]
+  },
+  "/images/logos/CashewLogo.webp": {
+    "width": 1024,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRggBAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSIMAAAABgGLb1vLmDzNKtmyzMovYeOZYTrk2qo65tR0AcwfBVcyKjvhhtTOIiAkQ/twV1ylzP3KXVRT8AZoynsHReAP4CkkkHoHkFjAmst0Cr4EzYENUAT5T2wDTolVgZgpxWrQCnHVEuxpRCeBy8eB4yCyILRcAm4LCyDkwqUQwZwYZjaL/BQBWUDggXgAAABACAJ0BKhAAEAAFQHwlsAJ0ALd6h5k0OYAAwFmFaOWJVRQmAtmT5xd5Wegk9PKPurnrOyyHRzXRllvKFEwgqdEScd3gSkrgIxcQHxCul1k5VKPYJ0Hno4+joaCwAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/logos/CashewLogo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/logos/CashewLogo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/logos/CashewLogo-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/logos/CashewLogo.webp"
+      }
+    ]
+  },
+  "/images/logos/EirpostLogoPNG.webp": {
+    "width": 1024,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRuoAAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSFgAAAABYBTbdpM/2VJ8gIA4gexjAizEAtjobc9gomOihl4NRMQEwDcRLQqKLuCMc85zfCTYEz+cLGHH+EW286/4/3CuODu9P+u1HajpUaLAKWk57whclQxThocBVlA4IGwAAACQAgCdASoQABAABUB8JbACdDBKCIyLHNV8WYf7AAD8Tzh/6TqaM6FjJ5D0/HQRwJ7nFKMDwR06erX43iNJSL/QMuRgrb/E6KaUiD0B/TBzLt7GbUx1fyjgKmol5cdA7JYaO9nV9TPoA3bAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/logos/EirpostLogoPNG-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/logos/EirpostLogoPNG-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/logos/EirpostLogoPNG-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/logos/EirpostLogoPNG.webp"
+      }
+    ]
+  },
+  "/images/logos/LaserLaneLogoPNG.webp": {
+    "width": 1080,
+    "height": 1080,
+    "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSF0AAAABcBMAgBJhEzMNaAAB3DpAAFt9YnN5jfAFPMKNL/NvFuF/c7cAETEB0F9UV9jCeSpcEiftqV6fOVFPTWPrgD+D7PXuLs9z+wF5ohoAAJA9EE6RcUs/wCfbu/qDHwcAVlA4ID4AAACQAQCdASoQABAACoB8JbACdH8AITAA/uPSIHUK509otsleSN1Bk2KUjMwWBOJqcwdXBhQgJgBci7q5E8AAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/logos/LaserLaneLogoPNG-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/logos/LaserLaneLogoPNG-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/logos/LaserLaneLogoPNG-w960.webp"
+      },
+      {
+        "w": 1080,
+        "src": "/images/logos/LaserLaneLogoPNG.webp"
+      }
+    ]
+  },
+  "/images/logos/NukaColaRadioLOGO.webp": {
+    "width": 1024,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSKkAAAABgGNt2zHnGdu2Z8rp2P7VoDNiLSF1TvpswHZSTpd0tu10tm2tICImAP/Ry/6M6/okfVX2WcVlGABnvl+o+6CTjs/SgNwzZ8nwh+ks33UU6BnVHwblmYwytqvcaAbORyMv9Lb5uQ7xC7Fx8EXN2mrdF02jir2YqLdPnLcp2agEYreuyAJyC7AeIu5DAHtsRcv4wDBvD1MBBE9KAX8QKD8i8NHBwKdMG/4jAFZQOCBGAAAA8AEAnQEqEAAQAAVAfCWwAnQ4gDeQAdgAAP7qZfUrAVzvF9l29a1pj/cnYy/Q6e7D9g7fV8fSE7v5VbznEu9MnOqYsmAYAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/logos/NukaColaRadioLOGO-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/logos/NukaColaRadioLOGO-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/logos/NukaColaRadioLOGO-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/logos/NukaColaRadioLOGO.webp"
+      }
+    ]
+  },
+  "/images/logos/Rofs3D_Logo.webp": {
+    "width": 2000,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQABAABUB8JZwAAsfzPWi2loAA/vDauJWjL/NBlWWlnVbHz+IqP2Dc37iWi5Q2dktTXKIy6ndD5JiMjJInFNby0oQAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/logos/Rofs3D_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/logos/Rofs3D_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/logos/Rofs3D_Logo-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/logos/Rofs3D_Logo-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/logos/Rofs3D_Logo.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/3D_Printed_Lamps.webp": {
+    "width": 1536,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAwAgCdASoQAAsABUB8JbACdAEPdx9kdZLmAAD+n6Wm5/40+BCF7ytCSTSeb0L7IeKalrls7dQZqYAPs/RwgKxjCg2Bkmto2Eqrt9uQD2nFaTR6qAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/3D_Printed_Lamps-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/3D_Printed_Lamps-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/3D_Printed_Lamps-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/EirPost/3D_Printed_Lamps-w1440.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/photos/EirPost/3D_Printed_Lamps.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/3D_Printed_Vases.webp": {
+    "width": 1024,
+    "height": 1536,
+    "lqip": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACQBACdASoQABgAPzmEuVOvKKWisAgB4CcJZACw7B8xj9Ae876HbnlJ3Z2Nm4AA9yrYxdM5TXinj4GzYvcVqBfpuaZShBCpcoHBmqITlpHcP4oZHplX0SZJIY2NqNCmxm26wc/oO5afGLrOtW7Vd2nGDZQXepldeA3X2kDWGzYBn4DbAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/3D_Printed_Vases-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/3D_Printed_Vases-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/3D_Printed_Vases-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/photos/EirPost/3D_Printed_Vases.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/Crochets.webp": {
+    "width": 1024,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQABAABUB8JbACdAEfvKlcAgUgAPyJQKmJrnkLJ1+BQV94r4o/K202goAoQD3T5c1FFXI4U1Q9WZKbYyPN8nDhauBa9UlLzDRFrImTgAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/Crochets-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/Crochets-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/Crochets-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/photos/EirPost/Crochets.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/Cutting_Boards.webp": {
+    "width": 1024,
+    "height": 1536,
+    "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAABQBACdASoQABgAPzmEuVOvKKWisAgB4CcJaACdMoADK9lNMGLcLbck1o3MAP5vkNHy5mqQQ/J9wm8g5So5CbbsvjfkjIwCmRKsKQT2VsnNC1FIuIg3b6GYXSNfcgHsMIhiK/I9bthbb0cO7plnXwTArq02UtEq1DKSFitqvGHAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/Cutting_Boards-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/Cutting_Boards-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/Cutting_Boards-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/photos/EirPost/Cutting_Boards.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/Jewellery.webp": {
+    "width": 1024,
+    "height": 1536,
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAwCdASoQABgAPzmEuVOvKKWisAgB4CcJZQAALWWX8FcflZgAAP07Eo2D+T9Q4htTZAtRWybPB5xQ3NM973TEMSGu+mbF+fAcFsPet71gN2vSPH9IBK49i/c3X28GwcH1LPP5AOEgAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/Jewellery-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/Jewellery-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/Jewellery-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/photos/EirPost/Jewellery.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/Model_Train.webp": {
+    "width": 1536,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAsABUB8JbACdAEPNBX78QAA4ng9fmt5NYimHUXVJ+y5DpB47jbQkkndatj/eBcQ4Z1i9pEzGvZQ+HS3Ecs8F+gAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/Model_Train-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/Model_Train-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/Model_Train-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/EirPost/Model_Train-w1440.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/photos/EirPost/Model_Train.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/small_business-1.webp": {
+    "width": 1408,
+    "height": 768,
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAkABUB8JaACdADJUZubegAA+kuOS08R6jmt6K8dSbDSUqa+ZIsYCJEaTz0s7lsVaRYf0KgilYdWi8KsAAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/small_business-1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/small_business-1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/small_business-1-w960.webp"
+      },
+      {
+        "w": 1408,
+        "src": "/images/photos/EirPost/small_business-1.webp"
+      }
+    ]
+  },
+  "/images/photos/EirPost/Worldwide.webp": {
+    "width": 1376,
+    "height": 768,
+    "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAAAQAgCdASoQAAkABUB8JagCdAEQNmfRMqAAAP7p3RXJ3yEQsvGfOa7utUseHGfxQ1VSoQAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/EirPost/Worldwide-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/EirPost/Worldwide-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/EirPost/Worldwide-w960.webp"
+      },
+      {
+        "w": 1376,
+        "src": "/images/photos/EirPost/Worldwide.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAACQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZQAASiZk1dsvAjAAAP6Mbqfc6X1GLK8Hjv0a9S17nsYLzzfSw7xWmKMpaUAAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/5CB5E1DB-5914-4C4E-94C2-75D414B3FBF0.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/821CC96E-87C9-4796-A2E0-9A8DD687C68A.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAADwAQCdASoQAAwABUB8JZgAAsWO9lnf46AA/tzm8GS18VbjwGJLnmy4m5z6fXe40+3iSJcAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/821CC96E-87C9-4796-A2E0-9A8DD687C68A-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/821CC96E-87C9-4796-A2E0-9A8DD687C68A-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/821CC96E-87C9-4796-A2E0-9A8DD687C68A-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/821CC96E-87C9-4796-A2E0-9A8DD687C68A-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/821CC96E-87C9-4796-A2E0-9A8DD687C68A.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0129.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZACdMoADgWdVNPvOaSgAAP4mWrzqTZYVrRUSxNdzRzzpwlPDqV6gDtd1Ehz3hW59+hFrhfwksvSVQAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0129-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0129-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0129-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0129-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_0129.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0633.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQBACdASoQABUAPzmEuVOvKKWisAgB4CcJZgCdABxpZ/wkwIoV6aTCAAD28i/0+BwOK1c5IZIByvrq9kvBB8sWcjsBei2QmVVAagOQgAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0633-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0633-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0633-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0633-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_0633.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0643.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAwABUB8JQBOgCPVrhZiUIAA/b1CsAWUkgErQDXLUzdNPswczJYX1rCQjo0rSYjrs6dPyv12NifxazukOsDkGLXuJpMd6D8AAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0643-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0643-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0643-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0643-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/IMG_0643.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0647.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJYgAAQNCOblUEg5BeuwAA9TyViU1XZHKmyLxX9GTIMwNgwPjJObGYgRZPtjbfB34SvWyp/BBo0AAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0647-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0647-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0647-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0647-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_0647.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0657.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAQBACdASoQABUAPzmEuVOvKKWisAgB4CcJbACdABriL0nF3K8/CIkAgAD7Hx1tu+pUBvLcu6uiPee/q8vTWEj0lNg9BZn+juzaCrQVfM78APO7sAo0mwLs1WkYMJVvF6g7fgvV6eQXzpSdSpcrx/y8ylAWBuWAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0657-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0657-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0657-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0657-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_0657.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0659.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQAAwABUB8JaACdAD1jz04NoIAAPfMx5c3byYVhUjuyB+WIQxnMrrFOHQ1iz6GYqTC0dmty6cJETuYAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0659-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0659-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0659-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0659-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/IMG_0659.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0667.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAwCdASoQABUAPzmGulOvKSWisAgB4CcJZgCAAAeryueJUOnYmAAArk1umrqOc9u9LlNC81K+FUCXjASiBioMXUw7JgoA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0667-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0667-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0667-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0667-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_0667.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_0727.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoQAAwABUB8JbACdADD1ome68ZwAP58rFafowgULJFyCpVtP0BnDeCwt2hPJIN4fug3jWB73b2qyAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_0727-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_0727-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_0727-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_0727-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/IMG_0727.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1236.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAABQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJQAAEZs5Hpn8xMAD8XJdB6smq5KB0xPIDyWLSwCFhvsp6UXbRtBeJNg9HEsIA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1236-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1236-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1236-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1236-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_1236.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1320.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAABwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZwC06DKSd4sohAAA/thpdf/FPliHaQez2J191PiB5MqPGgAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1320-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1320-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1320-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1320-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_1320.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1349.webp": {
+    "width": 750,
+    "height": 1624,
+    "lqip": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAADQBACdASoQACMAPzmGvVQvKSajKqwB4CcJQBlWiL3ZogZsXBiVKRSiulUxhuCyAAD+8OWls7cloYr0DASVo4Rx+ovig5sFu7YZX7rWk7QGwEyhwGy5UFsFMtxR8qTIGzBhdxOFmz7zsuDKnqalO3wP8Vv6H1pFjdeOE8TzZdq5QBizJoY92nN0ZlDlrdvujuoAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1349-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1349-w640.webp"
+      },
+      {
+        "w": 750,
+        "src": "/images/photos/gallery/IMG_1349.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1481.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwBACdASoQABUAPzmEuVOvKKWisAgB4CcJbAC7MoADJ6dTCEEouobyg2gA8UX4oxowzAc7jH9pqrgfaHyMnmxz1mykalQyVB5Tbn4Lr/cRhLf4ZqJlKeD5GwcqovvTlq2sfIC0taSRnEHGHKjGUS82fXk9W289OSPdnGzIAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1481-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1481-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1481-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1481-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_1481.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1482.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJaAAAV5uN1sHQE3d5QisAAPuhgwQIC1cXvYNB1p34/kZehWQV6zFz0x3KF2D+mMhgDx3k1tTYOMmaTodbeTHihmUWkIvAfrxBoYgFZyO0BJ6fltUFfQ5qAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1482-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1482-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1482-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1482-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_1482.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1484.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJaAAAIrbG/hZa7ADMg6IBzfwp3gbCsOA1bVqysgGkRoYwvA0bFLbZ3X/lF+CLag+xEO41c9IuL4ik6047YjVIdSo72M4tupBtI0vd/CSAhkGHbh39MH5GUWbgAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1484-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1484-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1484-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1484-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_1484.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1492.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZADCgBknvt+UtQsZz+FQAPtf8AMY4tCM24iR8TgIC6kcbbL8pOCt9aZ68c4Sl3KX4DZu0mvemjUeJ3bHJXrgAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1492-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1492-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1492-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1492-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_1492.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1504.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAQBACdASoQABUAPzmGulOvKSWisAgB4CcJZAC7ACHhNG9eapNQlQc6AAD+rz8JA2/hpgzIHdiqnBM55XFNtuqml5ELi/GiJj8nNm3Vl7d/2zpOrmcoewnzhip+BvUNkGgddIatyJggAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1504-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1504-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1504-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1504-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_1504.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_1878.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAwABUB8JQBOgCBa5B8WTSrAAPkTwLDVsMLLkAplFzypR4/tLgcea5ruAOx7i4vPfqxBlpoYSza46LJC74R4JXS4SmAAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_1878-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_1878-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_1878-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_1878-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/IMG_1878.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2171.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAACwAgCdASoQABUAPzmGulOvKSWkMAgB4CcJZwAACKAAxP0RyG5E71fxMgbZ7QPXACDNWz0fTuvKPgAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2171-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2171-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2171-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2171-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_2171.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2206.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJaQAAW+v//rtxiqAA/q4+Yh2PVgZfulmClnTTSLGJP1p0dCadw0D+4EwfyPzRFnNmKKDt9e+dQWn6vB/+FefZeP5yBAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2206-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2206-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2206-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2206-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_2206.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2323.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAwCdASoQABUAPzmGuVOvKKWisAgB4CcJaAC7MoADTphceGT4LKsAAP5w2NAiJe8l0ds0/4Op2MzkqEMvdk8BHf3oUcgqDQVAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2323-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2323-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2323-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2323-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_2323.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2600.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJbACdAB5xR7MJnaGEAADpDwSaT49MzgnxNBUmdhvhJ7f0IYD1woe/PRylPHxpTBHn4JOAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2600-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2600-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2600-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2600-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_2600.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2784.webp": {
+    "width": 1515,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZgCdACHgAHzfH0f4iGIAAP64l1U93chUS/V352+b3L2XBskGPWpwK5GAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2784-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2784-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2784-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2784-w1440.webp"
+      },
+      {
+        "w": 1515,
+        "src": "/images/photos/gallery/IMG_2784.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2856.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJaQAAXBodrH/RrlZJc/gA/o6XYwaZeQTLcCOiXRR3Txz4O0ZhgWA1OnkVkXP4TlHx/BMm11b/AGrJgsrrociUo1QTgEAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2856-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2856-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2856-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2856-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_2856.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2859.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAwABUB8JZwAAn2zNP94AAD8tK0NhrjKUL2SW36PJSBZkKiJjLflrXV8o8EBHvxMVNH+o88ToAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2859-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2859-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2859-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2859-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/IMG_2859.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2862.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAwABUB8JbACdAD2GZ5xAADgNhdqOqZtaAISw5p3wZbVtZ2sIQai5DuPKB0H/M4T19aQfvb+986Yocz1Rzv2Ma2nlZAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2862-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2862-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2862-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2862-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/IMG_2862.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_2864.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZAC7ABE5dqrPDsXDrjrIAPcEJTklQyKFy632oJSUo3YmRki1s7n+7/HGuc8R4SfOtH4BClNgAAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_2864-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_2864-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_2864-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_2864-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_2864.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3027.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQABUAPzmEulOvKKWisAgB4CcJZQAAW+gRjZXkmRJlcQAA/cn4fqdGgVhTgxVR1+lxBRL1KQriedm/VWQkDvwAb6n9kURrnJTw4QAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3027-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3027-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3027-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3027-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3027.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3062.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADwAgCdASoQABUAPzmEuVOvKKWisAgB4CcJQAAKFr4P4ADeUdXACcPeBe6h5fgR+h0nrAOCD3CNAj4DWxT/tw5zU+56gO7MJ/19olNdAEYnTd9/ujoH12AA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3062-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3062-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3062-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3062-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3062.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3077.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAACwAwCdASoQABUAPzmEuVOvKKWkMAgB4CcJbADKACHgCoPH10lt5gD+iw/vO5tEj1vzLkznvfAp6/vr0XfQajy9hOAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3077-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3077-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3077-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3077-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3077.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3078.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJYwAAKw8Xx/4ApkzZtUTIYCR+429ExApin6VkIAnCZ6FhS/dq3iVZTQAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3078-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3078-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3078-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3078-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3078.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3162.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAABQBACdASoQABUAPzmEuVOvKKWisAgB4CcJaQAAW4cBvWtsCMZ0tPM0d4wAAP7DVwt3/zkdW9bryT8vcVmwV6wATvCpreZ70yo0TU5xTIO0pJhrKAHiwSS5I+xvB+ClD83GxMo/2EHcIlu9CAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3162-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3162-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3162-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3162-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3162.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3168.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoQABUAPzmQvlWvKqajMAgB4CcJZAAAXBnRTAizrEPqm4AA/o5SsFq7zWAbuDn+YY2hCcy+WrV3rIZdXsSqgALWvdgLRjQSexBqWaUHn73HDbBCj22LSXsLAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3168-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3168-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3168-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3168-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3168.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3175.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAADwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJQBOkCYhfH7f9LSTZHQxAAPZQtSSO0H2DdAsPvVTtb1an9BBCtVx1TLdhAwJ3Pef7hLtEWyIAJXyG5mFjSe6jMmahjXE2+XRKISs0FJiiyUpogPhuAb6hsBwAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3175-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3175-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3175-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3175-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3175.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3179.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJagCdMoABh3ni9GVh3AD3CPeaQyYUIlxwxLqV69Xsjyx0aFPpO6NVvVihnIPnB+R+D1Syk9h6cngnodRvpbJBxM/ajxZfH1LmJgutrOEqAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3179-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3179-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3179-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3179-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3179.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_3786.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAABQBACdASoQABUAPzmGuVOvKSWisAgB4CcJaACdIMgDA3dQVm8NP7D36n6AAP6EZsZyrI09lIzxZkX7jokaYzWEM8O8MZqDhg9HGNNziZMH0hXRBNYtst3dSe+L269OOuCfiKSxcmEzgGvB6Wps8VrQdDzQAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_3786-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_3786-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_3786-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_3786-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_3786.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_4062.webp": {
+    "width": 1852,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAADwAwCdASoQABEAPzmEuVOvKKWisAgB4CcJZQDA3BnhSUsWRKe8mbQAAP6MX/OQfTLhJGSfHW03V1jIfWDIP+pQ90gmxm9k95tKDoyrC4u/SUzmvmOCpdhcCrW3PvhkVgAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_4062-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_4062-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_4062-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_4062-w1440.webp"
+      },
+      {
+        "w": 1852,
+        "src": "/images/photos/gallery/IMG_4062.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_4105.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZQCsAA2RrtMklG8AAMqnC9M/3rzyqL8unY0V5Q0e1rwmy8stzvoMi9QUBsrHk+m0fjbfWe2RykRK3kGFAAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_4105-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_4105-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_4105-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_4105-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_4105.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_4110.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJYwAASeGS9eGJ6OUCAAD4TvUC/5mGwSnxP4iars955lLlLlxJIqs5Or35fXvQsPSfUnSACc9bpSBazwjIxR6IbgAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_4110-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_4110-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_4110-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_4110-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_4110.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_4122.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAACQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJYwAAKQi0BMh//M7sAPgpxl4ODl774Vwachz9KmNRSzXGJ8SXzeros6EPQ/o8ynVTLAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_4122-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_4122-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_4122-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_4122-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_4122.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_4130.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZgAAKFAcMLbZwgRAAP2O+ZQOSgyEHHmuUKmL2++FyuCqY0kFLDOMdAv/9yfxKh34BLiEOM57YsHKDt386C9XAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_4130-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_4130-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_4130-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_4130-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_4130.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_4137.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJaAAAVJjTOawgmwXe0i2AAP6EAErB7FVxBJCkzm39u49lEXlKmqLUT/q6Jasxzjq3E/9FlyfAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_4137-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_4137-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_4137-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_4137-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_4137.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/IMG_4140.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAABwAwCdASoQABUAPzmGulQvKSWjMAgB4CcJZQCsABndGrMb5gAA/rlEXXLD27KI9pAgd5u3tkF3tofnHDbct5U4tzss876gAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/IMG_4140-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/IMG_4140-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/IMG_4140-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/IMG_4140-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/IMG_4140.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/LaserLane1.webp": {
+    "width": 2000,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACQAQCdASoQABAABUB8JaQAAV1FCAAA/vDfe97l8tSSnzxHa607EkkgJPfVzCcESxrMmnSgdws675ly/keMNhtAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/LaserLane1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/LaserLane1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/LaserLane1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/LaserLane1-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/gallery/LaserLane1.webp"
+      }
+    ]
+  },
+  "/images/photos/gallery/SprunkeColaMain.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJbAC2yCGvS2DcySYrHYh4AP3Lgm4Z9UR5hT/WoezUmcQy8BjJQ2apjWjCKf/WytwkVBq7qQItcHRtHb2xgem9B7fG86m5GQd+cIk5ZIkkeAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/gallery/SprunkeColaMain-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/gallery/SprunkeColaMain-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/gallery/SprunkeColaMain-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/gallery/SprunkeColaMain-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/gallery/SprunkeColaMain.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/LaserLaneLanding1.webp": {
+    "width": 2000,
+    "height": 1000,
+    "lqip": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAACQAQCdASoQAAgABUB8JaQAAtqdmqAA/vDSOcxtO2lnocR6z99erepjaomXGGQAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/LaserLaneLanding1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/LaserLaneLanding1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/LaserLaneLanding1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/LaserLaneLanding1-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/LaserLane/LaserLaneLanding1.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/LaserLaneLogoPNG.webp": {
+    "width": 1080,
+    "height": 1080,
+    "lqip": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4WAoAAAAQAAAADwAADwAAQUxQSF0AAAABcBMAgBJhEzMNaAAB3DpAAFt9YnN5jfAFPMKNL/NvFuF/c7cAETEB0F9UV9jCeSpcEiftqV6fOVFPTWPrgD+D7PXuLs9z+wF5ohoAAJA9EE6RcUs/wCfbu/qDHwcAVlA4ID4AAACQAQCdASoQABAACoB8JbACdH8AITAA/uPSIHUK509otsleSN1Bk2KUjMwWBOJqcwdXBhQgJgBci7q5E8AAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/LaserLaneLogoPNG-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/LaserLaneLogoPNG-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/LaserLaneLogoPNG-w960.webp"
+      },
+      {
+        "w": 1080,
+        "src": "/images/photos/LaserLane/LaserLaneLogoPNG.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-1.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJYwAAW+/ynBeFppjEwAD+6NXz9QWOUO6yrx3C8hURFizekod5vVsTQAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-1-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-1.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-2.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAABwAwCdASoQABUAPzmGuVOvKSWisAgB4CcJYgCo9BEnfOBpDsAA/ujwPd0/W74kYguFu3qhFQSxTxI+1z6b9NCEnIcaS+gUjeeyZwIBBk+dwAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-2-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-2-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-2-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-2-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-2.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-3.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAABwAQCdASoQAAwABUB8JQAAUrGFgAD+g+uR7jsgXlZi4GqzxoGsjUVOsRgvpcKgF9wf55YgAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-3-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-3-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-3-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-3-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-3.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-4.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAwABUB8JYgCdAYqDjoA4AAA/ty/Yif6aDCGAjZSn7SDE4qwUFUvkihjroOWcWCl8UWlwOrQAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-4-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-4-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-4-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-4-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-4.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-5.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAwABUB8JZAC7AEO+kKgAPpMJ6sSPnR1i43mDeegvXe6mB5gznonCdxqAAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-5-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-5-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-5-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-5-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-5.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-6.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAwABUB8JZgCsAD0dELTKAD+5Z28wtERO9HcqsMJe5Qr1ynuGA03QkwAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-6-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-6-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-6-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-6-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-6.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-7.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAACQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZACdACPUJ2TkOxOAAP5KYBX6PdC4IF32iBOsKwMulRJOonidBx9M1JNDfeJeLTL8NMkr4F7JhIhWoF/nsIAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-7-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-7-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-7-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-7-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-7.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-8.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAwABUB8JQBdgBuu48QAAP7c9HlP2KYhxoPfHa19xW7jVh8wlvRvS1U/2zHj8oJVheMAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-8-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-8-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-8-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-8-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-8.webp"
+      }
+    ]
+  },
+  "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-9.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJaAC7ABShuPb9fDsCbAD+3JOkQQvh65gFW7KCaWQmVsyMIoZ5WoEc+yo6rUFLYGrePTGZzobJ0VLKwAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-9-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-9-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-9-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-9-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-9.webp"
+      }
+    ]
+  },
+  "/images/photos/MeOnALaptop.webp": {
+    "width": 2000,
+    "height": 1333,
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQAAsABUB8JYwAAtTrLnx4AAD8Nl5Zq+3o6j7Re2QqteAPs7eViyhvoq7e9CsCANMXj3F+yhxJKl8G26sIcW3e198fqEAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/MeOnALaptop-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/MeOnALaptop-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/MeOnALaptop-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/MeOnALaptop-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/MeOnALaptop.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/1.webp": {
+    "width": 1920,
+    "height": 1920,
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoQABAABUB8JZACdAEO//KmgdwAAP7Dg0octXcnHGxRkB3ceDk/Qk5orGtAkWDfiVSNWmWUbUcHgAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/1-w1440.webp"
+      },
+      {
+        "w": 1920,
+        "src": "/images/photos/NukaColaRadio/1.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/2.webp": {
+    "width": 1920,
+    "height": 1920,
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQABAABUB8JbACdAEOzanLjAAA/sODZkj7pUE1kmkEjrVP896CUmNobi8yY6tz9Sl0qGgDnL60AAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/2-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/2-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/2-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/2-w1440.webp"
+      },
+      {
+        "w": 1920,
+        "src": "/images/photos/NukaColaRadio/2.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/3.webp": {
+    "width": 1920,
+    "height": 1920,
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAAAQAgCdASoQABAABUB8JagCdAEO+RjV2mgAAP7DgwRrvGXtbxuCsNDXdmdkmxUhrGHlqaqVrB5BpJnyBFEBQAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/3-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/3-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/3-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/3-w1440.webp"
+      },
+      {
+        "w": 1920,
+        "src": "/images/photos/NukaColaRadio/3.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/4.webp": {
+    "width": 1920,
+    "height": 1920,
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADwAQCdASoQABAABUB8JZACdAEO/wBy6AAA/sODSltdWG+k6qypTT+bB5vLSevHzj4TcgMq3OeVK2lGcWXMXYAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/4-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/4-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/4-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/4-w1440.webp"
+      },
+      {
+        "w": 1920,
+        "src": "/images/photos/NukaColaRadio/4.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/5.webp": {
+    "width": 1920,
+    "height": 1920,
+    "lqip": "data:image/webp;base64,UklGRkIAAABXRUJQVlA4IDYAAACwAQCdASoQABAABUB8JQBOgBCO/uNgAOXHa0VZNwk5Yt8e1Id+hHTqdI0tn8dnhyYXUtTOQAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/5-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/5-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/5-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/5-w1440.webp"
+      },
+      {
+        "w": 1920,
+        "src": "/images/photos/NukaColaRadio/5.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/6.webp": {
+    "width": 1920,
+    "height": 1920,
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAACwAQCdASoQABAABUB8JQBOgA7lpzQgAPnWh+usT0elP/DuD8PRlarLZ6LnAuoE0QAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/6-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/6-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/6-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/6-w1440.webp"
+      },
+      {
+        "w": 1920,
+        "src": "/images/photos/NukaColaRadio/6.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/NukaColaRadioSandRiver1080p.webp": {
+    "width": 1080,
+    "height": 1080,
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQABAABUB8JbACdADzaxzqXQAA/p7LBRAffEavcIt73FUNh94c+fBRa2txSn07KBVBZYVwAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/NukaColaRadioSandRiver1080p-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/NukaColaRadioSandRiver1080p-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/NukaColaRadioSandRiver1080p-w960.webp"
+      },
+      {
+        "w": 1080,
+        "src": "/images/photos/NukaColaRadio/NukaColaRadioSandRiver1080p.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/radio-image-1.webp": {
+    "width": 1629,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADwAwCdASoQABQAPzmGuVOvKSWisAgB4CcJbAC7ACHf3eO2rhxobNGAAP5QqkVqal6xy3JMEJIrI2s8zZrI4wqd0C4zrUD872LeRZJYEeLkO8GZ5QucmmahiLH2D2wUqEEUFWA6MPlqzOORJAAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/radio-image-1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/radio-image-1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/radio-image-1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/radio-image-1-w1440.webp"
+      },
+      {
+        "w": 1629,
+        "src": "/images/photos/NukaColaRadio/radio-image-1.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/radio-image-2.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwBACdASoQABUAPzmGuVOvKSWisAgB4CcJbACdMoADThNNd8bcT3g1BEAA/lFI56FE1EB9jyQVTPe1oGaZvKsBzFh5TQwgHzudoeS/U/cYrRDudqcp8SDKEzuXrvRXrjiB5KiRox9IAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/radio-image-2-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/radio-image-2-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/radio-image-2-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/radio-image-2-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/NukaColaRadio/radio-image-2.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/radio-image-3.webp": {
+    "width": 2000,
+    "height": 1550,
+    "lqip": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAAAQAgCdASoQAAwABUB8JbACdADwsmFFmAoAAP5gBHxqp9rKtiXUFjNqWLeQSAd/055TAJNZ0C97UlY7brAMvOIKQDeaJnfjyqpgZmlxU/7IAmaAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/radio-image-3-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/radio-image-3-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/radio-image-3-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/radio-image-3-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/radio-image-3.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/radio-image-4.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADwAwCdASoQABUAPzmIulQvKSWjMAgB4CcJaAC06CHfkEXrCAX6zr5YAP0OkH84nSjF8x413lEq5h3hL4Asask39YG8WRvOsE4SvocSwVrEg9v8ifhX5s0DoiAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/radio-image-4-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/radio-image-4-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/radio-image-4-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/radio-image-4-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/NukaColaRadio/radio-image-4.webp"
+      }
+    ]
+  },
+  "/images/photos/Patch_baltyboys.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQAAwABUB8JbAAAwfwRYZIAP7jQIDgp0v9eqotTX0EiqOjfs+sNC+dqo87X35HoYf/gyuAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/Patch_baltyboys-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/Patch_baltyboys-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/Patch_baltyboys-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/Patch_baltyboys-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/Patch_baltyboys.webp"
+      }
+    ]
+  },
+  "/images/photos/radios.webp": {
+    "width": 1080,
+    "height": 608,
+    "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADwAQCdASoQAAkABUB8JaAC7AEK+HI+fAAA/qFMdN/L2clMM4wErRQHkarlxg7bpIw0vrcGdBZvW0lIyccAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/radios-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/radios-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/radios-w960.webp"
+      },
+      {
+        "w": 1080,
+        "src": "/images/photos/radios.webp"
+      }
+    ]
+  },
+  "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAwBACdASoQABUAPzmEuVOvKKWisAgB4CcJZwAAW+msB3QFJ97r1Dvd8gAA/nCy5maeCcI+pY5DvCT8ovPRmmhNW/QwnulqUwrAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1.webp"
+      }
+    ]
+  },
+  "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAACQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZwAAMjiq/CO9pA8AAP6exjBQz5jyIEeeqggDl3GVZJKAK+1xAMT/SCKD+sN99DEuoiySKDFJLYXwxF14x7xcAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp"
+      }
+    ]
+  },
+  "/images/photos/split_landscape.webp": {
+    "width": 1500,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJYgC+SB9fPcBnrxFvYAD+jvk4FGNYTZ/mO6C8hoW0W1WvDWaSruPu2QklanV8JF4ITTtQNvGPH41fxWTfh0p0jBf+289AdPYjJU5LJsi4AA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/split_landscape-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/split_landscape-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/split_landscape-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/split_landscape-w1440.webp"
+      },
+      {
+        "w": 1500,
+        "src": "/images/photos/split_landscape.webp"
+      }
+    ]
+  },
+  "/images/photos/Walls_Me_On_Site.webp": {
+    "width": 1179,
+    "height": 1526,
+    "lqip": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAADQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJZAAAYf8pmONM3GiyIIAAzgrlKAMG+OoqnMviNOkfU5ZbnutG3FH16kMF1mwpv46uk1nqEq7/K2A6gLvmKrFiCuUW883TYeaKNQeryI7Cfyk03Dfkkt8AAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/Walls_Me_On_Site-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/Walls_Me_On_Site-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/Walls_Me_On_Site-w960.webp"
+      },
+      {
+        "w": 1179,
+        "src": "/images/photos/Walls_Me_On_Site.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/carriers/An_Post_Logo.webp": {
+    "width": 2000,
+    "height": 1285,
+    "lqip": "data:image/webp;base64,UklGRiwBAABXRUJQVlA4WAoAAAAQAAAADwAACQAAQUxQSKAAAAABgGPb2rHn+W3b5gD+v7MZVnZvu8xKpQmkzxRs27ZtOxlDRExA5PBgxL46dJcCv+8lUXf9H+bsnj+uLIhl/wctMPxH8eXs2T+IHGDq/FwcT65igsBIqGtlrM0uL9Iaesvj4ve6C5+vx9YcyNmcQQqxPm8jjzgcA2uxjO2EWppmUuQcrGmrIK+tPbSgvM0zaRkne07H1tGaCQEACAQAAn4CVlA4IGYAAADwAQCdASoQAAoABUB8JbACdADdqz2GspAA/p+9sEHSvdlu3oJyvN//JZ3nD2SgSsiZWrVwvj06bC2NM3hWmAooqavYIznQRS7TQOMyP5ehUL+3vvv3IBDXYMFQr56t374OgZ/AAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/carriers/An_Post_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/carriers/An_Post_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/carriers/An_Post_Logo-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/projects/eirpost/carriers/An_Post_Logo-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/projects/eirpost/carriers/An_Post_Logo.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/carriers/DPD_Logo.webp": {
+    "width": 1361,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRqABAABXRUJQVlA4WAoAAAAQAAAADwAAFwAAQUxQSP4AAAABgLJt2/lX+D3b7rZto3nJ3pKT6qLNb+BqI/2P5TV7i3+9//tvRMQEQG/+/XU2jIw8IMntMH1BqwrqlS/46zR+0eBvC4DgSu95hY5y2bciGEjjQXDsKfmcELzPNB1KJ90anr7npTRAPmcOU9cQ+y2QYlwKYN37Y+inzxoAfFcFp2Yp1nxhMOWOvEuFwYhGWLe1WQNAcBuAvn8YbhJwjBv/g0dimBXgEDskcr9U/CtVkrfeqW8qioc958HfavrE/E9cH7p1CWkv+n6r6YSr9e8RNIn7m4jRn2p6VUl7jyXR/SJGQj5Ws0i2ZR96T34D7m6oppsdALi5Q2+VygkGAVZQOCB8AAAAsAMAnQEqEAAYAD85hLlTryilorAIAeAnCWxdkWDQ7+VdZEADRmAA/ulx9AuAVinlyvv/mmOluVIeyXvDgFmwmfvV//14xUli9e3XPXunGtZKMen9quK/+oPGtxYGEmEaEe6PQemOtnwVlS71YYP2odH6tPXUD9Bl2oAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/carriers/DPD_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/carriers/DPD_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/carriers/DPD_Logo-w960.webp"
+      },
+      {
+        "w": 1361,
+        "src": "/images/projects/eirpost/carriers/DPD_Logo.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/carriers/Etsy_Logo.webp": {
+    "width": 2000,
+    "height": 949,
+    "lqip": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4WAoAAAAQAAAADwAABwAAQUxQSH0AAAABgGtb2zHnGVulbdv2TGn17KdUbCddupTpXJpVWl4OriEiJmD1sTs8Awd/u65BLRO2ACLlF/uteor2z1i/upv9jOdObW/pdQhuEL7zUY5KdZPzGky//Ab85LvHcTLG6KtWf2B+NDrlRTeeWpAKhUIxlGqSTWzGPA3/Pl6PAwBWUDggUgAAAPABAJ0BKhAACAAFQHwlsAJ0Biw9VRC2bAD+zFVNw+miWu+JBprB21nff36Md927LLmmH7RETZ3dk9R9AD+Pdx94t+ptNTFLddtUWGVuHCoRHgA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/carriers/Etsy_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/carriers/Etsy_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/carriers/Etsy_Logo-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/projects/eirpost/carriers/Etsy_Logo-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/projects/eirpost/carriers/Etsy_Logo.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/carriers/GLS_Logo.webp": {
+    "width": 944,
+    "height": 322,
+    "lqip": "data:image/webp;base64,UklGRrYAAABXRUJQVlA4WAoAAAAQAAAADwAABAAAQUxQSFEAAAAAGavx9YdC5lwABaTz8nIAAL76bU5GSf9mAET/u2Q4AAD8ykmqqmj/ZgAY4f/9dgAA2fWJ5P93/5pXMWJ8+MFfgjnV+bTYbenp6Wbs/NxEnM8AVlA4ID4AAACwAQCdASoQAAUABUB8JbACdAD0cZ4wAP7sALOiTa6+SrsHR6QPsvK+nv8kfkqr9mbwJc4W+ftBfon4GQaAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/carriers/GLS_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/carriers/GLS_Logo-w640.webp"
+      },
+      {
+        "w": 944,
+        "src": "/images/projects/eirpost/carriers/GLS_Logo.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/carriers/Shopify_Logo.webp": {
+    "width": 1759,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRjYBAABXRUJQVlA4WAoAAAAQAAAADwAAEQAAQUxQSI8AAAABgGJt27LoRaNbcodMortLggWwA8ju2rQ5NBKMS3S3NtEtTZoz+PdtISImAJb1/aOkBBDVLXtvu81E6LLH1F75sUpcJa7Yri/+p9Pp6ZAKQDWNfqfrNQC1KbILYA8tBPCE1gTKH9ohyKboz2DAmNKCOLo0TmCIEznG6b/jnGn9mY1nlEdY5hvD3dufw5xPAABWUDgggAAAALADAJ0BKhAAEgA/OYS5U68opaKwCAHgJwlqALDsDXaKUNRTeHioAMxLzrA0wPl+VEJJYK7wkNYykKVrddQOJ567PMpPwC6fMxBJHbBT/ouJPtB6V0GyGB2qqHSEcLtdPPKZKvYcBeU9rjbCNaJB6TInhuafLkb9V092q6PWQAAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/carriers/Shopify_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/carriers/Shopify_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/carriers/Shopify_Logo-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/projects/eirpost/carriers/Shopify_Logo-w1440.webp"
+      },
+      {
+        "w": 1759,
+        "src": "/images/projects/eirpost/carriers/Shopify_Logo.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/carriers/UPS_Logo.webp": {
+    "width": 1631,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRjgBAABXRUJQVlA4WAoAAAAQAAAADwAAEwAAQUxQSF4AAAABcFpr25s86XtkiF5koU/TdDZAIpHYtgBhi9g4cNG9OnRETABSkLyyoqqK7JUEEqe8npyf6r+zmlP95nxfc+67OUtu066gXaqx8iwDOJ+ht8FolNZ1GqIHI+C6QLAHVlA4ILQAAACwBACdASoQABQAPzmGuVOvKSWisAgB4CcJbACdMoRwAdEA7oszs+RA9xVNTxgAAN5OnIQVjdFtkmjWniJ1IsJLrUcWYnX3vXlI+NjVX4KE9J12CEcvcVhBn+j0IBM1S+J6XNRKX/YrYEbH7uHoF4zPsuXr8AmP/0zJfy4IyTY6QA0+G7D46E0auhPU3EhK9Pk1niufneJ0FcokRNtD/83dff5hQBcfyYtk1HnnbmRQCBGgAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/carriers/UPS_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/carriers/UPS_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/carriers/UPS_Logo-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/projects/eirpost/carriers/UPS_Logo-w1440.webp"
+      },
+      {
+        "w": 1631,
+        "src": "/images/projects/eirpost/carriers/UPS_Logo.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/carriers/WooCommerce_Logo.webp": {
+    "width": 2000,
+    "height": 518,
+    "lqip": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4WAoAAAAQAAAADwAAAwAAQUxQSEEAAAAA5/5ih9Qe63fC+rgPcfDmUAnwl/jpoeiZ30nqjf16mukA7/jK+v1cid9J6Y39epnqAMPfMe2vARfB+rcOcfDmUABWUDggPAAAALABAJ0BKhAABAAFQHwlsAJ0AMYoNgAA/p9J6FZtMfiRhfoUgyRQVgu2ELNGg0/qHPnb77F++PwUUT8AAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/carriers/WooCommerce_Logo-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/carriers/WooCommerce_Logo-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/carriers/WooCommerce_Logo-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/projects/eirpost/carriers/WooCommerce_Logo-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/projects/eirpost/carriers/WooCommerce_Logo.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/EirLink_Example_Label.webp": {
+    "width": 1024,
+    "height": 1536,
+    "lqip": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAABwAwCdASoQABgAPzmEuVOvKKWisAgB4CcJaV2AADcLdtszfgAA/u1AnURYAxjZT6U/xS2BObHQbN1qGlXr0azB1P3Zrl/yRB/HP4kdpQVd7E9Sq0W4qcE6ed02079RgQAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/EirLink_Example_Label-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/EirLink_Example_Label-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/EirLink_Example_Label-w960.webp"
+      },
+      {
+        "w": 1024,
+        "src": "/images/projects/eirpost/EirLink_Example_Label.webp"
+      }
+    ]
+  },
+  "/images/projects/eirpost/eirlink-demo-poster.webp": {
+    "width": 1920,
+    "height": 1080,
+    "lqip": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACwAQCdASoQAAkABUB8JYwAAudMTIrAAP7gxTpvqhleoENLeErq3XhAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/projects/eirpost/eirlink-demo-poster-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/projects/eirpost/eirlink-demo-poster-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/projects/eirpost/eirlink-demo-poster-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/projects/eirpost/eirlink-demo-poster-w1440.webp"
+      },
+      {
+        "w": 1920,
+        "src": "/images/projects/eirpost/eirlink-demo-poster.webp"
+      }
+    ]
+  },
+  "/images/skills/3D Print/3DPrintBusinessLotsOfProducts.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAACQAQCdASoQAAwABUB8JZQAAdwi1YAA/OrHrRMyA9/6zctwDPedS4NSlsGoGdH3iCGuozVZYMeg6XQgfl/kYK/wMKLleIIiYQAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/3D Print/3DPrintBusinessLotsOfProducts-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/3D Print/3DPrintBusinessLotsOfProducts-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/3D Print/3DPrintBusinessLotsOfProducts-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/3D Print/3DPrintBusinessLotsOfProducts-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/skills/3D Print/3DPrintBusinessLotsOfProducts.webp"
+      }
+    ]
+  },
+  "/images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness.webp": {
+    "width": 1501,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJbAC7H8ABljf2X+9PzVgA/jxrPmsbARVlfdyYIEBoI9cDpHOhAuYvFANIkwongYppi84u5QAr8wME5XVUYIzjpJLLCb11ARkziRHSUVDb6o5MgyTV0mg6MKpjv9GD9Or/6u5bgAAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness-w1440.webp"
+      },
+      {
+        "w": 1501,
+        "src": "/images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness.webp"
+      }
+    ]
+  },
+  "/images/skills/ADs/MetaADS_Dashboard.webp": {
+    "width": 1875,
+    "height": 912,
+    "lqip": "data:image/webp;base64,UklGRiwAAABXRUJQVlA4ICAAAACwAQCdASoQAAgABUB8JaQAAveYXcFAAP7qmFAcV74AAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/ADs/MetaADS_Dashboard-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/ADs/MetaADS_Dashboard-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/ADs/MetaADS_Dashboard-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/ADs/MetaADS_Dashboard-w1440.webp"
+      },
+      {
+        "w": 1875,
+        "src": "/images/skills/ADs/MetaADS_Dashboard.webp"
+      }
+    ]
+  },
+  "/images/skills/ADs/TikTokDash.webp": {
+    "width": 1368,
+    "height": 918,
+    "lqip": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAsABUB8JQAAYv6PoQNJVRAA/u7NhZKhPbcAyDWsG2rCUG/vBMXv3gOHZ//bkmwI4UAn6EQrmJPpp1fHE1PTFbWBOdnz0GlAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/ADs/TikTokDash-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/ADs/TikTokDash-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/ADs/TikTokDash-w960.webp"
+      },
+      {
+        "w": 1368,
+        "src": "/images/skills/ADs/TikTokDash.webp"
+      }
+    ]
+  },
+  "/images/skills/Blender/Screenshot-2026-03-07-134047.webp": {
+    "width": 1918,
+    "height": 1009,
+    "lqip": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAABwAQCdASoQAAgABUB8JQBOgA/pgAD9rtFDwnUq1NrkApRUs6G144wsqeHn4s1hul29IiAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134047-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134047-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134047-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134047-w1440.webp"
+      },
+      {
+        "w": 1918,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134047.webp"
+      }
+    ]
+  },
+  "/images/skills/Blender/Screenshot-2026-03-07-134055.webp": {
+    "width": 1919,
+    "height": 1008,
+    "lqip": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAACwAQCdASoQAAgABUB8JaQAAer6+WoAAPI8QkDtA5zVAF8YU3zE7D4LSAAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134055-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134055-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134055-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134055-w1440.webp"
+      },
+      {
+        "w": 1919,
+        "src": "/images/skills/Blender/Screenshot-2026-03-07-134055.webp"
+      }
+    ]
+  },
+  "/images/skills/Construction Site/Construction_Site.webp": {
+    "width": 1600,
+    "height": 1200,
+    "lqip": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAADQAQCdASoQAAwABUB8JYgCdAEVgetogAD9nLfR6gSpynUo5TDSnVYvm4v/Co3ch6yQ6m16/EKaHhU91ER4sw/dSiu+JPeCaAc4Umr0AAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Construction Site/Construction_Site-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Construction Site/Construction_Site-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Construction Site/Construction_Site-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Construction Site/Construction_Site-w1440.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/skills/Construction Site/Construction_Site.webp"
+      }
+    ]
+  },
+  "/images/skills/Construction Site/Construction_Site1.webp": {
+    "width": 1600,
+    "height": 1200,
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAwABUB8JZQC7ADMFRzARKAA8ABlFPrxAXTa8OmKlHskTzhgDSJvegHsmKxLmg2WIayarHrvTmqAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Construction Site/Construction_Site1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Construction Site/Construction_Site1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Construction Site/Construction_Site1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Construction Site/Construction_Site1-w1440.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/skills/Construction Site/Construction_Site1.webp"
+      }
+    ]
+  },
+  "/images/skills/Electronics and Soldering/Ebike_Battery.webp": {
+    "width": 1200,
+    "height": 1600,
+    "lqip": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAwCdASoQABUAPzmEuVOvKKWisAgB4CcJZwAAP37wI0qmyPuzoADN9wX+vgqPd39XPKV52FV7yY1hcYz/R14ZuwNAtu4hbqnBnvxkomdHNdGmICC6V7hb8mL8XSi1N8KZy69ox6WVTDnApjx8MEQs9AUkaACOWIXqO7NMAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Electronics and Soldering/Ebike_Battery-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Electronics and Soldering/Ebike_Battery-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Electronics and Soldering/Ebike_Battery-w960.webp"
+      },
+      {
+        "w": 1200,
+        "src": "/images/skills/Electronics and Soldering/Ebike_Battery.webp"
+      }
+    ]
+  },
+  "/images/skills/Electronics and Soldering/EbikeMotorElectronics.webp": {
+    "width": 1600,
+    "height": 1200,
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAwABUB8JYwAAY1B+8AAAMlD5Rr4TY5ZaozfoJu2KbaQExOuaUH6bGSP5hrFAWFlItS+E9xMDwAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Electronics and Soldering/EbikeMotorElectronics-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Electronics and Soldering/EbikeMotorElectronics-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Electronics and Soldering/EbikeMotorElectronics-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Electronics and Soldering/EbikeMotorElectronics-w1440.webp"
+      },
+      {
+        "w": 1600,
+        "src": "/images/skills/Electronics and Soldering/EbikeMotorElectronics.webp"
+      }
+    ]
+  },
+  "/images/skills/Fusion360/Fusion360.webp": {
+    "width": 1918,
+    "height": 1002,
+    "lqip": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAADQAQCdASoQAAgABUB8JaQAArO2HHDHgAD+7XFCnWL0euc/M5+JezF63afe7V5/4FCtyR1BUUI7WHZYBgAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Fusion360/Fusion360-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Fusion360/Fusion360-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Fusion360/Fusion360-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Fusion360/Fusion360-w1440.webp"
+      },
+      {
+        "w": 1918,
+        "src": "/images/skills/Fusion360/Fusion360.webp"
+      }
+    ]
+  },
+  "/images/skills/Other/AI_LLM.webp": {
+    "width": 1536,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoQAAsABUB8JYmZAAGIAAD+7y/W0iC73DR+2yGgAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Other/AI_LLM-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Other/AI_LLM-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Other/AI_LLM-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Other/AI_LLM-w1440.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/skills/Other/AI_LLM.webp"
+      }
+    ]
+  },
+  "/images/skills/Other/Cloud.webp": {
+    "width": 1536,
+    "height": 1024,
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAgCdASoQAAsABUB8JbACdLoAAje+wvuTwAD+vEsRYEhQwR4zMm5GIzKasfHZU+UDQMuCgYl8feKvDHGl1B+PdcZRoO7tT6/aJCwA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/skills/Other/Cloud-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/skills/Other/Cloud-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/skills/Other/Cloud-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/skills/Other/Cloud-w1440.webp"
+      },
+      {
+        "w": 1536,
+        "src": "/images/skills/Other/Cloud.webp"
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+.shiny-text {
+  display: inline-block;
+  color: rgb(var(--ink-muted));
+  background: linear-gradient(
+    120deg,
+    rgb(var(--ink-muted)) 40%,
+    rgb(var(--ink)) 50%,
+    rgb(var(--ink-muted)) 60%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shiny-sweep linear infinite;
+}
+
+.shiny-text-static {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  animation: none;
+}
+
+@keyframes shiny-sweep {
+  0% {
+    background-position: 150% 0;
+  }
+  100% {
+    background-position: -50% 0;
+  }
+}
