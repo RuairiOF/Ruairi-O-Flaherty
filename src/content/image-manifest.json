@@ -544,7 +544,7 @@
   "/images/photos/gallery/IMG_0659.webp": {
     "width": 2000,
     "height": 1500,
-    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAAAQAgCdASoQAAwABUB8JaACdAD1jz04NoIAAPfMx5c3byYVhUjuyB+WIQxnMrrFOHQ1iz6GYqTC0dmty6cJETuYAAA=",
+    "lqip": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAwABUB8JaACdAD1jzsoSAAA98zHlzdvJhWFSO7IH5YhDGcyusU4dDWLPoZim1+O5DoATZZmM8fgAAA=",
     "variants": [
       {
         "w": 320,
@@ -1103,7 +1103,7 @@
   "/images/photos/gallery/IMG_3027.webp": {
     "width": 1500,
     "height": 2000,
-    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQABUAPzmEulOvKKWisAgB4CcJZQAAW+gRjZXkmRJlcQAA/cn4fqdGgVhTgxVR1+lxBRL1KQriedm/VWQkDvwAb6n9kURrnJTw4QAA",
+    "lqip": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAwCdASoQABUAPzmEulOvKKWisAgB4CcJZQAAW+gRjZXkmRJlcQAA/cn4fqdGgVhTgxVR1+lxBRL1KQriedm/VWQkDvwAb6n9kURrnJTvYQAA",
     "variants": [
       {
         "w": 320,
@@ -1774,7 +1774,7 @@
   "/images/photos/LaserLane/PicturesOfLaserLaneOnBike-6.webp": {
     "width": 2000,
     "height": 1500,
-    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADQAQCdASoQAAwABUB8JZgCsAD0dELTKAD+5Z28wtERO9HcqsMJe5Qr1ynuGA03QkwAAA==",
+    "lqip": "data:image/webp;base64,UklGRj4AAABXRUJQVlA4IDIAAADwAQCdASoQAAwABUB8JZgCsAD0dE+HVegA/uWdvMLRETvR3KrDEOnZrSiWA03QkwAAAA==",
     "variants": [
       {
         "w": 320,
@@ -2088,6 +2088,218 @@
       {
         "w": 1080,
         "src": "/images/photos/NukaColaRadio/NukaColaRadioSandRiver1080p.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/picture_in_factory-1.webp": {
+    "width": 2000,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADQAQCdASoQABAABUB8JbACdACZQR9QQAD9HGtjhqzPdaNcfa1Sk8uimNfEAsZ1uQlEMLQ8TEEf/kvtRMypJ3ns+au+vzefdDPc6AAA",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-1-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-1-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-1.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/picture_in_factory-2.webp": {
+    "width": 2000,
+    "height": 2000,
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADwAQCdASoQABAABUB8JagCdAD0L4rD0gAA/lQ+IPBt9nUyaAU9/7LIPsIeZ7se8Jigsggr5Gu/RyWAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-2-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-2-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-2-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-2-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/picture_in_factory-2.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/pictures and videos of production/1.webp": {
+    "width": 1279,
+    "height": 1706,
+    "lqip": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJbABUfoXVKFuyfg3A/uwAy/62tsBGQ3Z5nL71SqSC3Nyk/imWowCNKHQ0hex2uforTIHWp6BZOHhJs3x7jXUjecQS9/rHIYD3bHoJ7Fwhv60kPcI5nVtu77sHXasAdw147jydFSF7QLLUOwAwpQ4h4AA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/1-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/1-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/1-w960.webp"
+      },
+      {
+        "w": 1279,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/1.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/pictures and videos of production/3.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADQAQCdASoQAAwABUB8JQBYdhStr246AAD+MwCkmP0XSBFk1BuuEwDqX6m1AIFPbAr9lPlsCEecVfU26x1SLEAxoMAAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/3-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/3-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/3-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/3-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/3.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/pictures and videos of production/4.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAwABUB8JZAAAlgWvWSIAAD+WxSL/Blm+2op9N7rjfQCR7kjQwBXXitOjOkPxOXo7sqAAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/4-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/4-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/4-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/4-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/4.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/pictures and videos of production/5.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQAAwABUB8JagCdADb9TMtQAD+g5UZqofSlrz320t8OufFTVUNTuZuMUI0MGKtVxfN8Hv/7RMRc9tVaCcbYj2zsT9tojG8YUaeFohBQwgAAA==",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/5-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/5-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/5-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/5-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/5.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/pictures and videos of production/6.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADwAQCdASoQAAwABUB8JagCdADtCijNhkAAzIjC3qNxjH1xTzihGQa+MKHOA9+84bn7ec20PTVWhKdDXSeKjCnYI0tdLC/VAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/6-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/6-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/6-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/6-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/6.webp"
+      }
+    ]
+  },
+  "/images/photos/NukaColaRadio/pictures and videos of production/7.webp": {
+    "width": 2000,
+    "height": 1500,
+    "lqip": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAADQAQCdASoQAAwABUB8JZwAAiXzXZ/w4AD+tU35QIW9q32lU6aKUjbwENqiPT6kWG/0Zp6rc+OVwwFYAAA=",
+    "variants": [
+      {
+        "w": 320,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/7-w320.webp"
+      },
+      {
+        "w": 640,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/7-w640.webp"
+      },
+      {
+        "w": 960,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/7-w960.webp"
+      },
+      {
+        "w": 1440,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/7-w1440.webp"
+      },
+      {
+        "w": 2000,
+        "src": "/images/photos/NukaColaRadio/pictures and videos of production/7.webp"
       }
     ]
   },
@@ -2452,7 +2664,7 @@
   "/images/projects/eirpost/carriers/Shopify_Logo.webp": {
     "width": 1759,
     "height": 2000,
-    "lqip": "data:image/webp;base64,UklGRjYBAABXRUJQVlA4WAoAAAAQAAAADwAAEQAAQUxQSI8AAAABgGJt27LoRaNbcodMortLggWwA8ju2rQ5NBKMS3S3NtEtTZoz+PdtISImAJb1/aOkBBDVLXtvu81E6LLH1F75sUpcJa7Yri/+p9Pp6ZAKQDWNfqfrNQC1KbILYA8tBPCE1gTKH9ohyKboz2DAmNKCOLo0TmCIEznG6b/jnGn9mY1nlEdY5hvD3dufw5xPAABWUDgggAAAALADAJ0BKhAAEgA/OYS5U68opaKwCAHgJwlqALDsDXaKUNRTeHioAMxLzrA0wPl+VEJJYK7wkNYykKVrddQOJ567PMpPwC6fMxBJHbBT/ouJPtB6V0GyGB2qqHSEcLtdPPKZKvYcBeU9rjbCNaJB6TInhuafLkb9V092q6PWQAAA",
+    "lqip": "data:image/webp;base64,UklGRjYBAABXRUJQVlA4WAoAAAAQAAAADwAAEQAAQUxQSJAAAAABgGJt27LoRaNbcodMortLggWwA8ju2rQ5NJKMz0R3axPd0qQ5B/++LUTEBMCqvn+clACiumXv7bSZCF32mNorP1WJ68QV283lbDabnQ2pAFTT6G+2WQNQmyG7APbRQgDPaE2g/KMdgWyG/gIGjBktiKNL4wSGOJETnP4HzrnWn5m+oDzBKt8Y7t79HuV8AgBWUDgggAAAALADAJ0BKhAAEgA/OYS5U68opaKwCAHgJwlqALDsDXaKUNRTeHioAMxLzrA0wPl+VEJJYK7wkNYykKVrddQOJ567PMpPwC6fMxBJHbBT/ouJPtB6V0GyGB2qqHSEcLtdPPKZKvYcBeU9rjbCNaJB6TInhuafLkb9V092q6PWQAAA",
     "variants": [
       {
         "w": 320,
@@ -2610,7 +2822,7 @@
   "/images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness.webp": {
     "width": 1501,
     "height": 2000,
-    "lqip": "data:image/webp;base64,UklGRowAAABXRUJQVlA4IIAAAADQAwCdASoQABUAPzmGuVOvKSWisAgB4CcJbAC7H8ABljf2X+9PzVgA/jxrPmsbARVlfdyYIEBoI9cDpHOhAuYvFANIkwongYppi84u5QAr8wME5XVUYIzjpJLLCb11ARkziRHSUVDb6o5MgyTV0mg6MKpjv9GD9Or/6u5bgAAAAA==",
+    "lqip": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAADQAwCdASoQABUAPzmEuVOvKKWisAgB4CcJbAC7ABd/8vT2LObOqigA/nMwwdhfyG2j6g59a6PU1sG4FtEkhAb0ZQbz6ADu/EebpAshIX7ZDo2ifCwBSL079Lhvtm+3aMyaTlS00MAqLceeCiAIuUAfgFrgP9S6/JrS5wp1q/NOXRDd2bZY20c7lyAAAA==",
     "variants": [
       {
         "w": 320,
@@ -2818,7 +3030,7 @@
   "/images/skills/Electronics and Soldering/EbikeMotorElectronics.webp": {
     "width": 1600,
     "height": 1200,
-    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAwABUB8JYwAAY1B+8AAAMlD5Rr4TY5ZaozfoJu2KbaQExOuaUH6bGSP5hrFAWFlItS+E9xMDwAA",
+    "lqip": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAACwAQCdASoQAAwABUB8JYwAAY1B+8AAAMlD5ReSbHLLVGb9BN2xTbSAmJ1zSg/TYyR/MNYoCwspFqXwnuJgeAAA",
     "variants": [
       {
         "w": 320,
@@ -2869,57 +3081,57 @@
       }
     ]
   },
-  "/images/skills/Other/AI_LLM.webp": {
-    "width": 1536,
-    "height": 1024,
-    "lqip": "data:image/webp;base64,UklGRjAAAABXRUJQVlA4ICQAAABwAQCdASoQAAsABUB8JYmZAAGIAAD+7y/W0iC73DR+2yGgAAA=",
+  "/images/skills/Other/AiandAutomationNew.webp": {
+    "width": 1672,
+    "height": 941,
+    "lqip": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAAAwAQCdASoQAAkABUB8JZQAA3AA/u/C2R11J/jCCvHnsJp7WE/zKsAAAAA=",
     "variants": [
       {
         "w": 320,
-        "src": "/images/skills/Other/AI_LLM-w320.webp"
+        "src": "/images/skills/Other/AiandAutomationNew-w320.webp"
       },
       {
         "w": 640,
-        "src": "/images/skills/Other/AI_LLM-w640.webp"
+        "src": "/images/skills/Other/AiandAutomationNew-w640.webp"
       },
       {
         "w": 960,
-        "src": "/images/skills/Other/AI_LLM-w960.webp"
+        "src": "/images/skills/Other/AiandAutomationNew-w960.webp"
       },
       {
         "w": 1440,
-        "src": "/images/skills/Other/AI_LLM-w1440.webp"
+        "src": "/images/skills/Other/AiandAutomationNew-w1440.webp"
       },
       {
-        "w": 1536,
-        "src": "/images/skills/Other/AI_LLM.webp"
+        "w": 1672,
+        "src": "/images/skills/Other/AiandAutomationNew.webp"
       }
     ]
   },
-  "/images/skills/Other/Cloud.webp": {
+  "/images/skills/Other/CloudDeploymentNew.webp": {
     "width": 1536,
     "height": 1024,
-    "lqip": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAwAgCdASoQAAsABUB8JbACdLoAAje+wvuTwAD+vEsRYEhQwR4zMm5GIzKasfHZU+UDQMuCgYl8feKvDHGl1B+PdcZRoO7tT6/aJCwA",
+    "lqip": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoQAAsABUB8JYgCdAEXu38CoshMAAD+8N3fLnu5NlPYd/hl3BFJ8e5g/zS+a+pRG/GuUlJJVsS/Z+jvlHiz/aAA",
     "variants": [
       {
         "w": 320,
-        "src": "/images/skills/Other/Cloud-w320.webp"
+        "src": "/images/skills/Other/CloudDeploymentNew-w320.webp"
       },
       {
         "w": 640,
-        "src": "/images/skills/Other/Cloud-w640.webp"
+        "src": "/images/skills/Other/CloudDeploymentNew-w640.webp"
       },
       {
         "w": 960,
-        "src": "/images/skills/Other/Cloud-w960.webp"
+        "src": "/images/skills/Other/CloudDeploymentNew-w960.webp"
       },
       {
         "w": 1440,
-        "src": "/images/skills/Other/Cloud-w1440.webp"
+        "src": "/images/skills/Other/CloudDeploymentNew-w1440.webp"
       },
       {
         "w": 1536,
-        "src": "/images/skills/Other/Cloud.webp"
+        "src": "/images/skills/Other/CloudDeploymentNew.webp"
       }
     ]
   }

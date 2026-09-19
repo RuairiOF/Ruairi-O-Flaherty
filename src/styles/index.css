@@ -257,7 +257,7 @@
 
   /* Engineering-label eyebrow: "01 / PROJECTS" */
   .eyebrow {
-    @apply font-mono text-xs uppercase tracking-[0.2em] text-ink-muted;
+    @apply font-sans font-semibold text-xs uppercase tracking-[0.2em] text-ink-muted;
   }
 
   .prose {

@@ -17,7 +17,7 @@ export default function FuzzyText({
   children,
   fontSize = 'clamp(6rem, 20vw, 12rem)',
   fontWeight = 700,
-  fontFamily = "'Clash Display', sans-serif",
+  fontFamily = "'Montserrat', 'Montserrat Variable', sans-serif",
   color,
   baseIntensity = 0.18,
   hoverIntensity = 0.5,

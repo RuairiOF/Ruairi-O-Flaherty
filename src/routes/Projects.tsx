@@ -48,7 +48,7 @@ export function Projects() {
               </p>
             </Reveal>
             <Reveal delay={0.15}>
-              <p className="mt-6 font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
+              <p className="eyebrow mt-6">
                 {visibleProjects.length.toString().padStart(2, '0')} case studies
               </p>
             </Reveal>

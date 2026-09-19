@@ -382,15 +382,14 @@ The offer includes standard and bundled editions, positioned as a limited produc
       {
         title: 'Cloud & Deployment',
         description: 'All my projects run on real infrastructure. I handle the databases, hosting, and deployment so things actually stay online.',
-        images: [`${skillBasePath}Other/Cloud.webp`],
+        images: [`${skillBasePath}Other/CloudDeploymentNew.webp`],
         tools: ['Supabase', 'PostgreSQL', 'MySQL', 'Vercel', 'Railway', 'Docker', 'AWS']
       },
       {
         title: 'AI & Automation',
         description: 'AI helps me stay on top of things across all my work. With EirPost for example, I\'ve set up a passive system that analyses data, finds leads, manages emails, and turns them into actionable tasks. It\'s become a big part of how I keep everything running without burning out.',
-        images: [`${skillBasePath}Other/AI_LLM.webp`],
-        tools: ['ChatGPT', 'Claude', 'LLM APIs', 'Prompt Engineering', 'Workflow Automation'],
-        imagePosition: '[object-position:center_30%]'
+        images: [`${skillBasePath}Other/AiandAutomationNew.webp`],
+        tools: ['ChatGPT', 'Claude', 'LLM APIs', 'Prompt Engineering', 'Workflow Automation']
       }
     ]
   },
