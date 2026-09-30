@@ -3,7 +3,9 @@
     "allow": [
       "Bash(npm run build)",
       "Bash(npm run dev:*)",
-      "Bash(git rm *)"
+      "Bash(git rm *)",
+      "Bash(grep -v \"^\\\\s*$\")",
+      "WebFetch(domain:www.theoceancompany.com)"
     ]
   }
 }
