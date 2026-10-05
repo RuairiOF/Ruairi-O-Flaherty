@@ -1,14 +1,11 @@
 import type { CVData } from '../types'
 
 const basePath = import.meta.env?.BASE_URL || '/'
-const logoBasePath = `${basePath}images/logos/`
-const skillBasePath = `${basePath}images/skills/`
-const photoBasePath = `${basePath}images/photos/`
 
 export const cvData: CVData = {
   person: {
     name: "Ruairí O'Flaherty",
-    headline: 'Mechanical Engineering Student & Developer',
+    headline: 'Mechanical engineering student at UCD',
     location: 'Dublin, Ireland',
     email: 'ruairioflaherty1@gmail.com',
     links: {
@@ -17,7 +14,6 @@ export const cvData: CVData = {
       website: 'https://eirpost.ie',
     },
   },
-
   education: [
     {
       institution: 'University College Dublin',
@@ -35,7 +31,6 @@ export const cvData: CVData = {
         '589 Points: H1 Physics, H1 DCG, H1 Computer Science, H2 Maths, H2 Applied Maths, H2 English',
     },
   ],
-
   experience: [
     {
       company: 'EirPost',
@@ -43,9 +38,9 @@ export const cvData: CVData = {
       dates: '2025 - Present',
       location: 'Ireland',
       bullets: [
-        'Running EirPost, a logistics and shipping service for SMEs across Ireland',
-        'Managing pricing models, customer onboarding, and day-to-day operations for hundreds of SME customers',
-        'Overseeing financial reconciliation and data-driven cost optimisation to reduce shipping costs by up to 40%',
+        'Building and running an An Post shipping service for Irish online shops.',
+        'Managing postage prices, account setup and customer support.',
+        'Checking shipping invoices and reconciling customer accounts.',
       ],
       technologies: [
         'Logistics',
@@ -64,8 +59,8 @@ export const cvData: CVData = {
       dates: 'Summer 2025',
       location: 'Dublin, Ireland',
       bullets: [
-        'Selected for competitive accelerator program; collaborated with peers and mentors to build and deliver Cashew, a demo-ready startup product',
-        'Conducted user testing, managed the product backlog, and pitched outcomes to mentors and investors',
+        'Built Cashew with a team during the Patch summer programme.',
+        'Interviewed users, planned development tasks and presented the product at demo day.',
       ],
       technologies: [
         'Product Management',
@@ -82,8 +77,8 @@ export const cvData: CVData = {
       dates: 'Summer 2024',
       location: 'Dublin, Ireland',
       bullets: [
-        'Supported surveying, quality assurance, and safety compliance on-site',
-        'Produced weekly progress and safety reports, coordinating subcontractors to close defects',
+        'Assisted with surveying and site checks on the UCD O’Connor Centre for Learning project.',
+        'Prepared weekly reports and followed up on defects with subcontractors.',
       ],
       technologies: ['Surveying', 'Quality Assurance', 'Safety Compliance'],
     },
@@ -93,8 +88,8 @@ export const cvData: CVData = {
       dates: 'Summer 2023',
       location: 'Dublin, Ireland',
       bullets: [
-        'Completed training in safeguarding, food hygiene, and manual handling',
-        'Delivered professional service supporting vulnerable residents and staff',
+        'Worked in catering at a residential care home.',
+        'Completed food hygiene, safeguarding and manual handling training.',
       ],
       technologies: ['Food Safety', 'Care Services'],
     },
@@ -104,46 +99,38 @@ export const cvData: CVData = {
       dates: 'Summer 2022',
       location: 'Dublin, Ireland',
       bullets: [
-        'Supervised examinations ensuring academic integrity and proper procedures',
+        'Supervised exams and followed the centre’s examination procedures.',
       ],
       technologies: ['Administration', 'Supervision'],
     },
   ],
-
   projects: [
     {
       slug: 'eirpost',
       title: 'EirPost',
       description:
-        'A logistics automation platform serving hundreds of Irish businesses. Handles automated label generation, order fulfillment, and shipping optimization, cutting costs by up to 40% while giving business owners their time back.',
+        'An Post shipping labels and order fulfilment for Irish online shops. Started as a label-printing script for my own 3D-printing orders.',
       about:
-        'EirPost is a logistics automation platform that integrates with An Post to handle the entire shipping workflow for Irish businesses. From automatic label generation to order fulfillment and cost optimization, the platform eliminates manual shipping tasks so businesses can focus on growth. Designed with a user-friendly interface for non-technical users, from solo Etsy sellers to high-volume e-commerce operations.',
-      longDescription: `When I was running ROF's 3D, shipping 3D printed products, I was spending way too much time manually creating shipping labels. Hours clicking back and forth, copying addresses and parcel info and printing labels. I found it tedious, repetitive, and in hindsight, it took energy and motivation from me, which could have been redirected into scaling.
-
-First, I built myself a bot to automate it with playwright. With a bit of tweaking, what took me hours took a couple of minutes. An order comes in, the label would get created automatically and just print on my label printer for me to just peel off and stick to a parcel.
-
-I know this isn't just my problem. I'd say most, if not all, small businesses in Ireland deal with the same tedious shipping workflow, so I decided to share it on. What started as a personal time saver turned into an automation platform for order fulfillment and shipping logistics, after turning systems specific to my needs into a website that I have tried to optimise the UI for so that not so technical individuals, who may be just beginning to experiment with an Etsy, for example, can use it with ease.
-
-Now EirPost serves hundreds of Irish businesses. We've built integrations that aim to handle everything from automated label generation to cost optimisation, saving businesses up to 40% on their shipping costs. It's not just about cheaper shipping, it's also about giving small business owners their time back so they can focus on what actually matters, whether that be building and growing their companies or even spending less time on the business itself to focus on themselves and their families.
-
-The next phase for us is to look at full autonomy. AI driven analytics that predict shipping volumes, optimise packaging and routes, letting higher volume shippers scale without adding operational overhead. The goal is to make logistics essentially invisible, so businesses can focus entirely on their products and customers and ultimately creativity instead of this time consuming repetition.`,
+        'EirPost connects shop orders to An Post shipping. It prepares postage labels and updates orders when they have been fulfilled.',
+      longDescription:
+        'I started EirPost because creating labels for ROF’s 3D orders took too long. I was copying addresses and parcel details between the shop and the postage website, then printing each label separately.\n\nThe first version was a browser script that did those steps for me. Once it worked for my own orders, I began turning it into a service other shops could use.\n\nI work on the software as well as the postage prices, account setup, customer support and invoice reconciliation. The service now handles labels and fulfilment for Irish online shops.',
       highlights: [
-        'Hundreds of active SME customers across Ireland',
-        '40% average reduction in shipping costs',
-        'Automated end-to-end order fulfillment',
-        "Born from real shipping pain at ROF's 3D",
+        'Automatic label creation from shop orders',
+        'Order fulfilment updates',
+        'An Post shipping services',
+        'Postage pricing and invoice reconciliation',
       ],
       gallery: [
         `${basePath}images/projects/eirpost/EirLink_Example_Label.webp`,
         `${basePath}images/projects/eirpost/eirlink-demo-poster.webp`,
-        `${photoBasePath}EirPost/small_business-1.webp`,
-        `${photoBasePath}EirPost/Worldwide.webp`,
-        `${photoBasePath}EirPost/3D_Printed_Lamps.webp`,
-        `${photoBasePath}EirPost/3D_Printed_Vases.webp`,
-        `${photoBasePath}EirPost/Cutting_Boards.webp`,
-        `${photoBasePath}EirPost/Jewellery.webp`,
-        `${photoBasePath}EirPost/Model_Train.webp`,
-        `${photoBasePath}EirPost/Crochets.webp`,
+        `${basePath}images/photos/EirPost/small_business-1.webp`,
+        `${basePath}images/photos/EirPost/Worldwide.webp`,
+        `${basePath}images/photos/EirPost/3D_Printed_Lamps.webp`,
+        `${basePath}images/photos/EirPost/3D_Printed_Vases.webp`,
+        `${basePath}images/photos/EirPost/Cutting_Boards.webp`,
+        `${basePath}images/photos/EirPost/Jewellery.webp`,
+        `${basePath}images/photos/EirPost/Model_Train.webp`,
+        `${basePath}images/photos/EirPost/Crochets.webp`,
       ],
       tags: [
         'Automation',
@@ -152,82 +139,34 @@ The next phase for us is to look at full autonomy. AI driven analytics that pred
         'API Integration',
         'Logistics',
       ],
-      image: `${logoBasePath}EirpostLogoPNG.webp`,
+      image: `${basePath}images/logos/EirpostLogoPNG.webp`,
       liveUrl: 'https://eirpost.ie',
       featured: true,
       priority: 1,
     },
     {
-      slug: 'laserlane',
-      title: 'LaserLane',
-      description:
-        'Co-founding LaserLane, a bike safety startup developing green-laser visibility hardware for cyclists. I work across prototyping, on-road testing, and launch operations while we prepare for crowdfunding.',
-      longDescription: `LaserLane is focused on one core problem: cyclists are often seen too late by drivers. The product direction is a visibility system that uses projected green laser guidance to make a rider's road position clearer before close passing becomes dangerous.
-
-My role spans both build and business. On the product side, I work on hardware prototyping, mounting and durability iterations, and real-world road testing on bikes. On the business side, I handle early operations, launch planning, and communication work needed to move from prototype to public release.
-
-The project is currently in launch preparation. We have validated multiple prototype iterations, built marketing and demo assets, and are preparing the crowdfunding rollout.`,
-      highlights: [
-        'Developing green-laser bike-lane projection technology to improve cyclist visibility',
-        'Designed and tested multiple bike-mounted hardware prototypes',
-        'Ran field tests on-road to iterate mounting, visibility, and rider usability',
-        'Built launch assets including landing page, visuals, and product demonstrations',
-        'Preparing crowdfunding campaign and early fulfilment and operations plan',
-      ],
-      gallery: [
-        `${photoBasePath}LaserLane/LaserLaneLanding1.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-1.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-2.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-3.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-4.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-5.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-6.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-7.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-8.webp`,
-        `${photoBasePath}LaserLane/PicturesOfLaserLaneOnBike-9.webp`,
-      ],
-      tags: [
-        'Bike Technology',
-        'Product Development',
-        'Hardware',
-        'Business Operations',
-        'Entrepreneurship',
-        'Safety Tech',
-      ],
-      image: `${logoBasePath}LaserLaneLogoPNG.webp`,
-      liveUrl: 'https://laserlane.ie',
-      links: {
-        website: 'https://laserlane.ie',
-      },
-      featured: true,
-      priority: 2,
-    },
-    {
       slug: 'rofs-3d',
       title: "ROF's 3D",
       description:
-        "Built ROF's 3D from a side project into a real manufacturing e-commerce business. Scaled to 1,000+ sales and EUR50k+ revenue with an 8-printer farm, a 4.8/5 rating, and strong social-driven demand.",
-      longDescription: `ROF's 3D started as a hobby and became a full production and commerce operation. I built the workflow from design to delivery: CAD modeling, print setup, batch scheduling across an 8-printer farm, quality control, packing, and fulfilment.
-
-Beyond production, I handled the commercial side as well. I tested products with real demand, ran storefront operations, managed customer service, and used short-form content as the main acquisition channel. That created a feedback loop between what customers requested, what sold, and what got manufactured next.
-
-The business reached 1,000+ sales, EUR50k+ revenue, and a 4.8/5 customer rating. On TikTok the brand grew to roughly 28.5k followers and 1.3M likes, making content a major driver of repeat demand.`,
+        'An online shop selling 3D-printed products, made on an eight-printer setup. More than 1,000 orders shipped.',
+      longDescription:
+        'ROF’s 3D started with a printer and a few product ideas. I modelled the parts, tested prints and listed the finished products online. As orders increased, the setup grew to eight printers.\n\nMy work covered CAD, slicing, scheduling print batches, checking finished parts, packing and customer support. Videos of the printing process brought most customers to the shop.\n\nThe shop passed 1,000 sales and €50,000 in revenue, with an average customer rating of 4.8 out of 5. It was also where I started writing the shipping tools that became EirPost.',
       highlights: [
-        'Scaled to 1,000+ fulfilled orders and EUR50k+ revenue',
-        'Maintained a 4.8/5 customer rating through consistent QA and support',
-        'Operated an 8-printer production setup with repeatable manufacturing workflows',
-        'Designed products in CAD and iterated based on customer demand signals',
-        'Grew social distribution to roughly 28.5k followers and 1.3M likes on TikTok',
+        '1,000+ orders shipped',
+        '€50k+ revenue',
+        '4.8/5 average customer rating',
+        'Eight printers used for batch production',
+        'Product design, printing, packing and customer support',
       ],
       gallery: [
-        `${photoBasePath}gallery/SprunkeColaMain.webp`,
-        `${photoBasePath}gallery/IMG_2856.webp`,
-        `${photoBasePath}gallery/IMG_2862.webp`,
-        `${photoBasePath}gallery/IMG_2864.webp`,
-        `${photoBasePath}gallery/IMG_3027.webp`,
-        `${photoBasePath}gallery/IMG_3175.webp`,
-        `${photoBasePath}gallery/IMG_4130.webp`,
-        `${photoBasePath}gallery/IMG_4137.webp`,
+        `${basePath}images/photos/gallery/SprunkeColaMain.webp`,
+        `${basePath}images/photos/gallery/IMG_2856.webp`,
+        `${basePath}images/photos/gallery/IMG_2862.webp`,
+        `${basePath}images/photos/gallery/IMG_2864.webp`,
+        `${basePath}images/photos/gallery/IMG_3027.webp`,
+        `${basePath}images/photos/gallery/IMG_3175.webp`,
+        `${basePath}images/photos/gallery/IMG_4130.webp`,
+        `${basePath}images/photos/gallery/IMG_4137.webp`,
       ],
       tags: [
         '3D Printing',
@@ -236,7 +175,7 @@ The business reached 1,000+ sales, EUR50k+ revenue, and a 4.8/5 customer rating.
         'Social Media Marketing',
         'Manufacturing',
       ],
-      image: `${logoBasePath}Rofs3D_Logo.webp`,
+      image: `${basePath}images/logos/Rofs3D_Logo.webp`,
       liveUrl: 'https://www.tiktok.com/@rofs3d.com',
       links: {
         website: 'https://rofs3d.com',
@@ -249,22 +188,18 @@ The business reached 1,000+ sales, EUR50k+ revenue, and a 4.8/5 customer rating.
       slug: 'cashew',
       title: "Cashew - Patch '25",
       description:
-        'Cashew was built during the Patch accelerator at Dogpatch Labs, taking an idea from discovery to demo in one program cycle. I worked across user research, scope, sprint execution, and investor-facing storytelling.',
-      longDescription: `Cashew was developed during the Patch accelerator at Dogpatch Labs, where speed and clarity mattered more than perfect polish. The team had to move from early problem framing to a demo-ready product within a fixed program timeline.
-
-I worked across product and execution: running user interviews and testing sessions, translating feedback into backlog priorities, and helping make scope decisions that kept each sprint shippable. We focused on validating the core user flow first, then tightening UX and narrative for demo day.
-
-This project was strong training in constrained startup delivery: build quickly, test with real users, cut non-essential scope, and communicate traction clearly to mentors and potential investors.`,
+        'A team project developed during Patch at Dogpatch Labs in summer 2025, from early user interviews to a demo-day product.',
+      longDescription:
+        'Cashew was our team project during the Patch summer programme at Dogpatch Labs. We had the programme’s fixed deadline to research the idea, build a version people could try and prepare a demonstration.\n\nI helped with user interviews and testing, deciding which features to work on next and preparing the demo-day presentation. Feedback from users and mentors changed the plan as we went.',
       highlights: [
-        'Built and shipped during the Patch accelerator at Dogpatch Labs',
-        'Moved from concept to demo-ready product inside a single program cycle',
-        'Ran user research and usability testing to guide backlog priorities',
-        'Managed scope and sprint planning under tight deadlines',
-        'Presented the product and learning outcomes to mentors and investors',
+        'Built during Patch 2025 at Dogpatch Labs',
+        'User interviews and product testing',
+        'Development planning with a small team',
+        'Demo-day presentation',
       ],
       gallery: [
-        `${logoBasePath}CashewLogo.webp`,
-        `${photoBasePath}Patch_baltyboys.webp`,
+        `${basePath}images/logos/CashewLogo.webp`,
+        `${basePath}images/photos/Patch_baltyboys.webp`,
       ],
       tags: [
         'Product Development',
@@ -272,7 +207,7 @@ This project was strong training in constrained startup delivery: build quickly,
         'Startup',
         'Product Management',
       ],
-      image: `${logoBasePath}CashewLogo.webp`,
+      image: `${basePath}images/logos/CashewLogo.webp`,
       liveUrl: 'https://cashew.ie',
       links: {
         patch: 'https://www.joinpatch.org/',
@@ -284,24 +219,19 @@ This project was strong training in constrained startup delivery: build quickly,
       slug: 'sleeptracket100',
       title: 'SleepTracket100',
       description:
-        'A bedside sleep tracker built on Raspberry Pi that records overnight audio to estimate sleep/wake windows, stores nightly data to Supabase, and supports voice-based dream logging with AI summaries.',
-      longDescription: `This project is a bedside sleep tracker built with a Raspberry Pi. The goal is to have a small, self-running device you can leave beside your bed, plug in at night, and let run automatically. It records audio while you sleep and uses that signal to estimate when you fell asleep, when you woke up, and your total sleep duration.
-
-The data is processed the next morning and stored both locally on the Pi and in Supabase, so each night is tracked over time. That makes it possible to build up useful history and eventually view trends in an app or dashboard, like total sleep, weekly patterns, and how consistent your sleep schedule is.
-
-Dream logging is a key part of the system too. If you wake up and remember a dream, you can record it by voice. The system transcribes that input and uses AI to generate a short summary and interpretation, then stores it alongside the sleep session data.
-
-The long-term aim is to make this feel like a quiet bedside device rather than a tech demo: automatic, low-maintenance, and genuinely useful over time.`,
+        'A Raspberry Pi beside the bed, using overnight audio to estimate sleep times and save voice notes about dreams.',
+      longDescription:
+        'This is a Raspberry Pi experiment in sleep tracking. It records overnight audio and processes it the following morning to estimate sleep and wake times.\n\nNightly records are stored on the Pi and in Supabase. There is also a voice-note feature for recording dreams, with transcription and a short generated summary.\n\nThe next part is a dashboard for viewing the stored nights and checking whether the estimates are useful.',
       highlights: [
-        'Runs as a bedside Raspberry Pi device with minimal setup',
-        'Tracks estimated sleep start, wake time, and duration from overnight audio',
-        'Stores nightly records locally and in Supabase for long-term history',
-        'Supports voice dream logging with AI-generated summaries and interpretation',
-        'Designed to feed future dashboard/app visualisations',
+        'Raspberry Pi hardware',
+        'Sleep-time estimates from overnight audio',
+        'Local storage and Supabase records',
+        'Voice notes with transcription',
+        'Dashboard planned',
       ],
       gallery: [
-        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp`,
-        `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1.webp`,
+        `${basePath}images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp`,
+        `${basePath}images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi_1.webp`,
       ],
       tags: [
         'Raspberry Pi',
@@ -312,7 +242,7 @@ The long-term aim is to make this feel like a quiet bedside device rather than a
         'Sleep Tracking',
         'Hardware',
       ],
-      image: `${photoBasePath}SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp`,
+      image: `${basePath}images/photos/SleepTracker_Rasspberry_Pi/SleepTracker_Rasspberry_Pi.webp`,
       featured: true,
       priority: 5,
     },
@@ -320,33 +250,28 @@ The long-term aim is to make this feel like a quiet bedside device rather than a
       slug: 'nukacolaradio',
       title: 'Nukacola Radio',
       description:
-        'Nukacola Radio is a direct-to-consumer product brand for hand-finished retro game-inspired Bluetooth radios. I handle sourcing, QA, import logistics, fulfilment, and product positioning.',
-      longDescription: `Nukacola Radio started as a product and brand experiment: take a generic hardware platform and turn it into a differentiated collectible with real utility. The result is a retro game-inspired radio that looks like a prop but works as an everyday device with Bluetooth, AM/FM/SW tuning, and rechargeable battery power.
-
-I handled the full supply chain path from overseas sourcing to customer delivery. That included supplier communication, sample review, quality-control checks, import logistics, fulfilment setup, and customer support. I also shaped the storefront and product narrative so the item was sold as both a functional speaker and a collectible piece.
-
-The offer includes standard and bundled editions, positioned as a limited production run. Public product data currently shows a 4.8 rating across 127 reviews, reflecting the focus on product quality and post-purchase support.`,
+        'A past project sourcing and selling retro Bluetooth radios, including supplier checks, freight and order fulfilment.',
+      longDescription:
+        'Nukacola Radio was a small online shop for retro game-inspired radios with Bluetooth, radio tuning and rechargeable batteries. The project is currently paused.\n\nI worked on sourcing, sample checks, supplier communication, freight and fulfilment. I also set up the storefront and handled customer support.\n\nIt gave me experience with importing finished electronics, where the work was in checking the product and arranging delivery rather than manufacturing it myself.',
       highlights: [
-        'Built a niche DTC electronics brand around retro game-inspired radios',
-        'Managed supplier sourcing, QC checks, and import logistics end to end',
-        'Specified core features including Bluetooth, AM/FM/SW tuner, and rechargeable battery',
-        'Set up fulfilment and customer-support operations for online orders',
-        'Launched standard and bundle variants with product-led pricing',
-        'Current public rating: 4.8/5 across 127 reviews',
+        'Supplier sourcing and sample checks',
+        'Import logistics and order fulfilment',
+        'Storefront setup and customer support',
+        'Currently paused',
       ],
       gallery: [
-        `${photoBasePath}NukaColaRadio/1.webp`,
-        `${photoBasePath}NukaColaRadio/2.webp`,
-        `${photoBasePath}NukaColaRadio/3.webp`,
-        `${photoBasePath}NukaColaRadio/4.webp`,
-        `${photoBasePath}NukaColaRadio/5.webp`,
-        `${photoBasePath}NukaColaRadio/6.webp`,
-        `${photoBasePath}NukaColaRadio/NukaColaRadioSandRiver1080p.webp`,
-        `${photoBasePath}NukaColaRadio/radio-image-1.webp`,
-        `${photoBasePath}NukaColaRadio/radio-image-2.webp`,
-        `${photoBasePath}NukaColaRadio/radio-image-3.webp`,
-        `${photoBasePath}NukaColaRadio/radio-image-4.webp`,
-        `${photoBasePath}NukaColaRadio/video_of_radio_production.mp4`,
+        `${basePath}images/photos/NukaColaRadio/1.webp`,
+        `${basePath}images/photos/NukaColaRadio/2.webp`,
+        `${basePath}images/photos/NukaColaRadio/3.webp`,
+        `${basePath}images/photos/NukaColaRadio/4.webp`,
+        `${basePath}images/photos/NukaColaRadio/5.webp`,
+        `${basePath}images/photos/NukaColaRadio/6.webp`,
+        `${basePath}images/photos/NukaColaRadio/NukaColaRadioSandRiver1080p.webp`,
+        `${basePath}images/photos/NukaColaRadio/radio-image-1.webp`,
+        `${basePath}images/photos/NukaColaRadio/radio-image-2.webp`,
+        `${basePath}images/photos/NukaColaRadio/radio-image-3.webp`,
+        `${basePath}images/photos/NukaColaRadio/radio-image-4.webp`,
+        `${basePath}images/photos/NukaColaRadio/video_of_radio_production.mp4`,
       ],
       tags: [
         'E-commerce',
@@ -355,7 +280,7 @@ The offer includes standard and bundled editions, positioned as a limited produc
         'Retail',
         'Consumer Electronics',
       ],
-      image: `${logoBasePath}NukaColaRadioLOGO.webp`,
+      image: `${basePath}images/logos/NukaColaRadioLOGO.webp`,
       liveUrl: 'https://nukacolaradio.com',
       links: {
         website: 'https://nukacolaradio.com',
@@ -367,21 +292,16 @@ The offer includes standard and bundled editions, positioned as a limited produc
       slug: 'electric-dirt-bike-importing',
       title: 'Electric dirt bike importing',
       description:
-        'I traced the inflated route behind Chinese-built electric dirt bikes, then bought directly from the factory for close to half the local asking price.',
+        'Sourcing Sur-Ron and Talaria electric dirt bikes directly, importing them to Ireland and selling them after using them.',
       about:
-        'A short, hands-on importing project involving Sur-Ron Light Bee X and Talaria Sting MX4 bikes. I wanted the bikes for myself, but the strange route to the Irish market made the sourcing problem as interesting as the riding.',
-      longDescription: `I already liked dirt bikes, so the Sur-Ron Light Bee X and Talaria Sting MX4 caught my attention quickly. What did not make sense was the price. The bikes were built in China, but some of the stock reaching Ireland appeared to pass through a European company, then the United States, then Europe again before finally being sold here. Every handoff added another margin.
-
-I contacted the factory route instead. The versions I bought were made for the Chinese market, which meant accepting a Chinese-language interface and doing more checking myself before ordering. In return, the landed price was close to half of what comparable bikes were being advertised for locally.
-
-I brought the bikes into Ireland, checked them over, rode them for a while and learned their quirks. I was not trying to disguise where they came from or build a polished dealership around them. The whole point was that they were Chinese bikes, bought much closer to the source.
-
-I eventually sold them on. It was a compact project, but a useful one: supplier communication, landed-cost calculations, product localisation, freight and resale all showed up in one purchase. It also reinforced a lesson that has carried into my other businesses. Sometimes the product is not expensive. The route to the customer is.`,
+        'A personal importing project involving a Sur-Ron Light Bee X and a Talaria Sting MX4.',
+      longDescription:
+        'I wanted to try the Sur-Ron Light Bee X and Talaria Sting MX4, but the local prices seemed high compared with the factory route. I contacted suppliers and compared the total cost of importing them myself.\n\nThe bikes I bought were Chinese-market versions, including a Chinese-language interface. After freight and importing costs, they came to close to half the local asking price for comparable bikes.\n\nI checked them over, rode them for a while and later sold them on. The project involved supplier communication, freight arrangements, landed-cost calculations and learning what differed between market versions.',
       highlights: [
         'Close to 50% below comparable local asking prices',
-        'Sur-Ron Light Bee X and Talaria Sting MX4 sourced directly',
-        'Handled factory communication, freight, inspection and resale',
-        'Accepted Chinese-market UI in exchange for a much cleaner buying route',
+        'Sur-Ron Light Bee X and Talaria Sting MX4',
+        'Supplier communication, freight and inspection',
+        'Chinese-market versions with Chinese-language interfaces',
       ],
       tags: [
         'Direct Importing',
@@ -393,72 +313,72 @@ I eventually sold them on. It was a compact project, but a useful one: supplier 
       priority: 7,
       caseStudy: {
         variant: 'supply-chain',
-        eyebrow: 'The route I questioned',
-        title: 'The bike stayed the same. The invoice did not.',
+        eyebrow: 'Importing',
+        title: 'Comparing the buying routes',
         introduction:
-          'The route I kept finding looked needlessly long for a product that began in China. I wanted to see what happened if I removed most of the handoffs and dealt with the source.',
+          'I compared the quoted factory route with the distribution route I had found for bikes sold locally.',
         steps: [
           {
             label: '01 / Built',
             title: 'Factory in China',
-            description: 'The original manufacturing source for the bikes.',
+            description: 'Where the bikes were manufactured.',
           },
           {
             label: '02 / Distributed',
             title: 'European company',
-            description: 'A new layer of branding, handling and margin.',
+            description: 'The first distributor in the route I found.',
           },
           {
             label: '03 / Rerouted',
             title: 'United States',
-            description: 'Another market and another commercial handoff.',
+            description: 'A further distribution stop.',
           },
           {
             label: '04 / Returned',
             title: 'Europe again',
-            description: 'The same bike crossed back before reaching Ireland.',
+            description: 'Stock returned to Europe.',
           },
           {
             label: '05 / Sold',
             title: 'Irish retail',
-            description: 'By this point the asking price had climbed sharply.',
+            description: 'The final local sale.',
           },
         ],
         sections: [
           {
-            eyebrow: 'The gap',
-            title: 'Most of the difference was in the journey',
-            body: 'Nothing about the long route made the bike twice as useful to me. Buying closer to the factory cut out repeated handling and margin, bringing the price down to something that made sense.',
+            eyebrow: 'Cost',
+            title: 'Price after freight',
+            body: 'I compared local asking prices with the cost of the bike, freight and importing. The direct route came to close to half the price for comparable bikes.',
             points: [
-              'Compared local prices against a direct landed cost',
-              'Checked the exact market version before committing',
-              'Allowed for freight and the work of inspecting it myself',
+              'Factory price and freight quotes',
+              'Landed-cost comparison',
+              'Checks on the exact model and specification',
             ],
           },
           {
-            eyebrow: 'The compromise',
-            title: 'Chinese-market UI, intentionally',
-            body: 'The cheaper route was not identical to buying a fully localised retail bike. The interface was Chinese and there was less hand-holding after the sale. I knew that before ordering and considered it a fair trade for the saving.',
+            eyebrow: 'Specification',
+            title: 'Chinese-market versions',
+            body: 'These versions had Chinese-language interfaces. I checked that difference before ordering and handled the setup and inspection myself.',
             points: [
-              'No pretence that it was a US-made bike',
-              'More responsibility for checking and setup',
-              'A large enough saving to justify the inconvenience',
+              'Chinese-language interface',
+              'Version checks before ordering',
+              'Inspection on arrival',
             ],
           },
           {
-            eyebrow: 'The use',
-            title: 'Bought to ride, then sold on',
-            body: 'This was not a paper arbitrage exercise. I brought the bikes in because I wanted to use them. Riding them first also meant I understood what I was selling when it was time to move them on.',
+            eyebrow: 'Use',
+            title: 'Riding and resale',
+            body: 'I bought the bikes for myself, used them for a while and then sold them. Riding them gave me time to learn the differences before resale.',
             points: [
               'Sur-Ron Light Bee X',
               'Talaria Sting MX4',
-              'Real use before resale',
+              'Used before selling',
             ],
           },
         ],
         closing: {
-          label: 'What stayed with me',
-          text: 'Before accepting a retail price, trace the route. A surprising amount of value can disappear into a supply chain that exists because nobody has bothered to question it.',
+          label: 'What I learned',
+          text: 'The landed cost and the market version both mattered. A lower purchase price only made sense once freight and setup were included.',
         },
       },
     },
@@ -466,27 +386,17 @@ I eventually sold them on. It was a compact project, but a useful one: supplier 
       slug: 'printbot',
       title: 'Printbot',
       description:
-        'A print-farm operator that turns a plain-English request or store order into a ready-to-run job, from finding the model to starting the printer.',
+        'Software for finding 3D models, slicing print files and sending jobs to Bambu printers. Also includes a prototype queue for shop orders.',
       about:
-        'Printbot is the software I wanted while running an eight-printer farm. It joins the scattered parts of 3D printing into one workflow: finding or making the part, preparing it properly, sending it to the right printer and keeping production ahead of orders.',
-      longDescription: `Running several printers turns small bits of computer work into a daily queue. Find the right file, download it, check it, slice it with the correct machine and filament profile, transfer it, start the printer and then remember what needs to run next. Printbot pulls that chain into one place.
-
-For an ordinary request, I can describe the part I want. The software searches Printables and Thingiverse, ranks the available models and downloads the selected STL. It then slices through Bambu Studio or OrcaSlicer profiles, uploads the prepared file over FTPS and starts the Bambu printer through MQTT.
-
-When a catalogue model is not the answer, the CAD branch is intended for simple original parts. The prompt is not just about shape. It carries the things that decide whether a part will actually print and fit: clearance, wall thickness, orientation, supports and the limits of the chosen process.
-
-There is also a custom string-art generator. It takes an image and optional mask, solves the thread path and produces a preview, frame STL, string G-code and settings bundle. The package can be prepared as a Bambu-ready 3MF and sent through the same printer pipeline.
-
-The factory mode connects the same machinery to commerce. Shopify products map to approved print files, new orders become production jobs and a demand forecast sets a stock target before the shelf is empty. The current control layer includes a bed-clear check, retry and quarantine behaviour, printer state, inventory and a live event feed.
-
-The aim is not to remove every decision. It is to make the repeated decisions once, save them with the product and let the software handle the routine work after that.`,
+        'A set of printing tools built around the repeated tasks of running several printers.',
+      longDescription:
+        'Printbot brings several printing tasks into one workflow. A request can be used to search Printables and Thingiverse, download a model, slice it with a saved profile and send it to a Bambu printer.\n\nThe printer connection uses FTPS for file uploads and MQTT for status and job control. There is a separate path for simple custom CAD parts, where dimensions, clearances and print orientation need to be specified.\n\nA string-art tool takes an image and produces a thread path, printable frame and job files. The shop-order prototype maps Shopify products to approved print files, then queues production and tracks stock.\n\nModel search, slicing and printer control are working. Custom CAD and shop-order production are still being developed.',
       highlights: [
-        'One flow from natural-language request to a running print',
-        'Searches Printables and Thingiverse in parallel',
-        'Slices with Bambu Studio or OrcaSlicer profiles',
-        'Uploads over FTPS and starts jobs through MQTT',
-        'Forecast-led stock planning for Shopify production',
-        'Custom image-to-string-art generation and print packaging',
+        'Model search on Printables and Thingiverse',
+        'Bambu Studio and OrcaSlicer profiles',
+        'FTPS uploads and MQTT printer control',
+        'Image-to-string-art files',
+        'Shopify production queue prototype',
       ],
       tags: [
         '3D Printing',
@@ -499,117 +409,113 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       priority: 8,
       caseStudy: {
         variant: 'system',
-        eyebrow: 'From request to machine',
-        title: 'One job, not six separate tools',
+        eyebrow: 'Printing software',
+        title: 'From model search to a print job',
         introduction:
-          'The useful part is not any single automation. It is preserving the intent of the request all the way through model choice, print preparation, machine handoff and stock planning.',
+          'The workflow connects model libraries, a slicer and the printer. Each stage keeps the job settings for the next one.',
         steps: [
           {
             label: '01 / Ask',
             title: 'Describe the part',
-            description:
-              'Start with what the object needs to do, not a filename.',
+            description: 'Specify the part and any dimensions.',
             status: 'Working',
           },
           {
             label: '02 / Find or make',
             title: 'Retrieve or model',
             description:
-              'Search existing libraries first, then use CAD for a simple custom part.',
+              'Search model libraries, or use the developing CAD path.',
             status: 'Evolving',
           },
           {
             label: '03 / Prepare',
             title: 'Slice for the machine',
-            description:
-              'Apply the saved printer, material and process profile.',
+            description: 'Use a saved machine and material profile.',
             status: 'Working',
           },
           {
             label: '04 / Send',
             title: 'FTPS and MQTT',
             description:
-              'Upload the package, check the printer state and start the job.',
+              'Upload the file and check the printer before starting.',
             status: 'Working',
           },
           {
             label: '05 / Stay ahead',
             title: 'Forecast demand',
-            description:
-              'Turn store demand into a production queue before stock runs out.',
+            description: 'Plan stock from shop orders and recent demand.',
             status: 'Prototype',
           },
         ],
         sections: [
           {
-            eyebrow: 'Retrieval first',
-            title: 'Do not model what already exists',
-            body: 'Printbot searches Printables and Thingiverse together and ranks the results. Reusing a proven model is usually faster and safer than generating a fresh one for the sake of it.',
+            eyebrow: 'Models',
+            title: 'Search existing files',
+            body: 'Printables and Thingiverse are searched together. Results can be chosen manually, or the highest-ranked model can be downloaded automatically.',
             points: [
-              'Parallel catalogue search',
-              'Download and fallback handling',
-              'Manual selection or automatic top result',
+              'Catalogue search',
+              'Model ranking and download',
+              'Manual or automatic selection',
             ],
           },
           {
-            eyebrow: 'CAD when needed',
-            title: 'Geometry is only half the brief',
-            body: 'A simple part still needs sensible clearances, wall thickness and orientation. The CAD path treats printability as part of the design request instead of leaving those decisions until the slicer complains.',
+            eyebrow: 'Custom parts',
+            title: 'CAD development',
+            body: 'The CAD path is for simple parts with specified dimensions. It also needs to account for clearances, wall thickness, orientation and supports. This part is still in development.',
             points: [
-              'Fit and tolerance awareness',
-              'Orientation and support planning',
-              'Machine and material constraints',
+              'Fit and dimensions',
+              'Orientation and supports',
+              'Printer and material settings',
             ],
           },
           {
-            eyebrow: 'A tool inside the tool',
-            title: 'Custom string art generation',
-            body: 'The string-art studio is its own manufacturing workflow. An image becomes a solved thread path, a printable frame and a complete job bundle rather than just a decorative preview.',
+            eyebrow: 'String art',
+            title: 'Image to thread path',
+            body: 'An image and optional mask are used to calculate a thread path. The output includes a preview, frame STL and string G-code, which can be packaged for a Bambu printer.',
             points: [
-              'Image and optional mask input',
-              'Preview, frame STL and string G-code',
-              'Bambu-ready package and direct printer handoff',
+              'Image and mask input',
+              'Thread path and preview',
+              'Frame STL and print files',
             ],
           },
           {
-            eyebrow: 'Factory mode',
-            title: 'Let the order queue drive production',
-            body: 'For repeat products, approved G-code is already known. A Shopify order can queue the correct job immediately, while recent demand is used to decide what should be printed for stock next.',
+            eyebrow: 'Orders',
+            title: 'Shop production prototype',
+            body: 'Shopify products map to approved print files. Orders can create jobs in the queue, while recent demand is used to estimate how much stock to print. The controls include bed-clear checks, retries and printer status.',
             points: [
-              'SKU to print-file mapping',
-              'Forecast-based stock targets',
-              'Bed-clear gate, retry and quarantine states',
+              'Product-to-file mapping',
+              'Stock estimates',
+              'Printer checks and retry handling',
             ],
           },
         ],
         closing: {
-          label: 'The point',
-          text: 'A print farm should spend its time making things. The software exists to absorb the searching, file moving and queue watching that otherwise grows with every additional printer.',
+          label: 'Current status',
+          text: 'The search, slicing and printer connection are working. Custom CAD and order-driven production are the parts I am developing next.',
         },
       },
     },
   ],
-
   skills: {
     showcases: [
       {
         title: 'Advertising & Paid Media',
         description:
-          "I run ad campaigns across Meta and TikTok for my businesses. I handle the budgets, track what's working, and tweak things until the numbers make sense.",
-        images: [`${skillBasePath}ADs/MetaADS_Dashboard.webp`],
+          'Campaign setup, budgets and results tracking on Meta and TikTok for my shops.',
+        images: [`${basePath}images/skills/ADs/MetaADS_Dashboard.webp`],
         tools: ['Meta Ads', 'TikTok Ads', 'Google Analytics', 'A/B Testing'],
       },
       {
         title: 'Social Media & Content',
         description:
-          'Built 25k+ followers and 10M+ views making content for my 3D printing business. Turns out people love watching things get made.',
-        images: [`${skillBasePath}ADs/TikTokDash.webp`],
+          'Filming and editing product videos, mainly showing the printing process and finished parts.',
+        images: [`${basePath}images/skills/ADs/TikTokDash.webp`],
         tools: ['TikTok', 'Instagram', 'Content Strategy', 'Video Editing'],
       },
       {
         title: 'Business & Logistics',
         description:
-          "Between EirPost, ROF's 3D, and LaserLane, I've gotten pretty good at the unglamorous stuff: pricing, shipping, keeping customers happy, and making sure the numbers add up.",
+          'Pricing, postage, stock and customer support from running EirPost and ROF’s 3D.',
         images: [],
         tools: [
           'Excel',
@@ -622,10 +528,10 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       {
         title: '3D Printing & Manufacturing',
         description:
-          "Ran an 8-printer farm, shipped 1,000+ products, and learned that the hard part isn't printing, it's everything after.",
+          'FDM and resin printing, from slicing and batch scheduling to finishing and packing.',
         images: [
-          `${skillBasePath}3D Print/3DPrintBusinessLotsOfProducts.webp`,
-          `${skillBasePath}3D Print/ParcelsOnTheFloorFor3DPrintBusiness.webp`,
+          `${basePath}images/skills/3D Print/3DPrintBusinessLotsOfProducts.webp`,
+          `${basePath}images/skills/3D Print/ParcelsOnTheFloorFor3DPrintBusiness.webp`,
         ],
         tools: [
           'FDM Printing',
@@ -638,18 +544,18 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       {
         title: '3D Modelling & Rendering',
         description:
-          "I use Blender for renders and visualisation - product shots, concept art, and anything that needs to look good before it's built.",
+          'Blender models and renders for product images and concept studies.',
         images: [
-          `${skillBasePath}Blender/Screenshot-2026-03-07-134047.webp`,
-          `${skillBasePath}Blender/Screenshot-2026-03-07-134055.webp`,
+          `${basePath}images/skills/Blender/Screenshot-2026-03-07-134047.webp`,
+          `${basePath}images/skills/Blender/Screenshot-2026-03-07-134055.webp`,
         ],
         tools: ['Blender', 'AutoCAD'],
       },
       {
         title: 'SolidWorks & Fusion 360',
         description:
-          'My go-to tools for anything that needs to actually be manufactured. I model parts, run simulations, and produce drawings for real-world fabrication.',
-        images: [`${skillBasePath}Fusion360/Fusion360.webp`],
+          'Part modelling, assemblies, simulations and technical drawings in SolidWorks and Fusion 360.',
+        images: [],
         tools: [
           'SolidWorks',
           'Fusion 360',
@@ -661,10 +567,10 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       {
         title: 'Electronics & Prototyping',
         description:
-          "From overclocking e-bike motors to wiring up Arduinos, I like to mess around with hardware. I've built remote control drones, custom motor setups, and a local AI device on a Raspberry Pi.",
+          'Wiring, soldering and small hardware projects using Arduino, Raspberry Pi and motor controllers.',
         images: [
-          `${skillBasePath}Electronics and Soldering/EbikeMotorElectronics.webp`,
-          `${skillBasePath}Electronics and Soldering/Ebike_Battery.webp`,
+          `${basePath}images/skills/Electronics and Soldering/EbikeMotorElectronics.webp`,
+          `${basePath}images/skills/Electronics and Soldering/Ebike_Battery.webp`,
         ],
         tools: [
           'Arduino',
@@ -677,10 +583,10 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       {
         title: 'Site Engineering',
         description:
-          "Spent a summer interning with Walls Construction on the UCD O'Connor Centre for Learning site, doing surveying, safety compliance, and coordinating subcontractors. It gave me a whole new respect for project timelines and how company hierarchy shapes day-to-day decisions.",
+          'Surveying, site checks and subcontractor follow-up during a summer placement with Walls Construction.',
         images: [
-          `${skillBasePath}Construction Site/Construction_Site.webp`,
-          `${skillBasePath}Construction Site/Construction_Site1.webp`,
+          `${basePath}images/skills/Construction Site/Construction_Site.webp`,
+          `${basePath}images/skills/Construction Site/Construction_Site1.webp`,
         ],
         tools: [
           'Surveying',
@@ -692,7 +598,7 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       {
         title: 'Software Development',
         description:
-          'I develop and build whatever my projects need - from websites, mobile apps, and automation scripts to the code that powers my RC cars. My favourite example is EirPost, where the software actually runs a real, revenue-generating business.',
+          'Websites, applications and automation scripts, mainly in Python and TypeScript.',
         images: [],
         tools: [
           'Python',
@@ -710,8 +616,8 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       {
         title: 'Cloud & Deployment',
         description:
-          'All my projects run on real infrastructure. I handle the databases, hosting, and deployment so things actually stay online.',
-        images: [`${skillBasePath}Other/CloudDeploymentNew.webp`],
+          'Databases, hosting and deployment for my websites and applications.',
+        images: [`${basePath}images/skills/Other/CloudDeploymentNew.webp`],
         tools: [
           'Supabase',
           'PostgreSQL',
@@ -725,8 +631,8 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       {
         title: 'AI & Automation',
         description:
-          "AI helps me stay on top of things across all my work. With EirPost for example, I've set up a passive system that analyses data, finds leads, manages emails, and turns them into actionable tasks. It's become a big part of how I keep everything running without burning out.",
-        images: [`${skillBasePath}Other/AiandAutomationNew.webp`],
+          'Scripts and language-model APIs for data processing, research and routine administration.',
+        images: [`${basePath}images/skills/Other/AiandAutomationNew.webp`],
         tools: [
           'ChatGPT',
           'Claude',
@@ -737,14 +643,13 @@ The aim is not to remove every decision. It is to make the repeated decisions on
       },
     ],
   },
-
   awards: [
     {
       title: 'UCD Entrance Scholar',
       issuer: 'University College Dublin',
       date: '2023',
       description:
-        'Awarded for achieving 589 points in the Leaving Certificate with H1 grades in Physics, DCG, and Computer Science',
+        'Entrance scholarship following the 2023 Leaving Certificate.',
     },
   ],
 }
@@ -752,15 +657,13 @@ The aim is not to remove every decision. It is to make the repeated decisions on
 // Site configuration
 export const siteConfig = {
   title: `${cvData.person.name} - Portfolio`,
-  description: `Mechanical Engineering Student & Entrepreneur - Portfolio and projects by ${cvData.person.name}`,
+  description: `Mechanical engineering, projects and work by ${cvData.person.name}`,
   url: 'https://www.ruairioflaherty.ie',
   author: cvData.person.name,
   twitterHandle: undefined as string | undefined,
   keywords: [
     'portfolio',
     'mechanical engineering',
-    'entrepreneur',
-    'startup',
     'logistics',
     '3d printing',
     'web development',

@@ -21,8 +21,7 @@ function Plate({ data, to, cursor = 'View project' }: { data: PlateData; to: str
     <Link to={to} className="rh-plate" data-plate data-cursor={cursor} aria-label={`${data.alt}. ${cursor}`}>
       <span className="rh-plate__reveal" data-plate-reveal>
         <span className="rh-plate__move" data-plate-move>
-          <img className="rh-plate__img" src={data.cyan} alt="" loading="lazy" decoding="async" />
-          <img className="rh-plate__colour" src={data.colour} alt="" loading="lazy" decoding="async" />
+          <img className="rh-plate__img" src={data.colour} alt="" loading="lazy" decoding="async" />
         </span>
       </span>
       <span className="rh-plate__mark rh-plate__mark--tl" aria-hidden="true" />
@@ -112,7 +111,6 @@ function Case({ c }: { c: CaseStudy }) {
           <Plate data={c.inset} to={to} />
         </div>
         <p className="rh-case__cap" data-reveal>
-          <span className="rh-mono">Fig. {c.index}</span>
           {c.main.caption}
         </p>
       </div>
@@ -125,14 +123,14 @@ export function WorkSection() {
     <section id="work" className="rh-section rh-work" data-nav-tone="ink" aria-labelledby="work-title">
       <header className="rh-head">
         <p className="rh-head__label" data-reveal>
-          <span className="rh-mono">01–03</span>
+          <span className="rh-mono">01–02</span>
           Work
         </p>
         <h2 className="rh-head__title" id="work-title" data-lines>
-          Selected work
+          Projects
         </h2>
         <p className="rh-head__aside" data-reveal>
-          Three of the projects I’ve spent the most time on. Each one has a longer write-up.
+          A shipping service and a 3D-printing shop. There’s a write-up for each, with a few smaller projects below.
         </p>
         <span className="rh-rule" data-rule aria-hidden="true" />
       </header>
@@ -191,10 +189,10 @@ export function ExperienceSection() {
           Experience
         </p>
         <h2 className="rh-head__title" id="xp-title" data-lines>
-          Where I’ve worked
+          Work and study
         </h2>
         <p className="rh-head__aside" data-reveal>
-          Alongside a mechanical engineering degree at UCD.
+          Recent work alongside my degree.
         </p>
         <span className="rh-rule" data-rule aria-hidden="true" />
       </header>
@@ -233,16 +231,16 @@ export function ExperienceSection() {
 
 export function ToolsSection() {
   return (
-    <section className="rh-section rh-tools" data-nav-tone="light" data-widen aria-labelledby="tools-title">
+    <section className="rh-section rh-tools" data-nav-tone="light" aria-labelledby="tools-title">
       <header className="rh-head">
         <p className="rh-head__label" data-reveal>
           Tools
         </p>
         <h2 className="rh-head__title" id="tools-title" data-lines>
-          What I work with
+          Tools I use
         </h2>
         <p className="rh-head__aside" data-reveal>
-          The software and kit I use most, grouped by the part of the job it’s for.
+          CAD, printers, code and the day-to-day work behind the projects.
         </p>
         <span className="rh-rule" data-rule aria-hidden="true" />
       </header>
@@ -299,10 +297,10 @@ export function ContactSection() {
           Contact
         </p>
         <h2 className="rh-head__title" id="contact-title" data-lines>
-          Get in touch
+          Contact
         </h2>
         <p className="rh-head__aside" data-reveal>
-          Email is the best way to reach me, whether it’s about a project, a placement or something you’re building.
+          For a project question, placement or a quick hello, email is best.
         </p>
       </header>
       <a className="rh-mail" href={`mailto:${CONTACT.email}`} data-cursor="Write to me">

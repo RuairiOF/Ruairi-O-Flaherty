@@ -25,13 +25,12 @@ export function Photos() {
           <header className="mb-12 max-w-3xl lg:mb-16">
             <p className="eyebrow mb-4">Gallery</p>
             <h1 className="heading-1 text-ink">
-              <BlurText as="span" text="Fresh off the" className="block" />
-              <span className="block gradient-text animate-fade-in">print bed.</span>
+              <BlurText as="span" text="3D printing" className="block" />{' '}
+              <span className="block gradient-text animate-fade-in">Photos</span>
             </h1>
             <p className="prose mt-6 text-lg">
-              {galleryPhotos.length} photos from ROF&rsquo;s 3D &mdash; my 3D-printing bench, where
-              prototypes, props and finished pieces come off the plate. Tap any frame to open it
-              full size.
+              {galleryPhotos.length} photos of prints, prototypes and finished products
+              from ROF’s 3D. Select a photo to see it full size.
             </p>
           </header>
 

@@ -51,10 +51,9 @@ export function NotFound() {
             </FuzzyText>
           </div>
 
-          <h1 className="heading-3 mt-6 text-ink">This page got lost in the aurora.</h1>
+          <h1 className="heading-3 mt-6 text-ink">Page not found</h1>
           <p className="prose mx-auto mt-4 max-w-md text-lg">
-            The link you followed drifted off the map. Everything else is still exactly where it
-            should be.
+            This address may have changed. You can return home or browse the projects below.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">

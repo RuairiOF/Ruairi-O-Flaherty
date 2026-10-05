@@ -19,9 +19,9 @@ interface ProjectStoryProps {
 
 /** Auto-links the one cross-reference that appears in the copy. */
 function withProjectLinks(text: string, enabled: boolean): ReactNode {
-  if (!enabled || !text.includes("ROF's 3D")) return text
-  return text.split(/(ROF's 3D)/g).map((part, index) =>
-    part === "ROF's 3D" ? (
+  if (!enabled || !/ROF[’']s 3D/.test(text)) return text
+  return text.split(/(ROF[’']s 3D)/g).map((part, index) =>
+    /^ROF[’']s 3D$/.test(part) ? (
       <Link
         key={index}
         to="/projects/rofs-3d"

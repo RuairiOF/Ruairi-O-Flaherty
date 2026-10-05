@@ -1,14 +1,7 @@
 import { useMemo } from 'react'
-import {
-  Briefcase,
-  CalendarClock,
-  GraduationCap,
-  Layers,
-  Rocket,
-} from 'lucide-react'
+import { GraduationCap } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import BlurText from '../components/reactbits/BlurText'
-import { StatStrip, type Stat } from '../components/experience/StatStrip'
 import {
   Timeline,
   TimelineBullets,
@@ -23,12 +16,6 @@ import { cvData } from '../content/cv'
 import { getStaticSeoPage } from '../content/seo-pages'
 
 const isReal = (value: string) => !value.includes('[TODO')
-
-/** Earliest 4-digit year mentioned across the roles, e.g. "Summer 2022" -> 2022. */
-function earliestYear(dates: string[]): number {
-  const years = dates.flatMap(d => (d.match(/\d{4}/g) ?? []).map(Number))
-  return years.length > 0 ? Math.min(...years) : new Date().getFullYear()
-}
 
 export function Experience() {
   const seo = getStaticSeoPage('/experience')
@@ -50,30 +37,6 @@ export function Experience() {
     []
   )
 
-  const stats = useMemo<Stat[]>(() => {
-    const since = earliestYear(experience.map(entry => entry.dates))
-    const yearsActive = Math.max(1, new Date().getFullYear() - since)
-    return [
-      {
-        label: 'Years working',
-        value: yearsActive,
-        suffix: '+',
-        icon: CalendarClock,
-      },
-      { label: 'Roles held', value: experience.length, icon: Briefcase },
-      {
-        label: 'Ventures shipped',
-        value: cvData.projects.length,
-        icon: Rocket,
-      },
-      {
-        label: 'Skill areas',
-        value: cvData.skills.showcases.length,
-        icon: Layers,
-      },
-    ]
-  }, [experience])
-
   return (
     <>
       <SEO
@@ -90,7 +53,7 @@ export function Experience() {
       {/* Header + stats */}
       <header className="section-sm">
         <div className="shell">
-          <p className="eyebrow">Career</p>
+          <p className="eyebrow">Work and study</p>
           <BlurText
             as="h1"
             text="Experience"
@@ -99,13 +62,9 @@ export function Experience() {
             stagger={0.03}
           />
           <p className="prose mt-5 max-w-2xl text-lg">
-            Where I've worked and what I actually did there: construction sites,
-            a startup accelerator, and the businesses I run now.
+            My work placements, summer jobs and time at UCD.
           </p>
 
-          <div className="mt-10 sm:mt-12">
-            <StatStrip stats={stats} />
-          </div>
         </div>
       </header>
 
@@ -117,7 +76,7 @@ export function Experience() {
               Work
             </h2>
             <p className="prose mt-3 max-w-xl">
-              Five roles so far, from site work to running my own company.
+              Current work and previous roles, starting with the most recent.
             </p>
 
             <div className="mt-10">

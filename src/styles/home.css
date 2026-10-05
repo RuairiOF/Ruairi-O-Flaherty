@@ -318,15 +318,15 @@ html.rh-home body {
 .rh-hero__title {
   margin: 0;
   margin-left: -0.055em;
-  font-size: clamp(64px, 9.3vw, 264px);
+  font-size: clamp(48px, min(9.3vw, 14vh), 264px);
   font-weight: 560;
   letter-spacing: -0.058em;
   line-height: 0.86;
   white-space: nowrap;
 }
 .rh-hero__title .rh-line {
-  padding-bottom: 0.04em;
-  margin-bottom: -0.04em;
+  padding: 0.12em 0.08em 0.16em;
+  margin: -0.12em -0.08em -0.16em;
 }
 .rh-hero__bottom {
   position: absolute;
@@ -344,58 +344,6 @@ html.rh-home body {
   max-width: 19em;
 }
 
-.rh-cue {
-  position: absolute;
-  left: 50%;
-  bottom: 30px;
-  z-index: 3;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  font-size: var(--ui-s);
-  font-weight: 500;
-  pointer-events: none;
-}
-.rh-cue__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  opacity: 0;
-}
-.rh-cue__line {
-  position: relative;
-  width: 1px;
-  height: 44px;
-  overflow: hidden;
-}
-.rh-cue__line::before,
-.rh-cue__line::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: currentColor;
-}
-.rh-cue__line::before {
-  opacity: 0.25;
-}
-.rh-cue__line::after {
-  transform: translate3d(0, -100%, 0);
-  animation: rh-cue 2.2s var(--ease-io) infinite;
-}
-@keyframes rh-cue {
-  0% {
-    transform: translate3d(0, -100%, 0);
-  }
-  55% {
-    transform: translate3d(0, 0, 0);
-  }
-  100% {
-    transform: translate3d(0, 100%, 0);
-  }
-}
 
 /* Chapter text */
 .rh-block {
@@ -1170,39 +1118,31 @@ html.rh-home body {
   opacity: 0.35;
 }
 
-/* Media: a cyanotype print that develops into colour under the cursor */
+/* Project images with fine corner marks and a restrained reveal. */
 .rh-plate {
   position: relative;
   display: block;
   overflow: hidden;
-  cursor: none;
+  cursor: pointer;
 }
 .rh-plate__reveal {
   position: absolute;
   inset: 0;
-  clip-path: inset(100% 0 0 0);
+  clip-path: inset(0);
 }
 .rh-plate__move {
   position: absolute;
-  inset: -8% 0;
+  inset: 0;
   will-change: transform;
 }
-.rh-plate__img,
-.rh-plate__colour {
+.rh-plate__img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
-}
-.rh-plate__colour {
-  clip-path: circle(0% at var(--mx, 50%) var(--my, 50%));
-  transition: clip-path 1.1s var(--ease);
-}
-.rh-plate:hover .rh-plate__colour,
-.rh-plate:focus-visible .rh-plate__colour {
-  clip-path: circle(150% at var(--mx, 50%) var(--my, 50%));
+  background: var(--paper-2);
 }
 .rh-plate__mark {
   position: absolute;
@@ -1740,14 +1680,14 @@ html.rh-home body {
 }
 .rh-foot__mark {
   margin: 0;
-  font-size: 13.8vw;
+  font-size: 11.6vw;
   font-weight: 580;
   letter-spacing: -0.066em;
   line-height: 0.8;
   white-space: nowrap;
   color: var(--cobalt);
-  margin-left: -0.06em;
-  padding-top: 0.1em;
+  margin-left: 0;
+  padding: 0.18em 0.08em 0.25em;
 }
 /* room inside each letter's mask for the accent above and the descender below */
 .rh-foot__mark .rh-char-mask {
@@ -1857,6 +1797,7 @@ html.rh-home body {
     grid-template-columns: 1fr auto;
     height: 64px;
   }
+  .rh-nav > nav,
   .rh-nav__links,
   .rh-nav__clock {
     display: none;
@@ -2059,7 +2000,7 @@ html.rh-home body {
   font-size: 13px;
 }
 .rh-film[data-profile='mobile'] .rh-hero__title {
-  font-size: clamp(40px, 12vw, 68px);
+  font-size: clamp(32px, 10.4vw, 68px);
 }
 .rh-film[data-profile='mobile'] .rh-hero__bottom {
   margin-top: 16px;
@@ -2067,9 +2008,6 @@ html.rh-home body {
 .rh-film[data-profile='mobile'] .rh-hero__lead {
   font-size: clamp(16px, 4.3vw, 20px);
   color: var(--ink-2);
-}
-.rh-film[data-profile='mobile'] .rh-cue {
-  display: none;
 }
 .rh-film[data-profile='mobile'] .rh-block {
   left: var(--gutter);
@@ -2145,3 +2083,18 @@ html.rh-home body {
   font-size: 10.5px;
   font-weight: 560;
 }
+
+.rh-menu__close {
+  position: absolute;
+  top: 22px;
+  right: var(--gutter);
+  padding: 4px 0;
+  border: 0;
+  background: none;
+  color: #fff;
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.rh-cursor-ready .rh-plate { cursor: none; }

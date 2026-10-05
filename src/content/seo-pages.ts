@@ -47,13 +47,11 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/',
     title: '',
     description: createMetaDescription(
-      `${cvData.person.name} is a Mechanical Engineering student and entrepreneur building products, startups, and logistics systems in Dublin, Ireland.`
+      `${cvData.person.name} is a mechanical engineering student at UCD in Dublin. This site covers projects, work experience and 3D printing.`
     ),
     keywords: createKeywords([
       cvData.person.name,
       'engineering portfolio',
-      'student entrepreneur',
-      'startup founder',
       'dublin engineer',
     ]),
     image: '/images/branding/ruairipfp.webp',
@@ -66,7 +64,7 @@ export const staticSeoPages: SeoPageConfig[] = [
       buildWebSiteSchema(),
       buildWebPageSchema({
         path: '/',
-        title: `${cvData.person.name} | Engineering and Startup Portfolio`,
+        title: `${cvData.person.name} | Mechanical engineering`,
         description: siteConfig.description,
         image: '/images/branding/ruairipfp.webp',
         pageType: 'ProfilePage',
@@ -78,7 +76,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/projects',
     title: 'Projects',
     description: createMetaDescription(
-      `Explore projects by ${cvData.person.name}, including EirPost, Printbot, direct importing, manufacturing ventures, hardware prototypes, and software builds.`
+      `Projects by ${cvData.person.name}, including EirPost, Printbot, direct importing, 3D printing and electronics.`
     ),
     keywords: createKeywords([
       'portfolio projects',
@@ -108,7 +106,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/experience',
     title: 'Experience',
     description: createMetaDescription(
-      `${cvData.person.name}'s work experience, education, and achievements across engineering, logistics, startups, and operations.`
+      `${cvData.person.name}'s work experience and education, including UCD, EirPost and a construction placement.`
     ),
     keywords: createKeywords([
       'work experience',
@@ -137,7 +135,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/skills',
     title: 'Skills',
     description: createMetaDescription(
-      `${cvData.person.name}'s practical skills across CAD, manufacturing, software, paid media, cloud, AI automation, and business operations.`
+      `${cvData.person.name}'s tools and experience in CAD, 3D printing, software, electronics and shop operations.`
     ),
     keywords: createKeywords([
       'engineering skills',
@@ -199,13 +197,12 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/contact',
     title: 'Contact',
     description: createMetaDescription(
-      `Contact ${cvData.person.name} for collaborations, startup opportunities, consulting, and project inquiries.`
+      `Email and links for ${cvData.person.name}, a mechanical engineering student at UCD.`
     ),
     keywords: createKeywords([
       'contact',
       'hire',
       'collaboration',
-      'startup consulting',
       'engineering collaboration',
     ]),
     type: 'website',

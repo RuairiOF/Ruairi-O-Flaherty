@@ -31,7 +31,7 @@ export function Projects() {
         <div className="shell-wide">
           <div className="max-w-3xl">
             <Reveal>
-              <p className="eyebrow">Selected work</p>
+              <p className="eyebrow">Work</p>
             </Reveal>
             <BlurText
               as="h1"
@@ -42,10 +42,8 @@ export function Projects() {
             />
             <Reveal delay={0.1}>
               <p className="prose mt-5 text-lg">
-                Businesses I have built, hardware I have shipped and experiments
-                that got out of hand, from logistics automation used by hundreds
-                of Irish SMEs to a bedside sleep tracker running on a Raspberry
-                Pi.
+                A few projects from university and my spare time: 3D printing,
+                shipping software, electronics and importing.
               </p>
             </Reveal>
             <Reveal delay={0.15}>

@@ -86,8 +86,8 @@ export default function ProjectVisual({
           {!compact && (
             <div className="mt-7 flex items-end justify-between gap-4">
               <p className="max-w-sm text-sm leading-relaxed text-ink-muted">
-                Fewer handoffs. A Chinese-market interface. A price that finally
-                made sense.
+                Direct importing of Chinese-market bikes, including freight and
+                inspection.
               </p>
               <p className="font-mono text-xs uppercase tracking-[0.2em] text-ink-muted">
                 Sur-Ron / Talaria
@@ -102,7 +102,7 @@ export default function ProjectVisual({
   return (
     <div
       aria-hidden="true"
-      className="relative flex h-full w-full items-center overflow-hidden bg-[#080b12]"
+      className="relative flex h-full w-full items-center overflow-hidden bg-accent"
     >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgb(var(--accent)/0.32),transparent_42%),radial-gradient(circle_at_80%_100%,rgb(var(--accent-2)/0.18),transparent_38%)]" />
       <div className="absolute inset-0 opacity-10 [background-image:linear-gradient(rgb(255_255_255/0.18)_1px,transparent_1px),linear-gradient(90deg,rgb(255_255_255/0.18)_1px,transparent_1px)] [background-size:34px_34px]" />
@@ -134,7 +134,7 @@ export default function ProjectVisual({
             >
               <div className="flex items-start justify-between">
                 <Icon
-                  className="h-5 w-5 text-cyan-300 sm:h-6 sm:w-6"
+                  className="h-5 w-5 text-white sm:h-6 sm:w-6"
                   strokeWidth={1.6}
                 />
                 <span className="font-mono text-[9px] text-white/35">
@@ -158,7 +158,7 @@ export default function ProjectVisual({
             <span className="font-mono text-[10px] uppercase tracking-[0.16em] text-white/45">
               Shopify order
             </span>
-            <ArrowRight className="h-4 w-4 text-violet-300" />
+            <ArrowRight className="h-4 w-4 text-white" />
             <span className="text-right font-mono text-[10px] uppercase tracking-[0.16em] text-emerald-300">
               stock target met
             </span>

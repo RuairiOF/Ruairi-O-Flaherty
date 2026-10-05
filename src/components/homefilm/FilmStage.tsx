@@ -168,8 +168,6 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
     const heroTitle = must('[data-hero-title]')
     const heroEyebrow = must('[data-hero-eyebrow]')
     const heroLead = must('[data-hero-lead]')
-    const cue = must('[data-cue]')
-    const cueInner = must('[data-cue-inner]')
     const blocks = qa('[data-block]')
     const callouts = qa('[data-callout]')
     const hud = must('[data-hud]')
@@ -446,7 +444,7 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
         return s.chars
       })
       if (about) aboutLines = lines(must('[data-about-lead]', about))
-      const ht = new SplitText(heroTitle, { type: 'lines,chars', mask: 'lines', linesClass: 'rh-line' })
+      const ht = new SplitText(heroTitle, { type: 'lines,chars', linesClass: 'rh-line' })
       splits.push(ht)
       heroChars = ht.chars
       heroLeadLines = lines(heroLead)
@@ -475,7 +473,7 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
       })
       const ch = CHAPTERS[i]
       if (first) {
-        figIndex.textContent = `Fig. ${ch.index}`
+        figIndex.textContent = ch.id === 'intro' ? 'Dublin' : ch.rail
         figText.textContent = ch.figure
         return
       }
@@ -484,7 +482,7 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
         .timeline()
         .to([figIndex, figText], { yPercent: -115, duration: 0.32, ease: 'power3.in', stagger: 0.04 })
         .add(() => {
-          figIndex.textContent = `Fig. ${ch.index}`
+          figIndex.textContent = ch.id === 'intro' ? 'Dublin' : ch.rail
           figText.textContent = ch.figure
         })
         .fromTo([figIndex, figText], { yPercent: 115 }, { yPercent: 0, duration: 0.75, ease: 'expo.out', stagger: 0.05 })
@@ -615,7 +613,6 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
       heroTop.style.transform = `translate3d(0, ${(-hs * (mobile ? 40 : 70)).toFixed(1)}px, 0)`
       heroBottom.style.transform = `translate3d(0, ${(hs * (mobile ? -20 : 46)).toFixed(1)}px, 0)`
       hero.style.visibility = h >= 1 ? 'hidden' : ''
-      cue.style.opacity = (1 - clamp01(targetVh / 0.1)).toFixed(3)
 
       // chapter text
       let blockIdx = -1
@@ -777,7 +774,7 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
     }
     const skipIntro = () => {
       gsap.set(heroInner, { visibility: 'visible' })
-      gsap.set([cueInner, hudInner], { opacity: 1 })
+      gsap.set([hudInner], { opacity: 1 })
       gsap.set(horizon, { opacity: 0 })
       finishIntro()
     }
@@ -792,7 +789,6 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
         .fromTo(heroEyebrow, { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out' }, 0.75)
         .fromTo(heroLeadLines, { yPercent: -112 }, { yPercent: 0, duration: 1.3, ease: 'expo.out', stagger: 0.08 }, 0.5)
         .to(hudInner, { opacity: 1, duration: 1.2, ease: 'power2.out' }, 1.0)
-        .to(cueInner, { opacity: 1, duration: 1.2, ease: 'power2.out' }, 1.2)
         .add(() => setFilmNav({ ready: true }), 0.9)
     }
 
@@ -876,7 +872,7 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
       window.removeEventListener('resize', onWinResize)
       stage.removeEventListener('click', onRailClick)
       replay?.removeEventListener('click', onReplay)
-      gsap.killTweensOf([intro, horizon, heroInner, heroEyebrow, cueInner, hudInner, figIndex, figText])
+      gsap.killTweensOf([intro, horizon, heroInner, heroEyebrow, hudInner, figIndex, figText])
       if (about && outroCap) gsap.killTweensOf([about, outroCap])
       blockParts.forEach((p) => gsap.killTweensOf(p.items))
       splits.forEach((s) => s.revert())
@@ -935,12 +931,6 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
           </div>
         </div>
 
-        <div className="rh-cue" data-cue aria-hidden="true">
-          <div className="rh-cue__inner" data-cue-inner data-adapt>
-            <span className="rh-cue__line" />
-            <span>Scroll</span>
-          </div>
-        </div>
 
         {TEXT_BLOCKS.map((b) => (
           <div key={b.id} className="rh-block" data-block={b.id} data-adapt aria-hidden="true">
@@ -1002,11 +992,11 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
             <p className="rh-figcap" data-adapt aria-hidden="true">
               <span className="rh-figcap__clip">
                 <span className="rh-mono" data-fig-index>
-                  Fig. 00
+                  Dublin
                 </span>
               </span>
               <span className="rh-figcap__clip">
-                <span data-fig-text>Surface</span>
+                <span data-fig-text>Ireland</span>
               </span>
             </p>
 
@@ -1072,7 +1062,7 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
             <div className="rh-about" data-about>
               <p className="rh-about__label" data-about-label>
                 <span className="rh-mono">06</span>
-                About
+                Who I am
               </p>
               <p className="rh-about__lead" data-about-lead>
                 {ABOUT_TEXT}
@@ -1088,7 +1078,6 @@ export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; on
             </div>
             <div className="rh-outro-cap" data-outro-cap>
               <span>
-                <span className="rh-mono">Fig. 05</span>
                 {FILM_CREDIT}
               </span>
               <button type="button" className="rh-replay" data-replay aria-pressed="false">

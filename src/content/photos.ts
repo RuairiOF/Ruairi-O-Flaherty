@@ -4,7 +4,6 @@ export interface GalleryPhoto {
 }
 
 const galleryPhotoFileNames = [
-  'LaserLane1.webp',
   'SprunkeColaMain.webp',
   'IMG_2856.webp',
   'IMG_2859.webp',

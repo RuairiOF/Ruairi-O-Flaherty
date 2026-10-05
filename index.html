@@ -16,18 +16,6 @@
       })(window.location)
     </script>
     <script>
-      // Apply theme before first paint to avoid dark-mode FOUC
-      ;(function () {
-        try {
-          var stored = localStorage.getItem('theme')
-          var dark =
-            stored === 'dark' ||
-            (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)
-          if (dark) document.documentElement.classList.add('dark')
-        } catch (e) {}
-      })()
-    </script>
-    <script>
       // Homepage: paint the paper colour and start the film's first frame before the bundle loads
       ;(function () {
         if (location.pathname !== '/') return
@@ -51,14 +39,10 @@
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ruairi O'Flaherty — Portfolio</title>
-    <meta name="description" content="Ruairi O'Flaherty — engineer and maker. Projects, experience, and 3D printing work." />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <title>Ruairí O'Flaherty | Mechanical engineering</title>
+    <meta name="description" content="Ruairí O'Flaherty, mechanical engineering student at UCD. Projects, work experience and 3D printing." />
+    <meta name="theme-color" content="#f5f4ef" />
     <link rel="manifest" href="/manifest.webmanifest" />
-    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f5f6fa" />
-    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#07070c" />
   </head>
   <body class="bg-bg text-ink">
     <div id="root"></div>

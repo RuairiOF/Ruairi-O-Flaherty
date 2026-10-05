@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react'
 import { ArrowUpRight, Check, Copy, Github, Globe, Linkedin, Mail, Phone } from 'lucide-react'
 import { SEO } from '../components/SEO'
 import Magnet from '../components/reactbits/Magnet'
-import SplitText from '../components/reactbits/SplitText'
 import { cvData } from '../content/cv'
 import { getStaticSeoPage } from '../content/seo-pages'
 import { gsap, prefersReducedMotion } from '../lib/motion'
@@ -92,20 +91,11 @@ export function Contact() {
           <header className="max-w-3xl">
             <p className="eyebrow mb-4">Contact</p>
             <h1 className="heading-1 text-ink">
-              <SplitText
-                text="Let's make"
-                tag="span"
-                splitType="chars"
-                textAlign="left"
-                delay={28}
-                className="w-full"
-              />
-              <span className="block gradient-text animate-fade-in">something.</span>
+              Get in touch
             </h1>
             <p className="prose mt-6 text-lg">
-              Open to internships, collaborations, and interesting problems &mdash; mechanical
-              engineering, web builds, or anything that needs prototyping. The fastest way to reach
-              me is email.
+              Email is the best way to reach me about a project or a work placement.
+              My GitHub and LinkedIn are below.
             </p>
           </header>
 
@@ -116,7 +106,7 @@ export function Contact() {
                 type="button"
                 onClick={copyEmail}
                 aria-label={`Copy email address ${person.email} to clipboard`}
-                className="group flex items-center gap-4 rounded-2xl glass-panel px-5 py-4 text-left transition-all duration-base ease-out-expo hover:-translate-y-0.5 hover:shadow-[0_18px_48px_-14px_rgb(var(--glow)_/_0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:px-7 sm:py-5"
+                className="group flex max-w-full items-center gap-3 rounded-md glass-panel px-4 py-4 text-left transition-all duration-base ease-out-expo hover:-translate-y-0.5 hover:shadow-[0_18px_48px_-14px_rgb(var(--glow)_/_0.45)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-bg sm:px-7 sm:py-5"
               >
                 <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-accent/10 text-accent transition-colors duration-base group-hover:bg-accent/20">
                   {copied ? (
@@ -127,13 +117,13 @@ export function Contact() {
                 </span>
                 <span
                   ref={labelRef}
-                  className="font-mono text-base text-ink sm:text-xl"
+                  className="min-w-0 break-all font-mono text-xs text-ink sm:text-xl"
                   aria-hidden="true"
                 >
                   {copied ? 'Copied ✓' : person.email}
                 </span>
                 <Copy
-                  className="h-4 w-4 flex-none text-ink-muted opacity-0 transition-opacity duration-base group-hover:opacity-100"
+                  className="hidden h-4 w-4 flex-none text-ink-muted opacity-0 sm:block transition-opacity duration-base group-hover:opacity-100"
                   aria-hidden="true"
                 />
               </button>
@@ -160,7 +150,7 @@ export function Contact() {
           {/* Social tiles */}
           {socials.length > 0 && (
             <div className="mt-14">
-              <p className="eyebrow mb-4">Elsewhere</p>
+              <p className="eyebrow mb-4">Links</p>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {socials.map((social) => {
                   const Icon = social.icon
@@ -197,7 +187,7 @@ export function Contact() {
           <div className="mt-14 flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-line/10 pt-6 font-mono text-sm text-ink-muted">
             <span className="inline-flex h-2 w-2 rounded-full bg-accent" aria-hidden="true" />
             <span>
-              {person.location} &mdash; {dublinTime}
+              {person.location} · {dublinTime}
             </span>
             <span aria-hidden="true">/</span>
             <span>Usually replies within a day</span>

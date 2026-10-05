@@ -58,7 +58,7 @@ export function Footer() {
           <div>
             <p className="eyebrow">Get in touch</p>
             <p className="heading-3 mt-3 text-ink">
-              Say <span className="gradient-text">hello.</span>
+              Contact
             </p>
             <p className="prose mt-3 max-w-sm text-sm">
               {cvData.person.headline}, {cvData.person.location}
@@ -88,7 +88,7 @@ export function Footer() {
           </div>
 
           <nav aria-label="Footer navigation">
-            <p className="eyebrow">Sitemap</p>
+            <p className="eyebrow">Pages</p>
             <ul className="mt-4 grid grid-cols-2 gap-x-6 gap-y-2">
               {internalLinks.map(link => (
                 <li key={link.to}>
@@ -109,7 +109,7 @@ export function Footer() {
             &copy; {currentYear} {cvData.person.name}. All rights reserved.
           </p>
           <p className="font-mono text-xs text-ink-muted/80">
-            Last built {buildDate}
+            Updated {buildDate}
           </p>
         </div>
       </div>

@@ -87,7 +87,7 @@ export interface Chapter {
 }
 
 export const CHAPTERS: Chapter[] = [
-  { id: 'intro', index: '00', rail: 'Intro', figure: 'Surface', start: 0 },
+  { id: 'intro', index: '00', rail: 'Intro', figure: 'Ireland', start: 0 },
   { id: 'design', index: '01', rail: 'Design', figure: 'Printhead, exploded view', start: 30 },
   { id: 'build', index: '02', rail: 'Build', figure: 'Printhead, assembled', start: 54 },
   { id: 'ship', index: '03', rail: 'Ship', figure: 'Deployment', start: 84 },
@@ -121,8 +121,8 @@ export const TEXT_BLOCKS: TextBlock[] = [
     to: 54,
     index: '01',
     label: 'Design',
-    title: 'It usually starts as a drawing',
-    body: 'SolidWorks and Fusion 360 for parts that have to be made, Blender when something needs to look right first. Most ideas get redrawn a few times before anything is printed.',
+    title: 'CAD and part design',
+    body: 'I use SolidWorks and Fusion 360 for parts and assemblies, and Blender for renders. The drawing here is a printhead assembly.',
   },
   {
     id: 'build',
@@ -130,8 +130,8 @@ export const TEXT_BLOCKS: TextBlock[] = [
     to: 84,
     index: '02',
     label: 'Build',
-    title: 'Then it gets made',
-    body: 'Printed, wired, soldered and assembled, then tested and changed again. At its busiest that meant an eight-printer farm making products for real customers.',
+    title: 'Printing and assembly',
+    body: 'Most of my hardware projects involve 3D-printed parts and some electronics. Running a small print farm gave me plenty of practice with both.',
   },
   {
     id: 'ship',
@@ -139,8 +139,8 @@ export const TEXT_BLOCKS: TextBlock[] = [
     to: 196,
     index: '03',
     label: 'Ship',
-    title: 'Then it has to work outside the workshop',
-    body: 'Pricing, shipping, support and the rest of the unglamorous part. I learned most of it running EirPost, a shipping platform that hundreds of Irish businesses now use.',
+    title: 'Shipping and software',
+    body: 'EirPost grew out of the label-printing script I used for my own shop. I now work on the software and day-to-day shipping service.',
   },
   {
     id: 'now',
@@ -148,8 +148,8 @@ export const TEXT_BLOCKS: TextBlock[] = [
     to: 999,
     index: '05',
     label: 'Now',
-    title: 'What I’m building now',
-    body: 'Co-founding LaserLane, a green-laser visibility system for cyclists, alongside my degree at UCD.',
+    title: 'Alongside the degree',
+    body: 'Currently studying at UCD and working on EirPost and Printbot, with the occasional electronics or bike project in between.',
   },
 ]
 

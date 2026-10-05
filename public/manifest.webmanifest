@@ -1,16 +1,20 @@
 {
-  "name": "Ruairi O'Flaherty - Engineering and Startup Portfolio",
-  "short_name": "Ruairi Portfolio",
-  "description": "Portfolio of Ruairi O'Flaherty featuring engineering, startup, logistics, and product development projects.",
+  "name": "Ruair\u00ed O\u2019Flaherty | Mechanical engineering",
+  "short_name": "Ruair\u00ed O\u2019Flaherty",
+  "description": "Mechanical engineering at UCD, projects and work experience.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
   "lang": "en-IE",
   "dir": "ltr",
-  "theme_color": "#07070c",
-  "background_color": "#07070c",
-  "categories": ["portfolio", "business", "productivity"],
+  "theme_color": "#f5f4ef",
+  "background_color": "#f5f4ef",
+  "categories": [
+    "portfolio",
+    "business",
+    "productivity"
+  ],
   "icons": [
     {
       "src": "/favicon.svg",

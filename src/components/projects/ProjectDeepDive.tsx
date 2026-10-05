@@ -32,7 +32,7 @@ export default function ProjectDeepDive({ caseStudy }: ProjectDeepDiveProps) {
           className={
             'relative mt-10 overflow-hidden rounded-3xl border p-4 sm:p-6 lg:p-8 ' +
             (isSystem
-              ? 'border-cyan-300/15 bg-[#080b12] text-white'
+              ? 'border-accent/20 bg-accent text-white'
               : 'border-line/10 bg-surface-2/45')
           }
         >
@@ -61,13 +61,13 @@ export default function ProjectDeepDive({ caseStudy }: ProjectDeepDiveProps) {
                   <p
                     className={
                       'font-mono text-[10px] uppercase tracking-[0.16em] ' +
-                      (isSystem ? 'text-cyan-200/70' : 'text-accent')
+                      (isSystem ? 'text-white/80' : 'text-accent')
                     }
                   >
                     {step.label}
                   </p>
                   {step.status && (
-                    <span className="rounded-full border border-emerald-300/20 bg-emerald-300/10 px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-emerald-200">
+                    <span className="rounded-full border border-white/25 bg-white/10 px-2 py-0.5 font-mono text-[8px] uppercase tracking-[0.12em] text-white">
                       {step.status}
                     </span>
                   )}
@@ -83,7 +83,7 @@ export default function ProjectDeepDive({ caseStudy }: ProjectDeepDiveProps) {
                 <p
                   className={
                     'mt-2 text-sm leading-relaxed ' +
-                    (isSystem ? 'text-white/55' : 'text-ink-muted')
+                    (isSystem ? 'text-white/80' : 'text-ink-muted')
                   }
                 >
                   {step.description}

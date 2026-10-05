@@ -108,28 +108,7 @@ export function useHomeMotion(root: RefObject<HTMLElement>, enabled: boolean, ke
           .timeline({ scrollTrigger: { trigger: plate, start: 'top 88%', once: true } })
           .fromTo(reveal, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.5, ease: 'expo.inOut' })
           .fromTo(move, { scale: 1.3 }, { scale: 1, duration: 2.1, ease: 'expo.out' }, 0.2)
-        gsap.fromTo(
-          move,
-          { yPercent: -5 },
-          {
-            yPercent: 5,
-            ease: 'none',
-            scrollTrigger: { trigger: plate, start: 'top bottom', end: 'bottom top', scrub: true },
-          },
-        )
-      })
 
-      // the blue panel widens to the full page as it arrives, like the film's water rising
-      all(el, '[data-widen]').forEach((panel) => {
-        gsap.fromTo(
-          panel,
-          { clipPath: 'inset(0% 3.2% 0% 3.2%)' },
-          {
-            clipPath: 'inset(0% 0% 0% 0%)',
-            ease: 'none',
-            scrollTrigger: { trigger: panel, start: 'top bottom', end: 'top 25%', scrub: 0.6 },
-          },
-        )
       })
 
       // insets drift against the main picture (on wide layouts, where they float over it)
@@ -203,7 +182,7 @@ export function useHomeMotion(root: RefObject<HTMLElement>, enabled: boolean, ke
 
 /**
  * Pointer details: a "View project" pill in place of the cursor over plates,
- * colour developing under the cursor on the cyanotype plates, and a preview
+ * and a preview
  * that follows the cursor down the project index.
  */
 export function useCursorFx(root: RefObject<HTMLElement>, key: unknown) {
@@ -219,6 +198,7 @@ export function useCursorFx(root: RefObject<HTMLElement>, key: unknown) {
     const peekImgs = all<HTMLImageElement>(el, '[data-peek-img]')
     if (!pill || !pillLabel) return
 
+    el.classList.add('rh-cursor-ready')
     gsap.set(pill, { xPercent: -50, yPercent: -50, x: -200, y: -200, opacity: 0, scale: 0.5 })
     const pillX = gsap.quickTo(pill, 'x', { duration: 0.42, ease: 'power3' })
     const pillY = gsap.quickTo(pill, 'y', { duration: 0.42, ease: 'power3' })
@@ -269,12 +249,6 @@ export function useCursorFx(root: RefObject<HTMLElement>, key: unknown) {
       pillX(x)
       pillY(y)
       const t = e.target as HTMLElement | null
-      const plate = t?.closest<HTMLElement>('[data-plate]')
-      if (plate) {
-        const r = plate.getBoundingClientRect()
-        plate.style.setProperty('--mx', `${(((x - r.left) / r.width) * 100).toFixed(1)}%`)
-        plate.style.setProperty('--my', `${(((y - r.top) / r.height) * 100).toFixed(1)}%`)
-      }
       const target = t?.closest<HTMLElement>('[data-cursor]')
       showPill(!!target, target?.dataset.cursor)
       const row = t?.closest<HTMLElement>('[data-peek]')
@@ -303,6 +277,7 @@ export function useCursorFx(root: RefObject<HTMLElement>, key: unknown) {
     document.documentElement.addEventListener('pointerleave', onLeave)
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => {
+      el.classList.remove('rh-cursor-ready')
       window.removeEventListener('pointermove', onMove)
       document.documentElement.removeEventListener('pointerleave', onLeave)
       window.removeEventListener('scroll', onScroll)

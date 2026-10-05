@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { useEffect, useRef, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { useFilmNav } from './navTone'
 import { scrollToElement, scrollToY } from './scroll'
 import { useDublinTime } from './useDublinTime'
+import { useFocusTrap, useScrollLock } from '../Lightbox'
 
 const LINKS: { label: string; href: string }[] = [
   { label: 'Work', href: '#work' },
@@ -25,7 +26,15 @@ function Roll({ children }: { children: string }) {
  * picture; over the sections it reads data-nav-tone and tucks away while the
  * reader scrolls down, coming back on the way up.
  */
-export function HomeNav({ film }: { film: boolean }) {
+export function HomeNav({ film, site = false }: { film: boolean; site?: boolean }) {
+  const { pathname } = useLocation()
+  const links = site ? [
+    { label: 'Projects', href: '/projects' },
+    { label: 'Experience', href: '/experience' },
+    { label: 'Skills', href: '/skills' },
+    { label: 'Photos', href: '/photos' },
+    { label: 'Contact', href: '/contact' },
+  ] : LINKS
   const filmState = useFilmNav()
   const time = useDublinTime()
   const [overFilm, setOverFilm] = useState(film)
@@ -33,8 +42,12 @@ export function HomeNav({ film }: { film: boolean }) {
   const [solid, setSolid] = useState(false)
   const [hidden, setHidden] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const menuRef = useRef<HTMLDivElement>(null)
+  useScrollLock(menuOpen)
+  useFocusTrap(menuRef, menuOpen)
 
   useEffect(() => {
+    setMenuOpen(false)
     let lastY = window.scrollY
     let raf = 0
     // Section edges in page coordinates, measured when the layout changes rather
@@ -92,16 +105,14 @@ export function HomeNav({ film }: { film: boolean }) {
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onLayout)
     }
-  }, [film])
+  }, [film, pathname])
 
   useEffect(() => {
     if (!menuOpen) return
     const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false)
     window.addEventListener('keydown', onKey)
-    document.documentElement.style.overflow = 'hidden'
     return () => {
       window.removeEventListener('keydown', onKey)
-      document.documentElement.style.overflow = ''
     }
   }, [menuOpen])
 
@@ -153,8 +164,10 @@ export function HomeNav({ film }: { film: boolean }) {
           aria-label="Ruairí O’Flaherty, home"
           onClick={(e) => {
             setMenuOpen(false)
-            e.preventDefault()
-            scrollToY(0)
+            if (!site) {
+              e.preventDefault()
+              scrollToY(0)
+            }
           }}
         >
           <span>Ruairí O’Flaherty</span>
@@ -162,14 +175,14 @@ export function HomeNav({ film }: { film: boolean }) {
 
         <nav aria-label="Primary" data-tone={linksTone}>
           <ul className="rh-nav__links">
-            {LINKS.map((l) => (
+            {links.map((l) => (
               <li key={l.label}>
                 {l.href.startsWith('#') ? (
                   <a href={l.href} className="rh-roll" onClick={(e) => onAnchor(e, l.href)}>
                     <Roll>{l.label}</Roll>
                   </a>
                 ) : (
-                  <Link to={l.href} className="rh-roll">
+                  <Link to={l.href} className="rh-roll" aria-current={pathname.startsWith(l.href) ? 'page' : undefined}>
                     <Roll>{l.label}</Roll>
                   </Link>
                 )}
@@ -202,9 +215,10 @@ export function HomeNav({ film }: { film: boolean }) {
         </button>
       </header>
 
-      <div id="rh-menu" className={`rh-menu${menuOpen ? ' is-open' : ''}`} aria-hidden={!menuOpen}>
+      <div ref={menuRef} id="rh-menu" className={`rh-menu${menuOpen ? ' is-open' : ''}`} aria-hidden={!menuOpen}>
+        <button type="button" className="rh-menu__close" onClick={() => setMenuOpen(false)} tabIndex={menuOpen ? 0 : -1}>Close menu</button>
         <ul>
-          {[...LINKS, { label: 'Projects', href: '/projects' }, { label: 'Skills', href: '/skills' }].map((l) => (
+          {(site ? [{ label: 'Home', href: '/' }, ...links] : [...links, { label: 'Projects', href: '/projects' }, { label: 'Skills', href: '/skills' }]).map((l) => (
             <li key={l.label}>
               {l.href.startsWith('#') ? (
                 <a href={l.href} onClick={(e) => onAnchor(e, l.href)} tabIndex={menuOpen ? 0 : -1}>

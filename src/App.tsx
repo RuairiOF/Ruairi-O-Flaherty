@@ -4,7 +4,6 @@ import { Navbar } from './components/Navbar'
 import { Footer } from './components/Footer'
 import { SkipToContent } from './components/SkipToContent'
 import { ScrollToTop } from './components/ScrollToTop'
-import AuroraBackground from './components/AuroraBackground'
 
 const Home = lazy(() => import('./routes/Home').then((m) => ({ default: m.Home })))
 const Projects = lazy(() => import('./routes/Projects').then((m) => ({ default: m.Projects })))
@@ -41,8 +40,7 @@ function PageTransition({ children }: { children: React.ReactNode }) {
 function SiteChrome() {
   return (
     <>
-      <AuroraBackground />
-      <div className="relative z-10 min-h-screen flex flex-col overflow-x-hidden">
+      <div className="site-shell relative min-h-screen flex flex-col overflow-x-hidden">
         <SkipToContent />
         <Navbar />
 

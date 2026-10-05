@@ -81,7 +81,6 @@ export function StaticIntro() {
                   />
                 </picture>
                 <figcaption>
-                  <span className="rh-mono">Fig. {shot.fig}</span>
                   {shot.caption}
                 </figcaption>
               </figure>
@@ -114,8 +113,7 @@ export function StaticAbout() {
   return (
     <section className="rh-static-about" data-nav-tone="ink" aria-labelledby="about-title">
       <p className="rh-about__label" id="about-title" data-reveal>
-        <span className="rh-mono">06</span>
-        About
+        Who I am
       </p>
       <p className="rh-about__lead" data-lines>
         {ABOUT_TEXT}

@@ -63,17 +63,16 @@ export function Skills() {
 
       <header className="section-sm">
         <div className="shell">
-          <p className="eyebrow">Capabilities</p>
+          <p className="eyebrow">Tools</p>
           <BlurText
             as="h1"
-            text="What I work with"
+            text="Skills and tools"
             className="heading-1 mt-3 block text-ink"
             stagger={0.06}
           />
           <p className="prose mt-5 max-w-2xl text-lg">
-            The tools and disciplines I actually use day to day across CAD,
-            manufacturing, software, cloud and the business side of running my
-            own companies. Open any card for the detail.
+            Tools I use for design, printing, software and running the shops.
+            Each card has a short description and examples.
           </p>
         </div>
       </header>
