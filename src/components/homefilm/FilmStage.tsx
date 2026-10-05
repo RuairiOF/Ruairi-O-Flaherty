@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { SplitText } from 'gsap/SplitText'
 import { FILM_DRAWING_ANCHORS, FILM_HEIGHT, FILM_WATERLINE_0, FILM_WIDTH } from '../../content/film'
 import { MOBILE_FRAME_H, MOBILE_FRAME_W, MOBILE_WINDOW_W, mobileCropX } from '../../content/filmMobile'
-import { FRAMES_PER_TICK, FRAME_COUNT, FrameStore, frameUrl, type FilmProfile } from './frames'
+import { FRAMES_PER_TICK, FRAME_COUNT, FrameStore, fallbackUrl, frameUrl, type FilmProfile } from './frames'
 import { lumaAt, toneFor, type Tone } from './luma'
 import { getFilmNav, resetFilmNav, setFilmNav } from './navTone'
 import { scrollToY } from './scroll'
@@ -134,11 +134,13 @@ function fullRateAllowed(): boolean {
   return !['slow-2g', '2g', '3g'].includes(c.effectiveType ?? '')
 }
 
-export function FilmStage({ profile }: { profile: FilmProfile }) {
+export function FilmStage({ profile, onUnsupported }: { profile: FilmProfile; onUnsupported?: () => void }) {
   const sectionRef = useRef<HTMLElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const mobile = profile === 'mobile'
+  const unsupportedRef = useRef(onUnsupported)
+  unsupportedRef.current = onUnsupported
 
   useLayoutEffect(() => {
     const section = sectionRef.current
@@ -221,14 +223,22 @@ export function FilmStage({ profile }: { profile: FilmProfile }) {
     resetFilmNav()
 
     // ------------------------------------------------------------ frames
+    let decodeErrors = 0
     const store = new FrameStore((i) => frameUrl(profile, i), FRAME_COUNT, (i) => {
       loaderDirty = true
       if (Math.abs(i - focused) <= 64) dirty = true
     }, {
       fetchConcurrency: mobile ? 6 : 8,
-      decodeConcurrency: mobile ? 2 : 3,
-      cacheSize: mobile ? 96 : 72,
+      decodeConcurrency: mobile ? 3 : 4,
+      // 1080p frames are 8 MB each once decoded; enough for the window, no more
+      cacheSize: mobile ? 72 : 52,
+      ahead: mobile ? 44 : 36,
       fullRate: fullRateAllowed(),
+      onDecodeError: () => {
+        decodeErrors++
+        // nothing has ever decoded: this browser cannot show the film, so fall back to the stills
+        if (!firstDraw && decodeErrors >= 2) unsupportedRef.current?.()
+      },
     })
     store.start()
     store.focus(0, 1)
@@ -712,11 +722,16 @@ export function FilmStage({ profile }: { profile: FilmProfile }) {
       })
     }
 
+    let loaderDone = false
     const updateLoader = () => {
-      const p = store.loadedCount / store.wantedCount
+      if (loaderDone) return
+      const p = store.bufferedShare()
       loadBar.style.transform = `scaleX(${Math.min(1, p).toFixed(3)})`
       loadPct.textContent = `${Math.min(100, Math.round(p * 100))}%`
-      if (store.loadedCount >= store.wantedCount) loader.classList.add('is-done')
+      if (p >= 0.999) {
+        loaderDone = true
+        loader.classList.add('is-done')
+      }
     }
 
     // ------------------------------------------------------------ loop
@@ -880,15 +895,18 @@ export function FilmStage({ profile }: { profile: FilmProfile }) {
     >
       <div ref={stageRef} className="rh-film__stage">
         <div className="rh-film__media" data-media>
-          <img
-            className="rh-film__poster"
-            data-poster
-            src={frameUrl(profile, 0)}
-            alt=""
-            aria-hidden="true"
-            decoding="async"
-            {...{ fetchpriority: 'high' }}
-          />
+          <picture>
+            <source type="image/avif" srcSet={frameUrl(profile, 0)} />
+            <img
+              className="rh-film__poster"
+              data-poster
+              src={fallbackUrl(profile, 0)}
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+              {...{ fetchpriority: 'high' }}
+            />
+          </picture>
           <canvas ref={canvasRef} className="rh-film__canvas" aria-hidden="true" />
         </div>
         <div className="rh-horizon" data-horizon aria-hidden="true" />

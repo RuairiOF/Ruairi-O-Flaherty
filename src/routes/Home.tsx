@@ -55,7 +55,10 @@ function useMode(): Mode {
 
 export function Home() {
   const seo = getStaticSeoPage('/')
-  const mode = useMode()
+  const picked = useMode()
+  // a browser that cannot decode the film's frames gets the stills instead
+  const [filmFailed, setFilmFailed] = useState(false)
+  const mode: Mode = filmFailed ? 'static' : picked
   const reduce = mode === 'static' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
   const rootRef = useRef<HTMLDivElement>(null)
 
@@ -85,7 +88,7 @@ export function Home() {
       </a>
       <HomeNav film={mode !== 'static'} />
       <main id="main-content" tabIndex={-1}>
-        {mode === 'static' ? <StaticIntro key="static" /> : <FilmStage key={mode} profile={mode} />}
+        {mode === 'static' ? <StaticIntro key="static" /> : <FilmStage key={mode} profile={mode} onUnsupported={() => setFilmFailed(true)} />}
         {mode === 'mobile' ? <StaticAbout /> : null}
         <WorkSection />
         <ExperienceSection />

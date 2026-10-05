@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react'
 import { FILM_HEIGHT, FILM_WATERLINE_0, FILM_WIDTH } from '../../content/film'
-import { stillUrl } from './frames'
+import { still } from './frames'
 import { ABOUT_FACTS, ABOUT_TEXT, FILM_CREDIT, HERO_EYEBROW, HERO_LEAD, HERO_PLACE } from './copy'
 import { TEXT_BLOCKS } from './timeline'
 
@@ -37,7 +37,10 @@ export function StaticIntro() {
   return (
     <>
       <section ref={heroRef} className="rh-static-hero" data-nav-tone="ink" aria-label="Introduction">
-        <img src={stillUrl(0)} alt="" aria-hidden="true" decoding="async" {...{ fetchpriority: 'high' }} />
+        <picture>
+          <source type="image/avif" srcSet={still(0).avif} />
+          <img src={still(0).webp} alt="" aria-hidden="true" decoding="async" {...{ fetchpriority: 'high' }} />
+        </picture>
         <div className="rh-hero">
           <div className="rh-hero__inner">
             <div className="rh-hero__top">
@@ -62,21 +65,24 @@ export function StaticIntro() {
 
       <div className="rh-static-story" data-nav-tone="ink">
         {TEXT_BLOCKS.map((b) => {
-          const still = STILLS[b.id]
+          const shot = STILLS[b.id]
           return (
             <section className="rh-static-chapter" key={b.id} aria-labelledby={`still-${b.id}`}>
               <figure data-reveal>
-                <img
-                  src={stillUrl(still.frame)}
-                  alt=""
-                  loading="lazy"
-                  decoding="async"
-                  width={FILM_WIDTH}
-                  height={FILM_HEIGHT}
-                />
+                <picture>
+                  <source type="image/avif" srcSet={still(shot.frame).avif} />
+                  <img
+                    src={still(shot.frame).webp}
+                    alt=""
+                    loading="lazy"
+                    decoding="async"
+                    width={FILM_WIDTH}
+                    height={FILM_HEIGHT}
+                  />
+                </picture>
                 <figcaption>
-                  <span className="rh-mono">Fig. {still.fig}</span>
-                  {still.caption}
+                  <span className="rh-mono">Fig. {shot.fig}</span>
+                  {shot.caption}
                 </figcaption>
               </figure>
               <div>

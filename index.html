@@ -42,7 +42,8 @@
         var l = document.createElement('link')
         l.rel = 'preload'
         l.as = 'image'
-        l.href = '/film/v2/' + (wide || still ? 'd' : 'm') + '/f0000.webp'
+        l.href = '/film/v3/' + (wide || still ? 'd' : 'm') + '/f0000.avif'
+        l.type = 'image/avif'
         l.setAttribute('fetchpriority', 'high')
         document.head.appendChild(l)
       })()
