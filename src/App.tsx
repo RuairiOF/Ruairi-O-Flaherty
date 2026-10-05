@@ -37,10 +37,10 @@ function PageTransition({ children }: { children: React.ReactNode }) {
   )
 }
 
-function App() {
+/** Routes that keep the site-wide navigation, footer and background. */
+function SiteChrome() {
   return (
-    <Router>
-      <ScrollToTop />
+    <>
       <AuroraBackground />
       <div className="relative z-10 min-h-screen flex flex-col overflow-x-hidden">
         <SkipToContent />
@@ -50,7 +50,6 @@ function App() {
           <Suspense fallback={<RouteFallback />}>
             <PageTransition>
               <Routes>
-                <Route path="/" element={<Home />} />
                 <Route path="/projects" element={<Projects />} />
                 <Route path="/projects/:slug" element={<ProjectDetail />} />
                 <Route path="/experience" element={<Experience />} />
@@ -66,6 +65,31 @@ function App() {
 
         <Footer />
       </div>
+    </>
+  )
+}
+
+/**
+ * The homepage brings its own navigation and footer, and sits outside the
+ * overflow-hidden wrapper so its film can pin with position: sticky.
+ */
+function Shell() {
+  const { pathname } = useLocation()
+  if (pathname === '/') {
+    return (
+      <Suspense fallback={<div style={{ minHeight: '100vh', background: '#f5f4ef' }} />}>
+        <Home />
+      </Suspense>
+    )
+  }
+  return <SiteChrome />
+}
+
+function App() {
+  return (
+    <Router>
+      <ScrollToTop />
+      <Shell />
     </Router>
   )
 }
