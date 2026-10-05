@@ -238,8 +238,11 @@ html.rh-home body {
 }
 .rh-film__media {
   position: absolute;
-  inset: 0;
-  will-change: transform, clip-path;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 .rh-film__poster,
 .rh-film__canvas {
@@ -256,37 +259,6 @@ html.rh-home body {
 .rh-film__stage.is-ready .rh-film__poster {
   visibility: hidden;
 }
-.rh-film__grain {
-  position: absolute;
-  inset: -40%;
-  z-index: 1;
-  pointer-events: none;
-  background-image: url('/images/home/grain.png');
-  background-size: 192px 192px;
-  opacity: 0.055;
-  animation: rh-grain 0.9s steps(5) infinite;
-}
-@keyframes rh-grain {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  20% {
-    transform: translate3d(-7%, 4%, 0);
-  }
-  40% {
-    transform: translate3d(5%, -6%, 0);
-  }
-  60% {
-    transform: translate3d(-4%, -3%, 0);
-  }
-  80% {
-    transform: translate3d(6%, 5%, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 .rh-horizon {
   position: absolute;
   left: 0;
@@ -2054,4 +2026,122 @@ html.rh-home body {
   .rh-js [data-reveal-lines] {
     visibility: visible;
   }
+}
+
+/* ------------------------------------------------------------------ phone film
+   A 4:5 window across the top that follows the action, a caption row under
+   it, and the words on paper below. */
+
+.rh-film[data-profile='mobile'] .rh-film__stage {
+  height: 100vh;
+  height: 100svh;
+}
+.rh-film[data-profile='mobile'] .rh-horizon {
+  left: 0;
+  right: 0;
+}
+.rh-film[data-profile='mobile'] .rh-hero__inner {
+  position: absolute;
+  left: var(--gutter);
+  right: var(--gutter);
+  top: calc(var(--win-h, 60vh) + 58px);
+}
+.rh-film[data-profile='mobile'] .rh-hero__top,
+.rh-film[data-profile='mobile'] .rh-hero__bottom {
+  position: relative;
+  left: auto;
+  top: auto;
+  bottom: auto;
+  color: var(--ink);
+}
+.rh-film[data-profile='mobile'] .rh-hero__eyebrow {
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.rh-film[data-profile='mobile'] .rh-hero__title {
+  font-size: clamp(40px, 12vw, 68px);
+}
+.rh-film[data-profile='mobile'] .rh-hero__bottom {
+  margin-top: 16px;
+}
+.rh-film[data-profile='mobile'] .rh-hero__lead {
+  font-size: clamp(16px, 4.3vw, 20px);
+  color: var(--ink-2);
+}
+.rh-film[data-profile='mobile'] .rh-cue {
+  display: none;
+}
+.rh-film[data-profile='mobile'] .rh-block {
+  left: var(--gutter);
+  right: var(--gutter);
+  top: calc(var(--win-h, 60vh) + 58px);
+  bottom: auto;
+  width: auto;
+}
+.rh-film[data-profile='mobile'] .rh-block__label {
+  margin-bottom: 12px;
+  font-size: 13px;
+}
+.rh-film[data-profile='mobile'] .rh-block__title {
+  font-size: clamp(26px, 7.4vw, 38px);
+}
+.rh-film[data-profile='mobile'] .rh-block__body {
+  margin-top: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.rh-film[data-profile='mobile'] .rh-figcap,
+.rh-film[data-profile='mobile'] .rh-timecode,
+.rh-film[data-profile='mobile'] .rh-gauge {
+  top: calc(var(--win-h, 60vh) + 16px);
+  bottom: auto;
+  font-size: 12px;
+}
+.rh-film[data-profile='mobile'] .rh-figcap {
+  left: var(--gutter);
+  right: calc(var(--gutter) + 118px);
+  gap: 10px;
+  white-space: nowrap;
+}
+.rh-film[data-profile='mobile'] .rh-figcap__clip:last-child {
+  flex: 1;
+  min-width: 0;
+}
+.rh-film[data-profile='mobile'] .rh-figcap__clip:last-child > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rh-film[data-profile='mobile'] .rh-timecode {
+  right: var(--gutter);
+  transition: opacity 0.4s var(--ease);
+}
+.rh-film[data-profile='mobile'] .rh-timecode__total,
+.rh-film[data-profile='mobile'] .rh-timecode__load > span:first-child {
+  display: none;
+}
+.rh-film[data-profile='mobile'][data-gauge='on'] .rh-timecode,
+.rh-film[data-profile='mobile'] .rh-film__stage[data-gauge='on'] .rh-timecode {
+  opacity: 0;
+}
+.rh-film[data-profile='mobile'] .rh-gauge {
+  right: var(--gutter);
+  width: auto;
+  transform: translate3d(0, 6px, 0);
+}
+.rh-film[data-profile='mobile'] .rh-gauge.is-on {
+  transform: translate3d(0, 0, 0);
+}
+.rh-film[data-profile='mobile'] .rh-gauge__readout {
+  margin: 0;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+}
+.rh-film[data-profile='mobile'] .rh-callout__num {
+  display: none;
+}
+.rh-film[data-profile='mobile'] .rh-callout__text {
+  font-size: 10.5px;
+  font-weight: 560;
 }

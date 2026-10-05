@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef } from 'react'
 import { FILM_HEIGHT, FILM_WATERLINE_0, FILM_WIDTH } from '../../content/film'
-import { filmFrameUrl } from './frames'
+import { stillUrl } from './frames'
 import { ABOUT_FACTS, ABOUT_TEXT, FILM_CREDIT, HERO_EYEBROW, HERO_LEAD, HERO_PLACE } from './copy'
 import { TEXT_BLOCKS } from './timeline'
 
@@ -37,7 +37,7 @@ export function StaticIntro() {
   return (
     <>
       <section ref={heroRef} className="rh-static-hero" data-nav-tone="ink" aria-label="Introduction">
-        <img src={filmFrameUrl(0)} alt="" aria-hidden="true" decoding="async" {...{ fetchpriority: 'high' }} />
+        <img src={stillUrl(0)} alt="" aria-hidden="true" decoding="async" {...{ fetchpriority: 'high' }} />
         <div className="rh-hero">
           <div className="rh-hero__inner">
             <div className="rh-hero__top">
@@ -67,7 +67,7 @@ export function StaticIntro() {
             <section className="rh-static-chapter" key={b.id} aria-labelledby={`still-${b.id}`}>
               <figure data-reveal>
                 <img
-                  src={filmFrameUrl(still.frame)}
+                  src={stillUrl(still.frame)}
                   alt=""
                   loading="lazy"
                   decoding="async"
@@ -98,23 +98,30 @@ export function StaticIntro() {
         })}
       </div>
 
-      <section className="rh-static-about" data-nav-tone="ink" aria-labelledby="about-title">
-        <p className="rh-about__label" id="about-title" data-reveal>
-          <span className="rh-mono">06</span>
-          About
-        </p>
-        <p className="rh-about__lead" data-lines>
-          {ABOUT_TEXT}
-        </p>
-        <dl className="rh-about__facts">
-          {ABOUT_FACTS.map(([k, v]) => (
-            <div key={k} className="rh-about__fact" data-reveal>
-              <dt>{k}</dt>
-              <dd>{v}</dd>
-            </div>
-          ))}
-        </dl>
-      </section>
+      <StaticAbout />
     </>
+  )
+}
+
+/** The About text as an ordinary section, after the stills or after the phone film. */
+export function StaticAbout() {
+  return (
+    <section className="rh-static-about" data-nav-tone="ink" aria-labelledby="about-title">
+      <p className="rh-about__label" id="about-title" data-reveal>
+        <span className="rh-mono">06</span>
+        About
+      </p>
+      <p className="rh-about__lead" data-lines>
+        {ABOUT_TEXT}
+      </p>
+      <dl className="rh-about__facts">
+        {ABOUT_FACTS.map(([k, v]) => (
+          <div key={k} className="rh-about__fact" data-reveal>
+            <dt>{k}</dt>
+            <dd>{v}</dd>
+          </div>
+        ))}
+      </dl>
+    </section>
   )
 }

@@ -1,5 +1,6 @@
 // Generated from the homepage film (homepage-film/web). Do not edit by hand.
-// Frames live in public/film/v1/f000.webp ... f307.webp (1280x720, 12 frames per film second).
+// Per-tick data for the film's timeline, which runs in 12 fps "ticks" (308 of them).
+// The frames themselves are stored at 48 fps in public/film/v2 (see components/homefilm/frames.ts).
 
 export const FILM_FRAME_COUNT = 308
 export const FILM_WIDTH = 1280

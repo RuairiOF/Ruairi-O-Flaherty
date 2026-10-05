@@ -38,6 +38,8 @@ export const OUTRO_HOLD_VH = 0.7
 
 export const FILM_VH = SEGMENTS.reduce((sum, s) => sum + s.vh, 0)
 export const TOTAL_VH = FILM_VH + OUTRO_VH + OUTRO_HOLD_VH
+/** Phones have no outro: the film holds on its last frame, then the page moves on. */
+export const MOBILE_TOTAL_VH = FILM_VH + 0.35
 
 export interface FilmSample {
   /** Fractional frame index. */

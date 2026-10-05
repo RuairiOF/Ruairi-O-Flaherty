@@ -35,10 +35,14 @@
         var s = document.createElement('style')
         s.textContent = 'html.rh-home,html.rh-home body{background:#f5f4ef}'
         document.head.appendChild(s)
+        // same choice as pickMode() in src/routes/Home.tsx
+        var w = innerWidth, h = innerHeight
+        var still = matchMedia('(prefers-reduced-motion: reduce)').matches
+        var wide = (w >= 1024 && h >= 560) || (w / h >= 1.2 && h >= 360)
         var l = document.createElement('link')
         l.rel = 'preload'
         l.as = 'image'
-        l.href = '/film/v1/f000.webp'
+        l.href = '/film/v2/' + (wide || still ? 'd' : 'm') + '/f0000.webp'
         l.setAttribute('fetchpriority', 'high')
         document.head.appendChild(l)
       })()

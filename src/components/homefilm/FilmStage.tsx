@@ -1,14 +1,9 @@
 import { useLayoutEffect, useRef } from 'react'
 import { gsap } from 'gsap'
 import { SplitText } from 'gsap/SplitText'
-import {
-  FILM_DRAWING_ANCHORS,
-  FILM_FRAME_COUNT,
-  FILM_HEIGHT,
-  FILM_WATERLINE_0,
-  FILM_WIDTH,
-} from '../../content/film'
-import { FrameStore, filmFrameUrl } from './frames'
+import { FILM_DRAWING_ANCHORS, FILM_HEIGHT, FILM_WATERLINE_0, FILM_WIDTH } from '../../content/film'
+import { MOBILE_FRAME_H, MOBILE_FRAME_W, MOBILE_WINDOW_W, mobileCropX } from '../../content/filmMobile'
+import { FRAMES_PER_TICK, FRAME_COUNT, FrameStore, frameUrl, type FilmProfile } from './frames'
 import { lumaAt, toneFor, type Tone } from './luma'
 import { getFilmNav, resetFilmNav, setFilmNav } from './navTone'
 import { scrollToY } from './scroll'
@@ -22,9 +17,11 @@ import {
   DEPTH_START_FRAME,
   DRAWING_FRAMES,
   FILM_FPS,
+  FILM_VH,
   LAYER_RAMP,
   LAYER_START_FRAME,
   LAYER_TOTAL,
+  MOBILE_TOTAL_VH,
   TEXT_BLOCKS,
   TOTAL_VH,
   chapterAt,
@@ -34,10 +31,10 @@ import {
 
 gsap.registerPlugin(SplitText)
 
-const LAST_FRAME = FILM_FRAME_COUNT - 1
+const LAST_TICK = (FRAME_COUNT - 1) / FRAMES_PER_TICK
 const DEPTH_PX_PER_M = 26
 const PAPER_LUMA = 244
-/** Scroll (in viewport heights) over which the hero parts at the horizon. */
+/** Scroll (in viewport heights) over which the hero clears. */
 const HERO_EXIT_VH = 0.42
 
 interface Rect {
@@ -55,6 +52,12 @@ const lerpRect = (a: Rect, b: Rect, t: number): Rect => ({
   w: lerp(a.w, b.w, t),
   h: lerp(a.h, b.h, t),
 })
+const scaleRect = (r: Rect, k: number, ox: number, oy: number): Rect => ({
+  x: ox + (r.x - ox) * k,
+  y: oy + (r.y - oy) * k,
+  w: r.w * k,
+  h: r.h * k,
+})
 const easeInOutCubic = (t: number) => (t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2)
 const smoothstep = (t: number) => t * t * (3 - 2 * t)
 const fmtTime = (s: number) => `00:${s.toFixed(1).padStart(4, '0')}`
@@ -62,21 +65,15 @@ const fmtTime = (s: number) => `00:${s.toFixed(1).padStart(4, '0')}`
 /**
  * Cover-fit, but on screens narrower than the film the crop leans right: the
  * left of every shot is empty paper or water, while the drawing's labels sit
- * near the right edge. Matches object-position on the poster.
+ * near the right edge. Matches object-position on the desktop poster.
  */
 const CROP_BIAS_X = 0.7
 function cover(w: number, h: number) {
   const s = Math.max(w / FILM_WIDTH, h / FILM_HEIGHT)
-  return {
-    x: (w - FILM_WIDTH * s) * CROP_BIAS_X,
-    y: (h - FILM_HEIGHT * s) / 2,
-    w: FILM_WIDTH * s,
-    h: FILM_HEIGHT * s,
-    s,
-  }
+  return { x: (w - FILM_WIDTH * s) * CROP_BIAS_X, y: (h - FILM_HEIGHT * s) / 2, w: FILM_WIDTH * s, h: FILM_HEIGHT * s }
 }
 
-/** Where the film comes to rest beside the About text. */
+/** Where the film comes to rest beside the About text (desktop). */
 function figureRect(w: number, h: number): Rect {
   const gutter = Math.min(108, Math.max(22, w * 0.056)) // matches --gutter in home.css
   const fw = Math.round(w * 0.46)
@@ -84,37 +81,64 @@ function figureRect(w: number, h: number): Rect {
   return { x: Math.round(w - fw - gutter), y: Math.round((h - fh) / 2 - h * 0.03), w: fw, h: fh }
 }
 
-/** First frame each balloon exists on, which is when its label is typed. */
+/**
+ * The phone window: edge to edge across the top, as tall as 4:5 allows while
+ * leaving room for the words underneath. Shorter screens trim a little off the
+ * top and bottom of the picture rather than narrowing it.
+ */
+function phoneWindow(w: number, h: number): Rect {
+  const wh = Math.round(Math.min(w * 1.25, Math.max(w * 0.9, h - 236)))
+  return { x: 0, y: 0, w, h: wh }
+}
+
+/** Cover-fit of the stored phone frame (504x630) inside the window, window coordinates. */
+function phoneCover(win: Rect): Rect {
+  const s = Math.max(win.w / MOBILE_FRAME_W, win.h / MOBILE_FRAME_H)
+  const w = MOBILE_FRAME_W * s
+  const h = MOBILE_FRAME_H * s
+  return { x: (win.w - w) / 2, y: (win.h - h) / 2, w, h }
+}
+
+/** First tick each balloon exists on, which is when its label is typed. */
 const CALLOUT_APPEAR: Record<string, number> = Object.fromEntries(
   CALLOUTS.map((c) => [c.key, Math.min(...Object.keys(FILM_DRAWING_ANCHORS[c.key]).map(Number))]),
 )
 
-function anchorAt(key: string, frame: number): [number, number] | null {
+function anchorAt(key: string, tick: number): [number, number] | null {
   const table = FILM_DRAWING_ANCHORS[key]
   const keys = Object.keys(table)
     .map(Number)
     .sort((a, b) => a - b)
   if (!keys.length) return null
-  if (frame <= keys[0]) return table[keys[0]]
-  if (frame >= keys[keys.length - 1]) return table[keys[keys.length - 1]]
+  if (tick <= keys[0]) return table[keys[0]]
+  if (tick >= keys[keys.length - 1]) return table[keys[keys.length - 1]]
   let lo = keys[0]
   let hi = keys[keys.length - 1]
   for (const k of keys) {
-    if (k <= frame) lo = k
-    if (k >= frame) {
+    if (k <= tick) lo = k
+    if (k >= tick) {
       hi = k
       break
     }
   }
   if (lo === hi) return table[lo]
-  const t = (frame - lo) / (hi - lo)
+  const t = (tick - lo) / (hi - lo)
   return [lerp(table[lo][0], table[hi][0], t), lerp(table[lo][1], table[hi][1], t)]
 }
 
-export function FilmStage() {
+/** Skip the in-between frames when the connection is slow or the reader has asked to save data. */
+function fullRateAllowed(): boolean {
+  const c = (navigator as Navigator & { connection?: { saveData?: boolean; effectiveType?: string } }).connection
+  if (!c) return true
+  if (c.saveData) return false
+  return !['slow-2g', '2g', '3g'].includes(c.effectiveType ?? '')
+}
+
+export function FilmStage({ profile }: { profile: FilmProfile }) {
   const sectionRef = useRef<HTMLElement>(null)
   const stageRef = useRef<HTMLDivElement>(null)
   const canvasRef = useRef<HTMLCanvasElement>(null)
+  const mobile = profile === 'mobile'
 
   useLayoutEffect(() => {
     const section = sectionRef.current
@@ -124,41 +148,44 @@ export function FilmStage() {
     const ctx = canvas.getContext('2d', { alpha: false })
     if (!ctx) return
 
+    const totalVh = mobile ? MOBILE_TOTAL_VH : TOTAL_VH
     const q = <T extends Element = HTMLElement>(sel: string, root: ParentNode = stage) =>
+      root.querySelector(sel) as T | null
+    const must = <T extends Element = HTMLElement>(sel: string, root: ParentNode = stage) =>
       root.querySelector(sel) as T
     const qa = <T extends Element = HTMLElement>(sel: string, root: ParentNode = stage) =>
       Array.from(root.querySelectorAll<T>(sel)) as T[]
 
-    const media = q('[data-media]')
-    const poster = q<HTMLImageElement>('[data-poster]')
-    const horizon = q('[data-horizon]')
-    const figFrame = q('[data-figure-frame]')
-    const hero = q('[data-hero]')
-    const heroInner = q('[data-hero-inner]')
-    const heroTop = q('[data-hero-top]')
-    const heroBottom = q('[data-hero-bottom]')
-    const heroTitle = q('[data-hero-title]')
-    const heroEyebrow = q('[data-hero-eyebrow]')
-    const heroLead = q('[data-hero-lead]')
-    const cue = q('[data-cue]')
-    const cueInner = q('[data-cue-inner]')
+    const media = must('[data-media]')
+    const poster = must<HTMLImageElement>('[data-poster]')
+    const horizon = must('[data-horizon]')
+    const hero = must('[data-hero]')
+    const heroInner = must('[data-hero-inner]')
+    const heroTop = must('[data-hero-top]')
+    const heroBottom = must('[data-hero-bottom]')
+    const heroTitle = must('[data-hero-title]')
+    const heroEyebrow = must('[data-hero-eyebrow]')
+    const heroLead = must('[data-hero-lead]')
+    const cue = must('[data-cue]')
+    const cueInner = must('[data-cue-inner]')
     const blocks = qa('[data-block]')
     const callouts = qa('[data-callout]')
-    const hud = q('[data-hud]')
-    const hudInner = q('[data-hud-inner]')
+    const hud = must('[data-hud]')
+    const hudInner = must('[data-hud-inner]')
     const railTicks = qa('[data-rail-tick]')
-    const figIndex = q('[data-fig-index]')
-    const figText = q('[data-fig-text]')
-    const tcNow = q('[data-tc]')
-    const loader = q('[data-load]')
-    const loadBar = q('[data-load-bar]')
-    const loadPct = q('[data-load-pct]')
-    const depthBox = q('[data-depth]')
-    const depthValue = q('[data-depth-value]')
+    const figIndex = must('[data-fig-index]')
+    const figText = must('[data-fig-text]')
+    const tcNow = must('[data-tc]')
+    const loader = must('[data-load]')
+    const loadBar = must('[data-load-bar]')
+    const loadPct = must('[data-load-pct]')
+    const depthBox = must('[data-depth]')
+    const depthValue = must('[data-depth-value]')
     const depthRuler = q('[data-depth-ruler]')
-    const layerBox = q('[data-layer]')
-    const layerValue = q('[data-layer-value]')
+    const layerBox = must('[data-layer]')
+    const layerValue = must('[data-layer-value]')
     const layerFill = q('[data-layer-fill]')
+    const figFrame = q('[data-figure-frame]')
     const about = q('[data-about]')
     const outroCap = q('[data-outro-cap]')
     const replay = q<HTMLButtonElement>('[data-replay]')
@@ -169,43 +196,44 @@ export function FilmStage() {
 
     let vw = 1
     let vh = 1
+    let unit = 1 // one "viewport height" of scroll, in px
     let dpr = 1
-    let wlY = 0
+    let wlY = 0 // waterline of the first frame, stage coordinates
+    let mr: Rect = { x: 0, y: 0, w: 1, h: 1 } // where the picture is drawn, stage coordinates
+    let sectionTop = 0
+    let sectionHeight = 1
     let targetVh = 0
-    let currentVh = 0
-    let lastT = performance.now()
+    let renderedVh = -1
     let raf = 0
     let dirty = true
-    let settling = false
     let alive = true
     let onScreen = true
     let firstDraw = false
-    let blend = 0
     let lastClip = ''
     let lastTc = ''
+    let focused = -1
+    let loaderDirty = true
 
     /** Opening: the horizon is drawn, then the picture opens out from it. */
     const intro = { open: 1, scale: 1 }
-    const playback = { active: false, frame: 0 }
+    const playback = { active: false, tick: 0 }
 
     resetFilmNav()
 
     // ------------------------------------------------------------ frames
-    const store = new FrameStore(
-      filmFrameUrl,
-      FILM_FRAME_COUNT,
-      () => {
-        dirty = true
-        const p = store.loadedCount / FILM_FRAME_COUNT
-        loadBar.style.transform = `scaleX(${p.toFixed(3)})`
-        loadPct.textContent = `${Math.round(p * 100)}%`
-        if (store.loadedCount >= FILM_FRAME_COUNT) loader.classList.add('is-done')
-      },
-      8,
-    )
+    const store = new FrameStore((i) => frameUrl(profile, i), FRAME_COUNT, (i) => {
+      loaderDirty = true
+      if (Math.abs(i - focused) <= 64) dirty = true
+    }, {
+      fetchConcurrency: mobile ? 6 : 8,
+      decodeConcurrency: mobile ? 2 : 3,
+      cacheSize: mobile ? 96 : 72,
+      fullRate: fullRateAllowed(),
+    })
     store.start()
+    store.focus(0, 1)
 
-    // ------------------------------------------------------------ tone probes
+    // ------------------------------------------------------------ geometry
     type Probe = { el: HTMLElement; rect: Rect; tone?: Tone }
     let probes: Probe[] = []
     const measureProbes = () => {
@@ -221,40 +249,58 @@ export function FilmStage() {
     }
 
     const resize = () => {
-      vw = Math.max(1, stage.clientWidth)
-      vh = Math.max(1, stage.clientHeight)
+      const w = Math.max(1, stage.clientWidth)
+      const h = Math.max(1, stage.clientHeight)
+      // Phones resize the viewport as the browser bars slide in and out; only a real
+      // change (rotation, a different width) should move anything.
+      if (mobile && w === vw && Math.abs(h - vh) < 160 && unit > 1) return
+      vw = w
+      vh = h
+      unit = h
       dpr = Math.min(window.devicePixelRatio || 1, 2)
-      canvas.width = Math.round(vw * dpr)
-      canvas.height = Math.round(vh * dpr)
-      const c = cover(vw, vh)
-      wlY = c.y + FILM_WATERLINE_0 * FILM_HEIGHT * c.s
+      if (mobile) {
+        mr = phoneWindow(vw, vh)
+        const pc = phoneCover(mr)
+        wlY = mr.y + pc.y + FILM_WATERLINE_0 * pc.h
+        const k = pc.w / MOBILE_WINDOW_W
+        stage.style.setProperty('--rh-callout-gap', `${(15 * k).toFixed(1)}px`)
+        stage.style.setProperty('--win-h', `${mr.h}px`)
+      } else {
+        mr = { x: 0, y: 0, w: vw, h: vh }
+        const c = cover(vw, vh)
+        const s = c.w / FILM_WIDTH
+        wlY = c.y + FILM_WATERLINE_0 * FILM_HEIGHT * s
+        stage.style.setProperty('--rh-callout-gap', `${(15 * s).toFixed(1)}px`)
+        stage.style.setProperty('--rh-balloon', `${(8.4 * s).toFixed(1)}px`)
+        const f = figureRect(vw, vh)
+        stage.style.setProperty('--rh-fig-x', `${f.x}px`)
+        stage.style.setProperty('--rh-fig-y', `${f.y}px`)
+        stage.style.setProperty('--rh-fig-w', `${f.w}px`)
+        stage.style.setProperty('--rh-fig-h', `${f.h}px`)
+      }
       stage.style.setProperty('--rh-wl', `${Math.round(wlY)}px`)
-      stage.style.setProperty('--rh-callout-gap', `${(15 * c.s).toFixed(1)}px`)
-      stage.style.setProperty('--rh-balloon', `${(8.4 * c.s).toFixed(1)}px`)
-      const f = figureRect(vw, vh)
-      stage.style.setProperty('--rh-fig-x', `${f.x}px`)
-      stage.style.setProperty('--rh-fig-y', `${f.y}px`)
-      stage.style.setProperty('--rh-fig-w', `${f.w}px`)
-      stage.style.setProperty('--rh-fig-h', `${f.h}px`)
+      Object.assign(media.style, { left: `${mr.x}px`, top: `${mr.y}px`, width: `${mr.w}px`, height: `${mr.h}px` })
+      canvas.width = Math.round(mr.w * dpr)
+      canvas.height = Math.round(mr.h * dpr)
+      sectionHeight = Math.round((totalVh + 1) * unit)
+      section.style.height = `${sectionHeight}px`
+      sectionTop = section.getBoundingClientRect().top + window.scrollY
       lastClip = ''
       measureProbes()
       dirty = true
     }
 
     const readScroll = () => {
-      const r = section.getBoundingClientRect()
-      const h = window.innerHeight || 1
-      targetVh = Math.max(0, Math.min(TOTAL_VH, -r.top / h))
-      onScreen = r.bottom > 0 && r.top < h
-      const f = sampleAtVh(targetVh).frame
-      if (!store.isReady(Math.round(f))) store.prioritise(f)
+      const y = window.scrollY
+      targetVh = Math.max(0, Math.min(totalVh, (y - sectionTop) / unit))
+      onScreen = y + window.innerHeight > sectionTop && y < sectionTop + sectionHeight
     }
 
     // ------------------------------------------------------------ chapter text
     type BlockParts = { el: HTMLElement; items: Element[] }
     let blockParts: BlockParts[] = []
     let activeBlock = -1
-    let prevFrame = 0
+    let prevTick = 0
     const showBlock = (i: number, dir: number) => {
       const p = blockParts[i]
       if (!p) return
@@ -279,10 +325,10 @@ export function FilmStage() {
         },
       })
     }
-    const setBlock = (i: number, frame: number) => {
+    const setBlock = (i: number, tick: number) => {
       if (i === activeBlock) return
-      if (activeBlock >= 0) hideBlock(activeBlock, frame > TEXT_BLOCKS[activeBlock].to ? 1 : -1)
-      if (i >= 0) showBlock(i, prevFrame <= TEXT_BLOCKS[i].from + 0.5 ? 1 : -1)
+      if (activeBlock >= 0) hideBlock(activeBlock, tick > TEXT_BLOCKS[activeBlock].to ? 1 : -1)
+      if (i >= 0) showBlock(i, prevTick <= TEXT_BLOCKS[i].from + 0.5 ? 1 : -1)
       activeBlock = i
     }
 
@@ -291,7 +337,7 @@ export function FilmStage() {
     let calloutChars: Element[][] = callouts.map(() => [])
     const typeIn = (i: number) => {
       const el = callouts[i]
-      const num = q('[data-callout-num]', el)
+      const num = must('[data-callout-num]', el)
       gsap.set(el, { visibility: 'visible' })
       gsap.fromTo(
         num,
@@ -309,7 +355,7 @@ export function FilmStage() {
     }
     const typeOut = (i: number) => {
       const el = callouts[i]
-      const num = q('[data-callout-num]', el)
+      const num = must('[data-callout-num]', el)
       gsap.to([num, ...calloutChars[i]], {
         opacity: 0,
         duration: 0.22,
@@ -321,13 +367,14 @@ export function FilmStage() {
       })
     }
 
-    // ------------------------------------------------------------ about
+    // ------------------------------------------------------------ about (desktop)
     let aboutShown = false
     let aboutLines: Element[] = []
     const showAbout = (on: boolean) => {
+      if (!about || !outroCap) return
       aboutShown = on
       const facts = qa('[data-about-fact]', about)
-      const label = q('[data-about-label]', about)
+      const label = must('[data-about-label]', about)
       if (on) {
         gsap.set([about, outroCap], { autoAlpha: 1 })
         gsap.fromTo(label, { opacity: 0, y: 14 }, { opacity: 1, y: 0, duration: 0.8, ease: 'expo.out', overwrite: true })
@@ -378,17 +425,17 @@ export function FilmStage() {
       blockParts = blocks.map((el) => ({
         el,
         items: [
-          q('[data-block-label] > span', el),
-          ...lines(q('[data-block-title]', el)),
-          ...lines(q('[data-block-body]', el)),
+          must('[data-block-label] > span', el),
+          ...lines(must('[data-block-title]', el)),
+          ...lines(must('[data-block-body]', el)),
         ],
       }))
       calloutChars = callouts.map((el) => {
-        const s = new SplitText(q('[data-callout-text]', el), { type: 'chars' })
+        const s = new SplitText(must('[data-callout-text]', el), { type: 'chars' })
         splits.push(s)
         return s.chars
       })
-      aboutLines = lines(q('[data-about-lead]', about))
+      if (about) aboutLines = lines(must('[data-about-lead]', about))
       const ht = new SplitText(heroTitle, { type: 'lines,chars', mask: 'lines', linesClass: 'rh-line' })
       splits.push(ht)
       heroChars = ht.chars
@@ -433,8 +480,9 @@ export function FilmStage() {
         .fromTo([figIndex, figText], { yPercent: 115 }, { yPercent: 0, duration: 0.75, ease: 'expo.out', stagger: 0.05 })
     }
 
-    // ------------------------------------------------------------ playback inside the figure
+    // ------------------------------------------------------------ playback inside the figure (desktop)
     const setReplayLabel = () => {
+      if (!replay || !replayLabel) return
       replayLabel.textContent = playback.active ? 'Pause the film' : 'Play the film'
       replay.setAttribute('aria-pressed', playback.active ? 'true' : 'false')
     }
@@ -449,89 +497,76 @@ export function FilmStage() {
         stopPlayback()
         return
       }
-      if (playback.frame >= LAST_FRAME - 0.5) playback.frame = 0
+      if (playback.tick >= LAST_TICK - 0.5) playback.tick = 0
       playback.active = true
       setReplayLabel()
       dirty = true
     }
-    replay.addEventListener('click', onReplay)
+    replay?.addEventListener('click', onReplay)
 
     // ------------------------------------------------------------ render
-    const screenLuma = (x: number, y: number, img: Rect, clip: Rect, s: number, frame: number) => {
-      if (x < clip.x || y < clip.y || x > clip.x + clip.w || y > clip.y + clip.h) return PAPER_LUMA
-      return lumaAt(frame, (x - img.x) / s, (y - img.y) / s)
-    }
-
     let depthOn = false
     let layerOn = false
-    const render = (moving: boolean, dt: number) => {
-      const sample = sampleAtVh(currentVh)
-      const outro = sample.outro
+    let gaugeAttr = ''
+    const render = () => {
+      const sample = sampleAtVh(Math.min(targetVh, mobile ? FILM_VH : totalVh))
+      const outro = mobile ? 0 : sample.outro
       if (outro < 0.999) {
         stopPlayback()
-        playback.frame = 0
+        playback.tick = 0
       }
-      const frame = playback.active || (outro >= 0.999 && playback.frame > 0) ? playback.frame : sample.frame
+      const tick = playback.active || (outro >= 0.999 && playback.tick > 0) ? playback.tick : sample.frame
       const e = easeInOutCubic(outro)
-      const c = cover(vw, vh)
-      const fr = figureRect(vw, vh)
-      let img = lerpRect(c, fr, e)
-      if (intro.scale !== 1) {
-        const k = intro.scale
-        img = { x: vw / 2 + (img.x - vw / 2) * k, y: wlY + (img.y - wlY) * k, w: img.w * k, h: img.h * k }
+
+      // picture and window, in the media element's own coordinates
+      let img: Rect
+      let clip: Rect
+      if (mobile) {
+        img = phoneCover(mr)
+        clip = { x: 0, y: 0, w: mr.w, h: mr.h }
+      } else {
+        const fr = figureRect(vw, vh)
+        img = lerpRect(cover(vw, vh), fr, e)
+        clip = lerpRect({ x: 0, y: 0, w: vw, h: vh }, fr, e)
       }
-      let clip = lerpRect({ x: 0, y: 0, w: vw, h: vh }, fr, e)
+      const wlLocal = wlY - mr.y
+      if (intro.scale !== 1) img = scaleRect(img, intro.scale, mr.w / 2, wlLocal)
       if (intro.open < 1) {
-        const top = wlY * (1 - intro.open)
-        const bottom = wlY + (vh - wlY) * intro.open
+        const top = wlLocal * (1 - intro.open)
+        const bottom = wlLocal + (mr.h - wlLocal) * intro.open
         const y0 = Math.max(clip.y, top)
         const y1 = Math.min(clip.y + clip.h, bottom)
         clip = { x: clip.x, y: y0, w: clip.w, h: Math.max(0, y1 - y0) }
       }
-      const s = img.w / FILM_WIDTH
 
-      // the picture (and its grain) only shows inside the window
-      const full = clip.x <= 0.5 && clip.y <= 0.5 && clip.w >= vw - 0.5 && clip.h >= vh - 0.5
+      const full = clip.x <= 0.5 && clip.y <= 0.5 && clip.w >= mr.w - 0.5 && clip.h >= mr.h - 0.5
       const clipCss = full
-        ? 'none'
-        : `inset(${clip.y.toFixed(1)}px ${(vw - clip.x - clip.w).toFixed(1)}px ${(vh - clip.y - clip.h).toFixed(1)}px ${clip.x.toFixed(1)}px)`
+        ? ''
+        : `inset(${clip.y.toFixed(1)}px ${(mr.w - clip.x - clip.w).toFixed(1)}px ${(mr.h - clip.y - clip.h).toFixed(1)}px ${clip.x.toFixed(1)}px)`
       if (clipCss !== lastClip) {
-        media.style.clipPath = clipCss === 'none' ? '' : clipCss
+        media.style.clipPath = clipCss
         lastClip = clipCss
       }
       if (!firstDraw) {
-        poster.style.transformOrigin = `50% ${wlY.toFixed(1)}px`
+        poster.style.transformOrigin = `50% ${wlLocal.toFixed(1)}px`
         poster.style.transform = intro.scale !== 1 ? `scale(${intro.scale})` : ''
       }
 
-      // the frame itself, blended with the next while moving, settling on a whole frame at rest
-      const base = Math.min(LAST_FRAME, Math.floor(frame))
-      const frac = frame - base
-      const live = moving || playback.active
-      const blendTarget = live ? frac : frac >= 0.5 ? 1 : 0
-      if (live) blend = frac
-      else {
-        blend += (blendTarget - blend) * (1 - Math.exp(-dt * 12))
-        if (Math.abs(blend - blendTarget) < 0.01) blend = blendTarget
+      // the frame: the exact one for this scroll position, drawn as it is
+      const f48 = Math.max(0, Math.min(FRAME_COUNT - 1, Math.round(tick * FRAMES_PER_TICK)))
+      if (f48 !== focused) {
+        store.focus(f48, focused < 0 ? 1 : f48 - focused)
+        focused = f48
       }
-      settling = blend !== blendTarget
-      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
-      ctx.globalAlpha = 1
-      ctx.fillStyle = '#f5f4ef'
-      ctx.fillRect(0, 0, vw, vh)
-      const i0 = store.nearest(base)
-      const im0 = i0 >= 0 ? store.images[i0] : null
-      if (im0) {
+      const idx = store.nearest(f48)
+      const bmp = idx >= 0 ? store.bitmap(idx) : null
+      if (bmp) {
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
+        ctx.fillStyle = '#f5f4ef'
+        ctx.fillRect(0, 0, mr.w, mr.h)
         ctx.imageSmoothingEnabled = true
         ctx.imageSmoothingQuality = 'high'
-        ctx.drawImage(im0, img.x, img.y, img.w, img.h)
-        const i1 = base + 1
-        const im1 = i1 <= LAST_FRAME ? store.images[i1] : null
-        if (blend > 0.003 && i0 === base && im1 && store.isReady(i1)) {
-          ctx.globalAlpha = blend
-          ctx.drawImage(im1, img.x, img.y, img.w, img.h)
-          ctx.globalAlpha = 1
-        }
+        ctx.drawImage(bmp, img.x, img.y, img.w, img.h)
         if (!firstDraw) {
           firstDraw = true
           stage.classList.add('is-ready')
@@ -539,89 +574,108 @@ export function FilmStage() {
         }
       }
 
-      // a hairline frames the picture as it becomes a figure
-      const frameOpacity = clamp01((e - 0.2) / 0.5)
-      figFrame.style.opacity = frameOpacity.toFixed(3)
-      if (frameOpacity > 0) {
-        figFrame.style.transform = `translate3d(${clip.x.toFixed(1)}px, ${clip.y.toFixed(1)}px, 0)`
-        figFrame.style.width = `${clip.w.toFixed(1)}px`
-        figFrame.style.height = `${clip.h.toFixed(1)}px`
+      // stage-coordinate mapping from the picture back into the film's own pixels
+      const sx = img.w / (mobile ? MOBILE_WINDOW_W : FILM_WIDTH)
+      const sy = img.h / FILM_HEIGHT
+      const cropX = mobile ? mobileCropX(f48) : 0
+      const toStageX = (fx: number) => mr.x + img.x + (fx - cropX) * sx
+      const toStageY = (fy: number) => mr.y + img.y + fy * sy
+      const screenLuma = (x: number, y: number) => {
+        const lx = x - mr.x
+        const ly = y - mr.y
+        if (lx < clip.x || ly < clip.y || lx > clip.x + clip.w || ly > clip.y + clip.h) return PAPER_LUMA
+        return lumaAt(tick, cropX + (lx - img.x) / sx, (ly - img.y) / sy)
       }
 
-      // the hero parts at the horizon as soon as the reader scrolls
-      const h = clamp01(currentVh / HERO_EXIT_VH)
+      // a hairline frames the picture as it becomes a figure
+      if (figFrame) {
+        const frameOpacity = clamp01((e - 0.2) / 0.5)
+        figFrame.style.opacity = frameOpacity.toFixed(3)
+        if (frameOpacity > 0) {
+          figFrame.style.transform = `translate3d(${clip.x.toFixed(1)}px, ${clip.y.toFixed(1)}px, 0)`
+          figFrame.style.width = `${clip.w.toFixed(1)}px`
+          figFrame.style.height = `${clip.h.toFixed(1)}px`
+        }
+      }
+
+      // the hero clears as soon as the reader scrolls
+      const h = clamp01(targetVh / HERO_EXIT_VH)
       const hs = smoothstep(h)
       hero.style.opacity = (1 - hs).toFixed(3)
-      heroTop.style.transform = `translate3d(0, ${(-hs * 70).toFixed(1)}px, 0)`
-      heroBottom.style.transform = `translate3d(0, ${(hs * 46).toFixed(1)}px, 0)`
+      heroTop.style.transform = `translate3d(0, ${(-hs * (mobile ? 40 : 70)).toFixed(1)}px, 0)`
+      heroBottom.style.transform = `translate3d(0, ${(hs * (mobile ? -20 : 46)).toFixed(1)}px, 0)`
       hero.style.visibility = h >= 1 ? 'hidden' : ''
-      cue.style.opacity = (1 - clamp01(currentVh / 0.1)).toFixed(3)
+      cue.style.opacity = (1 - clamp01(targetVh / 0.1)).toFixed(3)
 
       // chapter text
       let blockIdx = -1
       if (outro < 0.02 && !playback.active) {
         TEXT_BLOCKS.forEach((b, i) => {
-          if (frame >= b.from && frame <= b.to) blockIdx = i
+          if (tick >= b.from && tick <= b.to) blockIdx = i
         })
       }
-      setBlock(blockIdx, frame)
-      prevFrame = frame
+      setBlock(blockIdx, tick)
+      prevTick = tick
 
       // balloons on the drawing get their numbers and part names
       callouts.forEach((el, i) => {
         const key = CALLOUTS[i].key
-        const want =
-          outro === 0 && !playback.active && frame >= CALLOUT_APPEAR[key] - 0.2 && frame < CALLOUT_FADE[1]
+        const want = outro === 0 && !playback.active && tick >= CALLOUT_APPEAR[key] - 0.2 && tick < CALLOUT_FADE[1]
         if (want !== calloutOn[i]) {
           calloutOn[i] = want
           if (want) typeIn(i)
           else typeOut(i)
         }
         if (!want) return
-        const pos = anchorAt(key, frame)
+        const pos = anchorAt(key, tick)
         if (!pos) return
-        const fade = 1 - clamp01((frame - CALLOUT_FADE[0]) / (CALLOUT_FADE[1] - CALLOUT_FADE[0]))
+        const fade = 1 - clamp01((tick - CALLOUT_FADE[0]) / (CALLOUT_FADE[1] - CALLOUT_FADE[0]))
         el.style.opacity = fade.toFixed(3)
-        el.style.transform = `translate3d(${(img.x + pos[0] * s).toFixed(1)}px, ${(img.y + pos[1] * s).toFixed(1)}px, 0)`
+        el.style.transform = `translate3d(${toStageX(pos[0]).toFixed(1)}px, ${toStageY(pos[1]).toFixed(1)}px, 0)`
       })
 
       // instruments
-      setChapter(chapterAt(frame))
+      setChapter(chapterAt(tick))
       const hudFade = 1 - clamp01(outro / 0.22)
       hud.style.opacity = hudFade.toFixed(3)
       hud.style.visibility = hudFade <= 0 ? 'hidden' : ''
-      const tc = fmtTime(frame / FILM_FPS)
+      const tc = fmtTime(tick / FILM_FPS)
       if (tc !== lastTc) {
         tcNow.textContent = tc
         lastTc = tc
       }
-
-      const wantDepth =
-        frame > DEPTH_START_FRAME - 6 && frame < LAYER_START_FRAME && outro < 0.02 && !playback.active
+      const wantDepth = tick > DEPTH_START_FRAME - 6 && tick < LAYER_START_FRAME && outro < 0.02 && !playback.active
       if (wantDepth !== depthOn) {
         depthOn = wantDepth
         depthBox.classList.toggle('is-on', wantDepth)
       }
       if (wantDepth) {
-        const d = clamp01((frame - DEPTH_START_FRAME) / (DEPTH_END_FRAME - DEPTH_START_FRAME)) * DEPTH_MAX_M
+        const d = clamp01((tick - DEPTH_START_FRAME) / (DEPTH_END_FRAME - DEPTH_START_FRAME)) * DEPTH_MAX_M
         depthValue.textContent = `${d.toFixed(1).padStart(4, '0')} m`
-        depthRuler.style.transform = `translate3d(0, ${(-d * DEPTH_PX_PER_M).toFixed(1)}px, 0)`
+        if (depthRuler) depthRuler.style.transform = `translate3d(0, ${(-d * DEPTH_PX_PER_M).toFixed(1)}px, 0)`
       }
-      const wantLayer = frame >= LAYER_START_FRAME && outro < 0.02 && !playback.active
+      const wantLayer = tick >= LAYER_START_FRAME && outro < 0.02 && !playback.active
       if (wantLayer !== layerOn) {
         layerOn = wantLayer
         layerBox.classList.toggle('is-on', wantLayer)
       }
       if (wantLayer) {
-        const t = clamp01((frame - LAYER_RAMP[0]) / (LAYER_RAMP[1] - LAYER_RAMP[0]))
+        const t = clamp01((tick - LAYER_RAMP[0]) / (LAYER_RAMP[1] - LAYER_RAMP[0]))
         const n = Math.max(1, Math.round(1 + (LAYER_TOTAL - 1) * smoothstep(t)))
         layerValue.textContent = String(n).padStart(3, '0')
-        layerFill.style.transform = `scaleY(${(n / LAYER_TOTAL).toFixed(4)})`
+        if (layerFill) layerFill.style.transform = `scaleY(${(n / LAYER_TOTAL).toFixed(4)})`
+      }
+      const g = depthOn || layerOn ? 'on' : ''
+      if (g !== gaugeAttr) {
+        gaugeAttr = g
+        stage.dataset.gauge = g
       }
 
       // About sits beside the film once it has become a figure
-      const wantAbout = outro > 0.84
-      if (wantAbout !== aboutShown) showAbout(wantAbout)
+      if (about) {
+        const wantAbout = outro > 0.84
+        if (wantAbout !== aboutShown) showAbout(wantAbout)
+      }
 
       // every overlay takes ink or white from the picture underneath it
       for (const p of probes) {
@@ -634,7 +688,7 @@ export function FilmStage() {
           [r.x + r.w * 0.88, r.y + r.h * 0.75],
         ]
         let sum = 0
-        for (const [x, y] of pts) sum += screenLuma(x, y, img, clip, s, frame)
+        for (const [x, y] of pts) sum += screenLuma(x, y)
         const tone = toneFor(sum / pts.length, p.tone)
         if (tone !== p.tone) {
           p.tone = tone
@@ -645,47 +699,56 @@ export function FilmStage() {
       // and so does the navigation bar, one part at a time
       const navTone = (xs: number[], prev: Tone) => {
         let sum = 0
-        for (const fx of xs) sum += screenLuma(vw * fx, 36, img, clip, s, frame)
+        for (const fx of xs) sum += screenLuma(vw * fx, 34)
         return toneFor(sum / xs.length, prev)
       }
       const prevNav = getFilmNav()
       setFilmNav({
         tone: navTone([0.03, 0.07, 0.11, 0.15], prevNav.tone),
         linksTone: navTone([0.38, 0.43, 0.48, 0.53, 0.58, 0.62], prevNav.linksTone),
-        clockTone: navTone([0.86, 0.9, 0.94], prevNav.clockTone),
-        hero: currentVh < HERO_EXIT_VH * 0.8,
-        quietRight: outro === 0 && frame > DRAWING_FRAMES[0] && frame < DRAWING_FRAMES[1],
+        clockTone: navTone(mobile ? [0.8, 0.86, 0.92] : [0.86, 0.9, 0.94], prevNav.clockTone),
+        hero: targetVh < HERO_EXIT_VH * 0.8,
+        quietRight: !mobile && outro === 0 && tick > DRAWING_FRAMES[0] && tick < DRAWING_FRAMES[1],
       })
     }
 
+    const updateLoader = () => {
+      const p = store.loadedCount / store.wantedCount
+      loadBar.style.transform = `scaleX(${Math.min(1, p).toFixed(3)})`
+      loadPct.textContent = `${Math.min(100, Math.round(p * 100))}%`
+      if (store.loadedCount >= store.wantedCount) loader.classList.add('is-done')
+    }
+
     // ------------------------------------------------------------ loop
-    const tick = (now: number) => {
+    let lastT = performance.now()
+    const loop = (now: number) => {
       if (!alive) return
       const dt = Math.min(0.05, Math.max(0, (now - lastT) / 1000))
       lastT = now
-      const diff = targetVh - currentVh
-      const moving = Math.abs(diff) > 0.0005
-      if (moving) currentVh += diff * (1 - Math.exp(-dt * 8.5))
-      else currentVh = targetVh
       if (playback.active) {
-        playback.frame = Math.min(LAST_FRAME, playback.frame + dt * FILM_FPS)
-        if (playback.frame >= LAST_FRAME) stopPlayback()
+        playback.tick = Math.min(LAST_TICK, playback.tick + dt * FILM_FPS)
+        if (playback.tick >= LAST_TICK) stopPlayback()
+        dirty = true
       }
-      if (onScreen && (moving || dirty || settling || playback.active)) {
-        render(moving, dt)
+      if (onScreen && (dirty || targetVh !== renderedVh)) {
+        renderedVh = targetVh
+        render()
         dirty = false
       }
-      raf = requestAnimationFrame(tick)
+      if (loaderDirty) {
+        loaderDirty = false
+        updateLoader()
+      }
+      raf = requestAnimationFrame(loop)
     }
 
-    // ------------------------------------------------------------ rail
+    // ------------------------------------------------------------ rail (desktop)
     const onRailClick = (ev: Event) => {
       const btn = (ev.target as HTMLElement).closest<HTMLElement>('[data-rail-tick]')
       if (!btn) return
       const ch = CHAPTERS[Number(btn.dataset.index)]
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY
       const at = ch.start === 0 ? 0 : vhForFrame(ch.start + 1)
-      scrollToY(sectionTop + at * window.innerHeight)
+      scrollToY(sectionTop + at * unit)
     }
     stage.addEventListener('click', onRailClick)
 
@@ -718,14 +781,18 @@ export function FilmStage() {
         .add(() => setFilmNav({ ready: true }), 0.9)
     }
 
+    // handled on the next frame, so a size change never feeds back into the same layout pass
+    let roFrame = 0
     const ro = new ResizeObserver(() => {
-      resize()
-      readScroll()
+      cancelAnimationFrame(roFrame)
+      roFrame = requestAnimationFrame(() => {
+        resize()
+        readScroll()
+      })
     })
     ro.observe(stage)
     resize()
     readScroll()
-    currentVh = targetVh
 
     const startAtTop = targetVh < 0.05 && !reduceMotion
     if (startAtTop) {
@@ -751,14 +818,14 @@ export function FilmStage() {
       const wait = Math.max(0, 880 - (performance.now() - mountedAt))
       window.setTimeout(() => {
         if (!alive) return
-        if (!store.isReady(0)) intro.scale = 1
+        if (store.nearest(0, 0) < 0) intro.scale = 1
         playIntro()
       }, wait)
     }
     const fontsReady = (document.fonts?.ready ?? Promise.resolve()).then(() => undefined)
     const firstFrame = new Promise<void>((resolve) => {
       const check = () => {
-        if (store.isReady(0) || !alive) resolve()
+        if (store.nearest(0, 0) >= 0 || !alive) resolve()
         else window.setTimeout(check, 30)
       }
       check()
@@ -773,16 +840,19 @@ export function FilmStage() {
         if (!started) return
         buildSplits()
         measureProbes()
+        sectionTop = section.getBoundingClientRect().top + window.scrollY
+        readScroll()
         dirty = true
       }, 180)
     }
     window.addEventListener('resize', onWinResize)
 
-    raf = requestAnimationFrame(tick)
+    raf = requestAnimationFrame(loop)
 
     return () => {
       alive = false
       cancelAnimationFrame(raf)
+      cancelAnimationFrame(roFrame)
       window.clearTimeout(beginTimeout)
       window.clearTimeout(resizeTimer)
       store.stop()
@@ -790,18 +860,21 @@ export function FilmStage() {
       window.removeEventListener('scroll', readScroll)
       window.removeEventListener('resize', onWinResize)
       stage.removeEventListener('click', onRailClick)
-      replay.removeEventListener('click', onReplay)
-      gsap.killTweensOf([intro, horizon, heroInner, heroEyebrow, cueInner, hudInner, figIndex, figText, about, outroCap])
+      replay?.removeEventListener('click', onReplay)
+      gsap.killTweensOf([intro, horizon, heroInner, heroEyebrow, cueInner, hudInner, figIndex, figText])
+      if (about && outroCap) gsap.killTweensOf([about, outroCap])
       blockParts.forEach((p) => gsap.killTweensOf(p.items))
       splits.forEach((s) => s.revert())
+      section.style.height = ''
     }
-  }, [])
+  }, [mobile, profile])
 
   return (
     <section
       ref={sectionRef}
       className="rh-film"
-      style={{ height: `${(TOTAL_VH + 1) * 100}vh` }}
+      data-profile={profile}
+      style={{ height: `${((mobile ? MOBILE_TOTAL_VH : TOTAL_VH) + 1) * 100}vh` }}
       data-nav-section="film"
       aria-label="Introduction"
     >
@@ -810,17 +883,16 @@ export function FilmStage() {
           <img
             className="rh-film__poster"
             data-poster
-            src={filmFrameUrl(0)}
+            src={frameUrl(profile, 0)}
             alt=""
             aria-hidden="true"
             decoding="async"
             {...{ fetchpriority: 'high' }}
           />
           <canvas ref={canvasRef} className="rh-film__canvas" aria-hidden="true" />
-          <div className="rh-film__grain" aria-hidden="true" />
         </div>
         <div className="rh-horizon" data-horizon aria-hidden="true" />
-        <div className="rh-figure-frame" data-figure-frame aria-hidden="true" />
+        {mobile ? null : <div className="rh-figure-frame" data-figure-frame aria-hidden="true" />}
 
         <div className="rh-hero" data-hero>
           <div className="rh-hero__inner" data-hero-inner>
@@ -884,28 +956,30 @@ export function FilmStage() {
 
         <div className="rh-hud" data-hud>
           <div className="rh-hud__inner" data-hud-inner>
-            <nav className="rh-rail" aria-label="Film chapters">
-              <ol>
-                {CHAPTERS.map((ch, i) => (
-                  <li key={ch.id}>
-                    <button
-                      type="button"
-                      className="rh-rail__tick"
-                      data-rail-tick
-                      data-index={i}
-                      data-adapt
-                      aria-label={`${ch.index} ${ch.rail}`}
-                    >
-                      <span className="rh-rail__dot" />
-                      <span className="rh-rail__label" aria-hidden="true">
-                        <span className="rh-mono">{ch.index}</span>
-                        {ch.rail}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ol>
-            </nav>
+            {mobile ? null : (
+              <nav className="rh-rail" aria-label="Film chapters">
+                <ol>
+                  {CHAPTERS.map((ch, i) => (
+                    <li key={ch.id}>
+                      <button
+                        type="button"
+                        className="rh-rail__tick"
+                        data-rail-tick
+                        data-index={i}
+                        data-adapt
+                        aria-label={`${ch.index} ${ch.rail}`}
+                      >
+                        <span className="rh-rail__dot" />
+                        <span className="rh-rail__label" aria-hidden="true">
+                          <span className="rh-mono">{ch.index}</span>
+                          {ch.rail}
+                        </span>
+                      </button>
+                    </li>
+                  ))}
+                </ol>
+              </nav>
+            )}
 
             <p className="rh-figcap" data-adapt aria-hidden="true">
               <span className="rh-figcap__clip">
@@ -931,24 +1005,26 @@ export function FilmStage() {
               <span className="rh-mono" data-tc>
                 00:00.0
               </span>
-              <span className="rh-mono rh-timecode__total">/ {fmtTime(LAST_FRAME / FILM_FPS)}</span>
+              <span className="rh-mono rh-timecode__total">/ {fmtTime(LAST_TICK / FILM_FPS)}</span>
             </div>
 
             <div className="rh-gauge" data-depth data-adapt aria-hidden="true">
-              <div className="rh-gauge__window">
-                <div className="rh-gauge__ruler" data-depth-ruler>
-                  {Array.from({ length: 21 }, (_, m) => (
-                    <span
-                      key={m}
-                      className={`rh-gauge__mark${m % 5 === 0 ? ' is-major' : ''}`}
-                      style={{ top: `${m * DEPTH_PX_PER_M}px` }}
-                    >
-                      {m % 5 === 0 ? <span className="rh-mono">{m}</span> : null}
-                    </span>
-                  ))}
+              {mobile ? null : (
+                <div className="rh-gauge__window">
+                  <div className="rh-gauge__ruler" data-depth-ruler>
+                    {Array.from({ length: 21 }, (_, m) => (
+                      <span
+                        key={m}
+                        className={`rh-gauge__mark${m % 5 === 0 ? ' is-major' : ''}`}
+                        style={{ top: `${m * DEPTH_PX_PER_M}px` }}
+                      >
+                        {m % 5 === 0 ? <span className="rh-mono">{m}</span> : null}
+                      </span>
+                    ))}
+                  </div>
+                  <span className="rh-gauge__needle" />
                 </div>
-                <span className="rh-gauge__needle" />
-              </div>
+              )}
               <p className="rh-gauge__readout">
                 <span>Depth</span>
                 <span className="rh-mono" data-depth-value>
@@ -958,9 +1034,11 @@ export function FilmStage() {
             </div>
 
             <div className="rh-gauge" data-layer data-adapt aria-hidden="true">
-              <div className="rh-gauge__column">
-                <span className="rh-gauge__fill" data-layer-fill />
-              </div>
+              {mobile ? null : (
+                <div className="rh-gauge__column">
+                  <span className="rh-gauge__fill" data-layer-fill />
+                </div>
+              )}
               <p className="rh-gauge__readout">
                 <span>Layer</span>
                 <span className="rh-mono">
@@ -971,38 +1049,42 @@ export function FilmStage() {
           </div>
         </div>
 
-        <div className="rh-about" data-about>
-          <p className="rh-about__label" data-about-label>
-            <span className="rh-mono">06</span>
-            About
-          </p>
-          <p className="rh-about__lead" data-about-lead>
-            {ABOUT_TEXT}
-          </p>
-          <dl className="rh-about__facts">
-            {ABOUT_FACTS.map(([k, v]) => (
-              <div key={k} className="rh-about__fact" data-about-fact>
-                <dt>{k}</dt>
-                <dd>{v}</dd>
-              </div>
-            ))}
-          </dl>
-        </div>
-        <div className="rh-outro-cap" data-outro-cap>
-          <span>
-            <span className="rh-mono">Fig. 05</span>
-            {FILM_CREDIT}
-          </span>
-          <button type="button" className="rh-replay" data-replay aria-pressed="false">
-            <svg viewBox="0 0 9 10" aria-hidden="true" className="rh-replay__play">
-              <path d="M0 0l9 5-9 5z" fill="currentColor" />
-            </svg>
-            <svg viewBox="0 0 9 10" aria-hidden="true" className="rh-replay__pause">
-              <path d="M1 0h2.4v10H1zM5.6 0H8v10H5.6z" fill="currentColor" />
-            </svg>
-            <span data-replay-label>Play the film</span>
-          </button>
-        </div>
+        {mobile ? null : (
+          <>
+            <div className="rh-about" data-about>
+              <p className="rh-about__label" data-about-label>
+                <span className="rh-mono">06</span>
+                About
+              </p>
+              <p className="rh-about__lead" data-about-lead>
+                {ABOUT_TEXT}
+              </p>
+              <dl className="rh-about__facts">
+                {ABOUT_FACTS.map(([k, v]) => (
+                  <div key={k} className="rh-about__fact" data-about-fact>
+                    <dt>{k}</dt>
+                    <dd>{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+            <div className="rh-outro-cap" data-outro-cap>
+              <span>
+                <span className="rh-mono">Fig. 05</span>
+                {FILM_CREDIT}
+              </span>
+              <button type="button" className="rh-replay" data-replay aria-pressed="false">
+                <svg viewBox="0 0 9 10" aria-hidden="true" className="rh-replay__play">
+                  <path d="M0 0l9 5-9 5z" fill="currentColor" />
+                </svg>
+                <svg viewBox="0 0 9 10" aria-hidden="true" className="rh-replay__pause">
+                  <path d="M1 0h2.4v10H1zM5.6 0H8v10H5.6z" fill="currentColor" />
+                </svg>
+                <span data-replay-label>Play the film</span>
+              </button>
+            </div>
+          </>
+        )}
       </div>
 
       {/* What the film says, for screen readers */}

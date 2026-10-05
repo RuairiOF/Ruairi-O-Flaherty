@@ -37,25 +37,34 @@ export function HomeNav({ film }: { film: boolean }) {
   useEffect(() => {
     let lastY = window.scrollY
     let raf = 0
+    // Section edges in page coordinates, measured when the layout changes rather
+    // than on every scroll frame, so scrolling never forces a layout.
+    let filmTop = 0
+    let filmEnd = -1
+    let toneSections: { top: number; bottom: number; tone: 'ink' | 'light' }[] = []
+    const measure = () => {
+      const y = window.scrollY
+      const filmEl = film ? document.querySelector<HTMLElement>('[data-nav-section="film"]') : null
+      if (filmEl) {
+        const r = filmEl.getBoundingClientRect()
+        filmTop = r.top + y
+        // the pinned stage leaves the top of the screen one screen before the section ends
+        filmEnd = r.bottom + y - window.innerHeight
+      } else filmEnd = -1
+      toneSections = Array.from(document.querySelectorAll<HTMLElement>('[data-nav-tone]')).map((el) => {
+        const r = el.getBoundingClientRect()
+        return { top: r.top + y, bottom: r.bottom + y, tone: el.dataset.navTone === 'light' ? 'light' : 'ink' }
+      })
+    }
     const update = () => {
       raf = 0
       const y = window.scrollY
-      const probeY = 36
-      const filmEl = document.querySelector<HTMLElement>('[data-nav-section="film"]')
-      let onFilm = false
-      if (filmEl && film) {
-        const r = filmEl.getBoundingClientRect()
-        // the pinned stage leaves the top of the screen one viewport before the section ends
-        onFilm = r.top <= probeY && r.bottom - window.innerHeight > -probeY
-      }
+      const probe = y + 36
+      const onFilm = filmEnd > 0 && y >= filmTop - 36 && y < filmEnd + 36
       setOverFilm(onFilm)
       if (!onFilm) {
-        const sections = document.querySelectorAll<HTMLElement>('[data-nav-tone]')
         let tone: 'ink' | 'light' = 'ink'
-        sections.forEach((el) => {
-          const r = el.getBoundingClientRect()
-          if (r.top <= probeY && r.bottom > probeY) tone = el.dataset.navTone === 'light' ? 'light' : 'ink'
-        })
+        for (const s of toneSections) if (probe >= s.top && probe < s.bottom) tone = s.tone
         setSectionTone(tone)
       }
       const past = !onFilm && y > (film ? 200 : window.innerHeight * 0.6)
@@ -67,13 +76,21 @@ export function HomeNav({ film }: { film: boolean }) {
     const onScroll = () => {
       if (!raf) raf = requestAnimationFrame(update)
     }
+    const onLayout = () => {
+      measure()
+      onScroll()
+    }
+    measure()
     update()
+    const ro = new ResizeObserver(onLayout)
+    ro.observe(document.body)
     window.addEventListener('scroll', onScroll, { passive: true })
-    window.addEventListener('resize', onScroll)
+    window.addEventListener('resize', onLayout)
     return () => {
       cancelAnimationFrame(raf)
+      ro.disconnect()
       window.removeEventListener('scroll', onScroll)
-      window.removeEventListener('resize', onScroll)
+      window.removeEventListener('resize', onLayout)
     }
   }, [film])
 
