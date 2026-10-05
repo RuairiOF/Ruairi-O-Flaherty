@@ -48,7 +48,7 @@ export function StaticIntro() {
                 {HERO_PLACE}
               </p>
               <h1 className="rh-hero__title">
-                Ruairí
+                Ruairí{' '}
                 <br />
                 O’Flaherty
               </h1>
