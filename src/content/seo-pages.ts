@@ -1,6 +1,10 @@
 import { cvData, getAllProjects, siteConfig } from './cv'
 import { galleryPhotos } from './photos'
-import { createMetaDescription, dedupeKeywords, toAbsoluteUrl } from '../lib/seo'
+import {
+  createMetaDescription,
+  dedupeKeywords,
+  toAbsoluteUrl,
+} from '../lib/seo'
 import {
   buildBreadcrumbSchema,
   buildContactPageSchema,
@@ -26,11 +30,11 @@ export interface SeoPageConfig extends SEOProps {
 }
 
 const indexableProjects = getAllProjects().filter(
-  (project) => !project.title.includes('[TODO') && !project.slug.includes('[TODO'),
+  project => !project.title.includes('[TODO') && !project.slug.includes('[TODO')
 )
 
 const allSkillTags = Array.from(
-  new Set(cvData.skills.showcases.flatMap((showcase) => showcase.tools)),
+  new Set(cvData.skills.showcases.flatMap(showcase => showcase.tools))
 ).sort()
 
 const commonKeywords = siteConfig.keywords
@@ -43,7 +47,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/',
     title: '',
     description: createMetaDescription(
-      `${cvData.person.name} is a Mechanical Engineering student and entrepreneur building products, startups, and logistics systems in Dublin, Ireland.`,
+      `${cvData.person.name} is a Mechanical Engineering student and entrepreneur building products, startups, and logistics systems in Dublin, Ireland.`
     ),
     keywords: createKeywords([
       cvData.person.name,
@@ -74,7 +78,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/projects',
     title: 'Projects',
     description: createMetaDescription(
-      `Explore projects by ${cvData.person.name}, including EirPost, LaserLane, manufacturing ventures, hardware prototypes, and software builds.`,
+      `Explore projects by ${cvData.person.name}, including EirPost, Printbot, direct importing, manufacturing ventures, hardware prototypes, and software builds.`
     ),
     keywords: createKeywords([
       'portfolio projects',
@@ -104,7 +108,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/experience',
     title: 'Experience',
     description: createMetaDescription(
-      `${cvData.person.name}'s work experience, education, and achievements across engineering, logistics, startups, and operations.`,
+      `${cvData.person.name}'s work experience, education, and achievements across engineering, logistics, startups, and operations.`
     ),
     keywords: createKeywords([
       'work experience',
@@ -133,7 +137,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/skills',
     title: 'Skills',
     description: createMetaDescription(
-      `${cvData.person.name}'s practical skills across CAD, manufacturing, software, paid media, cloud, AI automation, and business operations.`,
+      `${cvData.person.name}'s practical skills across CAD, manufacturing, software, paid media, cloud, AI automation, and business operations.`
     ),
     keywords: createKeywords([
       'engineering skills',
@@ -163,7 +167,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/photos',
     title: '3D Printing Gallery',
     description: createMetaDescription(
-      `A visual gallery of products, prototypes, and manufacturing output from ${cvData.person.name}'s 3D printing portfolio.`,
+      `A visual gallery of products, prototypes, and manufacturing output from ${cvData.person.name}'s 3D printing portfolio.`
     ),
     keywords: createKeywords([
       '3d printing gallery',
@@ -187,7 +191,7 @@ export const staticSeoPages: SeoPageConfig[] = [
       ]),
       buildImageCollectionSchema(
         '3D Printing Gallery',
-        galleryPhotos.map((photo) => photo.src),
+        galleryPhotos.map(photo => photo.src)
       ),
     ],
   },
@@ -195,7 +199,7 @@ export const staticSeoPages: SeoPageConfig[] = [
     path: '/contact',
     title: 'Contact',
     description: createMetaDescription(
-      `Contact ${cvData.person.name} for collaborations, startup opportunities, consulting, and project inquiries.`,
+      `Contact ${cvData.person.name} for collaborations, startup opportunities, consulting, and project inquiries.`
     ),
     keywords: createKeywords([
       'contact',
@@ -234,7 +238,9 @@ export const staticSeoPages: SeoPageConfig[] = [
 ]
 
 function buildProjectSeoPage(project: Project): SeoPageConfig {
-  const description = createMetaDescription(project.longDescription || project.description)
+  const description = createMetaDescription(
+    project.longDescription || project.description
+  )
   const title = project.title
 
   return {
@@ -270,18 +276,21 @@ function buildProjectSeoPage(project: Project): SeoPageConfig {
   }
 }
 
-export const projectSeoPages: SeoPageConfig[] = indexableProjects.map((project) =>
-  buildProjectSeoPage(project),
+export const projectSeoPages: SeoPageConfig[] = indexableProjects.map(project =>
+  buildProjectSeoPage(project)
 )
 
 export function getStaticSeoPage(path: string): SeoPageConfig | undefined {
-  return staticSeoPages.find((page) => page.path === path)
+  return staticSeoPages.find(page => page.path === path)
 }
 
 export function getProjectSeoPage(slug: string): SeoPageConfig | undefined {
-  return projectSeoPages.find((page) => page.path === `/projects/${slug}`)
+  return projectSeoPages.find(page => page.path === `/projects/${slug}`)
 }
 
 export function getAllIndexableSeoPages(): SeoPageConfig[] {
-  return [...staticSeoPages.filter((page) => page.includeInSitemap !== false), ...projectSeoPages]
+  return [
+    ...staticSeoPages.filter(page => page.includeInSitemap !== false),
+    ...projectSeoPages,
+  ]
 }

@@ -1,5 +1,11 @@
 import { useMemo } from 'react'
-import { Briefcase, CalendarClock, GraduationCap, Layers, Rocket } from 'lucide-react'
+import {
+  Briefcase,
+  CalendarClock,
+  GraduationCap,
+  Layers,
+  Rocket,
+} from 'lucide-react'
 import { SEO } from '../components/SEO'
 import BlurText from '../components/reactbits/BlurText'
 import { StatStrip, type Stat } from '../components/experience/StatStrip'
@@ -20,7 +26,7 @@ const isReal = (value: string) => !value.includes('[TODO')
 
 /** Earliest 4-digit year mentioned across the roles, e.g. "Summer 2022" -> 2022. */
 function earliestYear(dates: string[]): number {
-  const years = dates.flatMap((d) => (d.match(/\d{4}/g) ?? []).map(Number))
+  const years = dates.flatMap(d => (d.match(/\d{4}/g) ?? []).map(Number))
   return years.length > 0 ? Math.min(...years) : new Date().getFullYear()
 }
 
@@ -28,30 +34,43 @@ export function Experience() {
   const seo = getStaticSeoPage('/experience')
 
   const experience = useMemo(
-    () => cvData.experience.filter((entry) => isReal(entry.company)),
-    [],
+    () => cvData.experience.filter(entry => isReal(entry.company)),
+    []
   )
   const education = useMemo(
-    () => cvData.education.filter((entry) => isReal(entry.institution)),
-    [],
+    () => cvData.education.filter(entry => isReal(entry.institution)),
+    []
   )
   const awards = useMemo(
-    () => (cvData.awards ?? []).filter((award) => isReal(award.title)),
-    [],
+    () => (cvData.awards ?? []).filter(award => isReal(award.title)),
+    []
   )
   const certificates = useMemo(
-    () => (cvData.certificates ?? []).filter((cert) => isReal(cert.title)),
-    [],
+    () => (cvData.certificates ?? []).filter(cert => isReal(cert.title)),
+    []
   )
 
   const stats = useMemo<Stat[]>(() => {
-    const since = earliestYear(experience.map((entry) => entry.dates))
+    const since = earliestYear(experience.map(entry => entry.dates))
     const yearsActive = Math.max(1, new Date().getFullYear() - since)
     return [
-      { label: 'Years working', value: yearsActive, suffix: '+', icon: CalendarClock },
+      {
+        label: 'Years working',
+        value: yearsActive,
+        suffix: '+',
+        icon: CalendarClock,
+      },
       { label: 'Roles held', value: experience.length, icon: Briefcase },
-      { label: 'Ventures shipped', value: cvData.projects.length, icon: Rocket },
-      { label: 'Skill areas', value: cvData.skills.showcases.length, icon: Layers },
+      {
+        label: 'Ventures shipped',
+        value: cvData.projects.length,
+        icon: Rocket,
+      },
+      {
+        label: 'Skill areas',
+        value: cvData.skills.showcases.length,
+        icon: Layers,
+      },
     ]
   }, [experience])
 
@@ -80,8 +99,8 @@ export function Experience() {
             stagger={0.03}
           />
           <p className="prose mt-5 max-w-2xl text-lg">
-            Where I've worked and what I actually did there — construction sites, a startup
-            accelerator, and the businesses I run now.
+            Where I've worked and what I actually did there: construction sites,
+            a startup accelerator, and the businesses I run now.
           </p>
 
           <div className="mt-10 sm:mt-12">
@@ -107,18 +126,29 @@ export function Experience() {
                   <TimelineItem key={`${entry.company}-${entry.dates}`}>
                     <TimelineMeta dates={entry.dates} index={index} />
                     <h3 className="heading-4 mt-3 text-ink">{entry.role}</h3>
-                    <TimelineOrg name={entry.company} location={entry.location} />
+                    <TimelineOrg
+                      name={entry.company}
+                      location={entry.location}
+                    />
                     <TimelineBullets bullets={entry.bullets} />
-                    {entry.technologies && entry.technologies.length > 0 && isReal(entry.technologies[0]) && (
-                      <TimelineTags tags={entry.technologies} />
-                    )}
+                    {entry.technologies &&
+                      entry.technologies.length > 0 &&
+                      isReal(entry.technologies[0]) && (
+                        <TimelineTags tags={entry.technologies} />
+                      )}
                     {(entry.links?.website || entry.links?.patch) && (
                       <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 border-t border-line/10 pt-4">
                         {entry.links.website && (
-                          <TimelineLink href={entry.links.website} label="Visit website" />
+                          <TimelineLink
+                            href={entry.links.website}
+                            label="Visit website"
+                          />
                         )}
                         {entry.links.patch && (
-                          <TimelineLink href={entry.links.patch} label="Patch profile" />
+                          <TimelineLink
+                            href={entry.links.patch}
+                            label="Patch profile"
+                          />
                         )}
                       </div>
                     )}
@@ -144,11 +174,21 @@ export function Experience() {
                   <TimelineItem key={entry.institution}>
                     <TimelineMeta dates={entry.dates} index={index} />
                     <h3 className="heading-4 mt-3 flex items-start gap-2.5 text-ink">
-                      <GraduationCap className="mt-1 h-5 w-5 shrink-0 text-accent-2" aria-hidden="true" />
+                      <GraduationCap
+                        className="mt-1 h-5 w-5 shrink-0 text-accent-2"
+                        aria-hidden="true"
+                      />
                       {entry.degree}
                     </h3>
-                    <TimelineOrg name={entry.institution} location={entry.location} />
-                    {entry.details && <p className="prose mt-4 text-sm sm:text-base">{entry.details}</p>}
+                    <TimelineOrg
+                      name={entry.institution}
+                      location={entry.location}
+                    />
+                    {entry.details && (
+                      <p className="prose mt-4 text-sm sm:text-base">
+                        {entry.details}
+                      </p>
+                    )}
                   </TimelineItem>
                 ))}
               </Timeline>

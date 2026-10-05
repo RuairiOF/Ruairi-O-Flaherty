@@ -61,7 +61,7 @@ export function Footer() {
               Say <span className="gradient-text">hello.</span>
             </p>
             <p className="prose mt-3 max-w-sm text-sm">
-              {cvData.person.headline} — {cvData.person.location}
+              {cvData.person.headline}, {cvData.person.location}
             </p>
 
             {socialLinks.length > 0 && (

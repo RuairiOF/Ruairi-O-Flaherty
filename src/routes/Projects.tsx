@@ -42,14 +42,16 @@ export function Projects() {
             />
             <Reveal delay={0.1}>
               <p className="prose mt-5 text-lg">
-                Businesses I have built, hardware I have shipped and experiments that got out of
-                hand — from logistics automation used by hundreds of Irish SMEs to a bedside sleep
-                tracker running on a Raspberry Pi.
+                Businesses I have built, hardware I have shipped and experiments
+                that got out of hand, from logistics automation used by hundreds
+                of Irish SMEs to a bedside sleep tracker running on a Raspberry
+                Pi.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <p className="eyebrow mt-6">
-                {visibleProjects.length.toString().padStart(2, '0')} case studies
+                {visibleProjects.length.toString().padStart(2, '0')} case
+                studies
               </p>
             </Reveal>
           </div>

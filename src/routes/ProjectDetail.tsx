@@ -5,8 +5,13 @@ import { SEO } from '../components/SEO'
 import Lightbox from '../components/Lightbox'
 import CarrierStrip from '../components/projects/CarrierStrip'
 import MetricsStrip from '../components/projects/MetricsStrip'
-import ProjectGallery, { type GalleryTile } from '../components/projects/ProjectGallery'
-import ProjectHero, { type ProjectLink } from '../components/projects/ProjectHero'
+import ProjectGallery, {
+  type GalleryTile,
+} from '../components/projects/ProjectGallery'
+import ProjectDeepDive from '../components/projects/ProjectDeepDive'
+import ProjectHero, {
+  type ProjectLink,
+} from '../components/projects/ProjectHero'
 import ProjectNav from '../components/projects/ProjectNav'
 import ProjectStory from '../components/projects/ProjectStory'
 import ProjectVideo from '../components/projects/ProjectVideo'
@@ -22,8 +27,10 @@ export function ProjectDetail() {
   const { slug } = useParams<{ slug: string }>()
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
-  const projects = getAllProjects().filter((item) => !item.title.includes('[TODO'))
-  const position = projects.findIndex((item) => item.slug === slug)
+  const projects = getAllProjects().filter(
+    item => !item.title.includes('[TODO')
+  )
+  const position = projects.findIndex(item => item.slug === slug)
   const project = position >= 0 ? projects[position] : undefined
   const missingProjectSeo = getStaticSeoPage('/404')
 
@@ -58,7 +65,12 @@ export function ProjectDetail() {
   const media = getProjectMedia(project)
 
   const rawLinks: ProjectLink[] = [
-    { key: 'live', label: 'View live', url: project.liveUrl || '', primary: true },
+    {
+      key: 'live',
+      label: 'View live',
+      url: project.liveUrl || '',
+      primary: true,
+    },
     { key: 'website', label: 'Website', url: project.links?.website || '' },
     { key: 'repo', label: 'Source', url: project.repoUrl || '' },
     { key: 'github', label: 'GitHub', url: project.links?.github || '' },
@@ -68,7 +80,7 @@ export function ProjectDetail() {
   ]
 
   const seenUrls = new Set<string>()
-  const links = rawLinks.filter((item) => {
+  const links = rawLinks.filter(item => {
     if (!item.url || item.url.includes('[TODO')) return false
     if (seenUrls.has(item.url)) return false
     seenUrls.add(item.url)
@@ -78,21 +90,27 @@ export function ProjectDetail() {
   const description = project.longDescription || project.description
   const paragraphs = (project.longDescription || '')
     .split(/\n\s*\n/)
-    .map((part) => part.trim())
+    .map(part => part.trim())
     .filter(Boolean)
 
-  const tiles: GalleryTile[] = media.images.map((src, index) => ({ src, index }))
-  const remaining = tiles.filter((tile) => tile.index !== media.coverIndex)
+  const tiles: GalleryTile[] = media.images.map((src, index) => ({
+    src,
+    index,
+  }))
+  const remaining = tiles.filter(tile => tile.index !== media.coverIndex)
   // Only pull images into the story column when both the gallery and the copy
   // are long enough to carry them — otherwise they'd vanish from the page.
-  const inlineCount =
-    media.images.length >= RICH_GALLERY ? Math.min(2, Math.max(0, paragraphs.length - 2)) : 0
+  const inlineCount = project.caseStudy
+    ? 0
+    : media.images.length >= RICH_GALLERY
+      ? Math.min(2, Math.max(0, paragraphs.length - 2))
+      : 0
   const inlineTiles = remaining.slice(0, inlineCount)
   const gridTiles = remaining.slice(inlineCount)
 
   const lightboxItems = media.images.map((src, index) => ({
     src,
-    alt: `${project.title} — image ${index + 1}`,
+    alt: `${project.title}: image ${index + 1}`,
     caption: project.title,
   }))
 
@@ -115,7 +133,12 @@ export function ProjectDetail() {
       />
 
       <article>
-        <ProjectHero project={project} cover={media.cover} logo={media.logo} links={links} />
+        <ProjectHero
+          project={project}
+          cover={media.cover}
+          logo={media.logo}
+          links={links}
+        />
 
         <div className="space-y-16 pb-16 pt-14 lg:space-y-24 lg:pb-24 lg:pt-20">
           {project.highlights && project.highlights.length > 0 && (
@@ -132,16 +155,24 @@ export function ProjectDetail() {
             </section>
           )}
 
-          <section className="shell">
-            <ProjectStory
-              title={project.title}
-              about={project.about}
-              paragraphs={paragraphs}
-              inline={inlineTiles}
-              onOpen={setLightboxIndex}
-              linkRofs={project.slug !== 'rofs-3d'}
-            />
-          </section>
+          {project.caseStudy && (
+            <section className="shell">
+              <ProjectDeepDive caseStudy={project.caseStudy} />
+            </section>
+          )}
+
+          {!project.caseStudy && (
+            <section className="shell">
+              <ProjectStory
+                title={project.title}
+                about={project.about}
+                paragraphs={paragraphs}
+                inline={inlineTiles}
+                onOpen={setLightboxIndex}
+                linkRofs={project.slug !== 'rofs-3d'}
+              />
+            </section>
+          )}
 
           {media.videos.length > 0 && (
             <section className="shell">
@@ -152,13 +183,13 @@ export function ProjectDetail() {
                 </div>
               </Reveal>
               <div className="mt-6 space-y-6">
-                {media.videos.map((video) => (
+                {media.videos.map(video => (
                   <ProjectVideo
                     key={video}
                     src={video}
                     title={project.title}
                     poster={media.cover}
-                    caption={`${project.title} — production footage`}
+                    caption={`${project.title}: production footage`}
                   />
                 ))}
               </div>

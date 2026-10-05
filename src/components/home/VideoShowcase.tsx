@@ -111,7 +111,7 @@ export default function VideoShowcase() {
                 </Link>
               </h3>
               <p className="prose mt-1 hidden max-w-lg text-sm sm:block">
-                Hand-finished retro game-inspired Bluetooth radios — from
+                Hand-finished retro game-inspired Bluetooth radios, from
                 sourcing to customer delivery
               </p>
             </div>

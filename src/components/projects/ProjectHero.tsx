@@ -5,6 +5,7 @@ import BlurText from '../reactbits/BlurText'
 import ShinyText from '../reactbits/ShinyText'
 import { isExternalUrl } from '../../lib/utils'
 import type { Project } from '../../types'
+import ProjectVisual from './ProjectVisual'
 
 export interface ProjectLink {
   key: string
@@ -21,7 +22,12 @@ interface ProjectHeroProps {
 }
 
 /** Full-bleed cover, brand chip, blur-in title and a glass meta bar. */
-export default function ProjectHero({ project, cover, logo, links }: ProjectHeroProps) {
+export default function ProjectHero({
+  project,
+  cover,
+  logo,
+  links,
+}: ProjectHeroProps) {
   return (
     <header className="relative">
       <div className="relative h-[52vh] min-h-[20rem] w-full overflow-hidden sm:h-[60vh]">
@@ -33,6 +39,8 @@ export default function ProjectHero({ project, cover, logo, links }: ProjectHero
             sizes="100vw"
             className="h-full w-full object-cover"
           />
+        ) : project.caseStudy ? (
+          <ProjectVisual variant={project.caseStudy.variant} />
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/25 via-bg to-accent-2/20">
             {logo && (
@@ -84,12 +92,14 @@ export default function ProjectHero({ project, cover, logo, links }: ProjectHero
             />
           </div>
 
-          <p className="prose mt-4 max-w-2xl text-base sm:text-lg">{project.description}</p>
+          <p className="prose mt-4 max-w-2xl text-base sm:text-lg">
+            {project.description}
+          </p>
 
           <div className="glass-panel mt-6 flex flex-wrap items-center gap-x-3 gap-y-3 rounded-2xl px-4 py-3 font-mono text-xs">
             <ul className="flex flex-wrap items-center gap-x-2 gap-y-1 text-ink-muted">
               {project.tags
-                .filter((tag) => !tag.includes('[TODO'))
+                .filter(tag => !tag.includes('[TODO'))
                 .map((tag, i) => (
                   <li key={tag} className="flex items-center gap-2">
                     {i > 0 && (
@@ -104,18 +114,32 @@ export default function ProjectHero({ project, cover, logo, links }: ProjectHero
 
             {links.length > 0 && (
               <>
-                <span aria-hidden="true" className="hidden h-4 w-px bg-line/15 sm:block" />
+                <span
+                  aria-hidden="true"
+                  className="hidden h-4 w-px bg-line/15 sm:block"
+                />
                 <div className="flex flex-wrap items-center gap-2">
-                  {links.map((link) => (
+                  {links.map(link => (
                     <a
                       key={link.key}
                       href={link.url}
                       target={isExternalUrl(link.url) ? '_blank' : undefined}
-                      rel={isExternalUrl(link.url) ? 'noopener noreferrer' : undefined}
+                      rel={
+                        isExternalUrl(link.url)
+                          ? 'noopener noreferrer'
+                          : undefined
+                      }
                       className="inline-flex items-center gap-1 rounded-full border border-line/10 px-3 py-1.5 text-ink transition-colors duration-base hover:border-accent/40 hover:text-accent"
                     >
-                      {link.primary ? <ShinyText>{link.label}</ShinyText> : link.label}
-                      <ArrowUpRight aria-hidden="true" className="h-3.5 w-3.5" />
+                      {link.primary ? (
+                        <ShinyText>{link.label}</ShinyText>
+                      ) : (
+                        link.label
+                      )}
+                      <ArrowUpRight
+                        aria-hidden="true"
+                        className="h-3.5 w-3.5"
+                      />
                     </a>
                   ))}
                 </div>

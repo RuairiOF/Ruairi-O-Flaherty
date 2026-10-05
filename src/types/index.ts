@@ -35,6 +35,33 @@ export interface Experience {
   }
 }
 
+export interface CaseStudyStep {
+  label: string
+  title: string
+  description: string
+  status?: string
+}
+
+export interface CaseStudySection {
+  eyebrow: string
+  title: string
+  body: string
+  points?: string[]
+}
+
+export interface ProjectCaseStudy {
+  variant: 'supply-chain' | 'system'
+  eyebrow: string
+  title: string
+  introduction: string
+  steps: CaseStudyStep[]
+  sections: CaseStudySection[]
+  closing?: {
+    label: string
+    text: string
+  }
+}
+
 export interface Project {
   slug: string
   title: string
@@ -50,6 +77,7 @@ export interface Project {
   imagePosition?: string
   featured?: boolean
   priority?: number
+  caseStudy?: ProjectCaseStudy
   links?: {
     website?: string
     github?: string

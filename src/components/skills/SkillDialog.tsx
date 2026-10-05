@@ -12,7 +12,11 @@ interface SkillDialogProps {
 }
 
 /** Skill detail panel built on the shared glass `Dialog`. */
-export function SkillDialog({ showcase, onClose, onViewImage }: SkillDialogProps) {
+export function SkillDialog({
+  showcase,
+  onClose,
+  onViewImage,
+}: SkillDialogProps) {
   return (
     <Dialog
       open={showcase !== null}
@@ -53,7 +57,7 @@ export function SkillDialog({ showcase, onClose, onViewImage }: SkillDialogProps
                     >
                       <SmartImage
                         src={toManifestPath(image)}
-                        alt={`${showcase.title} — image ${index + 1}`}
+                        alt={`${showcase.title}: image ${index + 1}`}
                         sizes="(min-width: 640px) 200px, 45vw"
                         className={`h-24 w-full object-cover transition-transform duration-base ease-out-expo group-hover:scale-105 ${showcase.imagePosition ?? 'object-center'}`}
                       />
@@ -67,7 +71,7 @@ export function SkillDialog({ showcase, onClose, onViewImage }: SkillDialogProps
           <div className="mt-6">
             <p className="eyebrow">Tools</p>
             <ul className="mt-3 flex flex-wrap gap-2">
-              {showcase.tools.map((tool) => (
+              {showcase.tools.map(tool => (
                 <li
                   key={tool}
                   className="rounded-full border border-line/10 bg-line/[0.04] px-3 py-1 font-mono text-xs text-ink-muted"

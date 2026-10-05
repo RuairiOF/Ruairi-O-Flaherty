@@ -4,9 +4,15 @@ import { ArrowUpRight } from 'lucide-react'
 import SmartImage from '../SmartImage'
 import SpotlightCard from '../reactbits/SpotlightCard'
 import ShinyText from '../reactbits/ShinyText'
-import { gsap, useGSAP, useReducedMotion, useRevealOnScroll } from '@/lib/motion'
+import {
+  gsap,
+  useGSAP,
+  useReducedMotion,
+  useRevealOnScroll,
+} from '@/lib/motion'
 import { getProjectMedia, hookOf } from './media'
 import type { Project } from '../../types'
+import ProjectVisual from './ProjectVisual'
 
 interface ProjectRowProps {
   project: Project
@@ -17,7 +23,11 @@ interface ProjectRowProps {
 }
 
 /** One full-width editorial row on the Projects index. */
-export default function ProjectRow({ project, index, reversed = false }: ProjectRowProps) {
+export default function ProjectRow({
+  project,
+  index,
+  reversed = false,
+}: ProjectRowProps) {
   const rootRef = useRevealOnScroll<HTMLDivElement>({ y: 40, duration: 0.8 })
   const mediaRef = useRef<HTMLDivElement>(null)
   const reduced = useReducedMotion()
@@ -41,10 +51,10 @@ export default function ProjectRow({ project, index, reversed = false }: Project
             end: 'bottom top',
             scrub: 0.6,
           },
-        },
+        }
       )
     },
-    { scope: mediaRef, dependencies: [reduced, cover] },
+    { scope: mediaRef, dependencies: [reduced, cover] }
   )
 
   return (
@@ -64,6 +74,8 @@ export default function ProjectRow({ project, index, reversed = false }: Project
                 sizes="(min-width: 1024px) 46vw, 92vw"
                 className="h-full w-full scale-110 object-cover"
               />
+            ) : project.caseStudy ? (
+              <ProjectVisual variant={project.caseStudy.variant} compact />
             ) : (
               <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-accent/15 to-accent-2/10">
                 {logo ? (
@@ -107,7 +119,7 @@ export default function ProjectRow({ project, index, reversed = false }: Project
 
           {project.tags.length > 0 && !project.tags[0].includes('[TODO') && (
             <ul className="flex flex-wrap gap-2">
-              {project.tags.slice(0, 5).map((tag) => (
+              {project.tags.slice(0, 5).map(tag => (
                 <li
                   key={tag}
                   className="glass-panel rounded-full px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-ink-muted"
