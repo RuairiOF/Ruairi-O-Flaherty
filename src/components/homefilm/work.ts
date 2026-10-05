@@ -131,7 +131,8 @@ export interface IndexRow {
   title: string
   desc: string
   meta: string
-  image: string
+  /** Preview that follows the cursor; rows without photos yet go without. */
+  image?: string
 }
 
 export const MORE: IndexRow[] = [
@@ -158,6 +159,20 @@ export const MORE: IndexRow[] = [
     desc: 'A retro radio brand: sourcing, quality checks, importing and fulfilment. Rated 4.8 across 127 reviews.',
     meta: 'Consumer electronics',
     image: photo('NukaColaRadio/1-w640.webp'),
+  },
+  {
+    slug: 'electric-dirt-bike-importing',
+    index: '07',
+    title: 'Electric dirt bike importing',
+    desc: 'Traced why Chinese-built electric dirt bikes cost so much here, then bought direct for close to half the local price.',
+    meta: 'Direct importing',
+  },
+  {
+    slug: 'printbot',
+    index: '08',
+    title: 'Printbot',
+    desc: 'Print-farm software that takes a plain-English request or a shop order through to a running printer.',
+    meta: 'Python, Bambu Lab',
   },
 ]
 

@@ -251,7 +251,7 @@ export function useCursorFx(root: RefObject<HTMLElement>, key: unknown) {
       if (!peek || i === peekIdx) return
       const wasOff = peekIdx < 0
       peekIdx = i
-      peekImgs.forEach((img, k) => img.classList.toggle('is-on', k === i))
+      peekImgs.forEach((img) => img.classList.toggle('is-on', Number(img.dataset.peekImg) === i))
       if (i < 0) {
         gsap.to(peek, { opacity: 0, scale: 0.86, duration: 0.35, ease: 'power2.out', overwrite: 'auto' })
         return

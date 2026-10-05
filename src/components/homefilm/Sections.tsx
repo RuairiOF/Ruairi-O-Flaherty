@@ -147,14 +147,14 @@ export function WorkSection() {
             More projects
           </h3>
           <span className="rh-mono" data-reveal>
-            04–06
+            {MORE[0].index}–{MORE[MORE.length - 1].index}
           </span>
           <span className="rh-rule" data-rule aria-hidden="true" />
         </div>
         <ul className="rh-index__list">
           {MORE.map((p, i) => (
             <li className="rh-row" key={p.slug}>
-              <Link to={`/projects/${p.slug}`} data-peek={i}>
+              <Link to={`/projects/${p.slug}`} data-peek={p.image ? i : undefined}>
                 <span className="rh-row__n rh-mono">{p.index}</span>
                 <span className="rh-row__title">{p.title}</span>
                 <span className="rh-row__desc">{p.desc}</span>
@@ -175,9 +175,9 @@ export function WorkSection() {
       </div>
 
       <div className="rh-peek" data-peek-box aria-hidden="true">
-        {MORE.map((p, i) => (
-          <img key={p.slug} src={p.image} alt="" loading="lazy" decoding="async" data-peek-img={i} />
-        ))}
+        {MORE.map((p, i) =>
+          p.image ? <img key={p.slug} src={p.image} alt="" loading="lazy" decoding="async" data-peek-img={i} /> : null,
+        )}
       </div>
     </section>
   )
