@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#070b14">
+  <meta name="description" content="MEEN41330 Data Analytics Test 1 interactive study desk">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Data Analytics · Test 1</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <svg class="sprite" aria-hidden="true" focusable="false">
+    <symbol id="icon-home" viewBox="0 0 24 24"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5z"/><path d="m3 12 9 5 9-5"/><path d="m3 17 9 5 9-5"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="icon-sigma" viewBox="0 0 24 24"><path d="M18 4H6l6 8-6 8h12"/></symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M4 20V10"/><path d="M10 20V4"/><path d="M16 20v-7"/><path d="M22 20H2"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="icon-flame" viewBox="0 0 24 24"><path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3 2-5 1 2 2 3 3 3 0-3-1-5 0-7z"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m13 6 6 6-6 6"/></symbol>
+    <symbol id="icon-shuffle" viewBox="0 0 24 24"><path d="M16 3h5v5"/><path d="M4 20 21 3"/><path d="M21 16v5h-5"/><path d="m15 15 6 6"/><path d="M4 4l5 5"/></symbol>
+    <symbol id="icon-rotate" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/></symbol>
+    <symbol id="icon-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="icon-keyboard" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M8 14h8"/></symbol>
+    <symbol id="icon-spark" viewBox="0 0 24 24"><path d="m12 3 1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"/></symbol>
+    <symbol id="icon-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0V4z"/><path d="M8 6H5a3 3 0 0 0 3 3"/><path d="M16 6h3a3 3 0 0 1-3 3"/><path d="M12 13v4"/><path d="M8 21h8"/><path d="M10 17h4"/></symbol>
+    <symbol id="icon-target" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></symbol>
+    <symbol id="icon-bulb" viewBox="0 0 24 24"><path d="M9 18h6"/><path d="M10 21h4"/><path d="M12 3a6 6 0 0 0-4 10c1 1 1 2 1 3h6c0-1 0-2 1-3a6 6 0 0 0-4-10z"/></symbol>
+    <symbol id="icon-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5z"/></symbol>
+    <symbol id="icon-flag" viewBox="0 0 24 24"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></symbol>
+    <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><path d="M12 8h.01"/></symbol>
+    <symbol id="icon-chevron" viewBox="0 0 24 24"><path d="m9 6 6 6-6 6"/></symbol>
+    <symbol id="icon-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9 7 7M17 17l2.1 2.1M19.1 4.9 17 7M7 17l-2.1 2.1"/></symbol>
+  </svg>
+
+  <div class="ambient" aria-hidden="true">
+    <span class="orb orb-a"></span>
+    <span class="orb orb-b"></span>
+    <span class="orb orb-c"></span>
+  </div>
+
+  <div class="app">
+    <aside class="sidebar">
+      <a class="brand" href="#/dashboard" aria-label="Go to dashboard">
+        <span class="brand-mark" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="brand-text">
+          <strong>Data Analytics</strong>
+          <small>MEEN41330 · Test 1</small>
+        </span>
+      </a>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a class="nav-link" href="#/dashboard" data-nav="dashboard"><svg class="icon"><use href="#icon-home"></use></svg><span>Dashboard</span></a>
+        <a class="nav-link" href="#/learn" data-nav="learn"><svg class="icon"><use href="#icon-book"></use></svg><span>Learn</span></a>
+        <a class="nav-link" href="#/flashcards" data-nav="flashcards"><svg class="icon"><use href="#icon-layers"></use></svg><span>Flashcards</span></a>
+        <a class="nav-link" href="#/quiz" data-nav="quiz"><svg class="icon"><use href="#icon-check"></use></svg><span>Quiz</span></a>
+        <a class="nav-link" href="#/mock" data-nav="mock"><svg class="icon"><use href="#icon-clock"></use></svg><span>Mock exam</span></a>
+        <a class="nav-link" href="#/formulas" data-nav="formulas"><svg class="icon"><use href="#icon-sigma"></use></svg><span>Formula lab</span></a>
+        <a class="nav-link" href="#/progress" data-nav="progress"><svg class="icon"><use href="#icon-chart"></use></svg><span>Progress</span></a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="sidebar-card-top">
+          <span class="status-dot"></span>
+          <span>Test 1 countdown</span>
+        </div>
+        <div id="miniCountdown" class="mini-countdown">
+          <strong>--</strong>
+          <span>days</span>
+        </div>
+        <div class="sidebar-card-meta">Thu 22 Oct · 14.00 · Room 234</div>
+      </div>
+
+      <div class="sidebar-footer">
+        <span>Study desk</span>
+        <span class="version">v1.0</span>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-btn menu-btn" type="button" data-action="open-sheet" aria-label="Open menu">
+            <svg class="icon"><use href="#icon-menu"></use></svg>
+          </button>
+          <div>
+            <p class="eyebrow" id="pageEyebrow">Study desk</p>
+            <h1 id="pageTitle">Dashboard</h1>
+          </div>
+        </div>
+        <div class="topbar-right">
+          <div class="streak-pill" id="streakPill" title="Study streak">
+            <svg class="icon"><use href="#icon-flame"></use></svg>
+            <span id="streakText">0 day streak</span>
+          </div>
+          <button class="icon-btn" type="button" data-action="shortcuts" aria-label="Keyboard shortcuts">
+            <svg class="icon"><use href="#icon-keyboard"></use></svg>
+          </button>
+        </div>
+      </header>
+
+      <div id="view" class="view" aria-live="polite"></div>
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Mobile navigation">
+    <a href="#/dashboard" data-nav="dashboard"><svg class="icon"><use href="#icon-home"></use></svg><span>Home</span></a>
+    <a href="#/learn" data-nav="learn"><svg class="icon"><use href="#icon-book"></use></svg><span>Learn</span></a>
+    <a href="#/flashcards" data-nav="flashcards"><svg class="icon"><use href="#icon-layers"></use></svg><span>Cards</span></a>
+    <a href="#/quiz" data-nav="quiz"><svg class="icon"><use href="#icon-check"></use></svg><span>Quiz</span></a>
+    <button type="button" data-action="open-sheet"><svg class="icon"><use href="#icon-menu"></use></svg><span>More</span></button>
+  </nav>
+
+  <div id="sheet" class="sheet" hidden>
+    <div class="sheet-backdrop" data-action="close-sheet"></div>
+    <div class="sheet-panel" role="dialog" aria-modal="true" aria-label="More navigation">
+      <div class="sheet-handle" aria-hidden="true"></div>
+      <div class="sheet-head">
+        <div>
+          <p class="eyebrow">More</p>
+          <h2>Study tools</h2>
+        </div>
+        <button class="icon-btn" type="button" data-action="close-sheet" aria-label="Close menu">
+          <svg class="icon"><use href="#icon-close"></use></svg>
+        </button>
+      </div>
+      <div class="sheet-links">
+        <a href="#/mock" data-action="close-sheet"><svg class="icon"><use href="#icon-clock"></use></svg><span>Mock exam</span><svg class="icon chevron"><use href="#icon-chevron"></use></svg></a>
+        <a href="#/formulas" data-action="close-sheet"><svg class="icon"><use href="#icon-sigma"></use></svg><span>Formula lab</span><svg class="icon chevron"><use href="#icon-chevron"></use></svg></a>
+        <a href="#/progress" data-action="close-sheet"><svg class="icon"><use href="#icon-chart"></use></svg><span>Progress</span><svg class="icon chevron"><use href="#icon-chevron"></use></svg></a>
+        <button type="button" data-action="shortcuts"><svg class="icon"><use href="#icon-keyboard"></use></svg><span>Keyboard shortcuts</span><svg class="icon chevron"><use href="#icon-chevron"></use></svg></button>
+        <button type="button" data-action="reset"><svg class="icon"><use href="#icon-rotate"></use></svg><span>Reset progress</span><svg class="icon chevron"><use href="#icon-chevron"></use></svg></button>
+      </div>
+      <p class="sheet-foot">MEEN41330 · Test 1 · Thu 22 Oct 2026</p>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="modalRoot"></div>
+  <canvas id="confetti" class="confetti" aria-hidden="true"></canvas>
+
+  <script src="data-core.js"></script>
+  <script src="data-cards.js"></script>
+  <script src="data-exams.js"></script>
+  <script src="app-core.js"></script>
+  <script src="app-views.js"></script>
+  <script src="app-actions.js"></script>
+</body>
+</html>
