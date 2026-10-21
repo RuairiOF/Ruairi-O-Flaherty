@@ -196,6 +196,17 @@ function renderDashboard() {
       </div>
     </div>
 
+    <a class="card card-pad interactive" href="#/labs" style="--accent:var(--violet);margin-bottom:18px;">
+      <div class="between wrap">
+        <div>
+          <span class="pill pill-accent">New · nine interactive labs</span>
+          <h2 class="section-title" style="margin-top:10px;">Play with the concepts</h2>
+          <p class="section-sub">Drag the outlier, move the classification threshold, change K and watch the decision boundary, Gini gain and the bias-variance curves respond live.</p>
+        </div>
+        <span class="btn btn-primary">${icon("lab")} Open visual labs ${icon("arrow")}</span>
+      </div>
+    </a>
+
     <div class="section-head">
       <div>
         <h2 class="section-title">Topic mastery</h2>
@@ -211,20 +222,25 @@ function renderDashboard() {
         <p class="section-sub">When you have five minutes, use one of these.</p>
       </div>
     </div>
-    <div class="grid grid-3">
+    <div class="grid grid-4">
       <a class="card card-pad interactive" href="#/flashcards" style="--accent:var(--violet)">
         <span class="pill pill-accent">${icon("layers")} Memory</span>
-        <h3 style="margin-top:14px;font-size:22px;">Review due cards</h3>
+        <h3 style="margin-top:14px;font-size:20px;">Review due cards</h3>
         <p class="small muted" style="margin-top:6px;">${due} cards are waiting. Rating them schedules the next review.</p>
       </a>
       <a class="card card-pad interactive" href="#/quiz" style="--accent:var(--cyan)">
         <span class="pill pill-accent">${icon("check")} Practice</span>
-        <h3 style="margin-top:14px;font-size:22px;">Take a quick quiz</h3>
+        <h3 style="margin-top:14px;font-size:20px;">Take a quick quiz</h3>
         <p class="small muted" style="margin-top:6px;">Ten questions, instant explanations, weak spots saved.</p>
+      </a>
+      <a class="card card-pad interactive" href="#/labs" style="--accent:var(--lime)">
+        <span class="pill pill-accent">${icon("lab")} Explore</span>
+        <h3 style="margin-top:14px;font-size:20px;">Open a visual lab</h3>
+        <p class="small muted" style="margin-top:6px;">Change one thing and watch the metric move.</p>
       </a>
       <a class="card card-pad interactive" href="#/formulas" style="--accent:var(--amber)">
         <span class="pill pill-accent">${icon("sigma")} Recall</span>
-        <h3 style="margin-top:14px;font-size:22px;">Drill the formulas</h3>
+        <h3 style="margin-top:14px;font-size:20px;">Drill the formulas</h3>
         <p class="small muted" style="margin-top:6px;">Hide the formulas, say them out loud, then reveal.</p>
       </a>
     </div>

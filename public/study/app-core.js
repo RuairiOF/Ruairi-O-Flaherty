@@ -38,6 +38,7 @@ let confettiParticles = [];
 let confettiFrame = null;
 let draftSaveTimer = null;
 let lastHash = null;
+let labCleanup = null;
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -412,6 +413,7 @@ function parseRoute() {
 const PAGE_META = {
   dashboard: ["Study desk", "Dashboard"],
   learn: ["Curriculum", "Learn"],
+  labs: ["Visual labs", "Labs"],
   flashcards: ["Memory lab", "Flashcards"],
   quiz: ["Practice", "Quiz"],
   mock: ["Exam simulation", "Mock exam"],
@@ -428,11 +430,19 @@ function renderPage() {
 
   const view = document.getElementById("view");
   if (!view) return;
+  if (labCleanup) {
+    labCleanup();
+    labCleanup = null;
+  }
 
   if (page === "learn" && route.param) {
     view.innerHTML = renderTopic(route.param);
   } else if (page === "learn") {
     view.innerHTML = renderLearn();
+  } else if (page === "labs" && route.param) {
+    view.innerHTML = renderLab(route.param);
+  } else if (page === "labs") {
+    view.innerHTML = renderLabs();
   } else if (page === "flashcards") {
     view.innerHTML = renderFlashcards();
   } else if (page === "quiz") {
@@ -448,10 +458,11 @@ function renderPage() {
   }
 
   const meta = PAGE_META[page] || PAGE_META.dashboard;
-  document.getElementById("pageEyebrow").textContent = meta[0];
-  document.getElementById("pageTitle").textContent = page === "learn" && route.param ? TOPIC_BY_ID[route.param]?.name || "Learn" : meta[1];
-  const titleName = page === "learn" && route.param ? (TOPIC_BY_ID[route.param]?.name || "Learn") : meta[1];
-  document.title = `${titleName} · Data Analytics`;
+  const labTitle = page === "labs" && route.param && typeof LAB_REGISTRY !== "undefined" ? LAB_REGISTRY[route.param]?.meta?.title : null;
+  const pageName = labTitle || (page === "learn" && route.param ? TOPIC_BY_ID[route.param]?.name || "Learn" : meta[1]);
+  document.getElementById("pageEyebrow").textContent = labTitle ? "Interactive lab" : meta[0];
+  document.getElementById("pageTitle").textContent = pageName;
+  document.title = `${pageName} · Data Analytics`;
 
   document.querySelectorAll("[data-nav]").forEach((link) => {
     link.classList.toggle("active", link.dataset.nav === page);
@@ -461,6 +472,7 @@ function renderPage() {
   updateCountdowns();
 
   if (page === "mock" && mockSession && !mockSession.submitted) startMockTimer();
+  if (page === "labs" && route.param && typeof mountLab === "function") mountLab(route.param);
 
   const shouldScrollTop = lastHash !== location.hash
     || page === "mock"
