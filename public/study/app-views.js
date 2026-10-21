@@ -36,6 +36,7 @@ function getNextAction() {
 
 function renderDashboard() {
   ensureDaily();
+  const labCount = typeof LAB_REGISTRY !== "undefined" ? Object.keys(LAB_REGISTRY).length : 9;
   const time = timeToTest();
   const readiness = overallReadiness();
   const due = dueCards().length;
@@ -199,7 +200,7 @@ function renderDashboard() {
     <a class="card card-pad interactive" href="#/labs" style="--accent:var(--violet);margin-bottom:18px;">
       <div class="between wrap">
         <div>
-          <span class="pill pill-accent">New · nine interactive labs</span>
+          <span class="pill pill-accent">New · ${labCount} interactive labs</span>
           <h2 class="section-title" style="margin-top:10px;">Play with the concepts</h2>
           <p class="section-sub">Drag the outlier, move the classification threshold, change K and watch the decision boundary, Gini gain and the bias-variance curves respond live.</p>
         </div>

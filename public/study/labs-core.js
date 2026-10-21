@@ -48,7 +48,7 @@ function renderLabs() {
   }).join("");
 
   return `
-    ${pageHead("Visual labs", "Play with the ideas", "Nine interactive benches built around the exact exam questions. Change a control, predict what will happen, then check the chart and the numbers.", `<a class="btn btn-ghost" href="#/learn">${icon("book")} Back to lessons</a>`)}
+    ${pageHead("Visual labs", "Play with the ideas", `${labs.length} interactive benches built around the exact exam questions. Change a control, predict what will happen, then check the chart and the numbers.`, `<a class="btn btn-ghost" href="#/learn">${icon("book")} Back to lessons</a>`)}
     <div class="card card-pad" style="margin-bottom:16px;">
       <div class="between wrap">
         <div>
